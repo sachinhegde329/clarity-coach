@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon } from "./icons";
 import { InteractivePressable } from "./motion";
-import { palette, radii, shadow, spacing, type } from "./theme";
+import { hardShadow, palette, radii, spacing, type } from "./theme";
 import type { AppTab } from "../data/mockData";
 
 export function LogoGlyph({
-  color = palette.line,
+  color = palette.siennaAccent,
   barHeights = [12, 20, 28, 20, 12],
   barWidth = 4,
   gap = 4,
@@ -70,8 +70,8 @@ export function Panel({
   padded?: boolean;
   style?: object;
 }) {
-  const backgroundColor = tone === "ink" ? palette.ink : tone === "soft" ? palette.panelSoft : palette.paper;
-  const borderColor = tone === "ink" ? palette.ink : palette.line;
+  const backgroundColor = tone === "ink" ? palette.inkFocus : tone === "soft" ? palette.surfaceContainer : palette.parchmentSurface;
+  const borderColor = tone === "ink" ? palette.inkFocus : palette.inkFocus;
   return <View style={[styles.panel, { backgroundColor, borderColor }, padded && styles.panelPadded, style]}>{children}</View>;
 }
 
@@ -89,10 +89,10 @@ export function PrimaryButton({
   disabled?: boolean;
 }) {
   const disabledOpacity = disabled ? 0.45 : 1;
-  const background = inverted ? palette.paper : palette.line;
-  const border = inverted ? palette.line : palette.line;
-  const textColor = inverted ? palette.ink : palette.paper;
-  const iconColor = inverted ? palette.ink : palette.paper;
+  const background = inverted ? palette.parchmentSurface : palette.siennaAccent;
+  const border = inverted ? palette.inkFocus : palette.inkFocus;
+  const textColor = inverted ? palette.inkFocus : palette.parchmentSurface;
+  const iconColor = inverted ? palette.inkFocus : palette.parchmentSurface;
 
   return (
     <InteractivePressable onPress={onPress} disabled={disabled}>
@@ -136,6 +136,15 @@ export function ProgressPills({ total, active }: { total: number; active: number
           />
         );
       })}
+    </View>
+  );
+}
+
+export function TitleHeader({ kicker, title }: { kicker: string; title: string }) {
+  return (
+    <View style={styles.titleHeader}>
+      <MonoText style={styles.titleHeaderKicker}>{kicker}</MonoText>
+      <DisplayText style={styles.titleHeaderTitle}>{title}</DisplayText>
     </View>
   );
 }
@@ -205,8 +214,8 @@ export function BottomBar({ activeTab, onTab }: { activeTab: AppTab; onTab: (tab
         return (
           <InteractivePressable key={item.key} onPress={() => onTab(item.key)} style={styles.bottomItemWrap}>
             <View style={[styles.bottomItem, active && styles.bottomItemActive]}>
-              <Icon name={item.icon} size={24} color={active ? palette.paper : palette.ink} />
-              <MonoText style={[styles.bottomLabel, active && { color: palette.paper }]}>{item.label}</MonoText>
+              <Icon name={item.icon} size={24} color={active ? palette.onPrimary : palette.inkFocus} />
+              <MonoText style={[styles.bottomLabel, active && { color: palette.onPrimary }]}>{item.label}</MonoText>
               {active ? <View style={styles.bottomIndicator} /> : null}
             </View>
           </InteractivePressable>
@@ -217,6 +226,23 @@ export function BottomBar({ activeTab, onTab }: { activeTab: AppTab; onTab: (tab
 }
 
 const styles = StyleSheet.create({
+  titleHeader: {
+    gap: spacing.xs,
+  },
+  titleHeaderKicker: {
+    color: palette.siennaAccent,
+    letterSpacing: 1.2,
+    textTransform: "uppercase",
+    fontSize: 12,
+  },
+  titleHeaderTitle: {
+    fontFamily: type.display,
+    fontSize: 32,
+    lineHeight: 36,
+    color: palette.inkFocus,
+    textTransform: "uppercase",
+    letterSpacing: -0.5,
+  },
   header: {
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
@@ -226,7 +252,7 @@ const styles = StyleSheet.create({
   },
   headerDivider: {
     borderBottomWidth: 2,
-    borderColor: palette.line,
+    borderColor: palette.outline,
   },
   wordmarkRow: {
     flexDirection: "row",
@@ -239,13 +265,13 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   logoBar: {
-    backgroundColor: palette.line,
+    backgroundColor: palette.siennaAccent,
   },
   wordmark: {
-    fontFamily: type.display,
-    color: palette.ink,
+    fontFamily: type.mono,
+    color: palette.siennaAccent,
     fontSize: 20,
-    letterSpacing: -0.8,
+    letterSpacing: 2,
   },
   tabHeaderLeft: {
     flexDirection: "row",
@@ -289,8 +315,7 @@ const styles = StyleSheet.create({
   },
   panel: {
     borderWidth: 2,
-    borderRadius: radii.lg,
-    ...shadow,
+    borderColor: palette.inkFocus,
   },
   panelPadded: {
     padding: 20,
@@ -299,22 +324,20 @@ const styles = StyleSheet.create({
     minHeight: 62,
     paddingHorizontal: 26,
     borderWidth: 2,
-    borderRadius: radii.full,
-    borderColor: palette.line,
+    borderColor: palette.inkFocus,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: spacing.md,
-    ...shadow,
   },
   buttonFilled: {
-    backgroundColor: palette.line,
+    backgroundColor: palette.siennaAccent,
   },
   buttonInverted: {
-    backgroundColor: palette.paper,
+    backgroundColor: palette.parchmentSurface,
   },
   buttonLabel: {
-    color: palette.paper,
+    color: palette.parchmentSurface,
     fontSize: 16,
   },
   sectionLabelRow: {
@@ -323,12 +346,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   sectionLabel: {
-    color: palette.ink,
-    opacity: 0.9,
+    color: palette.inkFocus,
     fontSize: 14,
   },
   sectionValue: {
-    color: palette.ink,
+    color: palette.inkFocus,
     fontSize: 14,
   },
   progressRow: {
@@ -340,20 +362,20 @@ const styles = StyleSheet.create({
     height: 16,
     borderWidth: 2,
     borderRadius: radii.full,
-    borderColor: palette.line,
+    borderColor: palette.inkFocus,
     backgroundColor: "transparent",
   },
   progressPillActive: {
-    backgroundColor: palette.line,
+    backgroundColor: palette.siennaAccent,
   },
   progressPillCurrent: {
-    backgroundColor: palette.panelSoft,
+    backgroundColor: palette.surfaceContainer,
   },
   bottomBar: {
     flexDirection: "row",
     borderTopWidth: 2,
-    borderColor: palette.line,
-    backgroundColor: palette.canvas,
+    borderColor: palette.outline,
+    backgroundColor: palette.parchmentSurface,
     paddingHorizontal: spacing.sm,
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
@@ -367,14 +389,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 5,
-    borderWidth: 1.5,
-    borderRadius: radii.full,
-    borderColor: palette.lineSoft,
+    borderWidth: 2,
+    borderColor: palette.outline,
     position: "relative",
   },
   bottomItemActive: {
-    backgroundColor: palette.line,
-    borderColor: palette.line,
+    backgroundColor: palette.inkFocus,
+    borderColor: palette.inkFocus,
   },
   bottomLabel: {
     fontSize: 10,
@@ -384,7 +405,6 @@ const styles = StyleSheet.create({
     top: 8,
     width: 6,
     height: 6,
-    borderRadius: 999,
-    backgroundColor: palette.paper,
+    backgroundColor: palette.onPrimary,
   },
 });

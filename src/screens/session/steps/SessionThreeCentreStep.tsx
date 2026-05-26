@@ -306,7 +306,7 @@ export function SessionThreeCentreStep({
                   top: particle.y,
                   width: particle.size * 2,
                   height: particle.size * 2,
-                  borderRadius: 999,
+                  borderRadius: 0,
                   backgroundColor: particle.color,
                   opacity: particle.opacity,
                   marginLeft: -particle.size,
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
   badge: {
     borderWidth: 1,
     borderColor: "rgba(94, 23, 0, 0.12)",
-    borderRadius: 999,
+    borderRadius: 0,
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
@@ -476,7 +476,7 @@ const styles = StyleSheet.create({
   gridDotPoint: {
     width: 2,
     height: 2,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "rgba(154, 52, 18, 0.35)",
   },
   backgroundWord: {
@@ -505,19 +505,19 @@ const styles = StyleSheet.create({
   },
   orbOuter: {
     position: "absolute",
-    borderRadius: 999,
+    borderRadius: 0,
     borderWidth: 1,
     borderColor: "rgba(51, 65, 85, 0.2)",
     backgroundColor: "rgba(51, 65, 85, 0.06)",
   },
   orbMid: {
     position: "absolute",
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "rgba(217, 119, 6, 0.2)",
   },
   orbCore: {
     position: "absolute",
-    borderRadius: 999,
+    borderRadius: 0,
     alignItems: "center",
     justifyContent: "center",
     shadowColor: TERRACOTTA,
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
   orbSpec: {
     width: 12,
     height: 12,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "rgba(255,255,255,0.3)",
   },
   affirmationWrap: {
@@ -615,7 +615,7 @@ const styles = StyleSheet.create({
     borderColor: "rgba(94, 23, 0, 0.12)",
     paddingHorizontal: 14,
     paddingVertical: 8,
-    borderRadius: 4,
+    borderRadius: 0,
     backgroundColor: "rgba(255,255,255,0.5)",
   },
   skipButtonText: {
@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
   },
   progressTrack: {
     height: 4,
-    borderRadius: 999,
+    borderRadius: 0,
     overflow: "hidden",
     position: "relative",
     backgroundColor: "rgba(94, 23, 0, 0.05)",

@@ -266,7 +266,7 @@ export function CommitStep({
         </Panel>
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
-          <View style={{ width: 156, height: 156, borderRadius: 999, borderWidth: 6, borderColor: palette.line, borderTopColor: "#E9DCD2", justifyContent: "center", alignItems: "center" }}>
+          <View style={{ width: 156, height: 156, borderRadius: 0, borderWidth: 6, borderColor: palette.line, borderTopColor: "#E9DCD2", justifyContent: "center", alignItems: "center" }}>
             <DisplayText style={{ fontSize: 34, lineHeight: 38 }}>00:15</DisplayText>
           </View>
           <Pressable onPress={onToggleRecording} style={[styles.tapRecordButton, { width: 126, height: 126 }]}>
@@ -309,8 +309,8 @@ export function CommitStep({
           </View>
           <View style={{ alignItems: "center", gap: spacing.md }}>
             <DisplayText style={{ fontSize: 54, lineHeight: 58 }}>00:15</DisplayText>
-            <Pressable onPress={onToggleRecording} style={{ width: 132, height: 132, borderRadius: 999, borderWidth: 4, borderColor: palette.line, justifyContent: "center", alignItems: "center" }}>
-              <View style={{ width: 78, height: 78, backgroundColor: palette.line, justifyContent: "center", alignItems: "center", borderRadius: 18 }}>
+            <Pressable onPress={onToggleRecording} style={{ width: 132, height: 132, borderRadius: 0, borderWidth: 4, borderColor: palette.line, justifyContent: "center", alignItems: "center" }}>
+              <View style={{ width: 78, height: 78, backgroundColor: palette.line, justifyContent: "center", alignItems: "center", borderRadius: 0 }}>
                 <Icon name={reflectionDone ? "spark" : "mic"} size={36} color={palette.paper} />
               </View>
             </Pressable>
@@ -354,7 +354,7 @@ export function CommitStep({
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
           <DisplayText style={{ fontSize: 54, lineHeight: 58 }}>{formatTime(Math.max(0, REFLECT_DURATION - reflectElapsed))}</DisplayText>
-          <Pressable onPress={onToggleRecording} style={{ width: 112, height: 112, borderRadius: 56, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 112, height: 112, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
             <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.paper} />
           </Pressable>
           <MonoText style={{ color: palette.inkMuted }}>
@@ -385,7 +385,7 @@ export function CommitStep({
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
           <DisplayText style={{ fontSize: 54, lineHeight: 58 }}>{formatTime(Math.max(0, REFLECT_DURATION - reflectElapsed))}</DisplayText>
-          <Pressable onPress={onToggleRecording} style={{ width: 120, height: 120, borderRadius: 60, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 120, height: 120, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
             <Icon name={reflectionDone ? "spark" : "mic"} size={48} color={palette.paper} />
           </Pressable>
           <MonoText style={{ color: palette.line, letterSpacing: 2 }}>
@@ -416,7 +416,7 @@ export function CommitStep({
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
           <DisplayText style={{ fontSize: 54, lineHeight: 58 }}>{formatTime(Math.max(0, REFLECT_DURATION - reflectElapsed))}</DisplayText>
-          <Pressable onPress={onToggleRecording} style={{ width: 112, height: 112, borderRadius: 56, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 112, height: 112, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
             <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.paper} />
           </Pressable>
           <MonoText style={{ color: palette.inkMuted }}>
@@ -449,7 +449,7 @@ export function CommitStep({
         </Panel>
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
-          <Pressable onPress={onToggleRecording} style={{ width: 86, height: 86, borderRadius: 43, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 86, height: 86, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
             <Icon name={reflectionDone ? "spark" : "mic"} size={38} color={palette.paper} />
           </Pressable>
           <MonoText style={{ color: palette.inkMuted }}>00:15 / LIMIT</MonoText>
@@ -494,8 +494,8 @@ export function CommitStep({
             <DisplayText style={{ fontSize: 36, lineHeight: 40, fontFamily: type.mono }}>00:00.00</DisplayText>
           </View>
 
-          <Pressable onPress={onToggleRecording} style={{ width: 132, height: 132, borderRadius: 66, borderWidth: 3, borderColor: palette.black, alignItems: "center", justifyContent: "center" }}>
-            <View style={{ width: 110, height: 110, borderRadius: 55, borderWidth: 14, borderColor: "#2E2E2E", alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 132, height: 132, borderRadius: 0, borderWidth: 3, borderColor: palette.black, alignItems: "center", justifyContent: "center" }}>
+            <View style={{ width: 110, height: 110, borderRadius: 0, borderWidth: 14, borderColor: "#2E2E2E", alignItems: "center", justifyContent: "center" }}>
               <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.line} />
             </View>
           </Pressable>

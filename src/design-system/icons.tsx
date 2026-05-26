@@ -32,7 +32,8 @@ type IconName =
   | "check"
   | "videocam"
   | "chevronDown"
-  | "info";
+  | "info"
+  | "air";
 
 export function Icon({ name, size = 24, color = palette.ink }: { name: IconName; size?: number; color?: string }) {
   switch (name) {
@@ -486,6 +487,14 @@ export function Icon({ name, size = 24, color = palette.ink }: { name: IconName;
               marginTop: -size * 0.12,
             }}
           />
+        </View>
+      );
+    case "air":
+      return (
+        <View style={{ width: size, height: size, justifyContent: "center", alignItems: "center", gap: size * 0.16 }}>
+          <View style={{ width: size * 0.45, height: 2.5, borderRadius: 1, backgroundColor: color }} />
+          <View style={{ width: size * 0.68, height: 2.5, borderRadius: 1, backgroundColor: color }} />
+          <View style={{ width: size * 0.88, height: 2.5, borderRadius: 1, backgroundColor: color }} />
         </View>
       );
     case "info":

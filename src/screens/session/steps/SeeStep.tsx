@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Pressable, View } from "react-native";
 import { BodyText, DisplayText, MonoText, Panel, PrimaryButton } from "../../../design-system/primitives";
 import { Icon } from "../../../design-system/icons";
-import { palette, spacing, type } from "../../../design-system/theme";
+import { hardShadow, palette, spacing, type } from "../../../design-system/theme";
 import { InteractivePressable } from "../../../design-system/motion";
 import { sessionDefinitions } from "../../../data/mockData";
 import { SessionAnalysisStatusBanner } from "../components/SessionAnalysisStatusBanner";
@@ -39,6 +39,207 @@ export function SeeStep({
     () => resolveLiveSeeData({ sessionNumber, record: content, analysis }),
     [analysis, content, sessionNumber],
   );
+
+  if (sessionNumber === 1) {
+    const metrics = (liveSee.metrics.length ? liveSee.metrics : content.metrics ?? []).slice(0, 3);
+    const commentary = liveSee.commentary;
+    const displayMetrics =
+      metrics.length > 0
+        ? metrics
+        : [
+            { label: "FILLERS", value: "—", description: content.commentary },
+            { label: "PACE", value: "—", description: content.environmentCopy, bar: 50 },
+            { label: "UPTALK", value: "—", description: content.commentary },
+          ];
+
+    const fillersMetric = displayMetrics.find((m) => m.label.toLowerCase().includes("filler"));
+    const paceMetric = displayMetrics.find((m) => m.label.toLowerCase().includes("pace"));
+    const fillersValue = fillersMetric?.value ?? "—";
+    const paceNum = paceMetric?.value ?? "—";
+    const fillerLine = commentary.lines?.[0] ?? "Six fillers in ninety seconds. Within the typical first-session range.";
+    const paceLine = commentary.lines?.[1] ?? "Pace is optimal for executive delivery. Maintaining 140\u2013150 WPM ensures listeners can process complexity without fatigue.";
+
+    return (
+      <View style={styles.stepBody}>
+        {/* 6-Bar Progress Strip */}
+        <View style={{ flexDirection: "row", gap: 4, height: 12, marginBottom: 32 }}>
+          <View style={{ flex: 1, backgroundColor: palette.siennaAccent }} />
+          <View style={{ flex: 1, backgroundColor: palette.siennaAccent }} />
+          <View style={{ flex: 1, backgroundColor: palette.siennaAccent }} />
+          <View style={{ flex: 1, borderWidth: 1, borderColor: palette.siennaAccent, backgroundColor: "transparent" }} />
+          <View style={{ flex: 1, borderWidth: 1, borderColor: palette.inkFocus, backgroundColor: "transparent" }} />
+          <View style={{ flex: 1, borderWidth: 1, borderColor: palette.inkFocus, backgroundColor: "transparent" }} />
+        </View>
+
+        {/* Headline */}
+        <View style={{ marginBottom: 24 }}>
+          <DisplayText style={{ fontSize: 32, lineHeight: 36, marginBottom: 8 }}>
+            04/05 - SEE
+          </DisplayText>
+          <BodyText style={{ color: palette.onSurfaceVariant }}>
+            {content.subline ?? "These numbers describe this ninety seconds, not a trend."}
+          </BodyText>
+        </View>
+
+        {/* Metric Bento Grid */}
+        <View style={{ flexDirection: "row", gap: 16, marginBottom: 24 }}>
+          {/* Filler Metric */}
+          <View style={{
+            flex: 1,
+            backgroundColor: palette.parchmentSurface,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
+            padding: 20,
+            ...hardShadow(palette.siennaAccent, 4),
+            justifyContent: "space-between",
+            height: 128,
+          }}>
+            <MonoText style={{ fontSize: 12, color: palette.onSurfaceVariant }}>
+              FILLER COUNT
+            </MonoText>
+            <View style={{ flexDirection: "row", alignItems: "baseline", gap: 8 }}>
+              <MonoText style={{ fontSize: 36, color: palette.siennaAccent }}>
+                {fillersValue}
+              </MonoText>
+              <MonoText style={{ fontSize: 10, color: palette.onSurfaceVariant }}>
+                TOTAL
+              </MonoText>
+            </View>
+          </View>
+
+          {/* Pace Metric */}
+          <View style={{
+            flex: 1,
+            backgroundColor: palette.parchmentSurface,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
+            padding: 20,
+            ...hardShadow(palette.siennaAccent, 4),
+            justifyContent: "space-between",
+            height: 128,
+          }}>
+            <MonoText style={{ fontSize: 12, color: palette.onSurfaceVariant }}>
+              PACE (WPM)
+            </MonoText>
+            <View style={{ flexDirection: "row", alignItems: "baseline", gap: 8 }}>
+              <MonoText style={{ fontSize: 36, color: palette.siennaAccent }}>
+                {paceNum}
+              </MonoText>
+              <MonoText style={{ fontSize: 10, color: palette.onSurfaceVariant }}>
+                STABLE
+              </MonoText>
+            </View>
+          </View>
+        </View>
+
+        {/* Commentary Section */}
+        <View style={{ gap: 12, marginBottom: 32 }}>
+          <View style={{
+            flexDirection: "row",
+            gap: 16,
+            padding: 16,
+            borderLeftWidth: 4,
+            borderLeftColor: palette.siennaAccent,
+            backgroundColor: palette.surfaceContainerLow,
+          }}>
+            <View style={{ width: 24, height: 24, backgroundColor: palette.siennaAccent, alignItems: "center", justifyContent: "center" }}>
+              <View style={{ width: 14, height: 14, borderWidth: 2, borderColor: palette.parchmentSurface, borderRadius: 999 }} />
+              <View style={{ position: "absolute", width: 6, height: 6, borderRadius: 999, backgroundColor: palette.parchmentSurface }} />
+            </View>
+            <BodyText style={{ flex: 1, color: palette.onSurface }}>
+              {fillerLine}
+            </BodyText>
+          </View>
+
+          <View style={{
+            flexDirection: "row",
+            gap: 16,
+            padding: 16,
+            borderLeftWidth: 4,
+            borderLeftColor: palette.sageSuccess,
+            backgroundColor: palette.surfaceContainerLow,
+          }}>
+            <View style={{ width: 24, height: 24, alignItems: "center", justifyContent: "center" }}>
+              <View style={{ width: 20, height: 20, borderWidth: 2, borderColor: palette.sageSuccess, borderRadius: 999 }} />
+              <View style={{ position: "absolute", width: 8, height: 8, backgroundColor: palette.sageSuccess, borderRadius: 999 }} />
+            </View>
+            <BodyText style={{ flex: 1, color: palette.onSurface }}>
+              {paceLine}
+            </BodyText>
+          </View>
+        </View>
+
+        {/* Pyramid */}
+        <View style={{ marginBottom: 32 }}>
+          <MonoText style={{ fontSize: 12, color: palette.onSurfaceVariant, marginBottom: 16, letterSpacing: 1 }}>
+            ARGUMENT STRUCTURE
+          </MonoText>
+          <View style={{
+            width: "100%",
+            aspectRatio: 16 / 9,
+            alignItems: "center",
+            justifyContent: "flex-end",
+            backgroundColor: palette.surfaceContainerHighest,
+            opacity: 0.92,
+            borderWidth: 1,
+            borderColor: palette.outlineVariant,
+            padding: 16,
+          }}>
+            <View style={{ width: 192, height: 160, justifyContent: "flex-end" }}>
+              <View style={{
+                width: 48, height: 40,
+                backgroundColor: palette.outline,
+                alignSelf: "center",
+                marginBottom: 4,
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+                <MonoText style={{ fontSize: 8, color: palette.parchmentSurface }}>CONC</MonoText>
+              </View>
+              <View style={{
+                width: 128, height: 40,
+                backgroundColor: palette.siennaAccent,
+                alignSelf: "center",
+                marginBottom: 4,
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+                <MonoText style={{ fontSize: 8, color: palette.parchmentSurface }}>SUPPORT 01 & 02</MonoText>
+              </View>
+              <View style={{
+                width: 192, height: 40,
+                backgroundColor: palette.siennaAccent,
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+                <MonoText style={{ fontSize: 8, color: palette.parchmentSurface }}>FOUNDATION</MonoText>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* Primary Action */}
+        <InteractivePressable onPress={onNext}>
+          <View style={{
+            backgroundColor: palette.siennaAccent,
+            paddingVertical: 24,
+            paddingHorizontal: 32,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            ...hardShadow(palette.siennaAccent, 4),
+          }}>
+            <MonoText style={{ color: palette.parchmentSurface, fontSize: 16, letterSpacing: 1 }}>
+              COMMIT TO JOURNEY
+            </MonoText>
+            <Icon name="arrow" size={26} color={palette.parchmentSurface} />
+          </View>
+        </InteractivePressable>
+      </View>
+    );
+  }
 
   if (sessionNumber === 6) {
     return (
@@ -77,7 +278,7 @@ export function SeeStep({
                     {[0.72, 0.58, 0.67, 0.26, 0.1].map((point, index) => (
                       <View key={index} style={{ alignItems: "center", flex: 1 }}>
                         <View style={{ width: 2, height: `${point * 100}%`, backgroundColor: "transparent" }} />
-                        <View style={{ position: "absolute", bottom: `${point * 100}%`, width: 8, height: 8, borderRadius: 99, backgroundColor: palette.line }} />
+                        <View style={{ position: "absolute", bottom: `${point * 100}%`, width: 8, height: 8, borderRadius: 0, backgroundColor: palette.line }} />
                       </View>
                     ))}
                   </View>
@@ -92,7 +293,7 @@ export function SeeStep({
                 </View>
               </View>
               <BodyText style={{ fontStyle: "italic", color: palette.inkMuted }}>
-                “Notice the sharp decline in 'um/ah' usage during Session 4. Stability is normalizing.”
+                {"\u201C"}Notice the sharp decline in 'um/ah' usage during Session 4. Stability is normalizing.{"\u201D"}
               </BodyText>
             </Panel>
 
@@ -241,7 +442,7 @@ export function SeeStep({
 
         <Panel style={{ alignItems: "center", gap: spacing.md }}>
           <MonoText style={{ color: palette.line }}>TIME-IN-ZONE</MonoText>
-          <View style={{ width: 150, height: 150, borderRadius: 999, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", borderWidth: 2, borderColor: "#5A1604" }}>
+          <View style={{ width: 150, height: 150, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", borderWidth: 2, borderColor: "#5A1604" }}>
             <DisplayText style={{ color: palette.paper, fontSize: 34, lineHeight: 38 }}>88%</DisplayText>
           </View>
           <MonoText>TARGET CADENCE MET</MonoText>
@@ -369,7 +570,7 @@ export function SeeStep({
             <View style={{ height: 120, borderLeftWidth: 2, borderBottomWidth: 2, borderColor: palette.line, paddingBottom: spacing.sm }}>
               <View style={{ position: "absolute", left: 10, right: 10, top: 18, bottom: 24 }}>
                 {[0.64, 0.58, 0.61, 0.52, 0.48, 0.56, 0.62, 0.6].map((point, index) => (
-                  <View key={index} style={{ position: "absolute", left: `${index * 12}%`, bottom: `${point * 100}%`, width: 8, height: 8, borderRadius: 99, backgroundColor: palette.line }} />
+                  <View key={index} style={{ position: "absolute", left: `${index * 12}%`, bottom: `${point * 100}%`, width: 8, height: 8, borderRadius: 0, backgroundColor: palette.line }} />
                 ))}
                 <View style={{ position: "absolute", left: "6%", right: "20%", bottom: "59%", height: 2, backgroundColor: palette.line, transform: [{ rotate: "-12deg" }] }} />
                 <View style={{ position: "absolute", left: "38%", right: "6%", bottom: "47%", height: 2, backgroundColor: palette.line, transform: [{ rotate: "10deg" }] }} />
@@ -436,7 +637,7 @@ export function SeeStep({
           ].map(([dot, title, copy]) => (
             <Panel key={title as string} style={{ gap: spacing.sm }}>
               <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
-                <View style={{ width: 10, height: 10, borderRadius: 99, backgroundColor: dot as string }} />
+                <View style={{ width: 10, height: 10, borderRadius: 0, backgroundColor: dot as string }} />
                 <MonoText style={{ color: title === "CLOSING LOOP" ? palette.inkMuted : palette.line }}>{title as string}</MonoText>
               </View>
               <BodyText>{copy as string}</BodyText>
@@ -513,7 +714,7 @@ export function SeeStep({
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { paddingVertical: spacing.xl, alignItems: "center", marginTop: spacing.lg }]}>
           <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>COMPOSITE SCORE</MonoText>
           <DisplayText style={{ fontSize: 84, lineHeight: 84 }}>82%</DisplayText>
-          <View style={{ marginTop: spacing.sm, borderRadius: 999, paddingHorizontal: spacing.lg, paddingVertical: 6, backgroundColor: "rgba(151,194,151,0.25)", borderWidth: 1, borderColor: "#A7C6A7" }}>
+          <View style={{ marginTop: spacing.sm, borderRadius: 0, paddingHorizontal: spacing.lg, paddingVertical: 6, backgroundColor: "rgba(151,194,151,0.25)", borderWidth: 1, borderColor: "#A7C6A7" }}>
             <MonoText style={{ color: palette.inkMuted }}>↗ +4% from last session</MonoText>
           </View>
         </View>
@@ -631,105 +832,6 @@ export function SeeStep({
         </Panel>
 
         <PrimaryButton label="CONTINUE TO COMMIT" onPress={onNext} />
-      </View>
-    );
-  }
-
-  if (sessionNumber === 1) {
-    const metrics = (liveSee.metrics.length ? liveSee.metrics : content.metrics ?? []).slice(0, 3);
-    const commentary = liveSee.commentary;
-    const displayMetrics =
-      metrics.length > 0
-        ? metrics
-        : [
-            { label: "FILLERS", value: "—", description: content.commentary },
-            { label: "PACE", value: "—", description: content.environmentCopy, bar: 50 },
-            { label: "UPTALK", value: "—", description: content.commentary },
-          ];
-
-    const fillersMetric = displayMetrics.find((m) => m.label.toLowerCase().includes("filler"));
-    const paceMetric = displayMetrics.find((m) => m.label.toLowerCase().includes("pace"));
-    const uptalkMetric = displayMetrics.find((m) => m.label.toLowerCase().includes("uptalk"));
-
-    const fillersValue = fillersMetric?.value ?? "—";
-    const paceValue = paceMetric?.value ? `${paceMetric.value}${paceMetric.unit ? ` ${paceMetric.unit}` : ""}` : "—";
-    const uptalkValue = uptalkMetric?.value ?? "—";
-
-    return (
-      <View style={[styles.stepBody, { alignItems: "center" }]}>
-        <View style={{ width: "100%", maxWidth: 560, gap: spacing.lg }}>
-        <View style={styles.feedbackMetrics}>
-          {displayMetrics.map((metric) => {
-            const normalizedLabel = metric.label.toLowerCase();
-            const meaning =
-              normalizedLabel.includes("filler")
-                ? "words used while thinking"
-                : normalizedLabel.includes("pace")
-                  ? "words per minute"
-                  : normalizedLabel.includes("uptalk")
-                    ? "sentences ending like questions"
-                    : metric.description ?? metric.foot ?? content.commentary;
-
-            return (
-              <MetricInsight
-                key={metric.label}
-                title={metric.label}
-                copy={meaning}
-                value={metric.value}
-                foot={metric.unit ?? metric.delta ?? metric.foot ?? ""}
-                filled={Boolean(metric.bar && metric.bar > 50)}
-                wide={metric.label.toLowerCase().includes("pace")}
-                narrow={metric.label.toLowerCase().includes("uptalk") || metric.label.toLowerCase().includes("filler")}
-              />
-            );
-          })}
-        </View>
-
-        <Panel style={{ gap: spacing.sm }}>
-          <MonoText style={styles.metricLabel}>COACH COMMENTARY</MonoText>
-          {commentary.headline ? (
-            <BodyText style={{ color: palette.inkMuted }}>{commentary.headline}</BodyText>
-          ) : null}
-          {commentary.lines.map((line) => (
-            <BodyText key={line}>{line}</BodyText>
-          ))}
-          <BodyText style={{ color: palette.inkMuted, marginTop: spacing.xs }}>
-            None of this is a verdict. It is the starting line.
-          </BodyText>
-        </Panel>
-
-        <Panel tone="soft" style={{ gap: spacing.sm }}>
-          <MonoText style={{ color: palette.line }}>YOUR CURRENT PATTERN</MonoText>
-          <DisplayText style={{ fontSize: 22, lineHeight: 26 }}>
-            Fast thinking · filled pauses · rising endings
-          </DisplayText>
-        </Panel>
-
-        <Panel tone="soft" style={{ gap: spacing.sm }}>
-          <MonoText style={{ color: palette.line }}>COACH INSIGHT</MonoText>
-          <BodyText>Most people see clear improvement within the first 10 sessions. You don’t need to fix everything at once.</BodyText>
-        </Panel>
-
-        <Panel tone="soft" style={{ gap: spacing.sm }}>
-          <MonoText style={{ color: palette.line }}>WHAT TO FOCUS ON NEXT</MonoText>
-          <BodyText>For now, just notice these patterns when you speak today. You don’t need to change them yet.</BodyText>
-        </Panel>
-
-        <View style={styles.feedbackActions}>
-          <PrimaryButton label={overlayOn ? "HIDE OVERLAY" : "REPLAY WITH OVERLAY"} onPress={onReplay} />
-          <PrimaryButton label="NEXT STEP" onPress={onNext} inverted />
-        </View>
-
-        <View style={styles.environmentRow}>
-          <Panel padded={false} style={styles.environmentFigure}>
-            <View style={[styles.figureArt, overlayOn && styles.figureArtOverlay]} />
-            <View style={styles.environmentBadge}>
-              <MonoText style={styles.figureLabel}>{content.environment}</MonoText>
-            </View>
-          </Panel>
-          <BodyText style={styles.environmentCopy}>{content.environmentCopy}</BodyText>
-        </View>
-        </View>
       </View>
     );
   }

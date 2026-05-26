@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
-import { Pressable, ScrollView, View } from "react-native";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Animated, Easing, Pressable, ScrollView, View } from "react-native";
 import { BodyText, DisplayText, MonoText } from "../../../design-system/primitives";
 import { Icon } from "../../../design-system/icons";
-import { palette, spacing } from "../../../design-system/theme";
+import { palette, spacing, type } from "../../../design-system/theme";
 import { sessionDefinitions, type SessionStage } from "../../../data/mockData";
 import { SessionAnalysisStatusBanner } from "../components/SessionAnalysisStatusBanner";
 import { resolveLiveSeeData } from "../utils/resolveLiveSeeData";
@@ -27,6 +27,79 @@ import {
   seeCtaLabels,
 } from "../unified/sessionScreenConfig";
 // Sessions 25–36 render via flow/guided/GuidedStageView → stitchStages (not here).
+
+function AnimatedWaveformBars({ bars, playing }: { bars: number[]; playing: boolean }) {
+  const breath = useRef(new Animated.Value(0)).current;
+  const barAnims = useRef(bars.map((h) => new Animated.Value(h))).current;
+  const breathRange = useMemo(() =>
+    bars.map((bar) => ({
+      lo: Math.max(4, bar * 0.2),
+      hi: Math.min(110, bar * 2.0),
+    })),
+    [bars],
+  );
+
+  useEffect(() => {
+    if (!playing) {
+      breath.setValue(0);
+      barAnims.forEach((anim, i) => {
+        const base = bars[i] ?? 30;
+        Animated.timing(anim, { toValue: base, duration: 200, useNativeDriver: false }).start();
+      });
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(breath, { toValue: 1, duration: 2800, easing: Easing.inOut(Easing.sin), useNativeDriver: false }),
+        Animated.timing(breath, { toValue: 0, duration: 2800, easing: Easing.inOut(Easing.sin), useNativeDriver: false }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [playing, bars, breath, barAnims]);
+
+  useEffect(() => {
+    if (!playing) return;
+    const id = breath.addListener(({ value }) => {
+      barAnims.forEach((anim, i) => {
+        const r = breathRange[i] ?? { lo: 8, hi: 60 };
+        anim.setValue(r.lo + (r.hi - r.lo) * value);
+      });
+    });
+    return () => breath.removeListener(id);
+  }, [playing, breath, barAnims, breathRange]);
+
+  const fillerIndices = new Set([2, 6, 11, 16, 19]);
+
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: "row", alignItems: "flex-end", gap: 2, paddingBottom: 4, minWidth: "100%" }}>
+      {bars.map((_, index) => {
+        const isFiller = fillerIndices.has(index);
+        return (
+          <View key={index} style={{ alignItems: "center", position: "relative" }}>
+            <Animated.View style={{
+              width: 5,
+              height: barAnims[index],
+              backgroundColor: isFiller ? palette.error : palette.siennaAccent,
+              opacity: isFiller ? 1 : 0.7,
+            }} />
+            {isFiller ? (
+              <View style={{
+                position: "absolute",
+                top: -16,
+                backgroundColor: palette.error,
+                paddingHorizontal: 4,
+                paddingVertical: 1,
+              }}>
+                <MonoText style={{ color: palette.white, fontSize: 6, letterSpacing: 0.3 }}>FILLER</MonoText>
+              </View>
+            ) : null}
+          </View>
+        );
+      })}
+    </ScrollView>
+  );
+}
 
 type UnifiedProps = {
   session: (typeof sessionDefinitions)[number];
@@ -233,7 +306,7 @@ function UnifiedListen(props: UnifiedProps) {
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { padding: 0, overflow: "hidden" }]}>
           <View style={{ padding: spacing.md, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <DisplayText style={{ fontSize: 34, lineHeight: 38, color: palette.line }}>{formatTime(Math.round((listenProgress / 100) * 60))} / 01:00</DisplayText>
-            <Pressable onPress={onTogglePlay} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 64, height: 64, borderRadius: 32, backgroundColor: palette.line }]}>
+            <Pressable onPress={onTogglePlay} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 64, height: 64, borderRadius: 0, backgroundColor: palette.line }]}>
               <MonoText style={{ color: palette.paper, fontSize: 18 }}>{listenPlaying ? "II" : "▶"}</MonoText>
             </Pressable>
           </View>
@@ -472,8 +545,206 @@ function UnifiedListen(props: UnifiedProps) {
     );
   }
 
+  if (sessionNumber === 1) {
+    const audioFileName = `SAMPLE_A_${String(sessionNumber).padStart(2, "0")}.WAV`;
+    const totalSeconds = 105;
+    const [elapsedMs, setElapsedMs] = useState(0);
+    const elapsedRef = useRef(0);
+    const playStartRef = useRef(0);
+
+    useEffect(() => {
+      if (!listenPlaying) {
+        if (listenProgress >= 100) {
+          elapsedRef.current = totalSeconds * 1000;
+          setElapsedMs(totalSeconds * 1000);
+        }
+        return;
+      }
+      playStartRef.current = Date.now() - elapsedRef.current;
+      const ticker = setInterval(() => {
+        const now = Date.now();
+        const ms = Math.min(totalSeconds * 1000, now - playStartRef.current);
+        elapsedRef.current = ms;
+        setElapsedMs(ms);
+      }, 50);
+      return () => clearInterval(ticker);
+    }, [listenPlaying, listenProgress, totalSeconds]);
+
+    const elapsedSec = Math.min(totalSeconds, elapsedMs / 1000);
+    const elapsedLabel = `${String(Math.floor(elapsedSec / 60)).padStart(2, "0")}:${String(Math.floor(elapsedSec) % 60).padStart(2, "0")}`;
+    const totalLabel = `01:${String(totalSeconds % 60).padStart(2, "0")}`;
+    const guideDescription = "Fillers are cognitive stall tactics\u2014sounds or words like \"um,\" \"ah,\" or \"so\" that we use while our brain searches for the next thought. By identifying them, we regain the space to choose silence.";
+    const translateAnim = useRef(new Animated.Value(0)).current;
+
+    const onPressIn = useCallback(() => {
+      Animated.spring(translateAnim, { toValue: 1, tension: 220, friction: 18, useNativeDriver: true }).start();
+    }, [translateAnim]);
+    const onPressOut = useCallback(() => {
+      Animated.spring(translateAnim, { toValue: 0, tension: 220, friction: 18, useNativeDriver: true }).start();
+    }, [translateAnim]);
+    const btnTranslateX = translateAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 4] });
+    const btnTranslateY = translateAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 4] });
+
+    return (
+      <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
+        <View style={{
+          backgroundColor: palette.parchmentSurface,
+          borderWidth: 2,
+          borderColor: palette.siennaAccent,
+          padding: 24,
+          shadowColor: palette.siennaAccent,
+          shadowOffset: { width: 4, height: 4 },
+          shadowOpacity: 1,
+          shadowRadius: 0,
+          elevation: 0,
+          gap: 16,
+        }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+            <Icon name="spark" size={20} color={palette.siennaAccent} />
+            <MonoText style={{ color: palette.inkFocus, fontSize: 12, letterSpacing: 1.2 }}>GUIDE</MonoText>
+          </View>
+          <DisplayText style={{ fontSize: 24, lineHeight: 28, color: palette.onSurface }}>{lesson.title}</DisplayText>
+          <BodyText style={{ color: palette.onSurfaceVariant, lineHeight: 24 }}>{guideDescription}</BodyText>
+        </View>
+
+        <View style={{
+          backgroundColor: palette.white,
+          borderWidth: 2,
+          borderColor: palette.inkFocus,
+          padding: spacing.md,
+          gap: spacing.md,
+        }}>
+          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.md }}>
+              <Pressable
+                onPress={onTogglePlay}
+                style={({ pressed }) => [{
+                  width: 48, height: 48,
+                  backgroundColor: palette.siennaAccent,
+                  borderWidth: 2, borderColor: palette.inkFocus,
+                  alignItems: "center", justifyContent: "center",
+                  shadowColor: palette.inkFocus,
+                  shadowOffset: { width: 2, height: 2 },
+                  shadowOpacity: 1, shadowRadius: 0, elevation: 0,
+                }, pressed && { opacity: 0.88, transform: [{ translateY: 1 }] }]}
+              >
+                <MonoText style={{ color: palette.parchmentSurface, fontSize: 20 }}>
+                  {listenPlaying ? "II" : "▶"}
+                </MonoText>
+              </Pressable>
+              <View>
+                <MonoText style={{ color: palette.inkFocus, fontSize: 12, letterSpacing: 1 }}>{audioFileName}</MonoText>
+                <MonoText style={{ color: palette.onSurfaceVariant, fontSize: 14, letterSpacing: 0.5 }}>
+                  {elapsedLabel} / {totalLabel}
+                </MonoText>
+              </View>
+            </View>
+            <Icon name="wave" size={24} color={palette.outline} />
+          </View>
+
+          <View style={{
+            height: 96,
+            backgroundColor: palette.surfaceContainerLow,
+            borderWidth: 1,
+            borderColor: palette.outlineVariant,
+            overflow: "hidden",
+            paddingHorizontal: spacing.md,
+            justifyContent: "center",
+          }}>
+            <AnimatedWaveformBars bars={waveform} playing={listenPlaying} />
+          </View>
+        </View>
+
+        <View style={{ gap: spacing.sm }}>
+          <MonoText style={{ color: palette.outline, letterSpacing: 1.2, textTransform: "uppercase" }}>Transcript</MonoText>
+          <ScrollView style={{ maxHeight: 192 }} nestedScrollEnabled showsVerticalScrollIndicator={false}>
+            <View style={{ borderLeftWidth: 4, borderLeftColor: palette.outlineVariant, paddingLeft: spacing.lg, gap: spacing.md }}>
+              {lesson.coachingPassages?.map((passage, i) => (
+                <BodyText key={i} style={{
+                  color: i === 1 ? palette.onSurface : palette.onSurfaceVariant,
+                  backgroundColor: i === 1 ? palette.surfaceContainerHighest : "transparent",
+                  padding: i === 1 ? 8 : 0,
+                  lineHeight: 24,
+                  opacity: i === 1 ? 1 : 0.5,
+                }}>
+                  {passage.text}
+                </BodyText>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+
+        {pullQuote ? (
+          <View style={{ position: "relative", paddingVertical: 32, marginVertical: spacing.sm }}>
+            <View style={{
+              position: "absolute", top: 0, left: 0,
+              width: 32, height: 32,
+              borderTopWidth: 2, borderLeftWidth: 2,
+              borderColor: palette.siennaAccent,
+            }} />
+            <View style={{ paddingHorizontal: 40 }}>
+              <BodyText style={{
+                fontFamily: type.bodyMedium,
+                fontSize: 20, lineHeight: 28,
+                color: palette.primary,
+                fontStyle: "italic",
+                textAlign: "center",
+              }}>
+                {pullQuote}
+              </BodyText>
+            </View>
+            <View style={{
+              position: "absolute", bottom: 0, right: 0,
+              width: 32, height: 32,
+              borderBottomWidth: 2, borderRightWidth: 2,
+              borderColor: palette.siennaAccent,
+            }} />
+          </View>
+        ) : null}
+
+        <Pressable
+          onPress={onNext}
+          disabled={!listenComplete && !UNLOCK_ALL_FOR_TESTING}
+          onPressIn={onPressIn}
+          onPressOut={onPressOut}
+        >
+          <Animated.View style={{
+            backgroundColor: palette.siennaAccent,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
+            paddingVertical: 24,
+            paddingHorizontal: spacing.lg,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 16,
+            shadowColor: palette.siennaAccent,
+            shadowOffset: { width: 4, height: 4 },
+            shadowOpacity: 1,
+            shadowRadius: 0,
+            elevation: 0,
+            opacity: !listenComplete && !UNLOCK_ALL_FOR_TESTING ? 0.45 : 1,
+            transform: [{ translateX: btnTranslateX }, { translateY: btnTranslateY }],
+          }}>
+            <MonoText style={{
+              color: palette.parchmentSurface,
+              fontSize: 18,
+              letterSpacing: 3.2,
+              textTransform: "uppercase",
+            }}>
+              {listenComplete || UNLOCK_ALL_FOR_TESTING ? "NEXT STEP: PRACTICE" : "LISTEN TO CONTINUE"}
+            </MonoText>
+            <Animated.View style={{ transform: [{ translateX: btnTranslateX }] }}>
+              <MonoText style={{ color: palette.parchmentSurface, fontSize: 22 }}>→</MonoText>
+            </Animated.View>
+          </Animated.View>
+        </Pressable>
+      </View>
+    );
+  }
+
   return (
-    <View style={[styles.guidedStepBodyUnified, sessionNumber === 1 && styles.unifiedStageBodyCompact]}>
+    <View style={[styles.guidedStepBodyUnified]}>
       {pullQuote ? (
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { borderLeftWidth: 4, borderLeftColor: palette.line }]}>
           <BodyText style={styles.stagePullQuote}>{pullQuote}</BodyText>
@@ -686,7 +957,7 @@ function UnifiedDo(props: UnifiedProps) {
 
         <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { alignItems: "center", paddingVertical: spacing.xl, gap: spacing.lg }]}>
           <DisplayText style={{ fontSize: 72, lineHeight: 76, color: palette.line }}>{(recordSecondsLeft).toFixed(1)}</DisplayText>
-          <Pressable onPress={onToggleRecording} style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", shadowColor: "#2E2E2E", shadowOffset: { width: 4, height: 4 }, shadowOpacity: 1, shadowRadius: 0 }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 96, height: 96, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", shadowColor: "#2E2E2E", shadowOffset: { width: 4, height: 4 }, shadowOpacity: 1, shadowRadius: 0 }}>
             <Icon name="mic" size={40} color={palette.paper} />
           </Pressable>
           <MonoText style={{ color: palette.line, letterSpacing: 2 }}>TAP TO BEGIN RECORDING</MonoText>
@@ -771,11 +1042,11 @@ function UnifiedDo(props: UnifiedProps) {
         </BodyText>
 
         <View style={{ alignItems: "center", gap: spacing.md, paddingVertical: spacing.md }}>
-          <View style={{ width: 220, height: 220, borderRadius: 110, borderWidth: 6, borderColor: palette.line, borderLeftColor: "rgba(239,223,216,0.55)", borderBottomColor: "rgba(239,223,216,0.55)", alignItems: "center", justifyContent: "center" }}>
+          <View style={{ width: 220, height: 220, borderRadius: 0, borderWidth: 6, borderColor: palette.line, borderLeftColor: "rgba(239,223,216,0.55)", borderBottomColor: "rgba(239,223,216,0.55)", alignItems: "center", justifyContent: "center" }}>
             <DisplayText style={{ fontSize: 42, lineHeight: 46, color: palette.line }}>{formatTime(recordSecondsLeft)}</DisplayText>
             <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>REMAINING</MonoText>
           </View>
-          <Pressable onPress={onToggleRecording} style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", shadowColor: "#2E2E2E", shadowOffset: { width: 4, height: 4 }, shadowOpacity: 1, shadowRadius: 0 }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 96, height: 96, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", shadowColor: "#2E2E2E", shadowOffset: { width: 4, height: 4 }, shadowOpacity: 1, shadowRadius: 0 }}>
             <Icon name="mic" size={40} color={palette.paper} />
           </Pressable>
         </View>
@@ -789,7 +1060,7 @@ function UnifiedDo(props: UnifiedProps) {
         <View style={{ flexDirection: "row", gap: spacing.md }}>
           {["PAUSE 1", "PAUSE 2", "PAUSE 3"].map((label) => (
             <View key={label} style={[styles.brutalistPanel, styles.brutalistShadowInk, { flex: 1, alignItems: "center", paddingVertical: spacing.md }]}>
-              <View style={{ width: 14, height: 14, borderRadius: 7, borderWidth: 2, borderColor: palette.lineSoft, backgroundColor: "transparent" }} />
+              <View style={{ width: 14, height: 14, borderRadius: 0, borderWidth: 2, borderColor: palette.lineSoft, backgroundColor: "transparent" }} />
               <MonoText style={{ color: palette.inkMuted, letterSpacing: 1, marginTop: spacing.sm }}>{label}</MonoText>
             </View>
           ))}
@@ -918,7 +1189,7 @@ function UnifiedDo(props: UnifiedProps) {
                 style={[
                   styles.doRecordButton,
                   styles.brutalistShadowInk,
-                  { width: 140, height: 140, borderRadius: 70, backgroundColor: recording ? palette.line : "#FDF6E3" },
+                  { width: 140, height: 140, borderRadius: 0, backgroundColor: recording ? palette.line : "#FDF6E3" },
                 ]}
               >
                 <Icon name="mic" size={50} color={recording ? palette.paper : palette.line} />
@@ -963,7 +1234,7 @@ function UnifiedDo(props: UnifiedProps) {
         </View>
 
         <View style={{ alignItems: "center", gap: spacing.md }}>
-          <Pressable onPress={onToggleRecording} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.line }]}>
+          <Pressable onPress={onToggleRecording} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.line }]}>
             <Icon name="mic" size={40} color={palette.paper} />
           </Pressable>
           <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { width: "100%" }]}>
@@ -998,7 +1269,7 @@ function UnifiedDo(props: UnifiedProps) {
         <View style={{ alignItems: "center", gap: spacing.md }}>
           <Pressable
             onPress={onToggleRecording}
-            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.paper }]}
+            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.paper }]}
           >
             <Icon name="mic" size={44} color={palette.line} />
           </Pressable>
@@ -1012,45 +1283,181 @@ function UnifiedDo(props: UnifiedProps) {
   }
 
   if (sessionNumber === 1) {
+    const timeLeft = Math.max(0, recordLimit - recordElapsed);
+    const isComplete = recordElapsed >= recordLimit;
+    const waveformBars = useMemo(() => Array.from({ length: 20 }).map((_, i) => 12 + ((i * 7 + recordElapsed * 3) % 36)), [recordElapsed]);
+
+    const pulseAnim = useRef(new Animated.Value(1)).current;
+    const waveAnims = useRef(waveformBars.map((h) => new Animated.Value(h))).current;
+
+    useEffect(() => {
+      if (recording) {
+        const pulse = Animated.loop(
+          Animated.sequence([
+            Animated.timing(pulseAnim, { toValue: 1.05, duration: 1000, useNativeDriver: true }),
+            Animated.timing(pulseAnim, { toValue: 1, duration: 1000, useNativeDriver: true }),
+          ]),
+        );
+        pulse.start();
+        return () => pulse.stop();
+      } else {
+        pulseAnim.setValue(1);
+      }
+    }, [recording, pulseAnim]);
+
+    useEffect(() => {
+      if (!recording) return;
+      const anims = waveAnims.map((anim, i) => {
+        const base = waveformBars[i] ?? 20;
+        return Animated.sequence([
+          Animated.timing(anim, { toValue: Math.min(80, base + 12 + Math.random() * 28), duration: 200 + Math.random() * 150, useNativeDriver: false }),
+          Animated.timing(anim, { toValue: Math.max(8, base - 4 - Math.random() * 14), duration: 200 + Math.random() * 150, useNativeDriver: false }),
+          Animated.timing(anim, { toValue: base, duration: 150, useNativeDriver: false }),
+        ]);
+      });
+      const parallel = Animated.parallel(anims);
+      const interval = setInterval(() => {
+        const nextAnims = waveAnims.map((anim, i) => {
+          const base = waveformBars[i] ?? 20;
+          return Animated.sequence([
+            Animated.timing(anim, { toValue: Math.min(80, base + 12 + Math.random() * 28), duration: 200 + Math.random() * 150, useNativeDriver: false }),
+            Animated.timing(anim, { toValue: Math.max(8, base - 4 - Math.random() * 14), duration: 200 + Math.random() * 150, useNativeDriver: false }),
+            Animated.timing(anim, { toValue: base, duration: 150, useNativeDriver: false }),
+          ]);
+        });
+        Animated.parallel(nextAnims).start();
+      }, 500);
+      return () => {
+        clearInterval(interval);
+        waveAnims.forEach((anim, i) => anim.setValue(waveformBars[i] ?? 20));
+      };
+    }, [recording, waveformBars, waveAnims]);
+
+    const statusLabel = recording ? "RECORDING ACTIVE..." : isComplete ? "SESSION COMPLETE" : "TAP TO BEGIN RECORDING";
+    const btnBorderColor = recording ? palette.error : isComplete ? palette.sageSuccess : palette.siennaAccent;
+    const btnShadow = recording ? palette.error : palette.siennaAccent;
+
     return (
       <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-        <View style={{ alignItems: "center", gap: spacing.xs }}>
-          <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
-            This recording is your baseline.
+        <View style={{
+          backgroundColor: palette.parchmentSurface,
+          borderWidth: 2,
+          borderColor: palette.inkFocus,
+          padding: 20,
+          gap: 12,
+          shadowColor: palette.siennaAccent,
+          shadowOffset: { width: 4, height: 4 },
+          shadowOpacity: 1,
+          shadowRadius: 0,
+          elevation: 0,
+        }}>
+          <MonoText style={{ color: palette.siennaAccent, fontSize: 12, letterSpacing: 1.2 }}>
+            PROMPT
+          </MonoText>
+          <BodyText style={{ fontSize: 20, lineHeight: 28, color: palette.inkFocus }}>
+            {doContent.promptBody ?? doContent.promptTitle}
           </BodyText>
         </View>
 
-        {(doContent.promptBody || doContent.promptTitle) ? (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
-            <MonoText style={[styles.metricLabel, { color: palette.line, marginBottom: spacing.xs }]}>PROMPT</MonoText>
-            <BodyText style={styles.doPromptQuote}>{doContent.promptBody ?? doContent.promptTitle}</BodyText>
-          </View>
-        ) : null}
-
-        {doContent.constraint ? (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
-            <MonoText style={[styles.metricLabel, { color: palette.inkMuted, marginBottom: spacing.xs }]}>CONSTRAINT</MonoText>
-            <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{doContent.constraint}</BodyText>
-          </View>
-        ) : null}
-
-        <View style={{ alignItems: "center", gap: spacing.md, paddingVertical: spacing.md }}>
-          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderColor: palette.line }]}>
-            <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.paper }}>{formatTime(recordSecondsLeft)}</DisplayText>
-          </View>
-          <Pressable
-            onPress={onToggleRecording}
-            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 128, height: 128, borderRadius: 64, backgroundColor: palette.paper, borderWidth: 4, borderColor: palette.line }]}
-          >
-            <Icon name="mic" size={56} color={palette.line} />
-          </Pressable>
-          <MonoText style={[styles.metricLabel, { color: palette.line, letterSpacing: 2 }]}>{doRecordHintLabel(sessionNumber, recording, recordElapsed).toUpperCase()}</MonoText>
+        <View style={{
+          backgroundColor: palette.surfaceContainer,
+          borderWidth: 2,
+          borderColor: palette.outline,
+          padding: 20,
+          gap: 12,
+        }}>
+          <MonoText style={{ color: palette.outline, fontSize: 12, letterSpacing: 1.2 }}>
+            CONSTRAINT
+          </MonoText>
+          <BodyText style={{ color: palette.onSurfaceVariant }}>
+            {doContent.constraint}
+          </BodyText>
         </View>
 
-        <View style={[styles.brutalistPanel, { padding: 0, opacity: 0.4 }]}>
-          <View style={{ height: 64, flexDirection: "row", alignItems: "flex-end", gap: 1, padding: spacing.sm }}>
-            {Array.from({ length: 18 }).map((_, i) => (
-              <View key={i} style={{ flex: 1, height: 4 + ((i * 7 + 3) % 16), backgroundColor: palette.lineSoft }} />
+        <View style={{ alignItems: "center", paddingVertical: 32 }}>
+          <View style={{
+            backgroundColor: palette.inkFocus,
+            paddingHorizontal: 24,
+            paddingVertical: 12,
+            borderWidth: 2,
+            borderColor: palette.siennaAccent,
+            marginBottom: 48,
+            shadowColor: palette.siennaAccent,
+            shadowOffset: { width: 4, height: 4 },
+            shadowOpacity: 1,
+            shadowRadius: 0,
+            elevation: 0,
+          }}>
+            <MonoText style={{ fontSize: 24, letterSpacing: 1.2, color: palette.parchmentSurface }}>
+              {formatTime(timeLeft)}
+            </MonoText>
+          </View>
+
+          <Pressable onPress={onToggleRecording}>
+            <Animated.View style={{
+              width: 128,
+              height: 128,
+              borderRadius: 64,
+              borderWidth: 4,
+              borderColor: btnBorderColor,
+              backgroundColor: palette.parchmentSurface,
+              alignItems: "center",
+              justifyContent: "center",
+              shadowColor: recording ? `${palette.error}80` : btnShadow,
+              shadowOffset: recording ? { width: 0, height: 0 } : { width: 4, height: 4 },
+              shadowOpacity: recording ? 0.6 : 1,
+              shadowRadius: recording ? 20 : 0,
+              elevation: recording ? 8 : 0,
+              transform: recording ? [{ scale: pulseAnim }] : undefined,
+            }}>
+              <View style={{
+                position: "absolute",
+                width: 128,
+                height: 128,
+                borderRadius: 64,
+                borderWidth: 2,
+                borderColor: `${palette.siennaAccent}4D`,
+                borderStyle: "dashed",
+              }} />
+
+              {recording ? (
+                <View style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 4,
+                  backgroundColor: palette.error,
+                }} />
+              ) : isComplete ? (
+                <View style={{ width: 48, height: 48, alignItems: "center", justifyContent: "center" }}>
+                  <Icon name="check" size={48} color={palette.sageSuccess} />
+                </View>
+              ) : (
+                <Icon name="mic" size={48} color={palette.primary} />
+              )}
+            </Animated.View>
+          </Pressable>
+
+          <MonoText style={{
+            color: palette.siennaAccent,
+            fontSize: 12,
+            letterSpacing: 1.2,
+            marginTop: 24,
+            fontWeight: "700",
+          }}>
+            {statusLabel}
+          </MonoText>
+        </View>
+
+        <View style={{ opacity: recording ? 0.6 : 0.3 }}>
+          <View style={{ height: 64, flexDirection: "row", alignItems: "flex-end", gap: 4, overflow: "hidden" }}>
+            {waveAnims.map((anim, i) => (
+              <Animated.View key={i} style={{
+                flex: 1,
+                height: anim,
+                backgroundColor: recording ? palette.siennaAccent : palette.outline,
+                maxWidth: 6,
+                opacity: recording ? 0.85 : 0.5,
+              }} />
             ))}
           </View>
         </View>
@@ -1112,7 +1519,7 @@ function UnifiedDo(props: UnifiedProps) {
             {
               width: recordSize,
               height: recordSize,
-              borderRadius: recordRadius,
+              borderRadius: 0,
               backgroundColor: recording ? palette.line : "#FDF6E3",
             },
           ]}
@@ -1939,8 +2346,8 @@ function UnifiedCommit(props: UnifiedProps) {
           width: "88%",
           height: height * 0.6,
           backgroundColor: palette.line,
-          borderTopLeftRadius: 2,
-          borderTopRightRadius: 2,
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
           transform: [{ skewX: "-12deg" }],
         }}
       />
@@ -1988,13 +2395,13 @@ function UnifiedCommit(props: UnifiedProps) {
                 {
                   width: 96,
                   height: 96,
-                  borderRadius: 48,
+                  borderRadius: 0,
                   backgroundColor: palette.paper,
                   borderColor: palette.line,
                 },
               ]}
             >
-              <View style={{ width: 56, height: 56, borderRadius: 28, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+              <View style={{ width: 56, height: 56, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
                 <Icon name="mic" size={24} color={palette.paper} />
               </View>
             </Pressable>
@@ -2062,7 +2469,7 @@ function UnifiedCommit(props: UnifiedProps) {
 
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { padding: 0, overflow: "hidden" }]}>
           <View style={{ padding: spacing.md, gap: spacing.md, alignItems: "center" }}>
-            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.paper }]}>
+            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.paper }]}>
               <Icon name="mic" size={40} color={palette.line} />
             </Pressable>
             <MonoText style={{ color: palette.line, letterSpacing: 2 }}>RECORD CAPSTONE INTENT</MonoText>
@@ -2106,7 +2513,7 @@ function UnifiedCommit(props: UnifiedProps) {
           <MonoText style={{ color: palette.line, letterSpacing: 2, textAlign: "center" }}>RECORD COMMITMENT</MonoText>
           <BodyText style={{ textAlign: "center", color: palette.inkMuted }}>Hold to record 15s audio pledge</BodyText>
           <View style={{ alignItems: "center", gap: spacing.md, paddingTop: spacing.sm }}>
-            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 110, height: 110, borderRadius: 55, backgroundColor: palette.paper }]}>
+            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 110, height: 110, borderRadius: 0, backgroundColor: palette.paper }]}>
               <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.line} />
             </Pressable>
             <View style={{ width: "100%", borderWidth: 1, borderColor: palette.lineSoft, padding: spacing.sm, backgroundColor: palette.paper }}>
@@ -2154,7 +2561,7 @@ function UnifiedCommit(props: UnifiedProps) {
             <MonoText style={{ color: palette.paper, letterSpacing: 2 }}>15s PLEDGE</MonoText>
           </View>
           <View style={{ padding: spacing.xl, gap: spacing.lg, alignItems: "center" }}>
-            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.paper }]}>
+            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.paper }]}>
               <Icon name={reflectionDone ? "spark" : "mic"} size={40} color={palette.line} />
             </Pressable>
             <EditorialWaveform bars={waveform.concat(waveform).slice(0, 20)} height={56} light />
@@ -2176,7 +2583,7 @@ function UnifiedCommit(props: UnifiedProps) {
     return (
       <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
         <View style={{ alignItems: "center", gap: spacing.sm }}>
-          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { paddingHorizontal: spacing.xl, paddingVertical: spacing.sm, borderRadius: 99 as never }]}>
+          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { paddingHorizontal: spacing.xl, paddingVertical: spacing.sm, borderRadius: 0 }]}>
             <MonoText style={{ color: palette.line, letterSpacing: 2 }}>05 COMMIT</MonoText>
           </View>
         </View>
@@ -2196,7 +2603,7 @@ function UnifiedCommit(props: UnifiedProps) {
             </View>
           </View>
 
-          <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 76, height: 76, borderRadius: 38, alignSelf: "center", backgroundColor: palette.line }]}>
+          <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 76, height: 76, borderRadius: 0, alignSelf: "center", backgroundColor: palette.line }]}>
             <Icon name={reflectionDone ? "spark" : "mic"} size={34} color={palette.paper} />
           </Pressable>
         </View>
@@ -2232,7 +2639,7 @@ function UnifiedCommit(props: UnifiedProps) {
               <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>15s PLEDGE</MonoText>
               <EditorialWaveform bars={waveform.concat(waveform).slice(0, 20)} height={56} light />
             </View>
-            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 92, height: 92, borderRadius: 46, backgroundColor: palette.paper }]}>
+            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 92, height: 92, borderRadius: 0, backgroundColor: palette.paper }]}>
               <Icon name={reflectionDone ? "spark" : "mic"} size={40} color={palette.line} />
             </Pressable>
             <View style={{ width: "100%", borderWidth: 1, borderColor: palette.lineSoft, padding: spacing.lg, backgroundColor: palette.paper, alignItems: "center", gap: spacing.sm }}>
@@ -2261,7 +2668,7 @@ function UnifiedCommit(props: UnifiedProps) {
           </BodyText>
         </View>
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { padding: spacing.lg, gap: spacing.md, alignItems: "center" }]}>
-          <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.paper }]}>
+          <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.paper }]}>
             <Icon name="mic" size={40} color={palette.line} />
           </Pressable>
           <MonoText style={{ color: palette.line, letterSpacing: 2 }}>
@@ -2385,8 +2792,8 @@ function UnifiedCommit(props: UnifiedProps) {
         ) : null}
 
         <View style={{ alignItems: "center", marginVertical: spacing.sm }}>
-          <View style={{ width: 240, height: 240, borderRadius: 120, borderWidth: 2, borderColor: palette.line, alignItems: "center", justifyContent: "center" }}>
-            <View style={{ width: 280, height: 280, borderRadius: 140, borderWidth: 2, borderColor: palette.lineSoft, borderStyle: "dashed", position: "absolute" }} />
+          <View style={{ width: 240, height: 240, borderRadius: 0, borderWidth: 2, borderColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+            <View style={{ width: 280, height: 280, borderRadius: 0, borderWidth: 2, borderColor: palette.lineSoft, borderStyle: "dashed", position: "absolute" }} />
             <Icon name="spark" size={40} color={palette.line} />
           </View>
         </View>
@@ -2453,7 +2860,7 @@ function UnifiedCommit(props: UnifiedProps) {
           <View style={{ paddingHorizontal: spacing.md, paddingVertical: 10, flexDirection: "row", justifyContent: "space-between" }}>
             <MonoText style={styles.listenCardKicker}>INPUT MONITOR</MonoText>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-              <View style={{ width: 8, height: 8, borderRadius: 99, backgroundColor: reflectionDone ? palette.line : "#BA1A1A" }} />
+              <View style={{ width: 8, height: 8, borderRadius: 0, backgroundColor: reflectionDone ? palette.line : "#BA1A1A" }} />
               <MonoText style={[styles.metricLabel, { color: reflectionDone ? palette.line : "#BA1A1A" }]}>
                 {reflectionDone ? "SAVED" : "READY"}
               </MonoText>

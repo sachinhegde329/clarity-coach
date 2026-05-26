@@ -12,25 +12,21 @@ export type SessionStageViewProps = {
   stage: SessionStage;
   stepIndex: number;
   sessionElapsed: number;
-  onJumpToStep?: (stepIndex: number) => void;
   onBack: () => void;
   onExit: () => void;
+  onJumpToStep: (stepIndex: number) => void;
   centre: CentreStageRenderProps;
   guided: SessionStageRenderProps;
 };
 
-/**
- * Renders the active session stage inside SessionFlowShell.
- * This is the only stage content entry point from SessionFlowScreen.
- */
 export function SessionStageView({
   sessionNumber,
   stage,
   stepIndex,
   sessionElapsed,
-  onJumpToStep,
   onBack,
   onExit,
+  onJumpToStep,
   centre,
   guided,
 }: SessionStageViewProps) {
@@ -40,10 +36,10 @@ export function SessionStageView({
     stage,
     stepIndex,
     sessionElapsed,
-    onJumpToStep: (targetIndex: number) => (onJumpToStep ? onJumpToStep(targetIndex) : undefined),
     onBack,
     onExit,
-    hideStageDetails: sessionNumber >= 6,
+    onJumpToStep,
+    hideStageDetails: false,
     variant: stage === "breathe" && isCentreToolkitSession(sessionNumber) ? ("breathe" as const) : ("default" as const),
     scrollContentStyle:
       stage === "breathe" && sessionNumber >= 6 && sessionNumber <= 11 ? styles.stepBody : undefined,

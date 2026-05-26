@@ -1,11 +1,9 @@
-import React, { ReactNode } from "react";
-import { StyleSheet, View, ViewStyle } from "react-native";
+import React, { useRef } from "react";
+import { Animated, Pressable, StyleSheet, View, ViewStyle } from "react-native";
 import { Icon } from "../../../design-system/icons";
 import { MonoText } from "../../../design-system/primitives";
-import { InteractivePressable } from "../../../design-system/motion";
 import { palette, spacing, type } from "../../../design-system/theme";
 
-/** Commit-to-Journey brutalist button — standard for all session 1–5 CTAs. */
 export function SessionButton({
   label,
   onPress,
@@ -19,64 +17,89 @@ export function SessionButton({
   label: string;
   onPress: () => void;
   variant?: "primary" | "secondary";
-  icon?: ReactNode;
-  iconLeft?: ReactNode;
+  icon?: React.ReactNode;
+  iconLeft?: React.ReactNode;
   disabled?: boolean;
   fullWidth?: boolean;
   style?: ViewStyle;
 }) {
   const isPrimary = variant === "primary";
   const disabledOpacity = disabled ? 0.45 : 1;
+  const translateAnim = useRef(new Animated.Value(0)).current;
+
+  const animateTo = (value: number) => {
+    Animated.spring(translateAnim, {
+      toValue: value,
+      tension: 220,
+      friction: 18,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const translateX = translateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 6],
+  });
+  const translateY = translateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 6],
+  });
 
   return (
-    <InteractivePressable onPress={onPress} disabled={disabled} style={[fullWidth && styles.fullWidth, style]}>
-      <View
-        style={[
-          styles.button,
-          isPrimary ? styles.buttonPrimary : styles.buttonSecondary,
-          { opacity: disabledOpacity },
-        ]}
-      >
-        <View style={styles.labelRow}>
-          {iconLeft ?? null}
-          <MonoText style={[styles.label, isPrimary ? styles.labelPrimary : styles.labelSecondary]}>{label}</MonoText>
-        </View>
-        {icon ?? <Icon name="arrow" size={22} color={isPrimary ? palette.paper : palette.black} />}
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      onPressIn={() => animateTo(1)}
+      onPressOut={() => animateTo(0)}
+      style={[fullWidth && styles.fullWidth, style]}
+    >
+      <View style={styles.shadowLayer}>
+        <Animated.View
+          style={[
+            styles.button,
+            isPrimary ? styles.buttonPrimary : styles.buttonSecondary,
+            { opacity: disabledOpacity, transform: [{ translateX }, { translateY }] },
+          ]}
+        >
+          <View style={styles.labelRow}>
+            {iconLeft ?? null}
+            <MonoText style={[styles.label, isPrimary ? styles.labelPrimary : styles.labelSecondary]}>{label}</MonoText>
+          </View>
+          {icon ?? <Icon name="arrow" size={22} color={isPrimary ? palette.inkFocus : palette.parchmentSurface} />}
+        </Animated.View>
       </View>
-    </InteractivePressable>
+    </Pressable>
   );
 }
-
-const INK = "#2E2E2E";
-const PARCHMENT = "#FDF6E3";
-const PRIMARY = "#6c2f00";
 
 const styles = StyleSheet.create({
   fullWidth: {
     width: "100%",
   },
-  button: {
-    minHeight: 56,
-    paddingVertical: 18,
-    paddingHorizontal: spacing.lg,
-    borderWidth: 2,
-    borderRadius: 0,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    shadowColor: INK,
+  shadowLayer: {
     shadowOffset: { width: 4, height: 4 },
+    shadowColor: palette.siennaAccent,
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 0,
   },
+  button: {
+    minHeight: 56,
+    paddingVertical: 16,
+    paddingHorizontal: 48,
+    borderWidth: 2,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+  },
   buttonPrimary: {
-    backgroundColor: PRIMARY,
-    borderColor: INK,
+    backgroundColor: palette.parchmentSurface,
+    borderColor: palette.inkFocus,
   },
   buttonSecondary: {
-    backgroundColor: PARCHMENT,
-    borderColor: INK,
+    backgroundColor: palette.inkFocus,
+    borderColor: palette.inkFocus,
   },
   labelRow: {
     flexDirection: "row",
@@ -91,9 +114,9 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   labelPrimary: {
-    color: palette.paper,
+    color: palette.inkFocus,
   },
   labelSecondary: {
-    color: palette.black,
+    color: palette.parchmentSurface,
   },
 });

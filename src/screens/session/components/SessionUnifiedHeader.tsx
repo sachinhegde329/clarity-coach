@@ -29,29 +29,32 @@ export function SessionUnifiedHeader({
   const { width } = useWindowDimensions();
   const compact = width < 420;
   const iconSize = compact ? 16 : 20;
+  const sideSize = compact ? 36 : 40;
 
   return (
     <View style={styles.shell}>
       <View style={styles.topRow}>
-        <InteractivePressable onPress={onBack} style={styles.sidePressable}>
-          <View style={[styles.iconButton, compact && styles.iconButtonCompact]}>
-            <Icon name="back" size={compact ? 16 : 18} color={palette.line} />
+        <InteractivePressable onPress={onBack}>
+          <View style={[styles.iconButton, { width: sideSize, height: sideSize, borderRadius: sideSize / 2 }]}>
+            <Icon name="back" size={compact ? 16 : 18} color={palette.siennaAccent} />
           </View>
         </InteractivePressable>
 
         <View style={styles.brandColumn}>
           <View style={styles.wordmarkRow}>
-            <LogoGlyph color={palette.line} barHeights={[10, 16, 22, 16, 10]} barWidth={3} gap={3} />
+            <LogoGlyph color={palette.siennaAccent} barHeights={[10, 16, 22, 16, 10]} barWidth={3} gap={3} />
             <MonoText style={[styles.wordmark, compact && styles.wordmarkCompact]}>CLARITY COACH</MonoText>
           </View>
           <View style={styles.stepCounterPill}>
-            <MonoText style={styles.stepCounter}>{String(activeIndex + 1).padStart(2, "0")} / 05</MonoText>
+            <MonoText style={styles.stepCounter}>
+              {String(activeIndex + 1).padStart(2, "0")} / 05
+            </MonoText>
           </View>
         </View>
 
-        <InteractivePressable onPress={onExit} style={styles.sidePressable}>
-          <View style={[styles.iconButton, compact && styles.iconButtonCompact]}>
-            <Icon name="close" size={compact ? 14 : 16} color={palette.line} />
+        <InteractivePressable onPress={onExit}>
+          <View style={[styles.iconButton, { width: sideSize, height: sideSize, borderRadius: sideSize / 2 }]}>
+            <Icon name="close" size={compact ? 14 : 16} color={palette.siennaAccent} />
           </View>
         </InteractivePressable>
       </View>
@@ -60,7 +63,11 @@ export function SessionUnifiedHeader({
         {STAGE_TABS.map((step, index) => {
           const isActive = index === activeIndex;
           const isUnlocked = index <= maxUnlockedIndex;
-          const fg = isActive ? palette.paper : isUnlocked ? palette.inkMuted : palette.lineSoft;
+          const fg = isActive
+            ? palette.onPrimary
+            : isUnlocked
+              ? palette.onSurfaceVariant
+              : palette.outlineVariant;
 
           return (
             <InteractivePressable
@@ -69,7 +76,13 @@ export function SessionUnifiedHeader({
               onPress={() => onSelectStep(index)}
               style={styles.tabPressable}
             >
-              <View style={[styles.tabItem, isActive && styles.tabItemActive, compact && styles.tabItemCompact]}>
+              <View
+                style={[
+                  styles.tabItem,
+                  isActive && styles.tabItemActive,
+                  compact && styles.tabItemCompact,
+                ]}
+              >
                 <Icon name={step.key} size={iconSize} color={fg} />
                 <MonoText
                   style={[
@@ -90,13 +103,11 @@ export function SessionUnifiedHeader({
   );
 }
 
-const SIDE_WIDTH = 44;
-
 const styles = StyleSheet.create({
   shell: {
     borderBottomWidth: 1,
-    borderColor: "rgba(139, 69, 19, 0.2)",
-    backgroundColor: palette.paper,
+    borderColor: "#8B451333",
+    backgroundColor: palette.parchmentSurface,
     paddingHorizontal: spacing.md,
     paddingTop: spacing.md,
     paddingBottom: spacing.sm,
@@ -107,25 +118,12 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
   },
-  sidePressable: {
-    width: SIDE_WIDTH,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   iconButton: {
-    width: 40,
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 20,
-    borderColor: palette.line,
+    borderWidth: 2,
+    borderColor: palette.siennaAccent,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: palette.paper,
-  },
-  iconButtonCompact: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    backgroundColor: palette.parchmentSurface,
   },
   brandColumn: {
     flex: 1,
@@ -142,22 +140,23 @@ const styles = StyleSheet.create({
     fontFamily: type.mono,
     fontSize: 14,
     letterSpacing: 3.2,
-    color: palette.line,
+    color: palette.siennaAccent,
   },
   wordmarkCompact: {
     fontSize: 11,
     letterSpacing: 2,
   },
   stepCounterPill: {
-    backgroundColor: palette.panelSoft,
+    backgroundColor: palette.surfaceContainer,
     paddingHorizontal: 14,
     paddingVertical: 4,
-    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: palette.outlineVariant,
   },
   stepCounter: {
     fontSize: 10,
     letterSpacing: 1,
-    color: palette.inkMuted,
+    color: palette.onSurfaceVariant,
   },
   tabRow: {
     flexDirection: "row",
@@ -183,10 +182,10 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   tabItemActive: {
-    backgroundColor: palette.line,
-    borderRadius: 12,
-    paddingHorizontal: 10,
+    backgroundColor: palette.siennaAccent,
+    paddingHorizontal: 24,
     paddingVertical: 8,
+    borderRadius: 12,
   },
   tabLabel: {
     fontSize: 10,

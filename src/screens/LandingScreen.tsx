@@ -18,12 +18,6 @@ export function LandingScreen({ onBegin }: { onBegin: () => void }) {
       />
 
       <View style={styles.body}>
-        <View style={styles.heroMark}>
-          <View style={styles.heroMarkInner}>
-            <Wordmark />
-          </View>
-        </View>
-
         <BodyText style={styles.heroText}>
           Five minutes a day. Thirty-six sessions. You will hear the difference.
         </BodyText>
@@ -60,22 +54,6 @@ const styles = StyleSheet.create({
     paddingTop: 56,
     justifyContent: "space-between",
     paddingBottom: spacing.xl,
-  },
-  heroMark: {
-    width: 280,
-    height: 280,
-    borderWidth: 2,
-    borderColor: palette.line,
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: palette.shadow,
-    shadowOffset: { width: 8, height: 8 },
-    shadowOpacity: 1,
-    shadowRadius: 0,
-  },
-  heroMarkInner: {
-    transform: [{ scale: 0.8 }],
   },
   heroText: {
     fontFamily: type.display,

@@ -1,8 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { BodyText, DisplayText, MonoText, Panel } from "../../../design-system/primitives";
-import { palette, spacing } from "../../../design-system/theme";
-import { formatTime } from "../formatTime";
+import { MonoText } from "../../../design-system/primitives";
 import { styles } from "../sessionFlowStyles";
 
 export function SessionProgressStrip({

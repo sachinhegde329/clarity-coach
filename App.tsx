@@ -158,9 +158,7 @@ export default function App() {
             }}
             onBack={() => {
               setSessionStepIndex((current) => {
-                if (current === null) {
-                  return null;
-                }
+                if (current === null) return null;
                 return current <= 0 ? null : current - 1;
               });
             }}

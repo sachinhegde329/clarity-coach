@@ -118,7 +118,6 @@ export function StatsScreen({
         onScroll={(event) => onScrollOffsetChange?.(event.nativeEvent.contentOffset.y)}
       >
         <Reveal>
-          <DisplayText style={styles.title}>STATS</DisplayText>
           <BodyText style={styles.subtitle}>14 sessions — 13-session streak</BodyText>
         </Reveal>
 
@@ -207,10 +206,6 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     gap: spacing.lg,
     paddingBottom: spacing.xxl,
-  },
-  title: {
-    fontSize: 46,
-    lineHeight: 48,
   },
   subtitle: {
     color: palette.ink,

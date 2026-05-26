@@ -524,7 +524,6 @@ export function TodayScreen({
         <Reveal style={styles.todayHeader}>
           <View style={styles.todayHeaderTop}>
             <View style={{ flex: 1 }}>
-              <Text style={styles.todayKicker}>TODAY</Text>
               <Text style={styles.todayGreeting}>GOOD MORNING, SAHANA.</Text>
             </View>
             <View style={styles.progressRight}>
@@ -719,13 +718,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-end",
     gap: spacing.md,
-  },
-  todayKicker: {
-    fontFamily: todayFonts.label,
-    fontSize: 12,
-    color: todayColors.onSurfaceVariant,
-    letterSpacing: 1.2,
-    marginBottom: 4,
   },
   todayGreeting: {
     fontFamily: todayFonts.headline,
