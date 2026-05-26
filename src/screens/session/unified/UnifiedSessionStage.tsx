@@ -1035,14 +1035,16 @@ function UnifiedDo(props: UnifiedProps) {
         ) : null}
 
         <View style={{ alignItems: "center", gap: spacing.md, paddingVertical: spacing.md }}>
-          <DisplayText style={styles.doTimerDisplay}>{formatTime(recordSecondsLeft)}</DisplayText>
+          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderColor: palette.line }]}>
+            <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.paper }}>{formatTime(recordSecondsLeft)}</DisplayText>
+          </View>
           <Pressable
             onPress={onToggleRecording}
             style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 128, height: 128, borderRadius: 64, backgroundColor: palette.paper, borderWidth: 4, borderColor: palette.line }]}
           >
             <Icon name="mic" size={56} color={palette.line} />
           </Pressable>
-          <MonoText style={[styles.metricLabel, { color: palette.line }]}>{doRecordHintLabel(sessionNumber, recording, recordElapsed).toUpperCase()}</MonoText>
+          <MonoText style={[styles.metricLabel, { color: palette.line, letterSpacing: 2 }]}>{doRecordHintLabel(sessionNumber, recording, recordElapsed).toUpperCase()}</MonoText>
         </View>
 
         <View style={[styles.brutalistPanel, { padding: 0, opacity: 0.4 }]}>
@@ -2013,6 +2015,18 @@ function UnifiedCommit(props: UnifiedProps) {
             </BodyText>
           </View>
         ) : null}
+
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { alignItems: "center", paddingVertical: spacing.lg }]}>
+          <MonoText style={[styles.metricLabel, { color: palette.inkMuted, marginBottom: spacing.md }]}>STRUCTURE PYRAMID (AWARENESS)</MonoText>
+          <View style={{ width: 192, height: 160, alignItems: "center", justifyContent: "flex-end" }}>
+            <View style={{ width: 48, height: 36, borderWidth: 2, borderColor: palette.lineSoft, opacity: 0.3, marginBottom: -2 }} />
+            <View style={{ width: 96, height: 36, borderWidth: 2, borderColor: palette.lineSoft, opacity: 0.4, marginBottom: -2 }} />
+            <View style={{ width: 144, height: 36, borderWidth: 2, borderColor: palette.lineSoft, opacity: 0.5, marginBottom: -2 }} />
+            <View style={{ width: 192, height: 44, backgroundColor: palette.line, opacity: 0.85, alignItems: "center", justifyContent: "center", borderWidth: 2, borderColor: palette.line }}>
+              <MonoText style={{ color: palette.peach, letterSpacing: 2, fontSize: 10 }}>GROUNDING</MonoText>
+            </View>
+          </View>
+        </View>
 
         {!reflectionDone ? (
           <SessionButton
