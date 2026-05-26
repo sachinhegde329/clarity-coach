@@ -287,9 +287,22 @@ export function CentreStep({
     const inhaleIndex = 0;
     const exhaleIndex = patternSeconds.length === 2 ? 1 : 2;
 
-    if (phaseIndex === inhaleIndex) return 0.94 + eased * 0.08;
-    if (phaseIndex === exhaleIndex) return 1.02 - eased * 0.08;
-    return 1.02;
+    if (phaseIndex === inhaleIndex) return 1.0 + eased * 0.4;
+    if (phaseIndex === exhaleIndex) return 1.4 - eased * 0.4;
+    return 1.4;
+  }, [breathing, inCycleMs, patternMs, patternSeconds.length, phaseIndex, timing.phaseMs]);
+
+  const orbOpacity = useMemo(() => {
+    if (!breathing) return 1;
+    const phaseMs = patternMs[phaseIndex] ?? timing.phaseMs;
+    const phaseProgress = getPhaseProgress({ inCycleMs, patternMs, phaseIndex }) / phaseMs;
+    const eased = easeInOutSine(phaseProgress);
+    const inhaleIndex = 0;
+    const exhaleIndex = patternSeconds.length === 2 ? 1 : 2;
+
+    if (phaseIndex === inhaleIndex) return 0.3 + eased * 0.3;
+    if (phaseIndex === exhaleIndex) return 0.6 - eased * 0.3;
+    return 0.6;
   }, [breathing, inCycleMs, patternMs, patternSeconds.length, phaseIndex, timing.phaseMs]);
 
   const exhaleDrift = useMemo(() => {
@@ -492,8 +505,8 @@ export function CentreStep({
             <DisplayText style={{ fontSize: 46, lineHeight: 50, textAlign: "center" }}>BOX BREATHING.</DisplayText>
 
             <View style={{ width: 280, height: 280, alignItems: "center", justifyContent: "center" }}>
-              <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 140, borderWidth: 6, borderColor: palette.line }} />
-              <View style={[flowStyles.brutalistPanelInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderRadius: 99 as never }]}>
+              <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 0, borderWidth: 6, borderColor: palette.line }} />
+              <View style={[flowStyles.brutalistPanelInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderRadius: 0 }]}>
                 <MonoText style={{ color: palette.line, fontSize: 18, letterSpacing: 3 }}>INHALE</MonoText>
               </View>
             </View>
@@ -556,13 +569,13 @@ export function CentreStep({
                 <View style={{ position: "absolute", left: "58%", top: 70, width: 4, height: 230, backgroundColor: palette.lineSoft, opacity: 0.4 }} />
 
                 <View style={{ position: "absolute", left: "62%", top: 82 }}>
-                  <View style={{ width: 56, height: 56, borderRadius: 28, borderWidth: 2, borderColor: palette.line, alignItems: "center", justifyContent: "center", backgroundColor: palette.paper }}>
-                    <View style={{ width: 14, height: 14, borderRadius: 7, backgroundColor: palette.line }} />
+                  <View style={{ width: 56, height: 56, borderRadius: 0, borderWidth: 2, borderColor: palette.line, alignItems: "center", justifyContent: "center", backgroundColor: palette.paper }}>
+                    <View style={{ width: 14, height: 14, borderRadius: 0, backgroundColor: palette.line }} />
                   </View>
                 </View>
-                <View style={{ position: "absolute", left: "60%", top: 120, width: 100, height: 180, borderLeftWidth: 6, borderLeftColor: palette.line, borderBottomLeftRadius: 80, transform: [{ rotate: "6deg" }] }} />
+                <View style={{ position: "absolute", left: "60%", top: 120, width: 100, height: 180, borderLeftWidth: 6, borderLeftColor: palette.line, borderBottomLeftRadius: 0, transform: [{ rotate: "6deg" }] }} />
                 <View style={{ position: "absolute", left: "50%", top: 110 }}>
-                  <View style={[flowStyles.brutalistPanelInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderRadius: 99 as never }]}>
+                  <View style={[flowStyles.brutalistPanelInk, { paddingHorizontal: spacing.lg, paddingVertical: spacing.sm, borderRadius: 0 }]}>
                     <MonoText style={{ color: palette.line, fontSize: 18, letterSpacing: 3 }}>INHALE</MonoText>
                   </View>
                 </View>
@@ -614,8 +627,9 @@ export function CentreStep({
                 </View>
               </View>
 
-              <View style={[flowStyles.brutalistPanel, flowStyles.brutalistShadowInk]}>
-                <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
+              <View style={[flowStyles.brutalistPanel, flowStyles.brutalistShadowInk, { flexDirection: "row", gap: spacing.md }]}>
+                <Icon name="info" size={20} color={palette.line} />
+                <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24, flex: 1 }}>
                   “A six-second exhale activates the vagus nerve and slows the heart by the second cycle.”
                 </BodyText>
               </View>
@@ -947,12 +961,12 @@ export function CentreStep({
                       transform: [{ scale: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [1, 1.15] }) }],
                       opacity: organicArrive,
                     }
-                  : { transform: [{ scale: orbScale }], opacity },
+                  : { transform: [{ scale: orbScale }], opacity: opacity * orbOpacity },
               ]}
             />
             <View style={flowStyles.centreBreathRingInner} />
             <View style={flowStyles.centreBreathCore}>
-              <Icon name="wave" size={48} color={palette.line} />
+              <Icon name="air" size={48} color={palette.siennaAccent} />
             </View>
           </View>
         )}
@@ -1034,10 +1048,10 @@ export function CentreStep({
                                 inputRange: [0, 1],
                                 outputRange: ["#ffdbd0", "#ffb59e"],
                               }) as unknown as string),
-                        borderTopLeftRadius: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [60, 90] }) as unknown as number,
-                        borderTopRightRadius: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [90, 60] }) as unknown as number,
-                        borderBottomLeftRadius: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [90, 60] }) as unknown as number,
-                        borderBottomRightRadius: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [60, 90] }) as unknown as number,
+                        borderTopLeftRadius: 0,
+                        borderTopRightRadius: 0,
+                        borderBottomLeftRadius: 0,
+                        borderBottomRightRadius: 0,
                         shadowOpacity: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [0.22, 0.35] }) as unknown as number,
                         shadowRadius: organicProgress.interpolate({ inputRange: [0, 1], outputRange: [18, 28] }) as unknown as number,
                       },
@@ -1249,14 +1263,14 @@ const styles = StyleSheet.create({
     height: 360,
     borderWidth: 2,
     borderColor: "#7C2D12",
-    borderRadius: 18,
+    borderRadius: 0,
     opacity: 0.1,
   },
   session2OrbHighlight: {
     position: "absolute",
     width: "92%",
     height: "92%",
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "#ff9b7b",
     opacity: 0.32,
     top: "6%",
@@ -1266,7 +1280,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "120%",
     height: "120%",
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "#5e1700",
     opacity: 0.28,
     right: "-28%",
@@ -1276,7 +1290,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "70%",
     height: "70%",
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "#ff9b7b",
     opacity: 0.55,
     top: "10%",
@@ -1288,7 +1302,7 @@ const styles = StyleSheet.create({
     left: 8,
     right: 8,
     bottom: 8,
-    borderRadius: 999,
+    borderRadius: 0,
     borderWidth: 1,
     borderColor: "rgba(253, 249, 245, 0.28)",
   },
@@ -1301,7 +1315,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(253, 249, 245, 0.92)",
     borderWidth: 2,
     borderColor: "#7C2D12",
-    borderRadius: 999,
+    borderRadius: 0,
     paddingHorizontal: 18,
     paddingVertical: 8,
   },
@@ -1318,7 +1332,7 @@ const styles = StyleSheet.create({
   },
   organicTimerPill: {
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 0,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderColor: "#7C2D12",
@@ -1343,7 +1357,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 260,
     height: 260,
-    borderRadius: 999,
+    borderRadius: 0,
     borderWidth: 2,
     borderColor: "#E7D4C4",
     opacity: 0.65,
@@ -1351,7 +1365,7 @@ const styles = StyleSheet.create({
   orb: {
     width: 180,
     height: 180,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "#EAD8CC",
     borderWidth: 2,
     borderColor: "#DCC5B1",
@@ -1360,7 +1374,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 120,
     height: 120,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: palette.paper,
     borderWidth: 2,
     borderColor: palette.lineSoft,
@@ -1443,7 +1457,7 @@ const styles = StyleSheet.create({
   vocalCore: {
     width: 96,
     height: 96,
-    borderRadius: 48,
+    borderRadius: 0,
     borderWidth: 2,
     borderColor: palette.line,
     alignItems: "center",
@@ -1465,7 +1479,7 @@ const styles = StyleSheet.create({
   pauseDot: {
     width: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: 0,
     borderWidth: 2,
     borderColor: palette.line,
     backgroundColor: palette.paper,
