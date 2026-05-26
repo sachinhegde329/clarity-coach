@@ -524,12 +524,18 @@ function UnifiedListen(props: UnifiedProps) {
       ) : null}
 
       {sessionNumber === 1 && lesson.anatomy?.length ? (
-        <View style={[styles.listenInsightCard, styles.brutalistShadowInk]}>
-          <MonoText style={styles.listenCardKicker}>WHY THIS MATTERS</MonoText>
+        <View style={[styles.listenInsightCard, styles.brutalistShadowInk, { gap: spacing.md }]}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
+            <Icon name="spark" size={20} color={palette.line} />
+            <MonoText style={styles.listenCardKicker}>GUIDE</MonoText>
+          </View>
           {lesson.anatomy.slice(0, 1).map((item) => (
-            <BodyText key={item.label} style={{ color: palette.inkMuted, lineHeight: 23 }}>
-              {item.body}
-            </BodyText>
+            <View key={item.label} style={{ gap: spacing.sm }}>
+              <DisplayText style={{ fontSize: 22, lineHeight: 28 }}>{item.label}</DisplayText>
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>
+                {item.body}
+              </BodyText>
+            </View>
           ))}
         </View>
       ) : null}
@@ -1001,6 +1007,53 @@ function UnifiedDo(props: UnifiedProps) {
         {recordElapsed >= recordLimit ? (
           <SessionButton label={doCtaLabel(sessionNumber, recordElapsed, recordLimit)} onPress={onNext} />
         ) : null}
+      </View>
+    );
+  }
+
+  if (sessionNumber === 1) {
+    return (
+      <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
+        <View style={{ alignItems: "center", gap: spacing.xs }}>
+          <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
+            This recording is your baseline.
+          </BodyText>
+        </View>
+
+        {(doContent.promptBody || doContent.promptTitle) ? (
+          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
+            <MonoText style={[styles.metricLabel, { color: palette.line, marginBottom: spacing.xs }]}>PROMPT</MonoText>
+            <BodyText style={styles.doPromptQuote}>{doContent.promptBody ?? doContent.promptTitle}</BodyText>
+          </View>
+        ) : null}
+
+        {doContent.constraint ? (
+          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
+            <MonoText style={[styles.metricLabel, { color: palette.inkMuted, marginBottom: spacing.xs }]}>CONSTRAINT</MonoText>
+            <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{doContent.constraint}</BodyText>
+          </View>
+        ) : null}
+
+        <View style={{ alignItems: "center", gap: spacing.md, paddingVertical: spacing.md }}>
+          <DisplayText style={styles.doTimerDisplay}>{formatTime(recordSecondsLeft)}</DisplayText>
+          <Pressable
+            onPress={onToggleRecording}
+            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 128, height: 128, borderRadius: 64, backgroundColor: palette.paper, borderWidth: 4, borderColor: palette.line }]}
+          >
+            <Icon name="mic" size={56} color={palette.line} />
+          </Pressable>
+          <MonoText style={[styles.metricLabel, { color: palette.line }]}>{doRecordHintLabel(sessionNumber, recording, recordElapsed).toUpperCase()}</MonoText>
+        </View>
+
+        <View style={[styles.brutalistPanel, { padding: 0, opacity: 0.4 }]}>
+          <View style={{ height: 64, flexDirection: "row", alignItems: "flex-end", gap: 1, padding: spacing.sm }}>
+            {Array.from({ length: 18 }).map((_, i) => (
+              <View key={i} style={{ flex: 1, height: 4 + ((i * 7 + 3) % 16), backgroundColor: palette.lineSoft }} />
+            ))}
+          </View>
+        </View>
+
+        <SessionButton label={doCtaLabel(sessionNumber, recordElapsed, recordLimit)} onPress={onNext} />
       </View>
     );
   }
@@ -1714,6 +1767,78 @@ function UnifiedSee(props: UnifiedProps) {
     );
   }
 
+  if (sessionNumber === 1) {
+    const filler = metrics.find((m) => /filler/i.test(m.label)) ?? metrics[0];
+    const pace = metrics.find((m) => /pace|wpm/i.test(m.label)) ?? metrics[1];
+
+    return (
+      <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
+        {headline ? <DisplayText style={styles.stageHeadline}>{headline}</DisplayText> : null}
+
+        <BodyText style={{ textAlign: "center", color: palette.inkMuted, lineHeight: 24, fontSize: 16 }}>
+          These numbers describe this ninety seconds, not a trend.
+        </BodyText>
+
+        <View style={{ flexDirection: "row", gap: spacing.md }}>
+          {filler ? (
+            <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { flex: 1, gap: spacing.xs }]}>
+              <MonoText style={styles.metricLabel}>FILLER COUNT</MonoText>
+              <View style={{ flexDirection: "row", alignItems: "baseline", gap: spacing.xs }}>
+                <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.line }}>
+                  {String(filler.value).padStart(2, "0")}
+                </DisplayText>
+                <MonoText style={[styles.metricLabel, { color: palette.inkMuted, fontSize: 10 }]}>TOTAL</MonoText>
+              </View>
+            </View>
+          ) : null}
+          {pace ? (
+            <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { flex: 1, gap: spacing.xs }]}>
+              <MonoText style={styles.metricLabel}>PACE (WPM)</MonoText>
+              <View style={{ flexDirection: "row", alignItems: "baseline", gap: spacing.xs }}>
+                <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.line }}>
+                  {pace.value}
+                </DisplayText>
+                <MonoText style={[styles.metricLabel, { color: palette.inkMuted, fontSize: 10 }]}>STABLE</MonoText>
+              </View>
+            </View>
+          ) : null}
+        </View>
+
+        <View style={{ gap: spacing.sm }}>
+          {commentary.lines[0] ? (
+            <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { borderLeftWidth: 4, borderLeftColor: palette.line, flexDirection: "row", gap: spacing.md }]}>
+              <Icon name="psychology" size={20} color={palette.line} />
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 24, flex: 1 }}>{commentary.lines[0]}</BodyText>
+            </View>
+          ) : null}
+          {commentary.lines[1] ? (
+            <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { borderLeftWidth: 4, borderLeftColor: palette.moss, flexDirection: "row", gap: spacing.md }]}>
+              <Icon name="wave" size={20} color={palette.moss} />
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 24, flex: 1 }}>{commentary.lines[1]}</BodyText>
+            </View>
+          ) : null}
+        </View>
+
+        <View style={{ gap: spacing.sm }}>
+          <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>ARGUMENT STRUCTURE</MonoText>
+          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { alignItems: "center", paddingVertical: spacing.lg }]}>
+            <View style={{ width: 48, height: 40, backgroundColor: palette.lineSoft, alignItems: "center", justifyContent: "center" }}>
+              <MonoText style={{ fontSize: 8, color: palette.paper, letterSpacing: 1 }}>CONC</MonoText>
+            </View>
+            <View style={{ width: 128, height: 40, backgroundColor: palette.line, marginTop: -2, alignItems: "center", justifyContent: "center" }}>
+              <MonoText style={{ fontSize: 8, color: palette.paper, letterSpacing: 1 }}>SUPPORT 01 & 02</MonoText>
+            </View>
+            <View style={{ width: 192, height: 40, backgroundColor: palette.line, marginTop: -2, alignItems: "center", justifyContent: "center" }}>
+              <MonoText style={{ fontSize: 8, color: palette.paper, letterSpacing: 1 }}>FOUNDATION</MonoText>
+            </View>
+          </View>
+        </View>
+
+        <SessionButton label={cta.primary} onPress={onNext} />
+      </View>
+    );
+  }
+
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
       <SessionAnalysisStatusBanner isProcessing={liveSee.isProcessing} error={liveSee.error} />
@@ -1826,9 +1951,24 @@ function UnifiedCommit(props: UnifiedProps) {
   if (sessionNumber === 1) {
     return (
       <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
+          <MonoText style={styles.listenCardKicker}>FOCUS SUMMARY</MonoText>
+          <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>
+            Session 1 focused on physiological grounding and vocal resonance. Awareness of fillers is the primary metric for the next 24 hours.
+          </BodyText>
+        </View>
+
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md }]}>
+          <MonoText style={styles.listenCardKicker}>METRIC BASELINE</MonoText>
+          <View style={{ flexDirection: "row", alignItems: "baseline", gap: spacing.xs }}>
+            <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.line }}>14</DisplayText>
+            <MonoText style={[styles.metricLabel, { color: palette.inkMuted, fontSize: 10 }]}>FILLERS / MIN</MonoText>
+          </View>
+        </View>
+
         <View style={{ gap: spacing.xs }}>
-          <MonoText style={{ color: palette.line, letterSpacing: 1 }}>REFLECTION PROMPT</MonoText>
-          <DisplayText style={{ fontSize: 34, lineHeight: 38 }}>Tomorrow I will{"\n"}notice…</DisplayText>
+          <MonoText style={{ color: palette.line, letterSpacing: 1 }}>VOICE PROMPT</MonoText>
+          <DisplayText style={{ fontSize: 34, lineHeight: 38, fontStyle: "italic" }}>Tomorrow I will{"\n"}notice…</DisplayText>
         </View>
 
         <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md, gap: spacing.lg }]}>
@@ -2127,7 +2267,13 @@ function UnifiedCommit(props: UnifiedProps) {
   if (sessionNumber === 2) {
     return (
       <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-        <Trapezoid label="GROUNDING" height={180} />
+        <View style={{ alignItems: "center", justifyContent: "flex-end", height: 200 }}>
+          <View style={{ width: 48, height: 50, borderWidth: 2, borderColor: palette.lineSoft, opacity: 0.3, alignItems: "center", justifyContent: "center" }} />
+          <View style={{ width: 96, height: 50, borderWidth: 2, borderColor: palette.lineSoft, opacity: 0.5, marginTop: -2, alignItems: "center", justifyContent: "center" }} />
+          <View style={[styles.brutalistShadowInk, { width: 192, height: 64, backgroundColor: palette.line, marginTop: -2, alignItems: "center", justifyContent: "center" }]}>
+            <MonoText style={{ color: palette.peach, letterSpacing: 2 }}>GROUNDING</MonoText>
+          </View>
+        </View>
 
         <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { padding: spacing.md, alignItems: "center" }]}>
           <MonoText style={[styles.listenCardKicker, { textAlign: "center" }]}>TRANSCRIPTION</MonoText>
