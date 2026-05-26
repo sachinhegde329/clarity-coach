@@ -930,11 +930,11 @@ export function BreatheStage({
       session={sessionContent}
       stage={stage}
       stepIndex={stepIndex}
-      onJumpToStep={(targetIndex) => (onJumpToStep ? onJumpToStep(targetIndex) : undefined)}
       breathElapsed={breathElapsed}
       isBreathRunning={isBreathRunning}
       onBack={onBack}
       onExit={onExit}
+      onJumpToStep={(targetIndex) => (onJumpToStep ? onJumpToStep(targetIndex) : undefined)}
       scrollContentStyle={useStepBody ? styles.stepBody : undefined}
     >
       <BreatheStageBody

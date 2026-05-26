@@ -196,7 +196,7 @@ export function trySprintDo(props: DoProps): React.ReactNode | null {
         <DisplayText style={{ fontSize: 40, lineHeight: 44 }}>{formatTime(recordElapsed)}</DisplayText>
         <Pressable
           onPress={onToggleRecording}
-          style={{ width: 96, height: 96, borderRadius: 48, borderWidth: 3, borderColor: palette.line, backgroundColor: recording ? palette.line : "#FDF6E3", alignItems: "center", justifyContent: "center" }}
+          style={{ width: 96, height: 96, borderRadius: 0, borderWidth: 3, borderColor: palette.line, backgroundColor: recording ? palette.line : "#FDF6E3", alignItems: "center", justifyContent: "center" }}
         >
           <Icon name="mic" size={40} color={recording ? palette.paper : palette.line} />
         </Pressable>
@@ -281,7 +281,7 @@ export function trySprintCommit(props: CommitProps): React.ReactNode | null {
       <View style={{ alignItems: "center", gap: spacing.md }}>
         <Pressable
           onPress={onToggleReflection}
-          style={{ width: 110, height: 110, borderRadius: 55, borderWidth: 3, borderColor: palette.line, alignItems: "center", justifyContent: "center", backgroundColor: "#FDF6E3" }}
+          style={{ width: 110, height: 110, borderRadius: 0, borderWidth: 3, borderColor: palette.line, alignItems: "center", justifyContent: "center", backgroundColor: "#FDF6E3" }}
         >
           <Icon name="mic" size={44} color={palette.line} />
         </Pressable>

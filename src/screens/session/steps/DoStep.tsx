@@ -139,7 +139,7 @@ export function DoStep({
           <MonoText style={{ opacity: recording ? 1 : 0 }}>FILLER DETECTED</MonoText>
           <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 6, height: 64 }}>
             {bars.slice(0, 7).map((height, index) => (
-              <View key={index} style={{ width: 10, height: height + 12, backgroundColor: palette.line, borderRadius: 999 }} />
+              <View key={index} style={{ width: 10, height: height + 12, backgroundColor: palette.line, borderRadius: 0 }} />
             ))}
           </View>
           <Pressable onPress={onToggleRecording} style={[styles.recordButtonCore, { width: 112, height: 112 }]}>
@@ -305,7 +305,7 @@ export function DoStep({
         </View>
 
         <Panel style={{ alignItems: "center", gap: spacing.md, paddingVertical: spacing.xl }}>
-          <View style={{ width: 210, height: 210, borderRadius: 999, borderWidth: 8, borderColor: palette.line, borderLeftColor: "#EEE9E3", borderBottomColor: "#EEE9E3", justifyContent: "center", alignItems: "center" }}>
+          <View style={{ width: 210, height: 210, borderRadius: 0, borderWidth: 8, borderColor: palette.line, borderLeftColor: "#EEE9E3", borderBottomColor: "#EEE9E3", justifyContent: "center", alignItems: "center" }}>
             <View style={{ flexDirection: "row", gap: spacing.sm }}>
               {[0, 1, 2].map((index) => (
                 <View key={index} style={{ width: 16, height: 16, borderWidth: 2, borderColor: palette.line, backgroundColor: index < 2 ? palette.line : palette.paper }} />
@@ -416,14 +416,14 @@ export function DoStep({
 
         {content.preRecordMeta ? (
           <View style={{ flexDirection: "row", gap: spacing.sm, alignItems: "center", marginTop: spacing.md }}>
-            <View style={{ width: 8, height: 8, borderRadius: 99, backgroundColor: palette.line }} />
+            <View style={{ width: 8, height: 8, borderRadius: 0, backgroundColor: palette.line }} />
             <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>METADATA: THIS SESSION USES A HARD-CAP TIMER.</MonoText>
           </View>
         ) : null}
 
         <View style={{ alignItems: "center", paddingVertical: spacing.xl }}>
-          <Pressable onPress={onToggleRecording} style={{ width: 220, height: 220, borderRadius: 999, borderWidth: 10, borderColor: "#E5D6CA", alignItems: "center", justifyContent: "center" }}>
-            <View style={{ width: 180, height: 180, borderRadius: 999, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
+          <Pressable onPress={onToggleRecording} style={{ width: 220, height: 220, borderRadius: 0, borderWidth: 10, borderColor: "#E5D6CA", alignItems: "center", justifyContent: "center" }}>
+            <View style={{ width: 180, height: 180, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center" }}>
               <Icon name="mic" size={54} color={palette.paper} />
             </View>
           </Pressable>
@@ -457,9 +457,9 @@ export function DoStep({
         </View>
 
         <View style={{ alignItems: "center", paddingVertical: spacing.lg }}>
-          <View style={{ width: 140, height: 140, borderRadius: 999, borderWidth: 3, borderColor: palette.lineSoft, alignItems: "center", justifyContent: "center" }}>
-            <View style={{ width: 110, height: 110, borderRadius: 999, borderWidth: 2, borderColor: palette.lineSoft, alignItems: "center", justifyContent: "center" }}>
-              <Pressable onPress={onNext} style={{ width: 86, height: 86, borderRadius: 43, borderWidth: 3, borderColor: palette.black, alignItems: "center", justifyContent: "center" }}>
+          <View style={{ width: 140, height: 140, borderRadius: 0, borderWidth: 3, borderColor: palette.lineSoft, alignItems: "center", justifyContent: "center" }}>
+            <View style={{ width: 110, height: 110, borderRadius: 0, borderWidth: 2, borderColor: palette.lineSoft, alignItems: "center", justifyContent: "center" }}>
+              <Pressable onPress={onNext} style={{ width: 86, height: 86, borderRadius: 0, borderWidth: 3, borderColor: palette.black, alignItems: "center", justifyContent: "center" }}>
                 <MonoText style={{ fontSize: 28 }}>▶</MonoText>
               </Pressable>
             </View>
@@ -508,14 +508,14 @@ export function DoStep({
 
         <Panel tone="soft" style={{ alignItems: "center", gap: spacing.lg, paddingVertical: spacing.xl }}>
           <View style={{ width: 280, height: 280, alignItems: "center", justifyContent: "center" }}>
-            <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 140, borderWidth: 2, borderColor: palette.lineSoft }} />
-            <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 140, borderWidth: 2, borderColor: palette.line, opacity: 0.35 }} />
+            <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 0, borderWidth: 2, borderColor: palette.lineSoft }} />
+            <View style={{ position: "absolute", width: 280, height: 280, borderRadius: 0, borderWidth: 2, borderColor: palette.line, opacity: 0.35 }} />
             <Pressable
               onPress={onToggleRecording}
               style={{
                 width: 176,
                 height: 176,
-                borderRadius: 88,
+                borderRadius: 0,
                 backgroundColor: palette.line,
                 alignItems: "center",
                 justifyContent: "center",
@@ -576,7 +576,7 @@ export function DoStep({
               <Icon name="clock" size={16} color={palette.line} />
               <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>{formatTime(timeLeftSeconds)}</DisplayText>
             </View>
-            <Pressable onPress={onToggleRecording} style={[styles.recordButtonCore, { width: 132, height: 132, borderRadius: 66 }]}>
+            <Pressable onPress={onToggleRecording} style={[styles.recordButtonCore, { width: 132, height: 132, borderRadius: 0 }]}>
               <Icon name="mic" size={54} color={palette.paper} />
             </Pressable>
             <BodyText style={{ color: palette.inkMuted, textAlign: "center" }}>
@@ -612,7 +612,7 @@ export function DoStep({
               </View>
             </View>
 
-            <Pressable onPress={onToggleRecording} style={[styles.recordButtonCore, { width: 72, height: 72, borderRadius: 36 }]}>
+            <Pressable onPress={onToggleRecording} style={[styles.recordButtonCore, { width: 72, height: 72, borderRadius: 0 }]}>
               <Icon name="mic" size={34} color={palette.paper} />
             </Pressable>
             <MonoText style={{ color: palette.line, letterSpacing: 2 }}>{recording ? "RECORDING" : "TAP TO RECORD"}</MonoText>

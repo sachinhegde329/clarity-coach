@@ -422,7 +422,7 @@ export function ListenStep({
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { padding: 0, overflow: "hidden" }]}>
           <View style={{ paddingHorizontal: spacing.lg, paddingVertical: spacing.md, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <MonoText style={{ color: palette.line, letterSpacing: 2 }}>{`${elapsedLabel} / ${audioTotal}`}</MonoText>
-            <Pressable onPress={onTogglePlay} style={[styles.audioActionButton, { width: 56, height: 56, borderRadius: 28, backgroundColor: palette.line }]}>
+            <Pressable onPress={onTogglePlay} style={[styles.audioActionButton, { width: 56, height: 56, borderRadius: 0, backgroundColor: palette.line }]}>
               <MonoText style={[styles.audioActionLabel, { color: palette.paper }]}>{listenPlaying ? "II" : "▶"}</MonoText>
             </Pressable>
           </View>
@@ -444,19 +444,19 @@ export function ListenStep({
 
           <View style={{ gap: 10 }}>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
-              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 6 }}>
+              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 0 }}>
                 <MonoText style={{ color: "#7A1C1C" }}>Throat-clearers</MonoText>
               </View>
               <BodyText style={{ color: palette.inkMuted }}>— basically, essentially, sort of, kind of.</BodyText>
             </View>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
-              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 6 }}>
+              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 0 }}>
                 <MonoText style={{ color: "#7A1C1C" }}>Hedges</MonoText>
               </View>
               <BodyText style={{ color: palette.inkMuted }}>— I think maybe, it might be that.</BodyText>
             </View>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
-              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 6 }}>
+              <View style={{ backgroundColor: "#F1C7C7", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 0 }}>
                 <MonoText style={{ color: "#7A1C1C" }}>Padding</MonoText>
               </View>
               <BodyText style={{ color: palette.inkMuted }}>— at the end of the day, at this point in time.</BodyText>
@@ -634,7 +634,7 @@ export function ListenStep({
             <MonoText style={{ color: palette.inkMuted }}>00:00</MonoText>
             <MonoText style={{ color: palette.inkMuted }}>{content.audioDuration ?? "01:30"}</MonoText>
           </View>
-          <Pressable onPress={onTogglePlay} style={[styles.audioActionButton, { width: 72, height: 72, borderRadius: 36, backgroundColor: palette.line, alignSelf: "center" }]}>
+          <Pressable onPress={onTogglePlay} style={[styles.audioActionButton, { width: 72, height: 72, borderRadius: 0, backgroundColor: palette.line, alignSelf: "center" }]}>
             <MonoText style={[styles.audioActionLabel, { color: palette.paper }]}>{listenPlaying ? "II" : "▶"}</MonoText>
           </Pressable>
           <EditorialWaveform bars={waveformBars.concat(waveformBars).slice(0, 26)} height={86} light />
@@ -905,7 +905,7 @@ const sessionOneStyles = StyleSheet.create({
     position: "absolute",
     width: 12,
     height: 12,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: palette.line,
     marginLeft: -6,
     top: -4,
@@ -960,7 +960,7 @@ const sessionOneStyles = StyleSheet.create({
   bullet: {
     width: 6,
     height: 6,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: palette.line,
     marginTop: 9,
   },

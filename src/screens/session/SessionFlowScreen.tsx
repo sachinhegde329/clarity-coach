@@ -86,7 +86,7 @@ export function SessionFlowScreen({
   sessionNumber: number;
   stage: SessionStage;
   stepIndex: number;
-  onJumpToStep?: (stepIndex: number) => void;
+  onJumpToStep: (stepIndex: number) => void;
   onBack: () => void;
   onNext: () => void;
   onExit: () => void;

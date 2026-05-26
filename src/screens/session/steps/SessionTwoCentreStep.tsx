@@ -13,17 +13,17 @@ const ORB_SIZE = 256;
 type BreathPhase = "inhale" | "exhale";
 
 const RADIUS_REST = {
-  borderTopLeftRadius: 102,
-  borderTopRightRadius: 154,
-  borderBottomRightRadius: 179,
-  borderBottomLeftRadius: 77,
+  borderTopLeftRadius: 0,
+  borderTopRightRadius: 0,
+  borderBottomRightRadius: 0,
+  borderBottomLeftRadius: 0,
 };
 
 const RADIUS_PEAK = {
-  borderTopLeftRadius: 154,
-  borderTopRightRadius: 102,
-  borderBottomRightRadius: 77,
-  borderBottomLeftRadius: 179,
+  borderTopLeftRadius: 0,
+  borderTopRightRadius: 0,
+  borderBottomRightRadius: 0,
+  borderBottomLeftRadius: 0,
 };
 
 export function SessionTwoCentreStep({
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   ghostFrame: {
     ...StyleSheet.absoluteFillObject,
     borderWidth: 2,
-    borderRadius: 12,
+    borderRadius: 0,
     borderColor: palette.line,
     opacity: 0.1,
   },
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: ORB_SIZE * 0.55,
     height: ORB_SIZE * 0.55,
-    borderRadius: ORB_SIZE,
+    borderRadius: 0,
     backgroundColor: "#ff9b7b",
     top: ORB_SIZE * 0.08,
     left: ORB_SIZE * 0.12,
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     right: 16,
     bottom: 16,
     left: 16,
-    borderRadius: 999,
+    borderRadius: 0,
     borderWidth: 1,
     borderColor: "rgba(253, 249, 245, 0.35)",
   },
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(253, 249, 245, 0.92)",
     borderWidth: 2,
     borderColor: palette.line,
-    borderRadius: 999,
+    borderRadius: 0,
     paddingHorizontal: 24,
     paddingVertical: 8,
     shadowColor: "#000",
@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
   timerPill: {
     borderWidth: 2,
     borderColor: palette.line,
-    borderRadius: 4,
+    borderRadius: 0,
     paddingHorizontal: 8,
     paddingVertical: 4,
   },

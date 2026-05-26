@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   orbCore: {
     width: 12,
     height: 12,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: palette.paper,
     opacity: 0.35,
   },

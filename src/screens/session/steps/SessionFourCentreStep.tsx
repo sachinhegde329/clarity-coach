@@ -50,7 +50,7 @@ function CheckIcon({ color, size = 20 }: { color: string; size?: number }) {
           height: size * 0.12,
           backgroundColor: color,
           transform: [{ rotate: "-45deg" }, { translateX: -size * 0.08 }, { translateY: size * 0.06 }],
-          borderRadius: 2,
+          borderRadius: 0,
         }}
       />
       <View
@@ -60,7 +60,7 @@ function CheckIcon({ color, size = 20 }: { color: string; size?: number }) {
           height: size * 0.12,
           backgroundColor: color,
           transform: [{ rotate: "45deg" }, { translateX: size * 0.1 }, { translateY: size * 0.14 }],
-          borderRadius: 2,
+          borderRadius: 0,
         }}
       />
     </View>
@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: ORB_SIZE,
     height: ORB_SIZE,
-    borderRadius: ORB_SIZE / 2,
+    borderRadius: 0,
   },
   auraLayer1: {
     backgroundColor: "rgba(124, 45, 18, 0.2)",
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
   orb: {
     width: ORB_SIZE,
     height: ORB_SIZE,
-    borderRadius: ORB_SIZE / 2,
+    borderRadius: 0,
     borderWidth: 2,
     borderColor: PRIMARY,
     backgroundColor: PRIMARY,
@@ -453,7 +453,7 @@ const styles = StyleSheet.create({
   },
   waveformIconBar: {
     width: 2.5,
-    borderRadius: 2,
+    borderRadius: 0,
   },
   metricCard: {
     zIndex: 40,
@@ -461,7 +461,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderWidth: 2,
     borderColor: PRIMARY,
-    borderRadius: 8,
+    borderRadius: 0,
     backgroundColor: "rgba(253, 249, 245, 0.1)",
     alignItems: "center",
   },
@@ -491,14 +491,14 @@ const styles = StyleSheet.create({
     marginTop: 4,
     width: 64,
     height: 4,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: "rgba(253, 249, 245, 0.2)",
     overflow: "hidden",
   },
   meterFill: {
     height: "100%",
     backgroundColor: PARCHMENT,
-    borderRadius: 999,
+    borderRadius: 0,
   },
   particleLayer: {
     ...StyleSheet.absoluteFillObject,
@@ -507,7 +507,7 @@ const styles = StyleSheet.create({
   },
   particle: {
     position: "absolute",
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: PARCHMENT,
     marginLeft: -1,
     marginTop: -1,
@@ -522,7 +522,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 2,
     borderColor: PRIMARY,
-    borderRadius: 8,
+    borderRadius: 0,
     backgroundColor: PARCHMENT,
     alignItems: "center",
     justifyContent: "center",
@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
   blockCheckCircle: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 0,
     borderWidth: 2,
     borderColor: "rgba(124, 45, 18, 0.3)",
     alignItems: "center",
@@ -573,7 +573,7 @@ const styles = StyleSheet.create({
   },
   waveBar: {
     width: 2,
-    borderRadius: 999,
+    borderRadius: 0,
     backgroundColor: PRIMARY,
   },
   footer: {
@@ -593,6 +593,6 @@ const styles = StyleSheet.create({
     width: 24,
     height: 3,
     backgroundColor: "rgba(124, 45, 18, 0.4)",
-    borderRadius: 2,
+    borderRadius: 0,
   },
 });

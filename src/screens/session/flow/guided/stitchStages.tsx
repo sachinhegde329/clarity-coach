@@ -270,7 +270,7 @@ function StitchDoSession36(props: StitchStageProps) {
         {recording || captured ? (
           <View style={{ alignItems: "center", gap: spacing.sm }}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
-              <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: captured ? palette.moss : palette.peach }} />
+              <View style={{ width: 10, height: 10, borderRadius: 0, backgroundColor: captured ? palette.moss : palette.peach }} />
               <MonoText style={{ color: captured ? palette.moss : palette.peach, letterSpacing: 2, fontSize: 11 }}>
                 {captured ? "CAPTURED" : "RECORDING"}
               </MonoText>
@@ -287,7 +287,7 @@ function StitchDoSession36(props: StitchStageProps) {
             {
               width: 96,
               height: 96,
-              borderRadius: 48,
+              borderRadius: 0,
               backgroundColor: palette.paper,
               borderWidth: 2,
               borderColor: recording ? palette.peach : palette.line,
@@ -441,9 +441,9 @@ export function StitchUnifiedDo(props: StitchStageProps) {
         <DisplayText style={styles.doTimerDisplay}>{formatTime(recordElapsed)}</DisplayText>
         <Pressable
           onPress={onToggleRecording}
-          style={[styles.doRecordButton, styles.brutalistShadowInk, { alignSelf: "center", width: 96, height: 96, borderRadius: 48, backgroundColor: recording ? palette.line : palette.paper, borderWidth: 3, borderColor: palette.line }]}
+          style={[styles.doRecordButton, styles.brutalistShadowInk, { alignSelf: "center", width: 96, height: 96, borderRadius: 0, backgroundColor: recording ? palette.line : palette.paper, borderWidth: 3, borderColor: palette.line }]}
         >
-          <View style={{ width: 24, height: 24, backgroundColor: palette.paper, borderRadius: 4 }} />
+          <View style={{ width: 24, height: 24, backgroundColor: palette.paper, borderRadius: 0 }} />
         </Pressable>
         <MonoText style={{ textAlign: "center", color: palette.inkMuted, letterSpacing: 1 }}>RECORDING LIVE</MonoText>
         <SessionButton label="END & ANALYZE" onPress={onNext} />
@@ -494,7 +494,7 @@ export function StitchUnifiedDo(props: StitchStageProps) {
         </MonoText>
         <Pressable
           onPress={onToggleRecording}
-          style={[styles.doRecordButton, styles.brutalistShadowInk, { alignSelf: "center", width: 56, height: 56, borderRadius: 28, backgroundColor: palette.black }]}
+          style={[styles.doRecordButton, styles.brutalistShadowInk, { alignSelf: "center", width: 56, height: 56, borderRadius: 0, backgroundColor: palette.black }]}
         >
           <MonoText style={{ color: palette.paper }}>{recording ? "■" : "●"}</MonoText>
         </Pressable>
@@ -531,7 +531,7 @@ export function StitchUnifiedDo(props: StitchStageProps) {
           <DisplayText style={styles.doTimerDisplay}>{formatTime(recordElapsed)}</DisplayText>
           <Pressable
             onPress={onToggleRecording}
-            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 88, height: 88, borderRadius: 44, backgroundColor: recording ? palette.line : "#FDF6E3" }]}
+            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 88, height: 88, borderRadius: 0, backgroundColor: recording ? palette.line : "#FDF6E3" }]}
           >
             <Icon name="mic" size={40} color={recording ? palette.paper : palette.line} />
           </Pressable>
@@ -562,7 +562,7 @@ export function StitchUnifiedDo(props: StitchStageProps) {
         <View style={{ alignItems: "center", gap: spacing.md }}>
           <Pressable
             onPress={onToggleRecording}
-            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 88, height: 88, borderRadius: 44, backgroundColor: recording ? palette.line : "#FDF6E3" }]}
+            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 88, height: 88, borderRadius: 0, backgroundColor: recording ? palette.line : "#FDF6E3" }]}
           >
             <Icon name="mic" size={40} color={recording ? palette.paper : palette.line} />
           </Pressable>
@@ -626,7 +626,7 @@ export function StitchUnifiedDo(props: StitchStageProps) {
             {
               width: recordSize,
               height: recordSize,
-              borderRadius: recordRadius,
+              borderRadius: 0,
               backgroundColor: recording ? palette.line : "#FDF6E3",
             },
           ]}
@@ -869,7 +869,7 @@ export function StitchUnifiedCommit(props: StitchStageProps) {
         <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { padding: spacing.lg, gap: spacing.md, alignItems: "center" }]}>
           <Pressable
             onPress={onToggleReflection}
-            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 48, backgroundColor: palette.paper }]}
+            style={[styles.doRecordButton, styles.brutalistShadowInk, { width: 96, height: 96, borderRadius: 0, backgroundColor: palette.paper }]}
           >
             <Icon name="mic" size={40} color={palette.line} />
           </Pressable>
@@ -927,7 +927,7 @@ export function StitchUnifiedCommit(props: StitchStageProps) {
             {
               width: 120,
               height: 120,
-              borderRadius: 60,
+              borderRadius: 0,
               backgroundColor: palette.paper,
               borderWidth: 3,
               borderColor: palette.line,
