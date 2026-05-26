@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary-container": "#6b6357",
+                        "surface-tint": "#9b4427",
+                        "surface-container-highest": "#e5e2de",
+                        "secondary-container": "#ede1d2",
+                        "on-surface-variant": "#55423d",
+                        "tertiary": "#00334f",
+                        "on-primary-container": "#ff9b7b",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "outline-variant": "#dcc1b9",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-dim": "#ddd9d6",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "primary-container": "#7c2d12",
+                        "surface": "#fdf9f5",
+                        "surface-container-high": "#ebe7e4",
+                        "primary": "#5e1700",
+                        "on-background": "#1c1c19",
+                        "surface-variant": "#e5e2de",
+                        "outline": "#89726c",
+                        "on-tertiary-fixed": "#001e30",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container": "#f1ede9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ede1d2",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "tertiary-container": "#004b71",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "secondary": "#655d52",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fdf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "margin": "32px",
+                        "base": "4px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Space Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "numbers": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .brutal-border { border: 2px solid #5e1700; }
+        .brutal-shadow { box-shadow: 4px 4px 0px 0px #5e1700; }
+        .brutal-shadow-hover:hover { 
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #fdf9f5; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-4 h-16 bg-surface dark:bg-surface-container fixed top-0 z-50 border-b-2 border-primary dark:border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md-mobile uppercase tracking-tighter text-primary dark:text-primary-fixed-dim">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 brutal-border overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, high-fashion portrait of a person with a neutral, confident expression against a warm terracotta background. The lighting is crisp and directional, emphasizing architectural facial features and creating deep, clean shadows. The aesthetic is sophisticated and editorial, reflecting a modern light-mode interface with a palette of rich cream and earthy sienna." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGSa1jsXvPpYK7uubu3W7vr83lKC9iFAytb_Wf8P8rQoDns_ER-qoH_ej_4bahfn_fvvNxUuRW21nQEV32N4QPDQ9U9wsrJpT-8zTrZyyVO9X8OHukN6F_y7I5u_cGRU5gkXpx9hu2R4XLz3IuppbkoWGe4djsFQPE0LIyJ8feywqXzn21qXfz_aQJnrw_Ozm5GSAmik28f2s1gVpFZnImkgCmIc2dtzFs8e320JfKHuMXgkDKSrepSGezoEZjHg26FSqHAlBCFDQP"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-gutter max-w-7xl mx-auto">
+<!-- Progress Stepper -->
+<div class="flex justify-between items-center mb-lg">
+<div class="flex gap-xs items-center">
+<span class="font-label-md text-label-md bg-primary text-on-primary px-2 py-1">STEP 04/05</span>
+<span class="font-label-md text-label-md text-primary tracking-widest">SEE</span>
+</div>
+<div class="flex gap-2">
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-primary"></div>
+<div class="h-1 w-8 bg-outline-variant"></div>
+</div>
+</div>
+<!-- Session Title Section -->
+<section class="mb-lg">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-none uppercase mb-sm">
+                WHERE YOU <br/>TRAIL OFF
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l-4 border-primary pl-4">
+                Session 5 Analysis: Examining vocal presence and structural authority during high-pressure communication intervals.
+            </p>
+</section>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-lg">
+<!-- Pace Metric -->
+<div class="brutal-border p-md flex flex-col justify-between bg-surface-container-low transition-all duration-150 brutal-shadow-hover cursor-default">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase mb-md">PACE</span>
+<div class="flex items-baseline gap-2">
+<span class="font-numbers text-7xl text-primary">142</span>
+<span class="font-label-sm text-label-sm text-primary">WPM</span>
+</div>
+<div class="mt-md h-2 bg-outline-variant relative">
+<div class="absolute left-0 top-0 h-full bg-primary" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Inflection Rate (Featured Center) -->
+<div class="brutal-border p-md flex flex-col justify-between bg-secondary-container brutal-shadow transition-all duration-150 transform -translate-y-2">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary font-bold uppercase mb-md">INFLECTION RATE</span>
+<span class="material-symbols-outlined text-primary" data-icon="trending_up" data-weight="fill" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-numbers text-8xl text-primary">78</span>
+<span class="font-label-md text-label-md text-primary font-bold">%</span>
+</div>
+<div class="mt-md bg-primary text-on-primary font-label-sm text-label-sm px-2 py-1 self-start">
+                    OPTIMAL ZONE
+                </div>
+</div>
+<!-- Fillers Metric -->
+<div class="brutal-border p-md flex flex-col justify-between bg-surface-container-low transition-all duration-150 brutal-shadow-hover cursor-default">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase mb-md">FILLERS</span>
+<div class="flex items-baseline gap-2">
+<span class="font-numbers text-7xl text-primary">2</span>
+<span class="font-label-sm text-label-sm text-primary">TOTAL</span>
+</div>
+<div class="flex gap-1 mt-md">
+<div class="h-6 w-2 bg-primary"></div>
+<div class="h-6 w-2 bg-primary"></div>
+<div class="h-6 w-2 bg-outline-variant"></div>
+<div class="h-6 w-2 bg-outline-variant"></div>
+<div class="h-6 w-2 bg-outline-variant"></div>
+</div>
+</div>
+</section>
+<!-- Commentary Block -->
+<section class="brutal-border p-lg bg-surface-container-high relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="format_quote">format_quote</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-primary uppercase mb-sm">ANALYST COMMENTARY</h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed max-w-3xl">
+                    "You maintained a strong downward inflection on 78% of your sentences. This signals high authority even under pressure."
+                </p>
+<div class="mt-lg flex items-center gap-sm">
+<div class="w-12 h-12 brutal-border bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">AI SPEECH LEAD</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CLARITY ENGINE V4.2</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Visual Analysis Section -->
+<section class="mt-lg grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="brutal-border h-[400px] bg-secondary-fixed overflow-hidden relative">
+<img alt="Inflection analysis graph" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A clean, scientific data visualization graph displaying sharp peaks and valleys in a rich terracotta red against a cream background. The lines are thick and geometric, eschewing curves for brutalist hard angles. The lighting is flat and even, suggesting a high-quality print on textured architectural paper, maintaining a rigorous, intellectual aesthetic for an advanced communication analysis tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ4ZxMR_4dPB6HmgyY0tMGTYit2Bm2M86E2ZFl3oU0__y7PjQ9nneXPZ1FKhuqajQ7DWl0FcohxEqPtRZBKZPo2iwJAcwoIMuFS1VYYXue3QkIxinPqC2VqjnAo0-LetTqPE2g8Ty3o039vK_ErLK0TvDpGtlU0vdOR6PnVisJoy5Wum2NRgWuZUeoDCKKUMvIwv5c0BHEPyQlEmE9TvulVWWjP-Yqvnqagb6OLUbnx8opj35QEX3PIa_KheUSEtQHmXofoneg-21U"/>
+<div class="absolute inset-0 p-md flex flex-col justify-end">
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-1 self-start mb-2 uppercase">Vocal signature</span>
+<h4 class="font-headline-md text-headline-md text-primary bg-background p-2 inline-block brutal-border">SESSION FREQUENCY</h4>
+</div>
+</div>
+<div class="space-y-md">
+<div class="p-md brutal-border bg-white brutal-shadow-hover transition-all">
+<p class="font-label-md text-label-md text-primary mb-2">01. COMMANDING PRESENCE</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Your tone remains consistent during technical explanations, avoiding the 'up-talk' that often undermines expertise.</p>
+</div>
+<div class="p-md brutal-border bg-white brutal-shadow-hover transition-all">
+<p class="font-label-md text-label-md text-primary mb-2">02. STABILIZED RHYTHM</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Pace variance decreased by 12% compared to Session 4, indicating improved breath control.</p>
+</div>
+<button class="w-full h-16 brutal-border bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest brutal-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform active:scale-95 duration-75">
+                    GENERATE FULL REPORT
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center bg-surface dark:bg-surface-container-low border-t-2 border-primary dark:border-outline-variant z-50">
+<a class="flex flex-col items-center justify-center text-primary dark:text-outline h-full w-full hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-outline h-full w-full hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container h-full w-full transition-all translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-outline h-full w-full hover:bg-secondary-container dark:hover:bg-on-tertiary-fixed-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for metric hovering
+        document.querySelectorAll('.brutal-shadow-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for haptic-like sounds or more complex animations
+            });
+        });
+    </script>
+</body></html>

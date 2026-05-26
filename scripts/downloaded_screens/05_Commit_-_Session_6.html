@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary": "#655d52",
+                        "inverse-surface": "#31302e",
+                        "surface-dim": "#ddd9d6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-secondary-container": "#6b6357",
+                        "inverse-on-surface": "#f4f0ec",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-low": "#f7f3ef",
+                        "primary-fixed": "#ffdbd0",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "primary-container": "#7c2d12",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2de",
+                        "primary": "#5e1700",
+                        "on-surface": "#1c1c19",
+                        "tertiary-container": "#004b71",
+                        "primary-fixed-dim": "#ffb59e",
+                        "tertiary-fixed": "#cbe6ff",
+                        "inverse-primary": "#ffb59e",
+                        "outline": "#89726c",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "tertiary": "#00334f",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-fixed": "#ede1d2",
+                        "on-background": "#1c1c19",
+                        "on-surface-variant": "#55423d",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ede1d2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "margin": "32px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .mic-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 23, 0, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(94, 23, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(94, 23, 0, 0); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<header class="flex justify-between items-center px-margin py-4 w-full z-50 border-b-2 border-primary bg-surface sticky top-0">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a person with a serene expression, captured in high-key soft lighting that emphasizes a clean and modern aesthetic. The background is a minimalist studio setting with warm cream tones, perfectly complementing the brutalist UI palette. The lighting is soft and even, creating a sense of clarity and focus appropriate for a coaching application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEtl4kiI_iDprWw8jCZoNCJNdTLVmzCVcLAvDWIL-i90Urh0eNhUWVUVMaRYOfLbGyU03VX7Tvj9K09jVYzGzAmPFSl0QTohMMnxm-aWbL2EXQdAGxzwqcBs93P6997kBbcpoRZtISkdMPm38EGpHY_fjsPrc-L4G5eK9PEyUzqbryJdugiyQGPUtmAgIGK7GOJ1ypcdXkWofVpwSXMzAKgWYKMMyJ7AyB15L6FNZHH91nav8YEobzwDgCAIm59Cp380keg5wkDILE"/>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-lg max-w-4xl mx-auto w-full">
+<!-- Content Container -->
+<div class="w-full border-2 border-primary p-gutter bg-surface-container-low mb-lg">
+<div class="flex flex-col gap-base mb-lg">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest border-b-2 border-primary pb-2 inline-block self-start">Final Reflection</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase leading-none">05 Commit</h2>
+</div>
+<!-- Interaction Zone -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 flex flex-col gap-sm">
+<p class="font-body-lg text-body-lg text-on-surface-variant font-medium">
+                        What is the one habit I most want to break?
+                    </p>
+<div class="p-4 border-2 border-primary bg-surface font-label-md text-label-md text-primary inline-flex items-center gap-xs">
+<span class="material-symbols-outlined text-base">timer</span>
+                        Free response (30 seconds)
+                    </div>
+</div>
+<!-- Voice Reflection UI -->
+<div class="md:col-span-5 flex flex-col items-center justify-center py-lg">
+<div class="relative group">
+<button class="w-24 h-24 md:w-32 md:h-32 bg-primary text-surface border-2 border-primary flex items-center justify-center transition-all duration-300 hard-shadow-hover" id="mic-button">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<div class="hidden absolute -inset-4 border-2 border-primary opacity-20 pointer-events-none mic-pulse" id="visualizer"></div>
+</div>
+<p class="mt-sm font-label-md text-label-md text-primary text-center">TAP TO REFLECT</p>
+</div>
+</div>
+</div>
+<!-- Asymmetric Layout Secondary Section -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-gutter mb-xl">
+<div class="border-2 border-primary p-md bg-secondary-container">
+<h3 class="font-label-md text-label-md text-primary mb-base uppercase">Sprint Summary</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">
+                    You have completed 6 sessions over the last 5 days. Your focus has consistently been on digital minimalism and focus architecture.
+                </p>
+</div>
+<div class="border-2 border-primary p-md bg-tertiary-container text-on-tertiary-container flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl">emoji_events</span>
+<span class="font-label-sm text-label-sm border border-on-tertiary-container px-2 py-1">SPRINT 1</span>
+</div>
+<p class="font-headline-md text-headline-md leading-tight mt-sm">You're 88% through your clarity journey.</p>
+</div>
+</div>
+<!-- CTA Anchor -->
+<div class="w-full mt-auto">
+<button class="w-full bg-primary text-surface border-2 border-primary py-4 font-label-md text-label-md uppercase tracking-widest transition-all hard-shadow active:translate-x-1 active:translate-y-1 active:shadow-none">
+                Complete Sprint 1
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile bg-surface border-t-2 border-primary h-20">
+<a class="flex flex-col items-center justify-center text-primary pt-2 border-t-4 border-primary h-full px-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary pt-2 h-full px-4 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary pt-2 h-full px-4 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary pt-2 h-full px-4 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">PROFILE</span>
+</a>
+</nav>
+<!-- Space for Bottom Nav -->
+<div class="h-24"></div>
+<script>
+        const micBtn = document.getElementById('mic-button');
+        const visualizer = document.getElementById('visualizer');
+        const micIcon = micBtn.querySelector('.material-symbols-outlined');
+        let isRecording = false;
+
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            if (isRecording) {
+                visualizer.classList.remove('hidden');
+                micBtn.classList.add('bg-error', 'border-error');
+                micBtn.classList.remove('bg-primary', 'border-primary');
+                micIcon.innerText = 'stop';
+                // Atmospheric visual feedback
+                micBtn.parentElement.style.transform = 'scale(1.1)';
+            } else {
+                visualizer.classList.add('hidden');
+                micBtn.classList.add('bg-primary', 'border-primary');
+                micBtn.classList.remove('bg-error', 'border-error');
+                micIcon.innerText = 'mic';
+                micBtn.parentElement.style.transform = 'scale(1)';
+            }
+        });
+
+        // Subtle hover interaction for containers
+        document.querySelectorAll('.border-2').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if(!card.classList.contains('bg-primary')) {
+                    card.style.transition = 'all 0.2s ease';
+                }
+            });
+        });
+    </script>
+</body></html>

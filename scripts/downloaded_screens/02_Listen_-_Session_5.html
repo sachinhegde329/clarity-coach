@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary-container": "#6b6357",
+                        "surface-tint": "#9b4427",
+                        "surface-container-highest": "#e5e2de",
+                        "secondary-container": "#ede1d2",
+                        "on-surface-variant": "#55423d",
+                        "tertiary": "#00334f",
+                        "on-primary-container": "#ff9b7b",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "outline-variant": "#dcc1b9",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-dim": "#ddd9d6",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "primary-container": "#7c2d12",
+                        "surface": "#fdf9f5",
+                        "surface-container-high": "#ebe7e4",
+                        "primary": "#5e1700",
+                        "on-background": "#1c1c19",
+                        "surface-variant": "#e5e2de",
+                        "outline": "#89726c",
+                        "on-tertiary-fixed": "#001e30",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container": "#f1ede9",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ede1d2",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "tertiary-container": "#004b71",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "secondary": "#655d52",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fdf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "margin": "32px",
+                        "base": "4px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Space Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-card {
+            box-shadow: 0px 0px 0px 0px #5e1700;
+            transition: all 0.15s ease-out;
+        }
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .waveform-bar {
+            width: 4px;
+            background-color: #5e1700;
+            margin: 0 1px;
+            transition: height 0.3s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f3ef;
+            border-left: 1px solid #5e1700;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5e1700;
+        }
+        .scrolling-transcript-highlight {
+            background-color: #ede1d2;
+            color: #5e1700;
+            font-weight: 700;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-primary flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-headline-md text-headline-md-mobile uppercase tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md font-label-md text-label-md">
+<span class="text-on-surface-variant hover:bg-secondary-container transition-colors duration-150 px-2 py-1 cursor-pointer">TODAY</span>
+<span class="text-primary font-bold transition-colors duration-150 px-2 py-1 cursor-pointer">CURRICULUM</span>
+<span class="text-on-surface-variant hover:bg-secondary-container transition-colors duration-150 px-2 py-1 cursor-pointer">PROFILE</span>
+</div>
+<img alt="User Profile" class="w-10 h-10 border-2 border-primary object-cover" data-alt="A professional close-up studio portrait of a confident person with a neutral expression, shot with warm, dramatic side-lighting. The background is a flat, deep terracotta texture that matches a brutalist aesthetic. The lighting is high-contrast, highlighting the textures of the skin and clothing in a rich, editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ohFZFu4uNejYrOIBANT_-Kx6KC9W3yP5LxW-Ki0nCXSrBuIhGle13d4ihXVg6iAGXgQL-cL0ldA6M2i1mZpCtylIMt40xNh9qLyo4ABGuCn7zc3ceFbMVmqJvhdhuZxGOJhWmt95heW4H4HCzKHNvz2-5I_9ZEARJ0X98VAKThN45I0tjYc62oatGdP_LVrj8ZyALiGlY5WRkx8zEQZSjW7k59-8G3OVVxeYpq9rMfkAqbclSOWyFA0QaOb6oP2gPYCwjVldZXpu"/>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-4 md:px-margin max-w-5xl mx-auto w-full">
+<!-- Session Header -->
+<div class="mb-lg">
+<div class="flex items-center gap-xs mb-xs">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest bg-secondary-container px-2 py-0.5 border border-primary">SESSION 5</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Step 02/05</span>
+</div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary leading-tight">02 LISTEN.</h2>
+<p class="font-body-lg text-body-lg text-secondary mt-sm max-w-2xl italic border-l-4 border-primary pl-4">
+                "Why sentence endings matter."
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Audio Player Section -->
+<div class="md:col-span-12 lg:col-span-7">
+<div class="bg-surface border-2 border-primary p-md brutalist-card h-full">
+<div class="flex items-center justify-between mb-lg">
+<div class="bg-primary text-on-primary p-2 flex items-center justify-center cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="flex-grow px-md flex items-end justify-between h-20 gap-0.5" id="waveform">
+<!-- Generated Waveform Bars -->
+<div class="waveform-bar" style="height: 30%;"></div>
+<div class="waveform-bar" style="height: 45%;"></div>
+<div class="waveform-bar" style="height: 60%;"></div>
+<div class="waveform-bar" style="height: 40%;"></div>
+<div class="waveform-bar" style="height: 75%;"></div>
+<div class="waveform-bar" style="height: 90%;"></div>
+<div class="waveform-bar" style="height: 50%;"></div>
+<div class="waveform-bar" style="height: 35%;"></div>
+<div class="waveform-bar" style="height: 55%;"></div>
+<div class="waveform-bar" style="height: 70%;"></div>
+<div class="waveform-bar" style="height: 80%;"></div>
+<div class="waveform-bar" style="height: 65%;"></div>
+<div class="waveform-bar" style="height: 50%;"></div>
+<div class="waveform-bar" style="height: 45%;"></div>
+<div class="waveform-bar" style="height: 85%;"></div>
+<div class="waveform-bar" style="height: 100%;"></div>
+<div class="waveform-bar" style="height: 75%;"></div>
+<div class="waveform-bar" style="height: 60%;"></div>
+<div class="waveform-bar" style="height: 40%;"></div>
+<div class="waveform-bar" style="height: 55%;"></div>
+<div class="waveform-bar" style="height: 30%;"></div>
+<div class="waveform-bar" style="height: 45%;"></div>
+<div class="waveform-bar" style="height: 60%;"></div>
+<div class="waveform-bar" style="height: 20%;"></div>
+</div>
+<div class="font-label-md text-label-md text-primary ml-md">
+                            02:14
+                        </div>
+</div>
+<div class="grid grid-cols-2 gap-xs">
+<button class="border-2 border-primary py-xs flex items-center justify-center gap-xs font-label-md text-label-md uppercase hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm">replay_10</span> BACK 10s
+                        </button>
+<button class="border-2 border-primary py-xs flex items-center justify-center gap-xs font-label-md text-label-md uppercase hover:bg-secondary-container transition-colors">
+                            1.0X <span class="material-symbols-outlined text-sm">speed</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Transcript Section -->
+<div class="md:col-span-12 lg:col-span-5">
+<div class="bg-surface-container-low border-2 border-primary h-[320px] lg:h-full flex flex-col">
+<div class="p-xs border-b-2 border-primary bg-primary text-on-primary font-label-md text-label-md uppercase flex justify-between items-center">
+<span>Live Transcript</span>
+<span class="material-symbols-outlined text-sm">text_fields</span>
+</div>
+<div class="flex-grow overflow-y-auto p-md space-y-md font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p class="opacity-50">Before we dive into the mechanics of tone, let's observe the trail.</p>
+<p class="scrolling-transcript-highlight p-2 border-l-4 border-primary">
+                            Most professionals end sentences with a slight rise—they sound like questions even when they're statements. 
+                        </p>
+<p>
+                            A downward inflection—letting the pitch drop on the last two words—signals certainty without effort. 
+                        </p>
+<p>
+                            Think of it as the 'authoritative anchor.' When you let the tail of the sentence drift upwards, you are subconsciously asking for permission.
+                        </p>
+<p>
+                            In the next exercise, we'll practice grounding these statements.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Instructional Visual -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-2 border-2 border-primary bg-surface overflow-hidden">
+<div class="p-md border-b-2 md:border-b-0 md:border-r-2 border-primary">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm uppercase">The Rising Inflection</h3>
+<p class="text-body-md mb-md">Creates a feeling of uncertainty or seeking approval. Common in collaborative environments but can undermine authority.</p>
+<div class="relative h-24 w-full bg-secondary-container border-2 border-primary">
+<div class="absolute bottom-4 left-4 right-4 h-0.5 bg-primary/20"></div>
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 100">
+<path d="M 50 70 Q 200 70 350 20" fill="none" stroke="#5e1700" stroke-dasharray="8,4" stroke-width="3"></path>
+<circle cx="350" cy="20" fill="#5e1700" r="4"></circle>
+</svg>
+</div>
+</div>
+<div class="p-md bg-secondary-container">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm uppercase">The Power Drop</h3>
+<p class="text-body-md mb-md">Signals finality and expertise. By dropping the pitch at the end, the listener perceives the speaker as more grounded.</p>
+<div class="relative h-24 w-full bg-surface border-2 border-primary">
+<div class="absolute bottom-4 left-4 right-4 h-0.5 bg-primary/20"></div>
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 100">
+<path d="M 50 40 Q 200 40 350 80" fill="none" stroke="#5e1700" stroke-width="3"></path>
+<circle cx="350" cy="80" fill="#5e1700" r="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center bg-surface border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary h-full w-full translate-y-1 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the waveform
+        const waveform = document.getElementById('waveform');
+        const bars = waveform.querySelectorAll('.waveform-bar');
+        
+        setInterval(() => {
+            bars.forEach(bar => {
+                const randomHeight = Math.floor(Math.random() * 80) + 10;
+                bar.style.height = `${randomHeight}%`;
+            });
+        }, 1000);
+
+        // Simulated transcript scroll effect
+        const transcriptContainer = document.querySelector('.overflow-y-auto');
+        let isAutoScrolling = false;
+
+        transcriptContainer.addEventListener('scroll', () => {
+            // Logic for pausing auto-scroll if user interacts could go here
+        });
+    </script>
+</body></html>

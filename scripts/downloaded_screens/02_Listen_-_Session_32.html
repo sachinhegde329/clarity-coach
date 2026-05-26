@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Listen - Executive Presence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-surface": "#1c1c19",
+                        "on-secondary-fixed": "#151e10",
+                        "primary-container": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#89726c",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-parchment": "#FDF9F5",
+                        "surface-container-highest": "#e5e2de",
+                        "success-sage": "#818C78",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-container": "#5b6653",
+                        "surface-bright": "#fdf9f5",
+                        "background": "#fdf9f5",
+                        "tertiary": "#680005",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "tertiary-container": "#93000b",
+                        "inverse-primary": "#ffb59e",
+                        "primary-fixed": "#ffdbd0",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#d8e3cc",
+                        "surface": "#fdf9f5",
+                        "on-primary-container": "#ff9b7b",
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#dcc1b9",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "border-primary": "#7C2D12",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface-variant": "#55423d",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .brutalist-card {
+                @apply border-border-width border-border-primary bg-surface-parchment rounded;
+            }
+            .brutalist-nested-card {
+                @apply border-hairline border-border-primary bg-surface-container-low rounded;
+            }
+            .waveform-bar {
+                @apply bg-primary w-1 rounded-sm transition-all duration-100 ease-in-out;
+            }
+            .waveform-bar-played {
+                @apply bg-outline-variant;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b-border-width border-border-primary bg-surface-parchment text-primary flex justify-between items-center px-margin-mobile py-4 z-40">
+<button aria-label="Close" class="hover:bg-surface-container-highest p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined font-metric-sm text-metric-sm">close</span>
+</button>
+<div class="font-metric-sm text-metric-sm tracking-widest uppercase flex items-center gap-2">
+<span class="text-on-surface-variant">01</span>
+<span class="text-primary font-bold">02</span>
+<span class="text-on-surface-variant">03</span>
+<span class="text-on-surface-variant">04</span>
+<span class="text-on-surface-variant">05</span>
+</div>
+<button aria-label="More options" class="hover:bg-surface-container-highest p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined font-metric-sm text-metric-sm">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-8 md:py-12 pb-28 md:pb-12 max-w-4xl mx-auto w-full flex flex-col gap-8">
+<!-- Header Area -->
+<div class="space-y-2">
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Session 32</p>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Executive Presence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Authority signals in voice. Learning presence through restraint.</p>
+</div>
+<!-- Player Container (Architectural Containment) -->
+<div class="brutalist-card p-6 flex flex-col gap-6 relative overflow-hidden">
+<!-- Subtle background texture indication (pure CSS) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#5e1700 1px, transparent 1px); background-size: 16px 16px;"></div>
+<!-- Waveform Visualization -->
+<div class="brutalist-nested-card p-4 relative h-32 flex items-center justify-center">
+<!-- Simulating an audio waveform -->
+<div class="flex items-end justify-center gap-[2px] w-full h-full pb-4">
+<div class="waveform-bar waveform-bar-played" style="height: 10%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 20%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 15%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 40%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 60%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 35%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 80%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 50%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 90%"></div>
+<div class="waveform-bar waveform-bar-played" style="height: 45%"></div>
+<!-- Current Playhead Position -->
+<div class="w-[2px] h-full bg-error-warning mx-1 relative z-10">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-error-warning"></div>
+</div>
+<div class="waveform-bar" style="height: 70%"></div>
+<div class="waveform-bar" style="height: 30%"></div>
+<div class="waveform-bar" style="height: 85%"></div>
+<div class="waveform-bar" style="height: 60%"></div>
+<div class="waveform-bar" style="height: 40%"></div>
+<div class="waveform-bar" style="height: 25%"></div>
+<div class="waveform-bar" style="height: 50%"></div>
+<div class="waveform-bar" style="height: 15%"></div>
+<div class="waveform-bar" style="height: 10%"></div>
+<div class="waveform-bar" style="height: 5%"></div>
+</div>
+<!-- Timeline Labels -->
+<div class="absolute bottom-2 left-4 font-label-caps text-label-caps text-outline">0:42</div>
+<div class="absolute bottom-2 right-4 font-label-caps text-label-caps text-outline">1:15</div>
+</div>
+<!-- Playback Controls -->
+<div class="flex items-center justify-between px-4">
+<button aria-label="Skip backward 10 seconds" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded border border-transparent hover:border-hairline hover:border-primary">
+<span class="material-symbols-outlined text-[24px]">replay_10</span>
+</button>
+<button aria-label="Play/Pause" class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center border-border-width border-primary hover:bg-surface-parchment hover:text-primary transition-colors shadow-[0_0_0_2px_#FDF9F5,0_0_0_4px_#5e1700]">
+<!-- Using pause to indicate it's currently playing -->
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button aria-label="Skip forward 10 seconds" class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded border border-transparent hover:border-hairline hover:border-primary">
+<span class="material-symbols-outlined text-[24px]">forward_10</span>
+</button>
+</div>
+</div>
+<!-- Synced Transcript Section -->
+<div class="flex flex-col gap-1 mt-4">
+<h2 class="font-label-caps text-label-caps text-outline mb-2">Transcript</h2>
+<div class="space-y-4">
+<!-- Past text -->
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-60 px-4 border-l-border-width border-transparent">
+                    When we think about executive presence, we often imagine speaking louder or taking up more physical space.
+                </p>
+<!-- Active synced text -->
+<div class="relative">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary"></div>
+<p class="font-headline-md text-headline-md text-on-surface pl-4 py-1 leading-snug">
+                        True presence often manifests as restraint: a <span class="text-primary bg-primary-fixed px-1 rounded-sm">measured pace</span>, downward inflection at the end of statements, and the confidence to hold comfortable pauses.
+                    </p>
+</div>
+<!-- Future text -->
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-40 px-4 border-l-border-width border-transparent">
+                    Notice how dropping your pitch slightly at the conclusion of a thought signals finality and certainty.
+                </p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t-border-width border-border-primary bg-surface-parchment flex justify-around items-center px-margin-mobile h-20 md:hidden">
+<!-- Step 1: Centre (adjust) - Inactive -->
+<button aria-label="Centre" class="flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">adjust</span>
+</button>
+<!-- Step 2: Listen (hearing) - Active -->
+<button aria-label="Listen" class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full p-2 scale-110 shadow-[0_0_0_2px_#FDF9F5,0_0_0_4px_#5e1700]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hearing</span>
+</button>
+<!-- Step 3: Do (play_circle) - Inactive -->
+<button aria-label="Do" class="flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+<!-- Step 4: See (visibility) - Inactive -->
+<button aria-label="See" class="flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<!-- Step 5: Commit (check_circle) - Inactive -->
+<button aria-label="Commit" class="flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</nav>
+<!-- Desktop Navigation Stand-in (Since BottomNav is hidden on md+) -->
+<div class="hidden md:flex fixed right-margin-desktop top-1/2 -translate-y-1/2 flex-col gap-4 border-l-border-width border-border-primary pl-4 py-8 z-40 bg-surface-parchment/80 backdrop-blur-sm">
+<button aria-label="Centre" class="text-outline opacity-40 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">adjust</span></button>
+<button aria-label="Listen" class="text-primary bg-primary-fixed p-2 rounded-full -ml-6 border-border-width border-primary flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hearing</span>
+</button>
+<button aria-label="Do" class="text-outline opacity-40 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">play_circle</span></button>
+<button aria-label="See" class="text-outline opacity-40 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">visibility</span></button>
+<button aria-label="Commit" class="text-outline opacity-40 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined">check_circle</span></button>
+</div>
+</body></html>

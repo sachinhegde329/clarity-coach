@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Centre</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary-container": "#6b6357",
+                    "surface-tint": "#9b4427",
+                    "surface-container-highest": "#e5e2de",
+                    "secondary-container": "#ede1d2",
+                    "on-surface-variant": "#55423d",
+                    "tertiary": "#00334f",
+                    "on-primary-container": "#ff9b7b",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "outline-variant": "#dcc1b9",
+                    "inverse-primary": "#ffb59e",
+                    "on-tertiary-container": "#85bbe6",
+                    "surface-dim": "#ddd9d6",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fdf9f5",
+                    "primary-container": "#7c2d12",
+                    "surface": "#fdf9f5",
+                    "surface-container-high": "#ebe7e4",
+                    "primary": "#5e1700",
+                    "on-background": "#1c1c19",
+                    "surface-variant": "#e5e2de",
+                    "outline": "#89726c",
+                    "on-tertiary-fixed": "#001e30",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "surface-container": "#f1ede9",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ede1d2",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "tertiary-container": "#004b71",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-surface": "#1c1c19",
+                    "inverse-surface": "#31302e",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary": "#655d52",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "primary-fixed": "#ffdbd0",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fdf9f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "margin": "32px",
+                    "base": "4px",
+                    "xl": "80px",
+                    "md": "24px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Space Grotesk"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow:hover {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+            transform: translate(-4px, -4px);
+        }
+        .active-interaction:active {
+            transform: scale(0.95);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-4 h-16 bg-surface border-b-2 border-primary fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-secondary-container transition-colors duration-150 p-2 active:scale-95 duration-75">menu</button>
+<h1 class="font-headline-md text-headline-md-mobile uppercase tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border-2 border-primary overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a thoughtful person against a neutral, warm beige background. The lighting is soft and cinematic, highlighting natural textures. The overall aesthetic is clean, minimalist, and high-end, mirroring a modern editorial style with deep terracotta and rich cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGOfOGumIrMdSjHC_trDJqHhPqkNbvEDDYoJpK6fmptWEoZXhTK6sxt_gaceoqIDkr9uhF67sLLzwlJ1Z67P0FX_NfIgOO9BCLSpHqhzkxS4Z5c5k5p-r_kvrtkQLp_THOhJz_iah3ZrgBZR8qHnqvY0T6qt3xvl34qmk09AattWWgOclu43n8nnYo_HNaWd46stDZWvNLrCGryBa4NTqT9H60iDHuuO3ecROLwTwCYNg2_Uy1ugavhvhJ6L3pFVKUGtNj4GZRXLWz"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center pt-24 pb-32 px-gutter relative">
+<!-- Session Progress Indicator -->
+<div class="mb-lg text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline block mb-xs">Session 5: Where You Trail Off</span>
+<div class="flex justify-center gap-xs">
+<div class="w-8 h-1 bg-primary"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+<div class="w-8 h-1 bg-outline-variant"></div>
+</div>
+</div>
+<!-- Central Exercise Section -->
+<section class="max-w-2xl w-full flex flex-col items-center">
+<!-- Headline -->
+<div class="w-full border-2 border-primary bg-surface p-md mb-md">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">
+                    01 CENTRE
+                </h2>
+</div>
+<!-- Body Text -->
+<div class="w-full border-l-2 border-primary pl-md py-sm mb-lg">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed max-w-prose">
+                    Think of one recent win—something at work or in life. Settle into the feeling of success.
+                </p>
+</div>
+<!-- Asymmetric Bento Visual Element -->
+<div class="grid grid-cols-4 gap-gutter w-full mb-lg">
+<div class="col-span-4 md:col-span-1 border-2 border-primary bg-secondary-container h-32 flex items-center justify-center">
+<span class="font-label-md text-label-md text-primary rotate-[-90deg] md:rotate-0">GROUNDING</span>
+</div>
+<div class="col-span-4 md:col-span-3 border-2 border-primary bg-surface relative overflow-hidden group">
+<img alt="Architectural focus" class="w-full h-48 object-cover grayscale opacity-30 group-hover:opacity-100 transition-opacity duration-700" data-alt="A minimalist architectural shot featuring clean lines and stark geometric shapes. The composition uses high-contrast lighting to create deep shadows and bright terracotta-toned highlights. The mood is calm and focused, evoking a sense of structural clarity and intellectual rigor within a high-end design studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFmkgZYIUfEgRISs3LDI1H9QDPhWoHnz1w4gvXUjl8vEVs6LB9GXa1p7yYdTm4xlCW_WBJU4oTUquxtq29OcSSTTVf63bBAS9bMFV2ELmQWI4yCVXD7QUfFJY_gcE9NmzjCyo8YuKUzFARVnBu2XnhNTlfxRIFk7e6RCh4g_vzaveLpSEkEqIc8Tb2xcsK6X0JvD0QwuE66PEsZUy27gxrpDuzNIsEapMxOBdJzYWghPq_IjtWunvUZztBXskuLLuro0nYdydkXh_u"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 border-2 border-primary flex items-center justify-center bg-background">
+<span class="material-symbols-outlined text-primary" data-weight="fill">circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BEGIN Card -->
+<button class="w-full max-w-sm group relative" onclick="window.location.reload()">
+<div class="absolute inset-0 bg-primary translate-x-1 translate-y-1 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+<div class="relative bg-surface border-2 border-primary p-lg flex flex-col items-center transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1 active:translate-x-0 active:translate-y-0">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-primary mb-sm">READY TO START</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">BEGIN</h3>
+<div class="w-12 h-px bg-primary mb-md"></div>
+<span class="material-symbols-outlined text-primary text-4xl">arrow_forward</span>
+</div>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center bg-surface border-t-2 border-primary z-50">
+<!-- TODAY - Active -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary h-full w-full active:translate-y-1 duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">TODAY</span>
+</a>
+<!-- JOURNAL -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">JOURNAL</span>
+</a>
+<!-- CURRICULUM -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="school">school</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">CURRICULUM</span>
+</a>
+<!-- PROFILE -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">PROFILE</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            // Subtle parallax for background elements could be added here if needed
+        });
+    </script>
+</body></html>

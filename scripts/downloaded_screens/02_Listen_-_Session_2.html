@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 2: Why Pace Matters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "surface-container-high": "#ebe7e4",
+                    "on-error-container": "#93000a",
+                    "background": "#fdf9f5",
+                    "surface-container": "#f1ede9",
+                    "on-background": "#1c1c19",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e5e2de",
+                    "outline-variant": "#dcc1b9",
+                    "on-secondary-fixed": "#201b12",
+                    "surface-container-highest": "#e5e2de",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-container": "#ff9b7b",
+                    "primary-fixed": "#ffdbd0",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-container": "#7c2d12",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-tertiary-fixed": "#001e30",
+                    "inverse-on-surface": "#f4f0ec",
+                    "surface-dim": "#ddd9d6",
+                    "surface-tint": "#9b4427",
+                    "surface-container-low": "#f7f3ef",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-container": "#6b6357",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "outline": "#89726c",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ede1d2",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#655d52",
+                    "tertiary-container": "#004b71",
+                    "tertiary": "#00334f",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface": "#fdf9f5",
+                    "primary": "#5e1700",
+                    "surface-bright": "#fdf9f5",
+                    "on-surface-variant": "#55423d",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-primary-fixed": "#3a0b00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "sm": "16px",
+                    "md": "24px",
+                    "margin": "32px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Mono"],
+                    "body-lg": ["Space Grotesk"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "body-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .waveform-bar {
+            width: 2px;
+            background-color: #5e1700;
+            transition: height 0.2s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf9f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5e1700;
+        }
+        .border-2 {
+            border-width: 2px !important;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-margin py-4">
+<div class="flex items-center gap-4">
+<button class="p-2">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="font-label-md text-label-md text-primary bg-secondary-container px-3 py-1 border-2 border-primary">STEP 02/05</div>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden bg-surface-container">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOjBqgAX_qzm55FZbe5DkdDlyX7HdHqtCeaK3UhnGVXLzI0WI61FXuX0lsJ2O8-eNbaAec8tmsUmo8qMvkqvdaMu5xBn3FSpoMfGQP3Zz7A1t52KUBwHihbp1bBLIViT2mX9O7THn4gEGNo7pUfBbs97i3alb71YyluoSD-iC07PuJjfotS0TFwYPueiXaatnyJ62rrpBZJXZJu5tPdUnBF9tRxNiDof92kuhVQecCdSWd-2xDULZQwFjUT1pSzOAEGhC0inYKTHzO"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-margin max-w-7xl mx-auto w-full flex flex-col gap-6">
+<!-- Title & Breadcrumb -->
+<section>
+<div class="inline-block border-2 border-primary px-4 py-1 mb-4">
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider">SESSION 2 • PERSUASIVE DELIVERY</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">02 Listen: Why Pace Matters</h2>
+<p class="font-body-lg text-body-lg text-secondary mt-4 max-w-2xl">Understanding the biological link between speech velocity and perceived authority.</p>
+</section>
+<!-- Audio Player -->
+<section class="border-2 border-primary p-md md:p-lg bg-surface flex flex-col gap-8">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1">Currently Playing</span>
+<span class="font-headline-md text-headline-md text-primary">The Credibility Zone</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md text-primary">1.0x</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Speed</span>
+</div>
+</div>
+<!-- Waveform -->
+<div class="h-28 border-2 border-primary bg-secondary-container/30 flex items-center justify-center gap-1.5 px-4 overflow-hidden relative" id="waveform-container">
+<div class="absolute inset-0 bg-[radial-gradient(#5e1700_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+<!-- Bars injected by JS -->
+</div>
+<!-- Progress -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between font-label-md text-label-md text-primary">
+<span>02:45</span>
+<span>08:12</span>
+</div>
+<div class="h-4 border-2 border-primary bg-surface relative">
+<div class="absolute top-0 left-0 h-full bg-primary w-1/3"></div>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex justify-center items-center gap-12">
+<button class="text-primary"><span class="material-symbols-outlined text-4xl">replay_10</span></button>
+<button class="bg-primary text-on-primary w-16 h-16 flex items-center justify-center hard-shadow border-2 border-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="text-primary"><span class="material-symbols-outlined text-4xl">forward_10</span></button>
+</div>
+</section>
+<!-- Tidbit / Key Concept -->
+<section class="border-2 border-primary border-dashed p-md bg-secondary-container/20">
+<h3 class="font-label-md text-label-md text-primary mb-3 flex items-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">info</span> KEY CONCEPT
+        </h3>
+<p class="font-body-md text-body-md text-secondary">Research indicates that rapid speech is often equated with anxiety, while excessively slow speech suggests a lack of preparation. Mastery lies in the deliberate mid-range.</p>
+</section>
+<!-- Transcript -->
+<section class="border-2 border-primary flex flex-col bg-surface">
+<div class="p-4 border-b-2 border-primary bg-primary text-on-primary flex justify-between items-center">
+<span class="font-label-md text-label-md uppercase tracking-widest">Live Transcript</span>
+<button class="font-label-sm text-label-sm border-2 border-on-primary px-3 py-1">SEARCH</button>
+</div>
+<div class="flex-grow p-md space-y-8 font-body-md leading-relaxed text-secondary" id="transcript-scroll">
+<div class="opacity-40">
+<span class="font-label-sm text-label-sm text-primary block mb-2">02:10</span>
+                "When we talk about executive presence, we often focus on the words. But the vehicle for those words—your voice—carries half the weight."
+            </div>
+<div class="bg-secondary-container border-l-4 border-primary p-4 -mx-4 text-on-surface">
+<span class="font-label-sm text-label-sm text-primary block mb-2">02:35</span>
+                "Studies show that <strong class="text-primary font-bold">the 130-150 WPM band is the credibility zone</strong>. It allows for cognitive processing without losing the listener's momentum."
+            </div>
+<div>
+<span class="font-label-sm text-label-sm text-primary block mb-2">02:55</span>
+                "Notice how the rhythm changes when you hit a technical point. You drop to the lower end of that band to emphasize precision."
+            </div>
+<div class="opacity-40">
+<span class="font-label-sm text-label-sm text-primary block mb-2">03:15</span>
+                "In the next chapter, we will explore the 'Strategic Pause' and how it acts as punctuation for the spoken word."
+            </div>
+</div>
+<div class="p-4 border-t-2 border-primary">
+<button class="w-full border-2 border-primary py-4 font-label-md text-label-md text-primary flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">download</span> DOWNLOAD PDF TRANSCRIPT
+            </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center bg-surface border-t-2 border-primary h-20">
+<a class="flex flex-col items-center justify-center text-primary border-t-4 border-primary h-full px-4 pt-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary px-4 pt-1" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary px-4 pt-1" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary px-4 pt-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+    const waveformContainer = document.getElementById('waveform-container');
+    const barCount = 40;
+    
+    for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'waveform-bar';
+        const height = Math.floor(Math.random() * 60) + 10;
+        bar.style.height = `${height}%`;
+        waveformContainer.appendChild(bar);
+    }
+
+    function animateWaveform() {
+        const bars = document.querySelectorAll('.waveform-bar');
+        bars.forEach(bar => {
+            const height = Math.floor(Math.random() * 60) + 10;
+            bar.style.height = `${height}%`;
+        });
+    }
+    
+    setInterval(animateWaveform, 300);
+</script>
+</body></html>

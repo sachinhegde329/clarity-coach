@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session Feedback</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary": "#655d52",
+                        "secondary-container": "#ede1d2",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "surface": "#fdf9f5",
+                        "tertiary": "#00334f",
+                        "primary-container": "#7c2d12",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-background": "#1c1c19",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "tertiary-container": "#004b71",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b6357",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed": "#001e30",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-fixed": "#ede1d2",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container": "#f1ede9",
+                        "background": "#fdf9f5",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metrics": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-border {
+            border: 2px solid #5e1700;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-active:active {
+            box-shadow: 0px 0px 0px 0px #5e1700;
+            transform: translate(2px, 2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-4 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-20">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold uppercase tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-24 pb-xl px-gutter max-w-7xl mx-auto">
+<!-- Status Bar -->
+<div class="flex justify-between items-center mb-lg border-b-2 border-primary pb-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Progress</span>
+<span class="font-metrics text-headline-md text-primary">04/05</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Session Timer</span>
+<span class="font-metrics text-headline-md text-primary">3:12</span>
+</div>
+</div>
+<!-- Feedback Header -->
+<section class="mb-lg">
+<div class="inline-block brutalist-border bg-primary text-on-primary px-sm py-base mb-xs">
+<span class="font-label-md text-label-md uppercase">Session 01</span>
+</div>
+<h2 class="font-display-lg text-headline-lg md:text-display-lg uppercase leading-none mb-md">Initial Feedback</h2>
+</section>
+<!-- Standardized 3-Metric Horizontal Row -->
+<div class="grid grid-cols-3 gap-gutter mb-lg border-y-2 border-primary py-lg">
+<!-- Fillers -->
+<div class="flex flex-col">
+<h3 class="font-label-md text-label-md uppercase mb-xs flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="format_quote" style="font-size: 16px;">format_quote</span>
+                    Fillers
+                </h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-metrics text-5xl md:text-7xl font-bold text-primary">12</span>
+</div>
+<p class="font-label-sm text-[10px] uppercase text-secondary mt-xs">No Deltas</p>
+</div>
+<!-- Pace -->
+<div class="flex flex-col border-x-2 border-outline-variant px-gutter">
+<h3 class="font-label-md text-label-md uppercase mb-xs flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="speed" style="font-size: 16px;">speed</span>
+                    Pace
+                </h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-metrics text-5xl md:text-7xl font-bold text-primary">178</span>
+<span class="font-label-md text-label-md text-primary font-bold">WPM</span>
+</div>
+<p class="font-label-sm text-[10px] uppercase text-secondary mt-xs">Starting Line</p>
+</div>
+<!-- Uptalk -->
+<div class="flex flex-col">
+<h3 class="font-label-md text-label-md uppercase mb-xs flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up" style="font-size: 16px;">trending_up</span>
+                    Uptalk
+                </h3>
+<div class="flex items-baseline gap-xs">
+<span class="font-metrics text-5xl md:text-7xl font-bold text-primary">8/12</span>
+</div>
+<p class="font-label-sm text-[10px] uppercase text-secondary mt-xs">Sentences</p>
+</div>
+</div>
+<!-- Clinical Commentary & Actions -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-xl">
+<div class="md:col-span-8">
+<div class="brutalist-border p-md bg-surface-container-low min-h-[160px] flex flex-col justify-center">
+<span class="font-label-sm text-label-sm uppercase text-secondary mb-sm block">Expert Commentary</span>
+<blockquote class="font-headline-md text-headline-md italic text-primary leading-tight">
+                        "None of this is a verdict. It is the starting line. Your metrics indicate a high-energy baseline."
+                    </blockquote>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col gap-sm">
+<button class="w-full brutalist-border py-md px-lg bg-primary text-on-primary font-label-md text-label-md uppercase flex items-center justify-center gap-sm hard-shadow-active transition-all">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                    Replay with Overlay
+                </button>
+<button class="w-full brutalist-border py-md px-lg bg-surface text-primary font-label-md text-label-md uppercase flex items-center justify-center gap-sm hard-shadow-active transition-all">
+                    Next Step
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Secondary Context -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-4 brutalist-border h-32 overflow-hidden relative">
+<img class="w-full h-full object-cover filter grayscale" data-alt="Microphone studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGBL7xAhxVzvMp7b_CWd3_K0oLlYQ9hIAOfqpyaQ3DID3zEzKDvwDD0hzrQsOL7EA1wJd03REbR7q4WbKA07oGmmxRDkkUjIzQf757Z0kyfdMLnbzlNlpsqFv_8H5RLmROsRVx_ikw5caq-0NWDvgTjhVwug02TLSEt-x8zZlGMeOb7ZFLy0JzCVhzGYz7KjOyx-FiRc9xG2O0VgRUX5-cgYUXXWO39YUS4x-5YOhgdvHv8geOTpAoN4WkUkiszBEiH7u1PC8StmKl"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<div class="md:col-span-8 flex flex-col h-full justify-center">
+<p class="font-body-md text-secondary border-l-2 border-primary pl-md">
+                    In the next step, we will analyze the emotional resonance of your tone to contrast these structural metrics. This builds a complete picture of your communicative presence.
+                </p>
+<div class="mt-sm flex items-center gap-xs text-primary font-label-sm uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="location_on" style="font-size: 14px;">location_on</span>
+                    Studio A • Recorded 11:24 AM
+                </div>
+</div>
+</div>
+</main>
+<!-- Interactive Layer -->
+<div class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-40 pointer-events-none opacity-0 transition-opacity duration-300" id="overlay-reveal"></div>
+<script>
+        const replayBtn = document.querySelector('button:has([data-icon="play_circle"])');
+        const overlay = document.getElementById('overlay-reveal');
+
+        replayBtn.addEventListener('mousedown', () => {
+            overlay.classList.remove('opacity-0');
+        });
+
+        replayBtn.addEventListener('mouseup', () => {
+            overlay.classList.add('opacity-0');
+        });
+
+        replayBtn.addEventListener('mouseleave', () => {
+            overlay.classList.add('opacity-0');
+        });
+    </script>
+</body></html>

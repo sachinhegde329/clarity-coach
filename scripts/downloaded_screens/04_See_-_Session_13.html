@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 13 Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-warning": "#B91C1C",
+                    "on-primary-container": "#ff9b7b",
+                    "border-primary": "#7C2D12",
+                    "on-surface": "#1c1c19",
+                    "primary-fixed-dim": "#ffb59e",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#31302e",
+                    "surface-container": "#f1ede9",
+                    "surface-tint": "#9b4427",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-high": "#ebe7e4",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-variant": "#e5e2de",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f4f0ec",
+                    "secondary-container": "#d8e3cc",
+                    "tertiary": "#680005",
+                    "surface-container-highest": "#e5e2de",
+                    "secondary-fixed": "#dbe6cf",
+                    "primary": "#5e1700",
+                    "primary-fixed": "#ffdbd0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary": "#57624f",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#93000b",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "outline": "#89726c",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "surface-dim": "#ddd9d6",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-secondary-fixed": "#151e10",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "surface-parchment": "#FDF9F5",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "background": "#fdf9f5",
+                    "surface": "#fdf9f5",
+                    "tertiary-fixed": "#ffdad6",
+                    "success-sage": "#818C78",
+                    "on-surface-variant": "#55423d",
+                    "on-secondary-container": "#5b6653",
+                    "brutalist-border": "#7C2D12"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "gutter": "16px",
+                    "hairline": "0.5px",
+                    "unit": "4px",
+                    "border-width": "2px",
+                    "border-width-thick": "2px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "metric-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+            vertical-align: middle;
+        }
+        .brutalist-card {
+            border: 2px solid #7C2D12;
+            background-color: #FDF9F5;
+            box-shadow: 4px 4px 0 0 #7C2D12;
+        }
+        .step-inactive {
+            opacity: 0.4;
+            filter: grayscale(1);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface-parchment text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-brutalist-border flex justify-between items-center px-5 h-16 w-full z-50 sticky top-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer p-2">menu</span>
+</div>
+<h1 class="font-display-lg text-[24px] tracking-tighter text-primary font-bold uppercase">CLARITY COACH</h1>
+<div class="w-10 h-10 border-2 border-brutalist-border overflow-hidden rounded-sm">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_d6T4sZme5ngfC9HrTpKp989u5hgwuhfUYZjzaWYbkSjT_JO_QBnOjtc-8rshWTvW5BOjaOZHVrwIK07lvWLbFZ0_SF5EtSu1CbHoz81kv56S1DE2Nw2KswEwBYvKj1rp0dt3ekYW85V7jeVlNECi7OmR4djVmFnPgnkVqWostO1oLMdaCMUDPo2HWDaod_a7bidHgfk3PEGqb2A4xgDDGcyhyFYgnRrOGiMpoob3ehE1eM1_eDPT42rlPu2Js1ncWUV3IDEAiCMg"/>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-margin-mobile pt-8 pb-32">
+<!-- Step Indicator -->
+<div class="flex justify-between items-center mb-10 overflow-x-auto py-2 no-scrollbar">
+<div class="flex items-center gap-2 step-inactive">
+<span class="font-label-caps text-[10px] border border-primary px-2 py-1">01 CENTRE</span>
+</div>
+<div class="w-4 h-hairline bg-primary step-inactive opacity-20"></div>
+<div class="flex items-center gap-2 step-inactive">
+<span class="font-label-caps text-[10px] border border-primary px-2 py-1">02 LISTEN</span>
+</div>
+<div class="w-4 h-hairline bg-primary step-inactive opacity-20"></div>
+<div class="flex items-center gap-2 step-inactive">
+<span class="font-label-caps text-[10px] border border-primary px-2 py-1">03 DO</span>
+</div>
+<div class="w-4 h-hairline bg-primary opacity-20"></div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-[10px] bg-primary text-surface px-2 py-1 border border-primary">04 SEE</span>
+</div>
+<div class="w-4 h-hairline bg-primary step-inactive opacity-20"></div>
+<div class="flex items-center gap-2 step-inactive">
+<span class="font-label-caps text-[10px] border border-primary px-2 py-1">05 COMMIT</span>
+</div>
+</div>
+<div class="space-y-gutter">
+<!-- Hero Metrics Grid -->
+<div class="grid grid-cols-3 gap-2">
+<div class="brutalist-card p-4 text-center">
+<p class="font-label-caps text-[9px] text-on-surface-variant mb-1">TIME</p>
+<p class="font-metric-hero text-2xl text-primary">6s</p>
+</div>
+<div class="brutalist-card p-4 text-center">
+<p class="font-label-caps text-[9px] text-on-surface-variant mb-1">BREVITY</p>
+<p class="font-metric-hero text-2xl text-primary">94<span class="text-sm">/100</span></p>
+</div>
+<div class="brutalist-card p-4 text-center">
+<p class="font-label-caps text-[9px] text-on-surface-variant mb-1">PACE</p>
+<p class="font-metric-hero text-2xl text-primary">142<span class="text-[10px]">wpm</span></p>
+</div>
+</div>
+<!-- Primary Feedback Card -->
+<div class="brutalist-card p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-caps text-xs text-primary mb-1 uppercase">Hero Metric</p>
+<h2 class="font-headline-lg text-2xl mb-2">Time to Conclusion</h2>
+</div>
+<span class="material-symbols-outlined text-success-sage">verified</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-8">
+                    Superior performance. You identified the primary objective and delivered the "Bottom Line Up Front" with surgical precision.
+                </p>
+<!-- Architectural Target Window Graphic -->
+<div class="border-t-2 border-brutalist-border pt-6">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Target Window</span>
+<span class="font-metric-hero text-xl text-primary opacity-40">8s</span>
+</div>
+<div class="h-4 w-full bg-surface-container-high border border-brutalist-border flex items-center px-0.5">
+<div class="h-2 bg-success-sage" style="width: 75%;"></div>
+</div>
+<p class="font-label-caps text-[10px] mt-2 text-success-sage text-right">SUCCESSFUL LANDING</p>
+</div>
+</div>
+<!-- Analysis Section with Card-on-Card Layering -->
+<div class="brutalist-card p-6 bg-surface-container">
+<h3 class="font-headline-md text-lg mb-4 flex items-center gap-2 uppercase font-bold">
+<span class="material-symbols-outlined text-primary">psychology</span>
+                    Analysis
+                </h3>
+<div class="space-y-4">
+<div class="brutalist-card p-4 bg-surface shadow-none border-l-4 border-l-success-sage">
+<p class="font-label-caps text-[10px] text-success-sage mb-2">STRENGTH</p>
+<p class="font-body-md italic text-on-surface">"The implementation of the BLUF was landed firmly within the 8s window, allowing the audience to immediately grasp the value proposition."</p>
+</div>
+<div class="brutalist-card p-4 bg-surface shadow-none border-l-4 border-l-primary">
+<p class="font-label-caps text-[10px] text-primary mb-2">REFINEMENT</p>
+<p class="font-body-md text-on-surface">Watch for micro-pauses before concluding. You held for 0.4s too long after the final word.</p>
+</div>
+</div>
+</div>
+<!-- Session Log -->
+<div class="brutalist-card p-6">
+<h4 class="font-label-caps text-xs text-primary mb-4 uppercase">Session Log</h4>
+<div class="space-y-3 font-metric-sm text-[12px]">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span>SESSION ID</span>
+<span class="font-bold">#S13-BLUF-PRO</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span>DURATION</span>
+<span class="font-bold uppercase">42s Total</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span>MODE</span>
+<span class="font-bold uppercase">Executive Directive</span>
+</div>
+</div>
+<button class="w-full mt-8 bg-primary text-surface font-headline-md text-lg py-4 border-2 border-primary hover:bg-primary-container hover:text-on-primary-container transition-all active:translate-y-px uppercase font-bold">
+                    Commit Session
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface border-t-2 border-brutalist-border">
+<a class="flex flex-col items-center justify-center text-primary h-full w-full opacity-60" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[9px] mt-1 uppercase">Today</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary h-full w-full opacity-60" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-[9px] mt-1 uppercase">Journey</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary h-full w-full opacity-60" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-[9px] mt-1 uppercase">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-surface h-full w-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">query_stats</span>
+<span class="font-label-caps text-[9px] mt-1 uppercase">Stats</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.brutalist-card').forEach(card => {
+            if (!card.classList.contains('shadow-none')) {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translate(-2px, -2px)';
+                    card.style.boxShadow = '6px 6px 0px 0px #7C2D12';
+                    card.style.transition = 'all 0.15s ease-out';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translate(0px, 0px)';
+                    card.style.boxShadow = '4px 4px 0px 0px #7C2D12';
+                });
+            }
+        });
+    </script>
+</body></html>

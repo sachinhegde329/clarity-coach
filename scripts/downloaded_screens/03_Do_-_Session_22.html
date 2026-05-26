@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Do</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#fdf9f5",
+                        "tertiary-fixed": "#ffdad6",
+                        "success-sage": "#818C78",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#57624f",
+                        "tertiary-container": "#93000b",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "surface-parchment": "#FDF9F5",
+                        "border-primary": "#7C2D12",
+                        "error-warning": "#B91C1C",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "secondary-fixed": "#dbe6cf",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "on-tertiary-container": "#ff998e",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#151e10",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#410002",
+                        "on-secondary-container": "#5b6653",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "tertiary": "#680005",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-variant": "#e5e2de",
+                        "on-background": "#1c1c19",
+                        "surface-container": "#f1ede9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "border-width": "2px",
+                        "hairline": "0.5px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .stroke-dash-animate {
+            stroke-dasharray: 301.59;
+            stroke-dashoffset: 60;
+            transition: stroke-dashoffset 1s linear;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface-parchment text-primary font-headline-md text-headline-md w-full top-0 sticky border-b-[2px] border-border-primary flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined font-bold" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-bold tracking-tight">Clarity Coach</span>
+</div>
+<div class="flex items-center">
+<span class="font-metric-sm text-metric-sm px-3 py-1 border-[2px] border-border-primary bg-surface text-primary">03 / 05</span>
+</div>
+</header>
+<!-- Main Content Canvas (Focused Journey, NavBar Suppressed) -->
+<main class="flex-1 flex flex-col px-margin-mobile md:px-margin-desktop py-8 md:py-12 gap-8 max-w-5xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-outline tracking-widest uppercase">Session 22</span>
+<h1 class="font-display-lg text-display-lg text-primary">The Aikido Pivot</h1>
+</div>
+<!-- The Constraint & Prompt Card (Brutalist Architecture) -->
+<section class="relative border-[2px] border-border-primary bg-surface p-6 md:p-10 flex flex-col gap-6 shadow-[4px_4px_0px_0px_#7C2D12]">
+<!-- Hairline inner container for depth -->
+<div class="absolute inset-2 border-[0.5px] border-outline-variant pointer-events-none"></div>
+<div class="relative z-10 flex flex-wrap justify-between items-start gap-4">
+<div class="flex items-center gap-2 border-[2px] border-border-primary bg-primary-container px-3 py-1">
+<span class="material-symbols-outlined text-on-primary-container text-sm">warning</span>
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase">Constraint: Handle Interruption</span>
+</div>
+<div class="border-[2px] border-border-primary bg-surface px-3 py-1">
+<span class="font-label-caps text-label-caps text-primary uppercase">Step 3: Do</span>
+</div>
+</div>
+<div class="relative z-10 mt-4">
+<p class="font-label-caps text-label-caps text-outline mb-2">PROMPT</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface leading-tight">
+                    "Tell me about your team's biggest challenge."
+                </h2>
+</div>
+</section>
+<!-- Interaction Zone: The Recording Deck -->
+<section class="flex-1 flex flex-col items-center justify-center mt-12 gap-10">
+<!-- Monospace Timer -->
+<div class="flex flex-col items-center">
+<span class="font-metric-hero text-metric-hero text-primary tracking-tight">01:42</span>
+<span class="font-label-caps text-label-caps text-error-warning mt-2 flex items-center gap-2 animate-pulse">
+<span class="w-2 h-2 rounded-full bg-error-warning block"></span>
+                    RECORDING
+                </span>
+</div>
+<!-- The Mic Button (64pt core) -->
+<div class="relative flex justify-center items-center w-40 h-40">
+<!-- Pulsing Rings (Ink dots abstraction) -->
+<div class="absolute inset-4 rounded-full border-[2px] border-primary-container animate-pulse-ring"></div>
+<div class="absolute inset-8 rounded-full border-[1px] border-primary-container animate-pulse-ring" style="animation-delay: 0.5s;"></div>
+<!-- Depleting Timer Ring -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="stroke-surface-variant" cx="50" cy="50" fill="none" r="46" stroke-width="2"></circle>
+<circle class="stroke-primary stroke-dash-animate" cx="50" cy="50" fill="none" r="46" stroke-width="4"></circle>
+</svg>
+<!-- 64pt core button (~4rem / 64px) -->
+<button class="relative z-10 w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center border-[2px] border-border-primary hover:bg-primary transition-colors duration-200 active:scale-95 cursor-pointer shadow-none">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Real-time Indicator: Pivot Recovery Bar -->
+<div class="w-full max-w-md flex flex-col gap-3 mt-4 border-[2px] border-border-primary p-4 bg-surface">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pivot Recovery</span>
+<span class="font-metric-sm text-metric-sm text-success-sage">0.8s</span>
+</div>
+<!-- Brutalist Progress Track -->
+<div class="h-6 w-full border-[2px] border-border-primary bg-surface-variant relative overflow-hidden flex items-center">
+<!-- Progress Fill -->
+<div class="absolute top-0 left-0 h-full bg-success-sage" style="width: 85%;"></div>
+<!-- Structural Grid Marks -->
+<div class="absolute top-0 left-1/4 h-full w-[2px] bg-border-primary/30 z-10"></div>
+<div class="absolute top-0 left-2/4 h-full w-[2px] bg-border-primary/30 z-10"></div>
+<div class="absolute top-0 left-3/4 h-full w-[2px] bg-border-primary/30 z-10"></div>
+</div>
+<div class="flex justify-between w-full mt-1">
+<span class="font-metric-sm text-metric-sm text-outline text-[10px]">SLOW</span>
+<span class="font-metric-sm text-metric-sm text-outline text-[10px]">OPTIMAL</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

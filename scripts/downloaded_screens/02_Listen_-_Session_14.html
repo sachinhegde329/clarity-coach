@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Rule of 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-warning": "#B91C1C",
+            "outline": "#89726c",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#93000b",
+            "on-secondary-fixed": "#151e10",
+            "on-surface-variant": "#55423d",
+            "on-tertiary-fixed": "#410002",
+            "surface-container-low": "#f7f3ef",
+            "tertiary": "#680005",
+            "surface": "#fdf9f5",
+            "inverse-primary": "#ffb59e",
+            "on-error": "#ffffff",
+            "secondary-container": "#d8e3cc",
+            "inverse-on-surface": "#f4f0ec",
+            "error": "#ba1a1a",
+            "surface-container": "#f1ede9",
+            "primary-container": "#7c2d12",
+            "on-secondary-fixed-variant": "#404a39",
+            "primary-fixed": "#ffdbd0",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-bright": "#fdf9f5",
+            "primary-fixed-dim": "#ffb59e",
+            "on-background": "#1c1c19",
+            "primary": "#5e1700",
+            "on-tertiary-fixed-variant": "#93000b",
+            "on-secondary": "#ffffff",
+            "background": "#fdf9f5",
+            "tertiary-fixed-dim": "#ffb4ab",
+            "border-primary": "#7C2D12",
+            "surface-tint": "#9b4427",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdad6",
+            "inverse-surface": "#31302e",
+            "on-surface": "#1c1c19",
+            "secondary": "#57624f",
+            "success-sage": "#818C78",
+            "on-secondary-container": "#5b6653",
+            "secondary-fixed": "#dbe6cf",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#ff998e",
+            "on-primary-fixed-variant": "#7c2d12",
+            "surface-container-highest": "#e5e2de",
+            "surface-dim": "#ddd9d6",
+            "secondary-fixed-dim": "#bfcab4",
+            "on-primary-container": "#ff9b7b",
+            "surface-variant": "#e5e2de",
+            "surface-parchment": "#FDF9F5",
+            "on-primary-fixed": "#3a0b00",
+            "surface-container-high": "#ebe7e4",
+            "outline-variant": "#dcc1b9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "unit": "4px",
+            "hairline": "0.5px",
+            "margin-desktop": "40px",
+            "border-width": "2px",
+            "gutter": "16px",
+            "margin-mobile": "20px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Bricolage Grotesque"],
+            "display-lg": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "body-lg": ["Bricolage Grotesque"],
+            "metric-hero": ["JetBrains Mono"],
+            "body-md": ["Bricolage Grotesque"],
+            "metric-sm": ["JetBrains Mono"],
+            "label-caps": ["JetBrains Mono"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .waveform-bar {
+      transition: height 0.1s ease-in-out;
+    }
+    .transcript-active {
+      background-color: rgba(94, 23, 0, 0.1);
+      border-left: 2px solid #5e1700;
+      padding-left: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1ede9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #5e1700;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface selection:bg-primary-fixed selection:text-primary min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-border-width border-primary z-50 flex items-center justify-between px-margin-mobile py-unit">
+<div class="flex items-center gap-4">
+<button class="hover:bg-primary-container/10 transition-colors active:scale-95 p-2 rounded">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="font-label-caps text-label-caps text-primary cursor-pointer hover:bg-primary-container/10 px-3 py-1 transition-all">TODAY</span>
+<span class="font-label-caps text-label-caps text-primary cursor-pointer hover:bg-primary-container/10 px-3 py-1 transition-all">JOURNEY</span>
+<span class="font-label-caps text-label-caps text-primary cursor-pointer hover:bg-primary-container/10 px-3 py-1 transition-all">LIBRARY</span>
+<span class="font-label-caps text-label-caps text-primary cursor-pointer hover:bg-primary-container/10 px-3 py-1 transition-all">STATS</span>
+</div>
+<div class="w-10 h-10 rounded-full border-border-width border-primary overflow-hidden">
+<img alt="User" data-alt="A professional headshot of a focused man in a creative studio setting. The lighting is warm and cinematic, emphasizing a serious yet approachable mentor-like presence. The background is a blurred library with wooden textures and parchment colors, maintaining the premium architectural aesthetic of the brand. High contrast and sharp focus on the facial features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvfd9V3JZ1WKedPfHwVjE0fDJT-Zq5fXxD0btgvbax6I9kxuhhseybhC_ljdjfFVXV95BvSJXt_dVlIN0GTfjUpnxv49FH4FdTHmbPjInObifJJjUXxd5VWmohz12LgDrfyJnpWsOH06AUmUOBJJpDiURg2Ha2yNH7D-4r6xbeb8aXJGWFL0f2J3EVrnMkeLXqvonGJQJV5SvqCbncETbw6xCk0_pidLa_7u90fz2goParD3PJkVFgxRiV26Of977LKWkOqRNipW_r"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col md:flex-row h-[calc(100vh-64px-64px)] overflow-hidden">
+<!-- NavigationDrawer (Session Progress) -->
+<aside class="hidden md:flex flex-col py-margin-mobile h-full w-64 border-r-border-width border-primary bg-surface-parchment">
+<div class="px-6 mb-8">
+<h2 class="font-label-caps text-label-caps text-outline tracking-widest uppercase">SESSION PROGRESS</h2>
+<div class="mt-2 font-headline-md text-headline-md text-primary">Rule of 3</div>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-3 py-3 px-6 text-outline pl-3 hover:bg-primary-container/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined">self_improvement</span>
+<span class="font-metric-sm text-metric-sm">Centre</span>
+</div>
+<div class="flex items-center gap-3 py-3 px-6 font-bold text-primary border-l-4 border-primary pl-2 bg-primary-container/5">
+<span class="material-symbols-outlined">hearing</span>
+<span class="font-metric-sm text-metric-sm">Listen</span>
+</div>
+<div class="flex items-center gap-3 py-3 px-6 text-outline pl-3 hover:bg-primary-container/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-metric-sm text-metric-sm">Do</span>
+</div>
+<div class="flex items-center gap-3 py-3 px-6 text-outline pl-3 hover:bg-primary-container/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-metric-sm text-metric-sm">See</span>
+</div>
+<div class="flex items-center gap-3 py-3 px-6 text-outline pl-3 hover:bg-primary-container/10 transition-all cursor-pointer">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="font-metric-sm text-metric-sm">Commit</span>
+</div>
+</nav>
+</aside>
+<!-- Content Area -->
+<section class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop bg-surface-container-low flex flex-col gap-gutter">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label-caps text-label-caps text-primary border border-primary px-2 py-0.5 rounded">STEP 02 / 05</span>
+<h2 class="font-display-lg text-display-lg text-primary mt-2">Three points, no more.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
+            Understanding the cognitive load rationale for the Rule of 3. Our brains are hardwired for triads.
+          </p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-lg hover:opacity-90 active:scale-95 transition-all">
+            MARK COMPLETE
+          </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mt-4 flex-1">
+<!-- Main Visualizer Card -->
+<div class="lg:col-span-8 border-border-width border-primary bg-surface p-gutter rounded-lg flex flex-col shadow-[4px_4px_0px_0px_#5e1700]">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">waves</span>
+<span class="font-metric-sm text-metric-sm">LIVE VISUALIZER</span>
+</div>
+<div class="font-metric-sm text-metric-sm text-outline">SESSION 14: RULE OF 3</div>
+</div>
+<!-- Waveform Simulation -->
+<div class="flex-1 flex items-center justify-center gap-1.5 h-64 md:h-full" id="waveform">
+<!-- Bars will be injected by JS -->
+</div>
+<!-- Controls -->
+<div class="mt-8 flex items-center justify-between border-t border-outline-variant pt-gutter">
+<div class="flex items-center gap-6">
+<button class="text-primary hover:scale-110 transition-transform active:scale-95" id="replay-btn">
+<span class="material-symbols-outlined text-[32px]">replay</span>
+</button>
+<button class="bg-primary text-on-primary w-16 h-16 rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all" id="play-pause-btn">
+<span class="material-symbols-outlined text-[32px]" id="play-icon">play_arrow</span>
+</button>
+<button class="text-primary hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[32px]">skip_next</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border border-primary/20">
+<span class="font-metric-sm text-metric-sm text-primary">1.0x</span>
+<span class="material-symbols-outlined text-primary text-sm">expand_more</span>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary tabular-nums" id="timer">02:14 / 04:30</div>
+</div>
+</div>
+</div>
+<!-- Sync Transcript Card -->
+<div class="lg:col-span-4 border-border-width border-primary bg-surface rounded-lg flex flex-col shadow-[4px_4px_0px_0px_#5e1700] overflow-hidden">
+<div class="p-gutter border-b border-outline-variant flex items-center justify-between bg-primary/5">
+<span class="font-label-caps text-label-caps text-primary">LIVE TRANSCRIPT</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="p-gutter overflow-y-auto custom-scrollbar flex-1 space-y-6">
+<p class="font-body-md text-on-surface-variant opacity-50">Why exactly does the number three hold such weight in human communication?</p>
+<p class="font-body-md text-primary transcript-active leading-relaxed" id="active-transcript">
+              The answer lies in cognitive load. Research suggests that three is the smallest number required to create a pattern, and the largest number that most people can store in their short-term memory instantly.
+            </p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+              When you present four points, you risk losing the listener. When you present two, you lack the structural integrity of a "narrative arc."
+            </p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+              Think of the stool: three legs provide perfect balance. Communication is no different.
+            </p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+              In this session, we will explore how to ruthlessly prune your ideas down to the core triad that defines your message.
+            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-parchment border-t-border-width border-primary flex justify-around items-center h-16 px-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-primary active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-1">TODAY</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-caps text-label-caps mt-1">JOURNEY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-caps text-label-caps mt-1">LIBRARY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps mt-1">STATS</span>
+</div>
+</nav>
+<script>
+    // Waveform Visualization
+    const waveformContainer = document.getElementById('waveform');
+    const barCount = 48;
+    const bars = [];
+
+    for (let i = 0; i < barCount; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'waveform-bar w-1.5 md:w-2 bg-primary rounded-full';
+      // Set initial heights in a wave pattern
+      const initialHeight = 10 + Math.random() * 60;
+      bar.style.height = `${initialHeight}%`;
+      waveformContainer.appendChild(bar);
+      bars.push(bar);
+    }
+
+    let isPlaying = false;
+    let animationInterval;
+
+    function animateWaveform() {
+      bars.forEach(bar => {
+        const targetHeight = 10 + Math.random() * 80;
+        bar.style.height = `${targetHeight}%`;
+      });
+    }
+
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const timerDisplay = document.getElementById('timer');
+
+    playPauseBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playIcon.textContent = 'pause';
+        animationInterval = setInterval(animateWaveform, 150);
+        // Micro-interaction: nudge active transcript
+        document.getElementById('active-transcript').classList.add('transcript-active');
+      } else {
+        playIcon.textContent = 'play_arrow';
+        clearInterval(animationInterval);
+      }
+    });
+
+    const replayBtn = document.getElementById('replay-btn');
+    replayBtn.addEventListener('click', () => {
+      // Small visual feedback for click
+      replayBtn.style.transform = 'rotate(-360deg)';
+      replayBtn.style.transition = 'transform 0.5s ease';
+      setTimeout(() => {
+        replayBtn.style.transform = 'rotate(0deg)';
+        replayBtn.style.transition = 'none';
+      }, 500);
+    });
+
+    // Mock progress timer
+    let seconds = 134;
+    setInterval(() => {
+      if (isPlaying) {
+        seconds++;
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')} / 04:30`;
+      }
+    }, 1000);
+  </script>
+</body></html>

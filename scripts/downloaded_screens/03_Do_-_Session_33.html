@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 33: Do - Influence Without Authority</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbd0",
+                        "success-sage": "#818C78",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#5b6653",
+                        "on-surface-variant": "#55423d",
+                        "tertiary": "#680005",
+                        "secondary": "#57624f",
+                        "on-tertiary-container": "#ff998e",
+                        "error-warning": "#B91C1C",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-dim": "#ddd9d6",
+                        "background": "#fdf9f5",
+                        "border-primary": "#7C2D12",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#89726c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad6",
+                        "inverse-surface": "#31302e",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "secondary-fixed": "#dbe6cf",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-container": "#d8e3cc",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "surface-container": "#f1ede9",
+                        "surface": "#fdf9f5",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-container": "#ff9b7b",
+                        "surface-tint": "#9b4427",
+                        "surface-variant": "#e5e2de",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-background": "#1c1c19",
+                        "on-secondary-fixed": "#151e10",
+                        "primary": "#5e1700",
+                        "surface-container-low": "#f7f3ef",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-highest": "#e5e2de",
+                        "tertiary-container": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "on-surface": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "hairline": "0.5px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .pulse-ring {
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .5; transform: scale(1.1); }
+        }
+
+        .countdown-timer {
+            stroke-dasharray: 283; /* 2 * pi * r (approx 45) */
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen bg-surface-parchment antialiased selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-border-width border-primary-container z-40">
+<div class="flex items-center justify-between px-margin-mobile py-4 w-full">
+<button class="text-primary-container hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-100 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary-container font-bold tracking-tight">03/05</h1>
+<button class="text-primary-container hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-100 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-margin-mobile py-gutter md:px-margin-desktop max-w-4xl mx-auto w-full pb-28">
+<!-- Context Header -->
+<div class="mb-8 mt-4">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest block mb-2">Session 33</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Influence Without Authority</h2>
+<p class="font-body-md text-body-md text-on-surface-variant border-l-border-width border-primary pl-4 py-1">Adversarial Challenge: Persuade a Skeptical Peer</p>
+</div>
+<!-- The Prompt Card -->
+<div class="bg-[#FDF9F5] border-border-width border-primary rounded-lg p-6 mb-8 relative group">
+<div class="absolute -top-3 -left-3 bg-primary text-on-primary font-label-caps text-label-caps px-3 py-1 rounded-sm border-hairline border-primary">PROMPT</div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed mt-2">
+                "Persuade your peer, Mark, to adopt a new project management tool. He is worried about the learning curve."
+            </p>
+</div>
+<!-- Recording Interface Area -->
+<div class="flex-grow flex flex-col items-center justify-center my-8">
+<!-- Real-time Indicators -->
+<div class="w-full flex justify-between items-end mb-12 max-w-sm">
+<!-- Composure Meter -->
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Composure</span>
+<div class="h-32 w-4 border-hairline border-primary bg-surface-container-high rounded-full overflow-hidden relative">
+<!-- Dynamic fill -->
+<div class="absolute bottom-0 w-full bg-success-sage h-3/4 transition-all duration-300"></div>
+<!-- Marker line -->
+<div class="absolute top-1/4 w-full h-px bg-primary z-10"></div>
+</div>
+<span class="font-metric-sm text-metric-sm text-on-surface mt-2">78%</span>
+</div>
+<!-- Pace Meter (Static for structural balance) -->
+<div class="flex flex-col items-center opacity-60">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Pace</span>
+<div class="h-32 w-4 border-hairline border-outline bg-surface-container-high rounded-full overflow-hidden relative">
+<div class="absolute bottom-0 w-full bg-outline h-1/2"></div>
+</div>
+<span class="font-metric-sm text-metric-sm text-on-surface mt-2">120wpm</span>
+</div>
+</div>
+<!-- The Mic Button & Timer -->
+<div class="relative flex items-center justify-center">
+<!-- SVG Timer Ring -->
+<svg class="absolute w-[100px] h-[100px] -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary countdown-timer" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="2"></circle>
+</svg>
+<!-- Recording Button -->
+<button class="w-[64px] h-[64px] bg-primary rounded-full flex items-center justify-center border-border-width border-primary relative z-10 active:scale-95 transition-transform duration-100 group" id="record-btn">
+<span class="material-symbols-outlined text-on-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+<!-- Ink-dot pulse container (Active state simulation) -->
+<div class="absolute inset-0 rounded-full border-hairline border-primary scale-110 opacity-0 group-hover:opacity-100 pulse-ring pointer-events-none"></div>
+</button>
+</div>
+<div class="mt-6 text-center">
+<span class="font-metric-hero text-metric-hero text-on-surface block">01:28</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-1 block">Remaining</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 h-20 bg-surface-parchment border-t-border-width border-primary-container">
+<div class="flex justify-around items-center px-2 w-full h-full max-w-md mx-auto md:max-w-full">
+<!-- Inactive: Centre -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 hover:bg-primary-container/5 transition-all duration-200 ease-in-out p-2 rounded-lg w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">radio_button_checked</span>
+<span class="font-label-caps text-label-caps">Centre</span>
+</a>
+<!-- Inactive: Listen -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 hover:bg-primary-container/5 transition-all duration-200 ease-in-out p-2 rounded-lg w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">hearing</span>
+<span class="font-label-caps text-label-caps">Listen</span>
+</a>
+<!-- ACTIVE: Do -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-primary-fixed-dim rounded-full px-4 py-2 transition-all duration-200 ease-in-out shadow-sm w-20" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="font-label-caps text-label-caps font-bold">Do</span>
+</a>
+<!-- Inactive: See -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 hover:bg-primary-container/5 transition-all duration-200 ease-in-out p-2 rounded-lg w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">visibility</span>
+<span class="font-label-caps text-label-caps">See</span>
+</a>
+<!-- Inactive: Commit -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 hover:bg-primary-container/5 transition-all duration-200 ease-in-out p-2 rounded-lg w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+<span class="font-label-caps text-label-caps">Commit</span>
+</a>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the timer ring
+        document.addEventListener('DOMContentLoaded', () => {
+            const timerCircle = document.querySelector('.countdown-timer');
+            const totalTime = 90; // seconds
+            let timeLeft = 88; // Start slightly depleted for realism
+            
+            // Initial offset calculation (approximate length is 283)
+            const circumference = 283;
+            const updateTimer = () => {
+                const offset = circumference - (timeLeft / totalTime) * circumference;
+                timerCircle.style.strokeDashoffset = offset;
+            };
+            
+            updateTimer();
+        });
+    </script>
+</body></html>

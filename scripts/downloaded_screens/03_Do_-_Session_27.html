@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Do Session</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "surface-container": "#f1ede9",
+                      "surface": "#fdf9f5",
+                      "error": "#ba1a1a",
+                      "primary-container": "#7c2d12",
+                      "inverse-on-surface": "#f4f0ec",
+                      "on-primary-container": "#ff9b7b",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "inverse-primary": "#ffb59e",
+                      "secondary-fixed": "#dbe6cf",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary-container": "#d8e3cc",
+                      "surface-bright": "#fdf9f5",
+                      "on-tertiary-fixed": "#410002",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#151e10",
+                      "on-background": "#1c1c19",
+                      "primary": "#5e1700",
+                      "surface-container-highest": "#e5e2de",
+                      "surface-container-low": "#f7f3ef",
+                      "outline-variant": "#dcc1b9",
+                      "tertiary-container": "#93000b",
+                      "surface-parchment": "#FDF9F5",
+                      "on-surface": "#1c1c19",
+                      "surface-tint": "#9b4427",
+                      "surface-variant": "#e5e2de",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#680005",
+                      "on-tertiary-container": "#ff998e",
+                      "secondary": "#57624f",
+                      "error-warning": "#B91C1C",
+                      "primary-fixed": "#ffdbd0",
+                      "success-sage": "#818C78",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-secondary-container": "#5b6653",
+                      "on-surface-variant": "#55423d",
+                      "border-primary": "#7C2D12",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#89726c",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdad6",
+                      "inverse-surface": "#31302e",
+                      "surface-container-high": "#ebe7e4",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "surface-dim": "#ddd9d6",
+                      "background": "#fdf9f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "border-width": "2px",
+                      "hairline": "0.5px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .pulse-dot {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(124, 45, 18, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(124, 45, 18, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(124, 45, 18, 0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-border-width border-primary flex items-center justify-between px-margin-mobile py-unit w-full z-40">
+<button class="text-primary hover:bg-primary-container/10 transition-colors active:scale-95 transition-transform p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</h1>
+<div class="font-metric-sm text-metric-sm text-outline flex items-center gap-2 mt-1">
+<span>03 / 05</span>
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span>1:38</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full border-border-width border-primary overflow-hidden bg-surface-variant flex items-center justify-center">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc8wysOxwJ1Glym0UBk3Oz_QXCVlzU5cl6vulFxCZo3dI_IPIFjHZJAZIwMM-CeOKl4eNdn6clfn3C0KvLdVaxT6Lu3l01xPtMN1h43X5WCKG2RKyFnvCsJtJFbZ8WsaK8nT-c8nyUkyB5OtxICNeqWhp6N_BxMZjaIa55Fi-C0wEkkiejvduHwd_NRct3tHnT0k4RtlJ8v-3fpxPBpmPlohvZGNlWO-w3Q1dfBk7r3d7fMu4eQ2r7BpoIgFozlhj7A_fzcBA32sEK"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center p-gutter md:p-margin-desktop w-full max-w-5xl mx-auto relative overflow-hidden">
+<!-- Background Architectural Grid -->
+<div class="absolute inset-0 pointer-events-none opacity-5 z-0" style="background-image: linear-gradient(to right, #7C2D12 1px, transparent 1px), linear-gradient(to bottom, #7C2D12 1px, transparent 1px); background-size: 40px 40px;"></div>
+<!-- Session Progress Strip (Header) -->
+<div class="w-full max-w-3xl flex justify-between items-center mb-8 relative z-10 hidden md:flex border-b-hairline border-outline pb-4">
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-sm">self_improvement</span>
+<span class="font-label-caps text-label-caps uppercase">Centre</span>
+</div>
+<div class="w-8 h-px bg-outline"></div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-sm">hearing</span>
+<span class="font-label-caps text-label-caps uppercase">Listen</span>
+</div>
+<div class="w-8 h-px bg-outline"></div>
+<div class="flex items-center gap-2 font-bold text-primary border-b-2 border-primary pb-1">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span class="font-label-caps text-label-caps uppercase">Do</span>
+</div>
+<div class="w-8 h-px bg-outline"></div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="font-label-caps text-label-caps uppercase">See</span>
+</div>
+<div class="w-8 h-px bg-outline"></div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="font-label-caps text-label-caps uppercase">Commit</span>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row w-full max-w-4xl gap-gutter md:gap-margin-desktop z-10 items-stretch">
+<!-- Left Column: Instructions & Constraints -->
+<div class="flex-1 flex flex-col gap-gutter">
+<!-- Header Info -->
+<div class="mb-2">
+<h2 class="font-metric-sm text-metric-sm text-primary uppercase mb-1">Session 27</h2>
+<h3 class="font-headline-md text-headline-md text-on-surface">Energy Calibration</h3>
+</div>
+<!-- Prompt Card -->
+<div class="bg-surface border-border-width border-primary rounded p-6 shadow-[4px_4px_0px_0px_#7C2D12] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-primary opacity-20">
+<span class="material-symbols-outlined" style="font-size: 48px;">format_quote</span>
+</div>
+<div class="font-label-caps text-label-caps text-outline mb-4">THE PROMPT</div>
+<p class="font-body-lg text-body-lg text-on-surface relative z-10 leading-relaxed">
+                        Describe a project you're passionate about, starting with a whisper, then normal, then emphatic.
+                    </p>
+</div>
+<!-- Constraint Card -->
+<div class="bg-surface-variant border-hairline border-primary rounded p-4 flex items-start gap-4">
+<div class="bg-primary text-on-primary p-2 rounded shrink-0">
+<span class="material-symbols-outlined">rule</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps text-primary mb-1">CONSTRAINT</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Vary energy across 3 sections. <strong class="text-primary font-bold">90 seconds.</strong>
+</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Recording Interface (The Hero) -->
+<div class="flex-1 flex flex-col items-center justify-center bg-surface border-border-width border-primary rounded p-8 shadow-[4px_4px_0px_0px_#7C2D12] relative">
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error-warning pulse-dot"></span>
+<span class="font-metric-sm text-metric-sm text-error-warning uppercase">Recording</span>
+</div>
+<div class="font-metric-hero text-metric-hero text-primary mb-12 tabular-nums">00:42</div>
+<div class="flex items-center gap-8 mb-8">
+<!-- Energy Meter (Vertical) -->
+<div class="flex flex-col items-center h-48 w-8 relative">
+<div class="w-full h-full border-border-width border-primary rounded-full overflow-hidden bg-surface-variant relative flex flex-col-reverse">
+<!-- Meter Fill -->
+<div class="w-full bg-primary transition-all duration-300 h-[65%]"></div>
+<!-- Zone Markers -->
+<div class="absolute w-full h-full top-0 left-0 flex flex-col justify-between pointer-events-none">
+<div class="h-1/3 border-b-hairline border-surface-parchment flex items-center justify-center text-[10px] font-label-caps text-surface-parchment">HI</div>
+<div class="h-1/3 border-b-hairline border-surface-parchment flex items-center justify-center text-[10px] font-label-caps text-surface-parchment">MID</div>
+<div class="h-1/3 flex items-center justify-center text-[10px] font-label-caps text-surface-parchment mix-blend-difference">LO</div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-outline mt-2">ENERGY</span>
+</div>
+<!-- The Mic Button & Timer Ring -->
+<div class="relative flex items-center justify-center">
+<!-- SVG Ring -->
+<svg class="absolute w-32 h-32 -rotate-90" viewbox="0 0 120 120">
+<!-- Background Track -->
+<circle class="stroke-surface-variant" cx="60" cy="60" fill="none" r="54" stroke-width="4"></circle>
+<!-- Progress Stroke (Depleting) -->
+<circle class="progress-ring__circle stroke-primary" cx="60" cy="60" fill="none" r="54" stroke-dasharray="339.292" stroke-dashoffset="150" stroke-linecap="square" stroke-width="4"></circle>
+</svg>
+<!-- Mic Button Core -->
+<button class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-on-primary hover:bg-surface-tint active:scale-95 transition-all shadow-[0_0_15px_rgba(124,45,18,0.3)] relative z-10 group">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<!-- Filler word indicator dots (pulsing randomly) -->
+<span class="absolute top-2 right-4 w-1 h-1 bg-surface-parchment rounded-full opacity-0 animate-[pulse_2s_infinite]"></span>
+<span class="absolute bottom-4 left-2 w-1.5 h-1.5 bg-surface-parchment rounded-full opacity-0 animate-[pulse_3s_infinite_1s]"></span>
+</button>
+</div>
+</div>
+<div class="flex gap-4 w-full mt-4">
+<button class="flex-1 py-3 px-4 border-border-width border-primary text-primary font-headline-md text-headline-md rounded hover:bg-primary-container/10 transition-colors uppercase tracking-tight flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">restart_alt</span>
+                        Retry
+                    </button>
+<button class="flex-1 py-3 px-4 bg-primary text-on-primary border-border-width border-primary font-headline-md text-headline-md rounded hover:bg-surface-tint transition-colors uppercase tracking-tight flex items-center justify-center gap-2">
+                        Finish
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on Web) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-parchment border-t-border-width border-primary flex justify-around items-center h-16 px-2 pb-safe w-full md:hidden hidden">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 transition-transform w-full py-2">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-1">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 hover:bg-primary-container/20 transition-all active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-caps text-label-caps mt-1">JOURNEY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 transition-transform w-full py-2">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-label-caps text-label-caps mt-1">LIBRARY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 transition-transform w-full py-2">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-caps text-label-caps mt-1">STATS</span>
+</button>
+</nav>
+<script>
+        // Simple script to animate the energy meter randomly to simulate talking
+        const meterFill = document.querySelector('.h-\\[65\\%\\]');
+        if(meterFill) {
+            setInterval(() => {
+                const randomHeight = Math.floor(Math.random() * (90 - 20 + 1) + 20);
+                meterFill.style.height = `${randomHeight}%`;
+            }, 400);
+        }
+    </script>
+</body></html>

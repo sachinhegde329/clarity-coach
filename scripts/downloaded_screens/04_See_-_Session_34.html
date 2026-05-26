@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 34: Memorable Closes - See</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=JetBrains+Mono:wght@400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "success-sage": "#818C78",
+                      "surface-container": "#f1ede9",
+                      "error-warning": "#B91C1C",
+                      "surface-bright": "#fdf9f5",
+                      "on-primary-fixed": "#3a0b00",
+                      "inverse-on-surface": "#f4f0ec",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1c1c19",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#ffb59e",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "on-tertiary-container": "#ff998e",
+                      "surface-parchment": "#FDF9F5",
+                      "on-primary-container": "#ff9b7b",
+                      "on-secondary-fixed": "#151e10",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "secondary": "#57624f",
+                      "secondary-fixed": "#dbe6cf",
+                      "surface-dim": "#ddd9d6",
+                      "on-secondary-container": "#5b6653",
+                      "background": "#fdf9f5",
+                      "tertiary": "#680005",
+                      "primary-fixed-dim": "#ffb59e",
+                      "primary-container": "#7c2d12",
+                      "on-surface-variant": "#55423d",
+                      "secondary-container": "#d8e3cc",
+                      "primary-fixed": "#ffdbd0",
+                      "surface-container-highest": "#e5e2de",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#89726c",
+                      "tertiary-fixed": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f7f3ef",
+                      "surface": "#fdf9f5",
+                      "inverse-surface": "#31302e",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-tertiary-fixed": "#410002",
+                      "surface-container-high": "#ebe7e4",
+                      "surface-variant": "#e5e2de",
+                      "tertiary-container": "#93000b",
+                      "surface-tint": "#9b4427",
+                      "on-error-container": "#93000a",
+                      "primary": "#5e1700",
+                      "outline-variant": "#dcc1b9",
+                      "on-surface": "#1c1c19",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "border-primary": "#7C2D12"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "border-width": "2px",
+                      "gutter": "16px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "20px",
+                      "hairline": "0.5px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf9f5;
+            color: #1c1c19;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .brutalist-card {
+            border: 2px solid #7C2D12;
+            background-color: #FDF9F5;
+            border-radius: 4px;
+        }
+        
+        .brutalist-card-nested {
+            border: 0.5px solid #7C2D12;
+            background-color: #FDF9F5;
+            border-radius: 4px;
+        }
+
+        .primary-button {
+            background-color: #7C2D12;
+            border: 2px solid #7C2D12;
+            color: #FDF9F5;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .primary-button:hover {
+            background-color: #5e1700;
+        }
+
+        .ghost-button {
+            border: 2px solid #7C2D12;
+            background-color: transparent;
+            color: #7C2D12;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .ghost-button:hover {
+            background-color: rgba(124, 45, 18, 0.1);
+        }
+        
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .progress-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            margin-bottom: 24px;
+        }
+        
+        .progress-segment {
+            height: 4px;
+            background-color: #dcc1b9;
+        }
+        
+        .progress-segment.active {
+            background-color: #7C2D12;
+        }
+        
+        .progress-segment.completed {
+            background-color: #5e1700;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface-parchment dark:bg-surface-dim text-primary dark:text-primary-fixed w-full top-0 sticky border-b-2 border-primary dark:border-primary-container flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 z-40">
+<button class="cursor-pointer active:scale-95 duration-100 hover:bg-primary-container/10 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">
+            04 / 05
+        </div>
+<button class="cursor-pointer active:scale-95 duration-100 hover:bg-primary-container/10 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-7xl mx-auto w-full">
+<!-- Session Header & Progress -->
+<div class="mb-8 w-full max-w-3xl mx-auto">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2 tracking-tight">Session 34: Memorable Closes</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">Step 4: See</p>
+<div class="progress-strip w-full">
+<div class="progress-segment completed"></div>
+<div class="progress-segment completed"></div>
+<div class="progress-segment completed"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment"></div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full max-w-5xl mx-auto">
+<!-- Main Hero Metric Card (Close Strength) -->
+<div class="md:col-span-8 brutalist-card p-6 md:p-8 flex flex-col justify-between relative overflow-hidden">
+<!-- Decorative background elements for that "study/atelier" feel -->
+<div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<h2 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Primary Metric</h2>
+<p class="font-headline-lg text-headline-lg text-on-surface mb-6">Close Strength</p>
+</div>
+<div class="flex items-end gap-4 mt-8 md:mt-16">
+<div class="font-metric-hero text-[80px] leading-none text-primary metric-value font-bold tracking-tighter">92<span class="text-headline-md text-on-surface-variant">%</span></div>
+<div class="flex items-center text-success-sage mb-2">
+<span class="material-symbols-outlined mr-1" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+<span class="font-metric-sm text-metric-sm metric-value">+4%</span>
+</div>
+</div>
+</div>
+<!-- Secondary Metrics Stack -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Coherence -->
+<div class="brutalist-card p-6 flex-grow flex flex-col justify-center">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Body-Close Coherence</h3>
+<div class="flex items-center justify-between">
+<div class="font-metric-hero text-metric-hero text-on-surface metric-value">High</div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 0;">link</span>
+</div>
+</div>
+<!-- Brevity -->
+<div class="brutalist-card p-6 flex-grow flex flex-col justify-center">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Brevity</h3>
+<div class="flex items-center justify-between">
+<div class="font-metric-hero text-metric-hero text-error-warning metric-value">42s</div>
+<div class="flex items-center text-error-warning">
+<span class="material-symbols-outlined mr-1" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Transcript/Analysis Area -->
+<div class="md:col-span-12 brutalist-card p-6 md:p-8 mt-4">
+<div class="flex justify-between items-center border-b-2 border-primary/20 pb-4 mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center">
+<span class="material-symbols-outlined mr-3 text-primary" style="font-variation-settings: 'FILL' 0;">record_voice_over</span>
+                        Your Delivery
+                    </h2>
+<button class="ghost-button flex items-center px-4 py-2 font-label-caps text-label-caps uppercase tracking-widest">
+<span class="material-symbols-outlined mr-2 text-sm" style="font-variation-settings: 'FILL' 1;">replay</span>
+                        Replay
+                    </button>
+</div>
+<div class="bg-surface-container-low p-6 rounded border border-outline-variant mb-6 relative">
+<!-- Quote styling -->
+<span class="material-symbols-outlined absolute top-4 left-4 text-primary-container/10 text-6xl pointer-events-none" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface relative z-10 leading-relaxed pl-8">
+                        "And so, considering all these factors, <span class="bg-primary-container/20 border-b-2 border-primary text-on-surface font-semibold px-1 rounded-sm">I strongly believe that moving forward with this strategy will yield the highest return, although we must remain vigilant about the potential downside risks we discussed earlier.</span>"
+                    </p>
+</div>
+<!-- AI Commentary -->
+<div class="brutalist-card-nested p-5 bg-surface-container-high flex items-start">
+<div class="bg-primary text-on-primary rounded-full p-2 mr-4 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-1">Mentor Note</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Your close had high conviction, but could be 20% shorter for maximum impact. Consider dropping the qualifying clause at the end to end on a stronger, definitive note.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar (Contextual to the flow, not the global nav) -->
+<div class="mt-12 flex justify-end max-w-5xl mx-auto w-full">
+<button class="primary-button flex items-center px-8 py-4 font-headline-md text-headline-md">
+                Commit &amp; Advance
+                <span class="material-symbols-outlined ml-3" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

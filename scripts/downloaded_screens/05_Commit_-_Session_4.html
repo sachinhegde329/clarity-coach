@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Step 05/05</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "tertiary-container": "#004b71",
+                    "on-secondary-container": "#6b6357",
+                    "surface": "#fdf9f5",
+                    "on-tertiary-fixed": "#001e30",
+                    "secondary-container": "#ede1d2",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-dim": "#ddd9d6",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-primary-container": "#ff9b7b",
+                    "inverse-surface": "#31302e",
+                    "error": "#ba1a1a",
+                    "on-background": "#1c1c19",
+                    "primary-fixed-dim": "#ffb59e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "primary-container": "#7c2d12",
+                    "on-secondary-fixed": "#201b12",
+                    "surface-container-high": "#ebe7e4",
+                    "on-surface-variant": "#55423d",
+                    "background": "#fdf9f5",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "tertiary-fixed": "#cbe6ff",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#655d52",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary-fixed": "#ede1d2",
+                    "outline-variant": "#dcc1b9",
+                    "inverse-primary": "#ffb59e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#9b4427",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "xs": "8px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "sm": "16px",
+                    "margin": "32px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .recording-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(94, 23, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(94, 23, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(94, 23, 0, 0); }
+        }
+        .floating-bg {
+            background-image: radial-gradient(circle at 2px 2px, #ede1d2 1px, transparent 0);
+            background-size: 40px 40px;
+            animation: move-bg 60s linear infinite;
+        }
+        @keyframes move-bg {
+            from { background-position: 0 0; }
+            to { background-position: 400px 400px; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile py-4 w-full z-50 bg-surface border-b-2 border-primary fixed top-0 left-0">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A high-quality professional studio portrait of a woman with a confident expression. The lighting is soft and architectural, complementing the warm terracotta and cream color palette of the brand. She is set against a clean, minimalist background that suggests a high-end design studio environment. The image is crisp, modern, and perfectly centered within a circular frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV520jsnkLyQmywKIZsusdfRs-weh8u0wz0VHRJygRt8jKtZGAneAs19LMoFb7x-pow0gaU3tcm4Y_BOxYk1b-PVD7n0NRgn3zRaV5qt0TjY_hCwKbQTQzGhOOlUywReyokFHFvDrLcxgU8Jb-Cdd8qe_wwJuS__1Uv_h1LuzwX25W-hRxL8Bt-FBkpRAWhchL5Agr16J_sefybn2yUgWcs0yWfWcW31OS5OHZHF1QVppGsrOrG6N8LGmj214ggXxTy1iF_kAGw8Ph"/>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-margin relative pt-20">
+<!-- Floating Background Effect -->
+<div class="absolute inset-0 floating-bg opacity-30 pointer-events-none"></div>
+<!-- Progress Indicator -->
+<div class="absolute top-24 left-1/2 -translate-x-1/2 flex items-center gap-base">
+<span class="font-label-md text-label-md text-primary tracking-widest">STEP 05/05</span>
+</div>
+<!-- Content Canvas -->
+<div class="w-full max-auto max-w-lg z-10 flex flex-col items-center">
+<div class="mb-lg text-center">
+<p class="font-label-md text-label-md text-outline mb-xs uppercase tracking-widest">Commitment Statement</p>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">
+                    "Tomorrow I will match my energy to..."
+                </h2>
+</div>
+<!-- Suggestion Card -->
+<div class="w-full bg-secondary-container border-2 border-primary p-md mb-xl relative hard-shadow">
+<div class="absolute -top-3 left-4 bg-primary text-surface px-xs py-1">
+<span class="font-label-sm text-label-sm uppercase">Prompt Opener</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-secondary-fixed italic">
+                    "Tomorrow I will match my energy to the stillness of the morning, focusing only on high-impact intentions..."
+                </p>
+</div>
+<!-- Microphone/Recording Section -->
+<div class="flex flex-col items-center gap-md">
+<button class="w-32 h-32 rounded-full border-4 border-primary bg-surface flex items-center justify-center transition-all duration-300 active:scale-95 group relative" id="mic-btn">
+<span class="material-symbols-outlined text-primary text-5xl transition-all group-hover:scale-110" id="mic-icon">mic</span>
+<div class="hidden absolute inset-0 rounded-full recording-pulse bg-primary/10" id="pulse-layer"></div>
+</button>
+<div class="text-center">
+<p class="font-label-md text-label-md text-primary uppercase" id="instruction-text">Tap to Record (15s)</p>
+<div class="hidden mt-xs" id="timer-container">
+<span class="font-label-md text-label-md text-error" id="timer">0:15</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Bar (Transactional/Focused - Only Finish Session visible) -->
+<div class="fixed bottom-0 w-full z-50 flex justify-center items-center py-8 px-margin-mobile bg-transparent pointer-events-none">
+<a class="pointer-events-auto bg-primary text-surface border-2 border-primary px-lg py-sm font-label-md text-label-md uppercase tracking-widest hard-shadow transition-all hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0px_0px_#5e1700]" href="#">
+            Finish Session
+        </a>
+</div>
+<!-- Background Decoration -->
+<div class="fixed bottom-0 left-0 w-32 h-32 border-r-2 border-t-2 border-primary opacity-20 pointer-events-none"></div>
+<div class="fixed top-0 right-0 w-48 h-48 border-l-2 border-b-2 border-primary opacity-20 pointer-events-none"></div>
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const micIcon = document.getElementById('mic-icon');
+        const pulseLayer = document.getElementById('pulse-layer');
+        const instructionText = document.getElementById('instruction-text');
+        const timerContainer = document.getElementById('timer-container');
+        const timerDisplay = document.getElementById('timer');
+
+        let isRecording = false;
+        let countdown;
+
+        micBtn.addEventListener('click', () => {
+            if (!isRecording) {
+                startRecording();
+            } else {
+                stopRecording();
+            }
+        });
+
+        function startRecording() {
+            isRecording = true;
+            micIcon.innerText = 'stop';
+            micIcon.classList.add('text-error');
+            micBtn.classList.add('border-error');
+            pulseLayer.classList.remove('hidden');
+            instructionText.innerText = 'Recording...';
+            instructionText.classList.add('text-error');
+            timerContainer.classList.remove('hidden');
+            
+            let timeLeft = 15;
+            countdown = setInterval(() => {
+                timeLeft--;
+                timerDisplay.innerText = `0:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+                if (timeLeft <= 0) {
+                    stopRecording();
+                }
+            }, 1000);
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            clearInterval(countdown);
+            micIcon.innerText = 'check';
+            micIcon.classList.remove('text-error');
+            micIcon.classList.add('text-tertiary-container');
+            micBtn.classList.remove('border-error');
+            micBtn.classList.add('border-tertiary-container');
+            pulseLayer.classList.add('hidden');
+            instructionText.innerText = 'Commitment Captured';
+            instructionText.classList.remove('text-error');
+            instructionText.classList.add('text-tertiary-container');
+            timerContainer.classList.add('hidden');
+        }
+    </script>
+</body></html>

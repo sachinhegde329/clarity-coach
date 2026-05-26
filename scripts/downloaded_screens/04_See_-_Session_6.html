@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach | Sprint 1 Trend Reveal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .custom-grid-bg {
+            background-image: radial-gradient(#89726c 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e5e2de",
+                      "on-secondary-fixed": "#201b12",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#001e30",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "secondary": "#655d52",
+                      "inverse-surface": "#31302e",
+                      "surface-dim": "#ddd9d6",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#d0c5b7",
+                      "on-secondary-container": "#6b6357",
+                      "inverse-on-surface": "#f4f0ec",
+                      "surface-bright": "#fdf9f5",
+                      "surface-container-low": "#f7f3ef",
+                      "primary-fixed": "#ffdbd0",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#4d463b",
+                      "primary-container": "#7c2d12",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e5e2de",
+                      "primary": "#5e1700",
+                      "on-surface": "#1c1c19",
+                      "tertiary-container": "#004b71",
+                      "primary-fixed-dim": "#ffb59e",
+                      "tertiary-fixed": "#cbe6ff",
+                      "inverse-primary": "#ffb59e",
+                      "outline": "#89726c",
+                      "surface-container-high": "#ebe7e4",
+                      "on-primary-container": "#ff9b7b",
+                      "surface": "#fdf9f5",
+                      "tertiary": "#00334f",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary-fixed": "#ede1d2",
+                      "on-background": "#1c1c19",
+                      "on-surface-variant": "#55423d",
+                      "surface-tint": "#9b4427",
+                      "outline-variant": "#dcc1b9",
+                      "on-tertiary-container": "#85bbe6",
+                      "on-tertiary-fixed-variant": "#004b71",
+                      "tertiary-fixed-dim": "#97ccf9",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#ede1d2",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "background": "#fdf9f5",
+                      "surface-container": "#f1ede9",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "80px",
+                      "sm": "16px",
+                      "lg": "48px",
+                      "gutter": "24px",
+                      "md": "24px",
+                      "margin": "32px",
+                      "base": "4px",
+                      "xs": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Bricolage Grotesque"],
+                      "body-md": ["Space Grotesk"],
+                      "body-lg": ["Space Grotesk"],
+                      "label-md": ["Space Mono"],
+                      "headline-lg-mobile": ["Bricolage Grotesque"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "label-sm": ["Space Mono"]
+              },
+              "fontSize": {
+                      "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-primary z-50 fixed top-0 w-full">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer transition-transform duration-100 active:scale-95">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden transition-transform duration-100 active:scale-95 cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Gr9pNq8GjUYPl3ODLJUx1qMHKUzNVezCG2dJe6_t8UYsKDwcDCZjHI1plnluZmLseZflQTE5GVBIRrDLMBrV5FSONW9f0TLziMWwnRpy6mljhIjOi5CNcJpH9Z8kGH53yIMDDbU5akspqZsGuOyMC6AZqZOzzPkYQTjth5eoatQH_8V5u2cUukrHQ1euJNH-XQxaF0bFIOpPFTxfVdnneeInQiCMMfBhOKCuHnOAQtv3XnOspDkIJmhLcwufosKVa7llfGrhZJ_o"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto custom-grid-bg">
+<!-- Hero Section -->
+<section class="mb-lg">
+<div class="border-2 border-primary p-md bg-surface flex flex-col md:flex-row justify-between items-end gap-md">
+<div>
+<p class="font-label-md text-label-md text-secondary mb-base">SESSION 6 REVIEW</p>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase leading-none">04 See</h2>
+<p class="font-headline-md text-headline-md text-outline">Sprint 1 Trend Reveal</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md px-lg py-sm border-2 border-primary transition-all duration-100 hard-shadow-hover flex items-center gap-xs uppercase">
+                    Share Insight <span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</section>
+<!-- Bento Grid Analytics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Clarity Score (Primary Metric) -->
+<div class="md:col-span-4 border-2 border-primary p-md bg-surface flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase">Aggregate Score</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-base">Clarity Score</h3>
+</div>
+<div class="py-lg text-center">
+<span class="text-[120px] leading-none font-bold text-primary" style="font-family: 'JetBrains Mono', monospace;">72</span>
+<div class="mt-base inline-flex items-center gap-1 bg-primary-fixed px-2 py-1 border border-primary">
+<span class="material-symbols-outlined text-[16px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+<span class="font-label-sm text-label-sm text-on-primary-fixed-variant">+12% vs S5</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant">Your highest clarity mark since Sprint 1 kickoff. Technical articulation is peaking.</p>
+</div>
+<!-- Filler Trajectory (Line Graph) -->
+<div class="md:col-span-8 border-2 border-primary p-md bg-surface-container-low flex flex-col">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase">Speech Patterns</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-base">Filler Trajectory</h3>
+</div>
+<div class="flex gap-2">
+<span class="w-3 h-3 bg-primary border border-primary"></span>
+<span class="font-label-sm text-label-sm">Session 1-5</span>
+</div>
+</div>
+<div class="flex-grow flex items-end gap-1 h-64 border-b-2 border-l-2 border-outline relative">
+<!-- SVG Line Graph Mockup -->
+<svg class="absolute inset-0 w-full h-full px-base" preserveaspectratio="none" viewbox="0 0 800 200">
+<path d="M 0 50 L 200 80 L 400 60 L 600 140 L 800 170" fill="none" stroke="#5e1700" stroke-width="4"></path>
+<circle cx="0" cy="50" fill="#5e1700" r="6"></circle>
+<circle cx="200" cy="80" fill="#5e1700" r="6"></circle>
+<circle cx="400" cy="60" fill="#5e1700" r="6"></circle>
+<circle cx="600" cy="140" fill="#5e1700" r="6"></circle>
+<circle cx="800" cy="170" fill="#5e1700" r="6"></circle>
+</svg>
+<div class="absolute bottom-[-24px] flex justify-between w-full font-label-sm text-outline">
+<span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span>
+</div>
+</div>
+<div class="mt-lg pt-md border-t-2 border-outline-variant italic text-secondary">
+                    "Notice the sharp decline in 'um/ah' usage during Session 4. Stability is normalizing."
+                </div>
+</div>
+<!-- Pace Stability (Bar Chart) -->
+<div class="md:col-span-7 border-2 border-primary p-md bg-surface flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary uppercase">Pace Stability</h3>
+<span class="font-label-md text-label-md text-outline">WPM Consistency</span>
+</div>
+<div class="flex items-end justify-between gap-4 h-48 px-md">
+<!-- Bars -->
+<div class="w-full bg-secondary-fixed border-2 border-primary h-[85%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity font-label-sm bg-primary text-on-primary px-1">142</div>
+</div>
+<div class="w-full bg-secondary-fixed border-2 border-primary h-[90%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity font-label-sm bg-primary text-on-primary px-1">148</div>
+</div>
+<div class="w-full bg-primary border-2 border-primary h-[92%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity font-label-sm bg-primary text-on-primary px-1">151</div>
+</div>
+<div class="w-full bg-secondary-fixed border-2 border-primary h-[70%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity font-label-sm bg-primary text-on-primary px-1">128</div>
+</div>
+<div class="w-full bg-secondary-fixed border-2 border-primary h-[88%] relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity font-label-sm bg-primary text-on-primary px-1">145</div>
+</div>
+</div>
+<div class="flex justify-between px-md mt-sm font-label-sm text-secondary">
+<span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span>
+</div>
+</div>
+<!-- Downward Inflection Trend -->
+<div class="md:col-span-5 border-2 border-primary p-md bg-primary-container text-on-primary-container flex flex-col justify-between overflow-hidden relative">
+<div class="z-10">
+<span class="font-label-md text-label-md uppercase opacity-80">Critical Insight</span>
+<h3 class="font-headline-md text-headline-md mt-base leading-tight">Downward Inflection Trend</h3>
+</div>
+<div class="py-md z-10">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-[64px] font-bold">trending_down</span>
+<p class="font-body-md">You are ending sentences with more authority. The 'rising inflection' (upspeak) has decreased by <span class="font-bold underline">22%</span> this sprint.</p>
+</div>
+</div>
+<!-- Abstract texture for branding -->
+<div class="absolute -right-8 -bottom-8 opacity-20 rotate-12">
+<span class="material-symbols-outlined text-[180px]">equalizer</span>
+</div>
+</div>
+<!-- Commentary Section -->
+<div class="md:col-span-12 border-2 border-primary p-md bg-secondary-fixed flex flex-col md:flex-row items-center justify-between gap-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">psychology</span>
+</div>
+<p class="font-headline-md text-headline-md text-primary">What did you notice?</p>
+</div>
+<div class="flex w-full md:w-auto gap-gutter">
+<input class="flex-grow md:w-80 bg-surface border-2 border-primary p-sm font-body-md focus:ring-0 focus:border-primary outline-none focus:bg-primary focus:text-on-primary transition-colors placeholder:text-outline" placeholder="Add your observation..." type="text"/>
+<button class="bg-primary text-on-primary border-2 border-primary p-sm hover:bg-on-primary-container hover:text-primary transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sprint Archive Preview -->
+<section class="mt-lg">
+<h4 class="font-label-md text-label-md text-secondary uppercase mb-md">Sprint 1 Flashbacks</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="border-2 border-primary aspect-video bg-surface-variant overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer group relative">
+<img class="w-full h-full object-cover" data-alt="A macro shot of architectural blueprints with clean lines and sharp angles, shot in high contrast black and white with dramatic lighting that highlights the texture of the paper. This editorial style image reflects a professional, intellectual, and data-driven aesthetic with deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC30aSAqc_BVVo4M0SQTbJSWtpGD2MRmkmKZxjg8NkTX02S9uPME9L0LcGJ9-hAU2QzGBQHXt6o5qSjF78j7VMzk1cyAZXnWsKPxYwHGAUJM9mmiviO_WwZQo-hTSjlVTlSJh-iSzf6T8-XCuTuYjYry0N6BqPP0Yl2wkX4M6XSk3lWeOxgRDaB55Su0MWaKvLK2R8t9mATJM0lUQm97F8ChKGqSrD0UJUIl_msUSR6tL2-QQaQWw1qK-i9wjfaNtXA4cQSODoiYiRS"/>
+<div class="absolute bottom-0 left-0 p-2 bg-primary text-on-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">S1: Base</div>
+</div>
+<div class="border-2 border-primary aspect-video bg-surface-variant overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer group relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist data visualization showing clean, sharp business charts on a high-quality cream-colored cardstock background. The lighting is soft and natural, emphasizing the physical presence of the document in a high-end design studio setting. The palette is dominated by rich terracotta and warm cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnWU7pS1JODGVE4F3OK218BI0Qt6H6VSRzI6FkZ8wd4KUY0uEWO177PAPcqpPm2NkSenR0nxdUTjFfFxBidtVzSCjsxn-oZwiEFFD6YFAgE8d_L-Xa9fS9oqSn6OSRJWkJALE-hA-JJm3HoJnWuPOD0uoE_GhIzgPgpPwmiik7lan0ur91XVYQXqjNm9MISycaKBbfrXkzxTuFbXI0iBfXKHK1hNiP2i_ibdCHEF0K5uss3JX5iMlahchOS2UF0hqPR7gShGLG9sG6"/>
+<div class="absolute bottom-0 left-0 p-2 bg-primary text-on-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">S2: Growth</div>
+</div>
+<div class="border-2 border-primary aspect-video bg-surface-variant overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer group relative">
+<img class="w-full h-full object-cover" data-alt="An artistic rendering of complex geometric patterns and mathematical grids layered over one another on a textured terracotta surface. The image has a raw, brutalist architectural feel, using hard lighting to create deep defined shadows that imply physical layering and intellectual rigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb4rDqH1xTufzkcadrizxX0NAED-_aQIjSXb6l61qjtX-ghTA-IjbpKRS7h9sQV71B813XfIg3mhu5lkD-zP7tSOXsVmXTANJ_z0tT-rsFC7HuXp75axGGZmqVfzyOEY6-mfmJirXi2QcbocX0YFva383xWq9YUkMG6-VUSXmKVRrFWWSHFyeng13KqgpM8kcHs9YoCtbocZx5OEM-ur5jfnRC1UsrwhX8vVqVv27AynhY5th_auMEp-RQBUKLIlUsfF5VF6wt5dGn"/>
+<div class="absolute bottom-0 left-0 p-2 bg-primary text-on-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">S3: Pivot</div>
+</div>
+<div class="border-2 border-primary aspect-video bg-surface-variant overflow-hidden grayscale hover:grayscale-0 transition-all cursor-pointer group relative">
+<img class="w-full h-full object-cover" data-alt="A high-end editorial photograph of a modern workspace with minimal analog tools like a fountain pen and a heavy-weight paper journal. The scene is lit with warm, golden-hour light that creates a calm, focused atmosphere. The colors are deeply saturated terracotta and rich creams, evoking quality and craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLi60hwewHQgnHm5U3H2eyxoQYuI5KDP5Iw1w_ksuIo1MwYzgD7wlSXh3u4oe6Hz0c53AEBoHWAAvWPN2CpC8X2YkjZ1y_srG2SHWOBMqO6gCtcZb_AzvGln8ULKcofi3ihQ6f9nX9FoSDoNlx8qi1LafhG0SOoGdQHhhRkGQ4dFvzddvqn2hBi9Ws3eJkfTrI2SugiYY8ec9SgWerSh3RJUcUcPsGG5pupTuSA3-qoq6kx_ngEh21gFh_qT8bPlkz7m96tLYyAxG9"/>
+<div class="absolute bottom-0 left-0 p-2 bg-primary text-on-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">S4: Focus</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile bg-surface border-t-2 border-primary">
+<div class="flex flex-col items-center justify-center text-secondary pt-2 pb-2 cursor-pointer transition-colors hover:text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">TODAY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary border-t-4 border-primary pt-2 pb-2 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-md text-label-md mt-1">JOURNAL</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary pt-2 pb-2 cursor-pointer transition-colors hover:text-primary">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md mt-1">CURRICULUM</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary pt-2 pb-2 cursor-pointer transition-colors hover:text-primary">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">PROFILE</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, input').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.98)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple animation for bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.bg-secondary-fixed, .bg-primary');
+            bars.forEach((bar, index) => {
+                if (bar.classList.contains('h-full') || bar.style.height) return; 
+                // Skip icons/others accidentally caught
+            });
+        });
+    </script>
+</body></html>

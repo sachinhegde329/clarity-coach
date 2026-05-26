@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 18: Hot Seat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#93000a",
+                        "surface": "#fdf9f5",
+                        "on-tertiary-container": "#ff998e",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "error": "#ba1a1a",
+                        "border-primary": "#7C2D12",
+                        "surface-container": "#f1ede9",
+                        "on-surface-variant": "#55423d",
+                        "outline-variant": "#dcc1b9",
+                        "on-primary-container": "#ff9b7b",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "surface-tint": "#9b4427",
+                        "on-secondary-container": "#5b6653",
+                        "background": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container-high": "#ebe7e4",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary": "#57624f",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-highest": "#e5e2de",
+                        "primary-container": "#7c2d12",
+                        "error-warning": "#B91C1C",
+                        "tertiary": "#680005",
+                        "success-sage": "#818C78",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#5e1700",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-surface": "#1c1c19",
+                        "outline": "#89726c",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "primary-fixed-dim": "#ffb59e",
+                        "secondary-container": "#d8e3cc",
+                        "surface-parchment": "#FDF9F5",
+                        "on-tertiary-fixed": "#410002",
+                        "on-primary-fixed": "#3a0b00",
+                        "tertiary-container": "#93000b"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "20px",
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Keyframes for Brutalist Animations */
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        @keyframes waveform {
+            0% { transform: scaleY(0.2); }
+            50% { transform: scaleY(1); }
+            100% { transform: scaleY(0.2); }
+        }
+        .wave-bar {
+            transform-origin: bottom;
+            animation: waveform 1s ease-in-out infinite alternate;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md h-screen flex flex-col overflow-hidden selection:bg-primary-fixed selection:text-primary-fixed-variant">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 bg-surface border-b-[2px] border-border-primary sticky top-0 z-50">
+<button aria-label="Close Session" class="flex items-center justify-center w-10 h-10 hover:bg-surface-variant transition-colors rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="close">close</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">
+            03 / 05
+        </div>
+<div class="font-metric-sm text-metric-sm text-primary bg-primary-fixed px-3 py-1 rounded border-[0.5px] border-border-primary">
+            1:38
+        </div>
+</header>
+<!-- Session Progress Strip (Warm Brutalist Logic) -->
+<div class="w-full px-margin-mobile md:px-margin-desktop py-6 flex gap-2 items-center">
+<div class="h-1 flex-1 bg-border-primary"></div>
+<div class="h-1 flex-1 bg-border-primary"></div>
+<div class="h-2 flex-1 bg-border-primary relative">
+<div class="absolute -top-1 -bottom-1 left-0 right-0 border-[2px] border-border-primary z-10 animate-pulse"></div>
+</div>
+<div class="h-[0.5px] flex-1 bg-outline"></div>
+<div class="h-[0.5px] flex-1 bg-outline"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-margin-mobile md:px-margin-desktop overflow-y-auto pb-safe">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-8">Do - Hot Seat</h1>
+<!-- Adversarial AI Card (Card-on-Card Layering) -->
+<div class="relative bg-surface-parchment border-[2px] border-border-primary p-6 rounded mb-8">
+<!-- Brutalist internal hairline nesting -->
+<div class="absolute inset-[6px] border-[0.5px] border-outline pointer-events-none opacity-40"></div>
+<div class="relative z-10 flex items-center gap-3 mb-6">
+<div class="w-8 h-8 rounded bg-inverse-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-surface text-sm" data-icon="memory" data-weight="fill" style="font-variation-settings: 'FILL' 1;">memory</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Adversarial Prompt</span>
+</div>
+<div class="relative z-10 border-l-[4px] border-error-warning pl-5 py-2 mb-2">
+<p class="font-headline-md text-headline-md text-on-surface leading-snug">
+                    "Your proposed timeline is aggressive. How can you guarantee quality without burning out the team?"
+                </p>
+</div>
+</div>
+<!-- Spacer to push controls to bottom -->
+<div class="flex-1"></div>
+<!-- Real-time Indicators & Controls -->
+<div class="flex flex-col items-center w-full pb-8">
+<!-- Composure Sparkline Container -->
+<div class="w-full max-w-sm mb-8">
+<div class="flex justify-between items-end mb-2 border-b-[0.5px] border-outline pb-1">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Composure</span>
+<span class="font-metric-sm text-metric-sm text-success-sage">88%</span>
+</div>
+<!-- Brutalist Sparkline representation -->
+<div class="h-10 w-full flex items-end gap-[2px] opacity-80" id="sparkline-container">
+<!-- JS will populate bars here -->
+</div>
+</div>
+<!-- Action Prompt -->
+<div class="font-label-caps text-label-caps text-error-warning mb-6 bg-error-container px-4 py-2 border-[2px] border-error-warning rounded animate-pulse shadow-[2px_2px_0px_0px_#ba1a1a]">
+                RESPOND IN 30 SECONDS
+            </div>
+<!-- The Mic Button & Timer Ring -->
+<div class="relative flex justify-center items-center w-32 h-32 mb-6">
+<!-- Timer Ring (Depleting) -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="46" stroke-width="2"></circle>
+<!-- stroke-dasharray = 2 * PI * r = ~289 -->
+<circle class="stroke-border-primary" cx="50" cy="50" fill="none" r="46" stroke-dasharray="289" stroke-dashoffset="80" stroke-linecap="square" stroke-width="4"></circle>
+</svg>
+<!-- Mic Button (64pt -> 85px) -->
+<button class="w-[85px] h-[85px] rounded-full bg-primary-container flex items-center justify-center relative z-10 transition-transform hover:scale-105 active:scale-95 group focus:outline-none focus:ring-4 focus:ring-primary-fixed">
+<!-- Pulse effect indicating listening state -->
+<span class="absolute inset-0 rounded-full border-[2px] border-primary-container animate-pulse-ring pointer-events-none"></span>
+<span class="absolute inset-0 rounded-full border-[1px] border-primary-container animate-pulse-ring pointer-events-none" style="animation-delay: 0.5s;"></span>
+<span class="material-symbols-outlined text-surface text-3xl transition-transform group-hover:scale-110" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Bottom Waveform (Live feedback) -->
+<div class="w-full flex justify-center items-end gap-[4px] h-16 opacity-50 px-margin-mobile" id="waveform-container">
+<!-- JS will populate wave bars here -->
+</div>
+</div>
+</main>
+<script>
+        // Generate brutalist sparkline
+        const sparklineContainer = document.getElementById('sparkline-container');
+        const numSparkBars = 40;
+        for (let i = 0; i < numSparkBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'flex-1 bg-success-sage';
+            // Baseline high composure with slight dips
+            const height = 70 + Math.random() * 30; 
+            bar.style.height = `${height}%`;
+            bar.style.minHeight = '10%';
+            sparklineContainer.appendChild(bar);
+        }
+
+        // Generate waveform bars
+        const waveformContainer = document.getElementById('waveform-container');
+        const numWaveBars = 24;
+        for (let i = 0; i < numWaveBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'w-2 bg-primary-container wave-bar';
+            bar.style.animationDelay = `${Math.random() * 0.5}s`;
+            bar.style.animationDuration = `${0.5 + Math.random() * 0.8}s`;
+            waveformContainer.appendChild(bar);
+        }
+    </script>
+</body></html>

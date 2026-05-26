@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-secondary-container": "#6b6357",
+                        "inverse-on-surface": "#f4f0ec",
+                        "background": "#fdf9f5",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container-high": "#ebe7e4",
+                        "on-secondary-fixed": "#201b12",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "primary-fixed-dim": "#ffb59e",
+                        "surface-bright": "#fdf9f5",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-primary-fixed": "#3a0b00",
+                        "tertiary-container": "#004b71",
+                        "secondary": "#655d52",
+                        "secondary-container": "#ede1d2",
+                        "primary-container": "#7c2d12",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2de",
+                        "inverse-primary": "#ffb59e",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#00334f",
+                        "surface": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "primary": "#5e1700",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-surface-variant": "#55423d",
+                        "surface-container": "#f1ede9",
+                        "surface-variant": "#e5e2de",
+                        "surface-tint": "#9b4427",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ede1d2",
+                        "outline-variant": "#dcc1b9",
+                        "on-primary-container": "#ff9b7b",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "sm": "16px",
+                        "base": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"],
+                        "body-md": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .brutalist-border { border: 2px solid #5e1700; }
+        .brutalist-shadow { box-shadow: 4px 4px 0px 0px #5e1700; }
+        .brutalist-shadow-hover:hover { box-shadow: 6px 6px 0px 0px #5e1700; transform: translate(-2px, -2px); }
+        .active-nav-item { transform: translate(1px, 1px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+        .chart-grid { background-size: 20px 20px; background-image: radial-gradient(circle, #89726c 1px, transparent 1px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b-2 border-primary flex justify-between items-center px-margin py-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 brutalist-border overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a thoughtful person with a modern aesthetic, set against a warm terracotta textured wall. The lighting is natural and high-contrast, emphasizing structural facial features. The overall mood is intellectual and focused, matching a warm brutalist design system with earthy tones and sharp clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOomvGfd1cCUWXXypwwxuQG-_W8mzS2uZpAc2MU3ebW-5qoGr4opN9bS5ahBrHQCp7QMbT0Sv7BYTLtbHI0-G0VHfEAJChLq-7mawMa8GPSU4SmiQV2KLIvFy-_5eSuekj0HvRV8FBQtiWlGhadXGLQpn2jSUOP53S05p3ZCh7tQFEu5iywqHOOpSyxDPFV90vs0RQ-jv9rBOGITd61WGV-qlU8D_G1s-MANN2kJIEK_8EIJg6sufWQuXCkuhxI0wPsXmA5U5s6sjr"/>
+</div>
+</header>
+<main class="px-margin pt-md max-w-4xl mx-auto space-y-lg">
+<!-- Header Section -->
+<section class="space-y-xs">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">Stats</h2>
+<div class="bg-primary text-on-primary px-sm py-xs brutalist-shadow">
+<span class="font-label-md">LIVE DATA</span>
+</div>
+</div>
+<p class="font-label-md text-secondary border-l-4 border-primary pl-xs">
+                14 sessions — <span class="text-primary font-bold">13-session streak</span>
+</p>
+</section>
+<!-- Filler Heatmap -->
+<section class="brutalist-border p-md bg-surface-container shadow-sm">
+<div class="flex justify-between items-center mb-sm">
+<h3 class="font-label-md text-primary uppercase tracking-widest flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+                    Filler Frequency
+                </h3>
+<span class="font-label-sm text-secondary">LAST 4 WEEKS</span>
+</div>
+<div class="grid grid-cols-7 gap-base">
+<!-- Day Headers -->
+<div class="font-label-sm text-center text-outline">M</div>
+<div class="font-label-sm text-center text-outline">T</div>
+<div class="font-label-sm text-center text-outline">W</div>
+<div class="font-label-sm text-center text-outline">T</div>
+<div class="font-label-sm text-center text-outline">F</div>
+<div class="font-label-sm text-center text-outline">S</div>
+<div class="font-label-sm text-center text-outline">S</div>
+<!-- Heatmap Cells (4 weeks mock) -->
+<!-- Week 1 -->
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-container"></div>
+<div class="h-8 brutalist-border bg-background"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary-fixed-dim"></div>
+<!-- Week 2 -->
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary-container"></div>
+<!-- Week 3 -->
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<div class="h-8 brutalist-border bg-primary-fixed"></div>
+<!-- Week 4 (Current) -->
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-primary"></div>
+<div class="h-8 brutalist-border bg-background"></div>
+<div class="h-8 brutalist-border bg-background border-dashed opacity-30"></div>
+</div>
+<div class="mt-sm flex justify-end gap-xs items-center">
+<span class="font-label-sm text-secondary">LESS</span>
+<div class="w-3 h-3 brutalist-border bg-background"></div>
+<div class="w-3 h-3 brutalist-border bg-primary-fixed-dim"></div>
+<div class="h-3 w-3 brutalist-border bg-primary"></div>
+<span class="font-label-sm text-secondary">MORE</span>
+</div>
+</section>
+<!-- Pace Trend -->
+<section class="brutalist-border p-md bg-background relative overflow-hidden">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h3 class="font-label-md text-primary uppercase tracking-widest flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        Pace Trend
+                    </h3>
+<p class="font-body-md text-secondary mt-base">WPM across sessions</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-outline block">CURRENT AVG</span>
+<span class="font-headline-md text-primary">142</span>
+</div>
+</div>
+<!-- SVG Chart -->
+<div class="relative h-48 w-full chart-grid border-b-2 border-l-2 border-primary">
+<!-- Credibility Zone (130-150 WPM) -->
+<div class="absolute w-full bg-secondary-container opacity-40" style="bottom: 40%; height: 25%;">
+<span class="absolute -right-margin font-label-sm text-secondary top-1/2 -translate-y-1/2 rotate-90">ZONE</span>
+</div>
+<!-- Line Chart Mockup -->
+<svg class="absolute inset-0 h-full w-full overflow-visible" viewbox="0 0 400 100">
+<polyline fill="none" points="0,80 40,75 80,60 120,65 160,45 200,50 240,40 280,35 320,42 360,30 400,28" stroke="#5e1700" stroke-linejoin="miter" stroke-width="3"></polyline>
+<!-- Points -->
+<circle cx="0" cy="80" fill="#fdf9f5" r="4" stroke="#5e1700" stroke-width="2"></circle>
+<circle cx="80" cy="60" fill="#fdf9f5" r="4" stroke="#5e1700" stroke-width="2"></circle>
+<circle cx="160" cy="45" fill="#fdf9f5" r="4" stroke="#5e1700" stroke-width="2"></circle>
+<circle cx="240" cy="40" fill="#fdf9f5" r="4" stroke="#5e1700" stroke-width="2"></circle>
+<circle cx="320" cy="42" fill="#fdf9f5" r="4" stroke="#5e1700" stroke-width="2"></circle>
+<circle cx="400" cy="28" fill="#5e1700" r="4"></circle>
+</svg>
+<!-- Axis Labels -->
+<div class="absolute -left-10 top-0 h-full flex flex-col justify-between font-label-sm text-outline">
+<span>160</span>
+<span>140</span>
+<span>120</span>
+</div>
+</div>
+<div class="mt-xs flex justify-between font-label-sm text-outline">
+<span>SESS 01</span>
+<span>SESS 07</span>
+<span>SESS 14</span>
+</div>
+</section>
+<!-- Sprint Progression -->
+<section class="space-y-sm">
+<h3 class="font-label-md text-primary uppercase tracking-widest flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">sprint</span>
+                Sprint Progression
+            </h3>
+<div class="space-y-md">
+<!-- Sprint 1 -->
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm">
+<span>SPRINT 01: ENUNCIATION</span>
+<span class="text-primary font-bold">92%</span>
+</div>
+<div class="h-6 brutalist-border bg-surface-container-high overflow-hidden relative">
+<div class="h-full bg-primary brutalist-shadow" style="width: 92%;"></div>
+</div>
+</div>
+<!-- Sprint 2 -->
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm">
+<span>SPRINT 02: PITCH RANGE</span>
+<span class="text-primary font-bold">64%</span>
+</div>
+<div class="h-6 brutalist-border bg-surface-container-high overflow-hidden relative">
+<div class="h-full bg-primary-fixed-dim brutalist-shadow" style="width: 64%;"></div>
+</div>
+</div>
+<!-- Sprint 3 -->
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm">
+<span>SPRINT 03: PAUSE TIMING</span>
+<span class="text-primary font-bold">12%</span>
+</div>
+<div class="h-6 brutalist-border bg-surface-container-high overflow-hidden relative">
+<div class="h-full bg-outline brutalist-shadow" style="width: 12%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights / Footer CTA -->
+<div class="brutalist-border p-md bg-secondary-container brutalist-shadow">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary text-4xl">lightbulb</span>
+<div>
+<h4 class="font-headline-md text-primary">Critical Insight</h4>
+<p class="font-body-md text-on-secondary-container mt-xs leading-tight">
+                        Your pace consistently spikes during Sprint 02. Focus on <span class="underline decoration-2 font-bold">diaphragmatic breathing</span> during transitions to maintain your 142 WPM baseline.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">today</span>
+<span class="font-label-md uppercase text-[10px]">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-md uppercase text-[10px]">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md uppercase text-[10px]">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary bg-primary h-full px-4 flex-1 active-nav-item" href="#">
+<span class="material-symbols-outlined fill-icon">query_stats</span>
+<span class="font-label-md uppercase text-[10px]">STATS</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for heatmap cells
+        document.querySelectorAll('.h-8.brutalist-border').forEach(cell => {
+            cell.addEventListener('mouseenter', () => {
+                cell.classList.add('brutalist-shadow');
+                cell.style.zIndex = '10';
+            });
+            cell.addEventListener('mouseleave', () => {
+                cell.classList.remove('brutalist-shadow');
+                cell.style.zIndex = '0';
+            });
+        });
+
+        // Simple animation for progress bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.h-full.bg-primary, .h-full.bg-primary-fixed-dim, .h-full.bg-outline');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s cubic-bezier(0.19, 1, 0.22, 1)';
+                    bar.style.width = width;
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

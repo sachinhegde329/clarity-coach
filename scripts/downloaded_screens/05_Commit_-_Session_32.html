@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 32: Executive Presence - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "on-surface": "#1c1c19",
+                      "on-secondary-fixed": "#151e10",
+                      "primary-container": "#7c2d12",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary-fixed": "#dbe6cf",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#89726c",
+                      "surface-container": "#f1ede9",
+                      "error-warning": "#B91C1C",
+                      "surface-parchment": "#FDF9F5",
+                      "surface-container-highest": "#e5e2de",
+                      "success-sage": "#818C78",
+                      "secondary": "#57624f",
+                      "surface-variant": "#e5e2de",
+                      "on-secondary-container": "#5b6653",
+                      "surface-bright": "#fdf9f5",
+                      "background": "#fdf9f5",
+                      "tertiary": "#680005",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "tertiary-container": "#93000b",
+                      "inverse-primary": "#ffb59e",
+                      "primary-fixed": "#ffdbd0",
+                      "primary": "#5e1700",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#31302e",
+                      "inverse-on-surface": "#f4f0ec",
+                      "surface-container-high": "#ebe7e4",
+                      "on-tertiary-fixed": "#410002",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#ddd9d6",
+                      "secondary-container": "#d8e3cc",
+                      "surface": "#fdf9f5",
+                      "on-primary-container": "#ff9b7b",
+                      "on-background": "#1c1c19",
+                      "surface-tint": "#9b4427",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#ff998e",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#dcc1b9",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "border-primary": "#7C2D12",
+                      "tertiary-fixed": "#ffdad6",
+                      "on-surface-variant": "#55423d",
+                      "on-error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "20px",
+                      "hairline": "0.5px",
+                      "border-width": "2px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        /* Base Styles for Warm Brutalism */
+        body {
+            background-color: theme('colors.surface-parchment');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar for a raw feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container');
+            border-left: 1px solid theme('colors.outline-variant');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline');
+        }
+
+        /* Mic Button Pulse Animation */
+        @keyframes inkDotPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .mic-pulse-ring {
+            animation: inkDotPulse 2s infinite cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        /* Progress Strip Interactions */
+        .progress-dot {
+            transition: all 0.3s ease;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment dark:bg-surface border-b-border-width border-primary dark:border-primary-fixed-dim flat no shadows z-40">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-7xl mx-auto w-full">
+<button aria-label="Close Session" class="text-primary dark:text-primary-fixed hover:bg-surface-container-highest rounded-full p-2 transition-colors flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<div class="font-metric-hero text-metric-sm text-primary dark:text-primary-fixed font-bold tracking-tight">
+                05/05
+            </div>
+<button aria-label="More Options" class="text-primary dark:text-primary-fixed hover:bg-surface-container-highest rounded-full p-2 transition-colors flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-3xl mx-auto w-full relative z-10">
+<!-- Session Context Header -->
+<div class="mb-12 text-center flex flex-col items-center">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-4 uppercase tracking-wider">Commit</h1>
+<div class="font-metric-hero text-metric-sm text-outline border-b-[0.5px] border-outline-variant pb-2 inline-block">
+                Session 32: Executive Presence
+            </div>
+</div>
+<!-- The Prompt Card (Architectural Containment) -->
+<div class="bg-surface-bright border-border-width border-primary rounded-DEFAULT p-8 mb-16 relative overflow-visible transform transition-transform hover:-translate-y-1 duration-300">
+<!-- Decorative corner elements -->
+<div class="absolute -top-[5px] -left-[5px] w-2 h-2 bg-primary"></div>
+<div class="absolute -top-[5px] -right-[5px] w-2 h-2 bg-primary"></div>
+<div class="absolute -bottom-[5px] -left-[5px] w-2 h-2 bg-primary"></div>
+<div class="absolute -bottom-[5px] -right-[5px] w-2 h-2 bg-primary"></div>
+<p class="font-body-lg text-body-lg text-on-surface text-center leading-relaxed">
+                "Tomorrow I will speak in a senior meeting the way I just spoke here."
+            </p>
+</div>
+<!-- The Mic Interaction Area -->
+<div class="flex-grow flex flex-col items-center justify-center relative">
+<!-- Timer Display (Data as Hero) -->
+<div class="font-metric-hero text-display-lg text-primary mb-12 opacity-80" id="timerDisplay">
+                00:15
+            </div>
+<!-- Mic Button Structure -->
+<div class="relative flex items-center justify-center w-40 h-40">
+<!-- Outer Timer Ring -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 160 160">
+<circle class="stroke-surface-variant" cx="80" cy="80" fill="none" r="78" stroke-width="2"></circle>
+<circle class="stroke-primary" cx="80" cy="80" fill="none" id="progressRing" r="78" stroke-dasharray="490" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+<!-- Pulse Rings (Hidden by default, shown during recording) -->
+<div class="absolute inset-0 rounded-full border-border-width border-primary/30 mic-pulse-ring hidden" id="pulse1"></div>
+<div class="absolute inset-0 rounded-full border-border-width border-primary/20 mic-pulse-ring hidden" id="pulse2" style="animation-delay: 0.5s;"></div>
+<!-- The Actual Button -->
+<button class="w-24 h-24 bg-primary-container border-border-width border-primary rounded-full flex items-center justify-center text-surface-parchment hover:bg-primary transition-colors z-10 active:scale-95 group relative shadow-[0_0_0_4px_theme('colors.surface-parchment')]" id="recordButton">
+<span class="material-symbols-outlined text-4xl" id="micIcon" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Instruction Text -->
+<div class="mt-8 font-label-caps text-label-caps text-outline text-center uppercase tracking-widest max-w-[200px]">
+                Hold to make your final commitment
+            </div>
+</div>
+</main>
+<!-- BottomNavBar (Session Player Progress Strip) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-parchment dark:bg-surface border-t-border-width border-primary dark:border-primary-fixed-dim flat no shadows">
+<div class="flex justify-around items-center px-margin-mobile h-20 max-w-md mx-auto w-full relative">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-8 right-8 h-[2px] bg-surface-variant -translate-y-1/2 z-0"></div>
+<!-- Step 1: Centre (Inactive) -->
+<div class="progress-dot relative z-10 flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-80 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-parchment border-border-width border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">adjust</span>
+</div>
+</div>
+<!-- Step 2: Listen (Inactive) -->
+<div class="progress-dot relative z-10 flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-80 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-parchment border-border-width border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">hearing</span>
+</div>
+</div>
+<!-- Step 3: Do (Inactive) -->
+<div class="progress-dot relative z-10 flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-80 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-parchment border-border-width border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">play_circle</span>
+</div>
+</div>
+<!-- Step 4: See (Inactive) -->
+<div class="progress-dot relative z-10 flex flex-col items-center justify-center text-outline opacity-40 hover:opacity-80 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-parchment border-border-width border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">visibility</span>
+</div>
+</div>
+<!-- Step 5: Commit (Active) -->
+<div class="progress-dot relative z-10 flex flex-col items-center justify-center bg-primary text-on-primary rounded-full p-2 scale-110 shadow-[0_0_0_2px_theme('colors.surface-parchment')]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</nav>
+<!-- Lightweight JS for Mic Interaction Demo -->
+<script>
+        const recordBtn = document.getElementById('recordButton');
+        const pulse1 = document.getElementById('pulse1');
+        const pulse2 = document.getElementById('pulse2');
+        const progressRing = document.getElementById('progressRing');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const micIcon = document.getElementById('micIcon');
+        
+        let isRecording = false;
+        let timerInterval;
+        let timeLeft = 15;
+        const totalDash = 490; // Approx circumference of r=78 circle
+
+        function startRecording() {
+            if(isRecording) return;
+            isRecording = true;
+            
+            // Visual feedback
+            recordBtn.classList.replace('bg-primary-container', 'bg-tertiary-container');
+            recordBtn.classList.replace('border-primary', 'border-tertiary');
+            micIcon.innerText = 'graphic_eq';
+            pulse1.classList.remove('hidden');
+            pulse2.classList.remove('hidden');
+            
+            // Timer logic
+            timerInterval = setInterval(() => {
+                timeLeft -= 0.1;
+                
+                // Update text
+                const seconds = Math.ceil(timeLeft);
+                timerDisplay.innerText = `00:${seconds < 10 ? '0'+seconds : seconds}`;
+                
+                // Update ring (depletes clockwise)
+                const offset = totalDash - (timeLeft / 15) * totalDash;
+                progressRing.style.strokeDashoffset = offset;
+
+                if(timeLeft <= 0) {
+                    stopRecording();
+                    timerDisplay.innerText = "DONE";
+                }
+            }, 100);
+        }
+
+        function stopRecording() {
+            if(!isRecording) return;
+            isRecording = false;
+            clearInterval(timerInterval);
+            
+            // Reset visuals
+            recordBtn.classList.replace('bg-tertiary-container', 'bg-primary-container');
+            recordBtn.classList.replace('border-tertiary', 'border-primary');
+            micIcon.innerText = 'mic';
+            pulse1.classList.add('hidden');
+            pulse2.classList.add('hidden');
+            
+            // Reset state (for demo purposes)
+            setTimeout(() => {
+                timeLeft = 15;
+                timerDisplay.innerText = "00:15";
+                progressRing.style.strokeDashoffset = 0;
+            }, 2000);
+        }
+
+        // Desktop interactions
+        recordBtn.addEventListener('mousedown', startRecording);
+        recordBtn.addEventListener('mouseup', stopRecording);
+        recordBtn.addEventListener('mouseleave', stopRecording);
+
+        // Mobile interactions
+        recordBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startRecording(); }, {passive: false});
+        recordBtn.addEventListener('touchend', (e) => { e.preventDefault(); stopRecording(); }, {passive: false});
+    </script>
+</body></html>

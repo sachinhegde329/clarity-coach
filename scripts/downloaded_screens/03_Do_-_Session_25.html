@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>03 Do - Session 25</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#3a0b00",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-background": "#1c1c19",
+                        "on-primary-container": "#ff9b7b",
+                        "secondary-fixed": "#dbe6cf",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface": "#fdf9f5",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary-container": "#ff998e",
+                        "secondary": "#57624f",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "border-primary": "#7C2D12",
+                        "background": "#fdf9f5",
+                        "on-secondary-container": "#5b6653",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "tertiary": "#680005",
+                        "surface-variant": "#e5e2de",
+                        "success-sage": "#818C78",
+                        "primary": "#5e1700",
+                        "on-error-container": "#93000a",
+                        "outline": "#89726c",
+                        "inverse-primary": "#ffb59e",
+                        "surface-container": "#f1ede9",
+                        "secondary-container": "#d8e3cc",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-container-high": "#ebe7e4",
+                        "primary-container": "#7c2d12",
+                        "surface-dim": "#ddd9d6",
+                        "on-surface-variant": "#55423d",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-highest": "#e5e2de",
+                        "primary-fixed": "#ffdbd0",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "surface-bright": "#fdf9f5",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "error-warning": "#B91C1C",
+                        "on-surface": "#1c1c19",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "hairline": "0.5px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Mic Recording Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        @keyframes ink-dot-orbit {
+            0% { transform: rotate(0deg) translateX(36px) rotate(0deg); opacity: 1; }
+            100% { transform: rotate(360deg) translateX(36px) rotate(-360deg); opacity: 0; }
+        }
+        
+        .recording-pulse::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid theme('colors.primary');
+            border-radius: 50%;
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        .ink-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: theme('colors.primary');
+            border-radius: 50%;
+            top: calc(50% - 2px);
+            left: calc(50% - 2px);
+        }
+
+        .ink-dot:nth-child(1) { animation: ink-dot-orbit 2s linear infinite; animation-delay: 0s; }
+        .ink-dot:nth-child(2) { animation: ink-dot-orbit 2s linear infinite; animation-delay: 0.6s; }
+        .ink-dot:nth-child(3) { animation: ink-dot-orbit 2s linear infinite; animation-delay: 1.2s; }
+        
+        /* Depleting Timer Ring */
+        .timer-ring {
+            stroke-dasharray: 188; /* 2 * pi * r (approx r=30) */
+            stroke-dashoffset: 47; /* 25% depleted */
+            transition: stroke-dashoffset 1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        /* Hide scrollbar for the cards container on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TASK/SESSION TOP APP BAR (Suppressed global nav for focused task) -->
+<header class="flex flex-col w-full top-0 sticky z-40 bg-surface-parchment border-b-border-width border-primary">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-4">
+<button aria-label="Exit Session" class="flex items-center justify-center p-2 border-border-width border-primary bg-surface hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">03 Do - Session 25</h1>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary tracking-widest">
+                PROGRESS <span class="font-bold">03 / 05</span>
+</div>
+</div>
+<!-- Session Progress Strip (Brutalist Grid) -->
+<div class="grid grid-cols-5 border-t-hairline border-outline-variant w-full h-8 bg-surface-container-lowest">
+<div class="flex items-center justify-center border-r-hairline border-outline-variant font-label-caps text-label-caps text-outline">CENTRE</div>
+<div class="flex items-center justify-center border-r-hairline border-outline-variant font-label-caps text-label-caps text-outline">LISTEN</div>
+<div class="flex items-center justify-center border-r-border-width border-primary bg-primary text-on-primary font-label-caps text-label-caps font-bold">DO</div>
+<div class="flex items-center justify-center border-r-hairline border-outline-variant font-label-caps text-label-caps text-outline">SEE</div>
+<div class="flex items-center justify-center font-label-caps text-label-caps text-outline">COMMIT</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-grow flex flex-col items-center justify-start p-gutter md:p-margin-desktop w-full max-w-7xl mx-auto">
+<!-- Hero Subject -->
+<div class="w-full mb-8">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Audience-Aware Framing</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Adapt your core message based on the perspective and priorities of your target audience. Select an audience and deliver your pitch.</p>
+</div>
+<!-- Comparative Challenge Layout: 3 Horizontal Cards -->
+<div class="w-full flex flex-col md:flex-row gap-gutter overflow-x-auto no-scrollbar pb-8">
+<!-- EXPANDED ACTIVE CARD (CEO) -->
+<div class="flex-[3] min-w-[300px] border-border-width border-primary bg-surface-parchment flex flex-col relative before:absolute before:inset-0 before:bg-primary before:opacity-5 before:pointer-events-none">
+<!-- Header -->
+<div class="border-b-border-width border-primary p-4 flex justify-between items-center bg-surface">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary fill" data-icon="domain" data-weight="fill">domain</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">AUDIENCE: CEO</span>
+</div>
+<span class="font-metric-sm text-metric-sm text-primary bg-primary-fixed px-2 py-1 border-border-width border-primary">ACTIVE</span>
+</div>
+<!-- Expanded Content Area -->
+<div class="p-6 md:p-8 flex-grow flex flex-col justify-between min-h-[400px]">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">"How does this initiative protect our market share and impact next quarter's EBITDA?"</h3>
+<div class="border-l-border-width border-error-warning pl-4 mb-8">
+<p class="font-body-md text-body-md text-on-surface-variant font-bold mb-1 uppercase tracking-widest text-xs">Constraint</p>
+<p class="font-body-lg text-body-lg text-on-surface">Deliver the core message focusing strictly on bottom-line impact and strategic alignment. Skip the technical execution details.</p>
+</div>
+</div>
+<!-- Recording Interaction Area (Bottom Center) -->
+<div class="flex flex-col items-center justify-center mt-8 w-full border-t-hairline border-outline-variant pt-8">
+<div class="font-metric-sm text-metric-sm text-error-warning mb-6">RECORDING - 00:15 / 00:30</div>
+<!-- Mic Button (Active State) -->
+<div class="relative flex items-center justify-center w-16 h-16">
+<!-- SVG Timer Ring -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none -m-[2px] w-[68px] h-[68px] overflow-visible" viewbox="0 0 64 64">
+<circle class="text-surface-variant" cx="32" cy="32" fill="none" r="30" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary timer-ring" cx="32" cy="32" fill="none" r="30" stroke="currentColor" stroke-width="2"></circle>
+</svg>
+<!-- Pulses -->
+<div class="absolute inset-0 recording-pulse pointer-events-none"></div>
+<div class="ink-dot"></div>
+<div class="ink-dot"></div>
+<div class="ink-dot"></div>
+<!-- Core Button -->
+<button class="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-none outline-none">
+<span class="material-symbols-outlined text-surface-parchment" data-icon="mic" style="font-size: 28px;">mic</span>
+</button>
+</div>
+<div class="mt-4 font-label-caps text-label-caps text-primary cursor-pointer hover:underline">STOP RECORDING</div>
+</div>
+</div>
+</div>
+<!-- COLLAPSED INACTIVE CARD (PEER) -->
+<div class="flex-1 min-w-[240px] border-border-width border-outline bg-surface-container-lowest opacity-70 hover:opacity-100 transition-opacity cursor-pointer flex flex-col">
+<div class="border-b-border-width border-outline p-4 flex justify-between items-center bg-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="groups">groups</span>
+<span class="font-label-caps text-label-caps text-outline tracking-widest">AUDIENCE: PEER</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex items-center justify-center">
+<span class="font-headline-md text-headline-md text-outline text-center">Collaboration &amp; Process</span>
+</div>
+</div>
+<!-- COLLAPSED INACTIVE CARD (CUSTOMER) -->
+<div class="flex-1 min-w-[240px] border-border-width border-outline bg-surface-container-lowest opacity-70 hover:opacity-100 transition-opacity cursor-pointer flex flex-col">
+<div class="border-b-border-width border-outline p-4 flex justify-between items-center bg-surface-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-caps text-label-caps text-outline tracking-widest">AUDIENCE: CUSTOMER</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex items-center justify-center">
+<span class="font-headline-md text-headline-md text-outline text-center">Value &amp; Resolution</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

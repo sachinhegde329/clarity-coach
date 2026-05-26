@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Space+Grotesk:wght@400&amp;family=Space+Mono:wght@400;500&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#7c2d12", // Reddish-brown accent
+                        "background": "#fdf9f5", // Cream surface
+                        "on-background": "#1c1c19",
+                        "surface": "#fdf9f5",
+                        "outline": "#7c2d12",
+                        "secondary": "#655d52"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px", // Brutalist sharp edges
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    color: #7c2d12
+    }
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+        } 50% {
+        transform: scale(1.1);
+        opacity: 1;
+        }
+    }
+.breathing-circle {
+    animation: breathe 6s ease-in-out infinite
+    }
+.hard-shadow {
+    box-shadow: 4px 4px 0 0 #7c2d12
+    }
+.hard-shadow-active:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 #7c2d12
+    }
+body {
+    background-color: #fdf9f5;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCiJ3Nd-_sZwFJ73SSmliRSie5eHwGZWMdWAoVaN-qrlp1VcBmlWka-l6aXa05ivhogXIoATV7bSK9teqpz0O1gqU6EhW2vBV5oCo1AjnMJTVADk-1RIrLwBbFovTt7BPosiWsbd4fveQeVWZMWYAMbj0pWPSjSiLhOkunNWBaTOIVz-kNsgSdFdJoHX6nQUEHimnBmYBLTGucb72PRN7idUscgnAkX2DEbowscrHpOvU4bf4kcf_XaOLS44yjqo3q2UenFjEp-8Mky)
+    }
+.small-caps {
+    font-variant: all-small-caps;
+    letter-spacing: 0.05em
+    }</style>
+</head>
+<body class="font-body-md text-on-background min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-white">
+<!-- Strictly Consistent Header -->
+<header class="bg-surface border-b-2 border-primary flex justify-between items-center w-full px-gutter h-20 fixed top-0 z-50">
+<!-- Wordmark Top-Left -->
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="text-xl font-bold uppercase tracking-tight text-primary font-display-lg">CLARITY COACH</h1>
+</div>
+<!-- Step Counter Top-Right & Profile -->
+<div class="flex items-center gap-md">
+<div class="flex flex-col items-end mr-4">
+<span class="font-mono text-[10px] small-caps text-secondary leading-none">Step</span>
+<span class="font-mono text-sm font-bold text-primary leading-none">01/05</span>
+</div>
+<button class="hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-16 px-gutter flex flex-col items-center justify-between max-w-4xl mx-auto w-full">
+<!-- Top Metadata Row (Standardized for all screens) -->
+<div class="w-full flex justify-end mb-xl">
+<div class="flex flex-col items-end">
+<span class="font-mono text-[10px] small-caps text-secondary leading-none">Timer</span>
+<span class="font-mono text-sm font-bold text-primary leading-none" id="timer">00:00</span>
+</div>
+</div>
+<!-- Central Ritual/Breathing Section -->
+<div class="flex-grow flex flex-col items-center justify-center text-center space-y-xl w-full">
+<div class="relative flex items-center justify-center">
+<!-- Outer Ring (Breathing Pulse) -->
+<div class="breathing-circle w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-primary flex items-center justify-center">
+<!-- Inner Core -->
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-primary flex items-center justify-center bg-white/40">
+<span class="material-symbols-outlined text-4xl" data-icon="air">air</span>
+</div>
+</div>
+<!-- Editorial Layout Backdrop -->
+<div class="absolute -z-10 w-[120%] h-px bg-primary/10"></div>
+<div class="absolute -z-10 h-[120%] w-px bg-primary/10"></div>
+</div>
+<div class="max-w-md space-y-md">
+<h2 class="font-display-lg text-3xl text-primary uppercase tracking-tight">Three deep breaths.</h2>
+<p class="font-body-lg text-secondary italic">"There is no wrong answer here."</p>
+</div>
+</div>
+<!-- Standardized Footer Action -->
+<div class="mt-xl w-full flex justify-center">
+<button class="px-16 py-4 border-2 border-primary bg-white font-mono text-sm font-bold text-primary uppercase tracking-widest hard-shadow hard-shadow-active transition-all" id="mainAction" onclick="startTimer()">
+                Start Session
+            </button>
+</div>
+</main>
+<!-- Side Decoration (Consistent Visual Rhythm) -->
+<div class="fixed left-6 top-0 bottom-0 w-px bg-primary/10 hidden md:block"></div>
+<div class="fixed right-6 top-0 bottom-0 w-px bg-primary/10 hidden md:block"></div>
+<script>
+        let seconds = 0;
+        let timerInterval = null;
+
+        function startTimer() {
+            if (timerInterval) return;
+            
+            const button = document.getElementById('mainAction');
+            button.innerText = "BREATHING...";
+            button.classList.add('opacity-50', 'pointer-events-none');
+
+            timerInterval = setInterval(() => {
+                seconds++;
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                document.getElementById('timer').innerText = 
+                    `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                
+                if(seconds >= 5) { // Faster simulation for demo
+                   clearInterval(timerInterval);
+                   document.getElementById('timer').innerText = "DONE";
+                   button.innerText = "CONTINUE";
+                   button.classList.remove('opacity-50', 'pointer-events-none');
+                }
+            }, 1000);
+        }
+    </script>
+</body></html>

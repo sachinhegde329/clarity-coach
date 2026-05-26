@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - See Session 20</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#d8e3cc",
+                      "on-secondary": "#ffffff",
+                      "surface-parchment": "#FDF9F5",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#5b6653",
+                      "on-surface": "#1c1c19",
+                      "surface-container-highest": "#e5e2de",
+                      "on-background": "#1c1c19",
+                      "error-warning": "#B91C1C",
+                      "surface-tint": "#9b4427",
+                      "primary-fixed": "#ffdbd0",
+                      "outline-variant": "#dcc1b9",
+                      "surface-dim": "#ddd9d6",
+                      "tertiary-fixed": "#ffdad6",
+                      "surface-bright": "#fdf9f5",
+                      "surface-variant": "#e5e2de",
+                      "inverse-primary": "#ffb59e",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "surface-container-low": "#f7f3ef",
+                      "surface-container": "#f1ede9",
+                      "error": "#ba1a1a",
+                      "background": "#fdf9f5",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary": "#57624f",
+                      "surface": "#fdf9f5",
+                      "success-sage": "#818C78",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#ebe7e4",
+                      "inverse-on-surface": "#f4f0ec",
+                      "on-primary-container": "#ff9b7b",
+                      "outline": "#89726c",
+                      "on-secondary-fixed": "#151e10",
+                      "inverse-surface": "#31302e",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "on-tertiary-fixed": "#410002",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "primary": "#5e1700",
+                      "on-surface-variant": "#55423d",
+                      "border-primary": "#7C2D12",
+                      "secondary-fixed": "#dbe6cf",
+                      "tertiary": "#680005",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#7c2d12",
+                      "tertiary-container": "#93000b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#ff998e",
+                      "on-secondary-fixed-variant": "#404a39"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "hairline": "0.5px",
+                      "border-width": "2px",
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md min-h-screen flex flex-col items-center">
+<!-- Top Navigation (Contextual, so we don't use the full TopAppBar) -->
+<header class="w-full max-w-4xl px-margin-mobile md:px-margin-desktop py-gutter flex justify-between items-center border-b-[2px] border-primary sticky top-0 bg-surface-parchment z-10">
+<div class="flex items-center gap-unit">
+<button class="w-10 h-10 flex items-center justify-center border-border-width border-primary rounded hover:bg-primary-container/10 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Session 20</h1>
+</div>
+<div class="flex items-center gap-unit">
+<span class="font-label-caps text-label-caps text-outline">STEP</span>
+<span class="font-metric-sm text-metric-sm text-primary border-border-width border-primary px-2 py-1 rounded">04 / 05</span>
+</div>
+</header>
+<main class="w-full max-w-4xl px-margin-mobile md:px-margin-desktop py-margin-desktop flex flex-col gap-margin-desktop">
+<!-- Section Header -->
+<div class="flex flex-col gap-unit">
+<h2 class="font-display-lg text-display-lg text-primary uppercase">See</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Analyze your mirroring accuracy and response dynamics.</p>
+</div>
+<!-- Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Metric 1: Mirror Accuracy -->
+<div class="border-border-width border-primary bg-surface-bright rounded p-gutter flex flex-col justify-between relative shadow-[4px_4px_0_0_#7C2D12] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#7C2D12]">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-surface-variant">MIRROR ACCURACY</span>
+<span class="material-symbols-outlined text-success-sage" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">92%</span>
+<span class="material-symbols-outlined text-success-sage mb-1">arrow_upward</span>
+</div>
+</div>
+<!-- Metric 2: Latency -->
+<div class="border-border-width border-primary bg-surface-bright rounded p-gutter flex flex-col justify-between relative shadow-[4px_4px_0_0_#7C2D12] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#7C2D12]">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-surface-variant">LATENCY</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">1.2s</span>
+<span class="material-symbols-outlined text-success-sage mb-1">arrow_downward</span>
+</div>
+</div>
+<!-- Metric 3: Composure -->
+<div class="border-border-width border-primary bg-surface-bright rounded p-gutter flex flex-col justify-between relative shadow-[4px_4px_0_0_#7C2D12] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#7C2D12]">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-on-surface-variant">COMPOSURE</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">78%</span>
+<span class="material-symbols-outlined text-outline mb-1">horizontal_rule</span>
+</div>
+</div>
+</section>
+<!-- Visual Comparison & Commentary Bento -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Comparison Card -->
+<div class="border-border-width border-primary bg-surface-bright rounded p-gutter md:p-margin-mobile flex flex-col gap-gutter shadow-[4px_4px_0_0_#7C2D12]">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant border-b-[0.5px] border-primary pb-2">TRANSCRIPT COMPARISON</h3>
+<div class="flex flex-col gap-4">
+<!-- Target -->
+<div class="flex flex-col gap-1">
+<span class="font-metric-sm text-metric-sm text-outline">Target Tone</span>
+<div class="border-[0.5px] border-primary p-3 rounded bg-surface-container-low font-body-md text-on-surface">
+                            "It sounds like you're frustrated by the lack of clarity on this project."
+                        </div>
+</div>
+<!-- Arrow separator -->
+<div class="flex justify-center">
+<span class="material-symbols-outlined text-primary">arrow_downward</span>
+</div>
+<!-- User Mirror -->
+<div class="flex flex-col gap-1">
+<span class="font-metric-sm text-metric-sm text-primary font-bold">Your Mirror</span>
+<div class="border-[2px] border-success-sage p-3 rounded bg-[#f0f4ec] font-body-md text-on-surface relative">
+                             "It sounds like you're <span class="bg-secondary-container px-1 rounded font-bold">frustrated</span> by the lack of <span class="bg-secondary-container px-1 rounded font-bold">clarity</span>."
+                             <span class="material-symbols-outlined text-success-sage absolute -right-3 -top-3 bg-surface-bright rounded-full border-border-width border-success-sage" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Commentary Card -->
+<div class="border-border-width border-primary bg-primary text-on-primary rounded p-gutter md:p-margin-mobile flex flex-col justify-between shadow-[4px_4px_0_0_#1c1c19]">
+<div>
+<div class="flex items-center gap-2 mb-4 border-b-[0.5px] border-on-primary/30 pb-2">
+<span class="material-symbols-outlined text-on-primary">psychology</span>
+<h3 class="font-label-caps text-label-caps text-on-primary">COACH'S ASSESSMENT</h3>
+</div>
+<p class="font-headline-md text-headline-md text-on-primary leading-tight">
+                        "Your mirror was crisp and the downward tone was perfect. You responded almost instantly, maintaining a calm presence."
+                    </p>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-surface-bright text-primary border-border-width border-surface-bright hover:bg-transparent hover:text-surface-bright transition-colors px-6 py-3 rounded font-body-lg font-bold flex items-center gap-2">
+                        Continue to Commit
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

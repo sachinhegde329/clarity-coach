@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Commit Step</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fdf9f5",
+                      "tertiary-fixed": "#ffdad6",
+                      "success-sage": "#818C78",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#9b4427",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "inverse-primary": "#ffb59e",
+                      "secondary-container": "#d8e3cc",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#ddd9d6",
+                      "surface-container-high": "#ebe7e4",
+                      "secondary": "#57624f",
+                      "tertiary-container": "#93000b",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e5e2de",
+                      "surface": "#fdf9f5",
+                      "surface-parchment": "#FDF9F5",
+                      "border-primary": "#7C2D12",
+                      "error-warning": "#B91C1C",
+                      "on-primary-fixed": "#3a0b00",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary-container": "#ff9b7b",
+                      "secondary-fixed": "#dbe6cf",
+                      "inverse-surface": "#31302e",
+                      "inverse-on-surface": "#f4f0ec",
+                      "primary-fixed": "#ffdbd0",
+                      "on-surface-variant": "#55423d",
+                      "on-tertiary-container": "#ff998e",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-secondary-fixed": "#151e10",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "on-surface": "#1c1c19",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#410002",
+                      "on-secondary-container": "#5b6653",
+                      "outline-variant": "#dcc1b9",
+                      "primary-container": "#7c2d12",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#5e1700",
+                      "outline": "#89726c",
+                      "tertiary": "#680005",
+                      "surface-bright": "#fdf9f5",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "surface-variant": "#e5e2de",
+                      "on-background": "#1c1c19",
+                      "surface-container": "#f1ede9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "border-width": "2px",
+                      "hairline": "0.5px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Base styling */
+        body {
+            background-color: theme('colors.surface-parchment');
+            color: theme('colors.on-surface');
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Brutalist component classes */
+        .brutalist-card {
+            border: theme('spacing.border-width') solid theme('colors.border-primary');
+            background-color: theme('colors.surface-parchment');
+            border-radius: theme('borderRadius.lg');
+            box-shadow: none; /* explicitly rejecting soft shadows */
+        }
+
+        .brutalist-card-nested {
+            border: theme('spacing.hairline') solid theme('colors.border-primary');
+            background-color: theme('colors.surface-container-low');
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+
+        .brutalist-button {
+            background-color: theme('colors.border-primary');
+            border: theme('spacing.border-width') solid theme('colors.border-primary');
+            border-radius: theme('borderRadius.lg');
+            color: theme('colors.surface-parchment');
+            transition: all 150ms ease-in-out;
+        }
+        
+        .brutalist-button:active {
+            transform: scale(0.98);
+        }
+
+        .brutalist-button-ghost {
+            background-color: transparent;
+            border: theme('spacing.border-width') solid theme('colors.border-primary');
+            border-radius: theme('borderRadius.lg');
+            color: theme('colors.border-primary');
+        }
+
+        /* Mic Button Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+        
+        .mic-recording::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px solid theme('colors.border-primary');
+            animation: pulse-ring 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        /* Progress Bar */
+        .progress-bar-container {
+            height: 4px;
+            background-color: theme('colors.surface-variant');
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 50;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: theme('colors.border-primary');
+            width: 100%; /* Step 5 of 5 */
+            transition: width 0.3s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment antialiased">
+<!-- TopAppBar (Transactional - Nav suppressed, but header remains) -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-2 border-border-primary flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 z-40">
+<div class="flex items-center gap-2 text-primary hover:bg-primary-fixed-dim/10 transition-colors p-2 rounded-lg cursor-pointer active:scale-95 duration-150">
+<span class="material-symbols-outlined">close</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Clarity Coach</h1>
+<div class="font-metric-sm text-metric-sm text-on-surface-variant">05 / 05</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-gutter md:p-margin-desktop max-w-4xl mx-auto w-full gap-8 relative pb-24">
+<!-- Session Context -->
+<div class="w-full text-center space-y-2">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Session 22: The Aikido Pivot</h2>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Step 5: Commit</h3>
+</div>
+<!-- Opener Card -->
+<div class="brutalist-card w-full p-6 md:p-10 relative">
+<div class="absolute -top-3 left-6 bg-surface-parchment px-2 font-label-caps text-label-caps text-border-primary border-2 border-border-primary rounded">THE PROMPT</div>
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    Speak your commitment for the next interaction. Finish this sentence:
+                </p>
+<blockquote class="brutalist-card-nested p-6 font-headline-md text-headline-md text-primary italic relative">
+<span class="material-symbols-outlined absolute -top-4 -left-4 text-surface-tint bg-surface-container-low rounded-full p-1 border-hairline border-border-primary" style="font-size: 32px;">format_quote</span>
+                    "Tomorrow I will not let an interruption knock me off..."
+                </blockquote>
+</div>
+</div>
+<!-- Recording Interface -->
+<div class="w-full flex flex-col items-center justify-center gap-6 mt-8">
+<!-- Timer Display -->
+<div class="font-metric-hero text-metric-hero text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-surface-tint">timer</span>
+<span id="timer-display">15.0</span><span class="text-on-surface-variant text-xl">s</span>
+</div>
+<!-- Mic Button Container -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- The Mic Button -->
+<button aria-label="Start recording commitment" class="w-20 h-20 rounded-full bg-border-primary text-surface-parchment flex items-center justify-center shadow-none border-2 border-border-primary relative z-10 transition-transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary-fixed-dim" id="mic-btn">
+<span class="material-symbols-outlined text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">TAP TO COMMIT</p>
+</div>
+</main>
+<!-- Bottom Progress Bar -->
+<div class="progress-bar-container">
+<div class="progress-bar-fill"></div>
+</div>
+<!-- Micro-interaction script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const micBtn = document.getElementById('mic-btn');
+            const timerDisplay = document.getElementById('timer-display');
+            let isRecording = false;
+            let timerInterval;
+            let timeLeft = 15.0;
+
+            micBtn.addEventListener('click', () => {
+                isRecording = !isRecording;
+                
+                if (isRecording) {
+                    micBtn.classList.add('mic-recording');
+                    micBtn.classList.replace('bg-border-primary', 'bg-error');
+                    micBtn.classList.replace('border-border-primary', 'border-error');
+                    
+                    // Simple timer logic
+                    timerInterval = setInterval(() => {
+                        timeLeft -= 0.1;
+                        if (timeLeft <= 0) {
+                            timeLeft = 0;
+                            stopRecording();
+                        }
+                        timerDisplay.textContent = timeLeft.toFixed(1);
+                    }, 100);
+                } else {
+                    stopRecording();
+                }
+            });
+
+            function stopRecording() {
+                isRecording = false;
+                micBtn.classList.remove('mic-recording');
+                micBtn.classList.replace('bg-error', 'bg-border-primary');
+                micBtn.classList.replace('border-error', 'border-border-primary');
+                clearInterval(timerInterval);
+                timeLeft = 15.0; // Reset for demo purposes
+                timerDisplay.textContent = timeLeft.toFixed(1);
+            }
+        });
+    </script>
+</body></html>

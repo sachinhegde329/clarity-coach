@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>02 Listen - Session 26</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#9b4427",
+                      "on-primary-fixed": "#3a0b00",
+                      "on-surface-variant": "#55423d",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#ebe7e4",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "secondary-fixed": "#dbe6cf",
+                      "outline-variant": "#dcc1b9",
+                      "on-tertiary-container": "#ff998e",
+                      "on-secondary-fixed": "#151e10",
+                      "surface-parchment": "#FDF9F5",
+                      "outline": "#89726c",
+                      "on-surface": "#1c1c19",
+                      "inverse-surface": "#31302e",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "surface-container-low": "#f7f3ef",
+                      "secondary": "#57624f",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "border-primary": "#7C2D12",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#ffb59e",
+                      "inverse-on-surface": "#f4f0ec",
+                      "on-tertiary-fixed": "#410002",
+                      "error-warning": "#B91C1C",
+                      "surface-dim": "#ddd9d6",
+                      "on-background": "#1c1c19",
+                      "background": "#fdf9f5",
+                      "primary-container": "#7c2d12",
+                      "surface-bright": "#fdf9f5",
+                      "surface-container-highest": "#e5e2de",
+                      "success-sage": "#818C78",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#93000b",
+                      "tertiary-fixed": "#ffdad6",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#d8e3cc",
+                      "on-secondary-container": "#5b6653",
+                      "tertiary": "#680005",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#ff9b7b",
+                      "primary": "#5e1700",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fdf9f5",
+                      "surface-container": "#f1ede9",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "inverse-primary": "#ffb59e",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdbd0",
+                      "surface-variant": "#e5e2de",
+                      "tertiary-fixed-dim": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "margin-mobile": "20px",
+                      "unit": "4px",
+                      "margin-desktop": "40px",
+                      "hairline": "0.5px",
+                      "border-width": "2px"
+              },
+              "fontFamily": {
+                      "metric-hero": ["JetBrains Mono"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "body-lg": ["Bricolage Grotesque"],
+                      "metric-sm": ["JetBrains Mono"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "display-lg": ["Bricolage Grotesque"],
+                      "body-md": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                      "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom scrollbar for Warm Brutalist feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF9F5;
+            border-left: 0.5px solid #dcc1b9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7C2D12;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5e1700;
+        }
+
+        /* Waveform Animation */
+        @keyframes pulse-bar {
+            0%, 100% { height: 10%; }
+            50% { height: 90%; }
+        }
+        .wave-bar {
+            animation: pulse-bar 1.5s ease-in-out infinite;
+            transform-origin: bottom;
+        }
+        /* Stagger animations via JS inline */
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md antialiased">
+<!-- TopAppBar (Adapted for Session Focus, suppressing Bottom Nav) -->
+<header class="w-full top-0 border-b-[2px] border-primary bg-surface-parchment flat no shadows flex justify-between items-center px-gutter py-4 z-10 sticky">
+<button class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="text-headline-md font-headline-md font-bold text-primary tracking-tight">
+            02 / 05
+        </div>
+<button class="text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 px-gutter py-8 md:px-margin-desktop md:py-12 max-w-7xl mx-auto w-full flex flex-col gap-8">
+<!-- Session Progress Strip (Warm Brutalist) -->
+<nav aria-label="Session Progress" class="flex w-full gap-2 h-12">
+<div class="flex-1 border-[2px] border-primary bg-surface-container-low flex items-center justify-center rounded-DEFAULT opacity-50">
+<span class="font-label-caps text-label-caps text-on-surface-variant">01 CENTRE</span>
+</div>
+<div class="flex-1 border-[2px] border-primary bg-primary flex items-center justify-center rounded-DEFAULT shadow-[2px_2px_0px_0px_rgba(124,45,18,1)] transform -translate-y-1 transition-all">
+<span class="font-label-caps text-label-caps text-on-primary">02 LISTEN</span>
+</div>
+<div class="flex-1 border-[2px] border-primary bg-surface-parchment flex items-center justify-center rounded-DEFAULT">
+<span class="font-label-caps text-label-caps text-primary">03 DO</span>
+</div>
+<div class="flex-1 border-[2px] border-primary bg-surface-parchment flex items-center justify-center rounded-DEFAULT hidden md:flex">
+<span class="font-label-caps text-label-caps text-primary">04 SEE</span>
+</div>
+<div class="flex-1 border-[2px] border-primary bg-surface-parchment flex items-center justify-center rounded-DEFAULT hidden md:flex">
+<span class="font-label-caps text-label-caps text-primary">05 COMMIT</span>
+</div>
+</nav>
+<!-- Context Header -->
+<section class="flex flex-col gap-2 border-b-[0.5px] border-outline-variant pb-6">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Session 26</h2>
+<h1 class="font-display-lg text-display-lg text-primary">Numbers that breathe</h1>
+</section>
+<!-- Bento Grid Layout for Media & Transcript -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 flex-1 min-h-[500px]">
+<!-- Left/Top Col: Audio Waveform Canvas -->
+<div class="md:col-span-5 bg-surface-container-high border-[2px] border-primary rounded-DEFAULT p-6 flex flex-col justify-between relative overflow-hidden">
+<!-- Background structural grid hint -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(#89726c 1px, transparent 1px), linear-gradient(90deg, #89726c 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="z-10 flex justify-between items-center mb-8">
+<span class="font-metric-sm text-metric-sm text-primary bg-surface-parchment border-[0.5px] border-primary px-2 py-1 rounded">REC_0026.WAV</span>
+<span class="material-symbols-outlined text-primary" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<!-- Waveform Visualization -->
+<div class="z-10 h-32 flex items-end justify-center gap-[2px] w-full border-b-[2px] border-primary pb-2" id="waveform-container">
+<!-- JS will populate this with bars to ensure brutalist dense data feel -->
+</div>
+<div class="z-10 flex justify-between items-center mt-4">
+<span class="font-metric-sm text-metric-sm text-on-surface">01:14</span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant">03:45</span>
+</div>
+<!-- Playback controls -->
+<div class="z-10 flex justify-center items-center gap-6 mt-8">
+<button class="p-2 border-[2px] border-primary rounded-full text-primary hover:bg-surface-parchment transition-colors">
+<span class="material-symbols-outlined" data-icon="replay_10" style="font-variation-settings: 'FILL' 1;">replay_10</span>
+</button>
+<button class="p-4 bg-primary text-on-primary rounded-full border-[2px] border-primary hover:bg-surface-tint shadow-[4px_4px_0px_0px_rgba(253,249,245,0.5)] active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-display-lg" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="p-2 border-[2px] border-primary rounded-full text-primary hover:bg-surface-parchment transition-colors">
+<span class="material-symbols-outlined" data-icon="forward_10" style="font-variation-settings: 'FILL' 1;">forward_10</span>
+</button>
+</div>
+</div>
+<!-- Right/Bottom Col: Scrolling Transcript Data -->
+<div class="md:col-span-7 bg-surface-parchment border-[2px] border-primary rounded-DEFAULT flex flex-col relative shadow-[4px_4px_0px_0px_rgba(124,45,18,1)]">
+<!-- Transcript Header -->
+<div class="flex justify-between items-center p-4 border-b-[2px] border-primary bg-surface-container-low">
+<span class="font-label-caps text-label-caps text-primary">LIVE TRANSCRIPT</span>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-error-warning animate-pulse"></span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant uppercase">Sync</span>
+</div>
+</div>
+<!-- Scrolling List -->
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-0">
+<!-- Transcript Item -->
+<div class="flex gap-4 py-4 border-b-[0.5px] border-outline-variant opacity-70 hover:opacity-100 transition-opacity group">
+<div class="font-metric-sm text-metric-sm text-on-surface-variant w-16 pt-1 group-hover:text-primary transition-colors">01:02</div>
+<div class="flex-1 font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            When you deliver financial results, the instinct is to list the metrics. Revenue up 12%, margins steady, churn down.
+                        </div>
+</div>
+<!-- Transcript Item -->
+<div class="flex gap-4 py-4 border-b-[0.5px] border-outline-variant opacity-70 hover:opacity-100 transition-opacity group">
+<div class="font-metric-sm text-metric-sm text-on-surface-variant w-16 pt-1 group-hover:text-primary transition-colors">01:08</div>
+<div class="flex-1 font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            But raw data doesn't persuade. It merely documents. To create impact, you have to invert the hierarchy.
+                        </div>
+</div>
+<!-- Active Highlighted Transcript Item -->
+<div class="flex gap-4 py-4 border-b-[2px] border-primary bg-surface-container-high -mx-4 px-4 shadow-inner relative">
+<!-- Active indicator line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="font-metric-sm text-metric-sm text-primary font-bold w-16 pt-1">01:14</div>
+<div class="flex-1 font-headline-md text-headline-md text-on-surface leading-snug">
+                            You must remember this core principle: <mark class="bg-secondary-fixed text-on-secondary-fixed px-1 py-0.5 rounded-[2px] shadow-[2px_2px_0px_0px_rgba(87,98,79,1)]">The number is the punchline, the story is the setup.</mark> If you flip them, the joke falls flat.
+                        </div>
+</div>
+<!-- Transcript Item (Future) -->
+<div class="flex gap-4 py-4 opacity-30">
+<div class="font-metric-sm text-metric-sm text-on-surface-variant w-16 pt-1">01:22</div>
+<div class="flex-1 font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            Let's look at an example from the Q3 report...
+                        </div>
+</div>
+</div>
+<!-- Fading overlay for bottom of scroll -->
+<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-parchment to-transparent pointer-events-none rounded-b-DEFAULT"></div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="mt-4 flex justify-end w-full border-t-[0.5px] border-outline pt-6">
+<button class="bg-primary text-on-primary border-[2px] border-primary rounded-DEFAULT px-8 py-4 font-headline-md text-headline-md hover:bg-surface-tint shadow-[4px_4px_0px_0px_rgba(124,45,18,0.2)] active:translate-y-1 active:shadow-none transition-all flex items-center gap-2">
+                CONTINUE TO DO
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        // Generate brutalist waveform bars
+        const container = document.getElementById('waveform-container');
+        const numBars = 60; // Dense data feel
+        
+        for (let i = 0; i < numBars; i++) {
+            const bar = document.createElement('div');
+            // Random base height for visual variety
+            const baseHeight = Math.random() * 60 + 10;
+            
+            bar.className = 'w-1 bg-primary wave-bar';
+            bar.style.height = `${baseHeight}%`;
+            
+            // Stagger animation delays to create wave effect
+            const delay = Math.sin(i * 0.2) * 0.5; 
+            bar.style.animationDelay = `${delay}s`;
+            bar.style.animationDuration = `${1 + Math.random() * 0.5}s`;
+            
+            container.appendChild(bar);
+        }
+    </script>
+</body></html>

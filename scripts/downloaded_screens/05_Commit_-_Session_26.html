@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>05 Commit - Session 26</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#9b4427",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed": "#dbe6cf",
+                        "outline-variant": "#dcc1b9",
+                        "on-tertiary-container": "#ff998e",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "outline": "#89726c",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface-container-low": "#f7f3ef",
+                        "secondary": "#57624f",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "border-primary": "#7C2D12",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb59e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed": "#410002",
+                        "error-warning": "#B91C1C",
+                        "surface-dim": "#ddd9d6",
+                        "on-background": "#1c1c19",
+                        "background": "#fdf9f5",
+                        "primary-container": "#7c2d12",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-highest": "#e5e2de",
+                        "success-sage": "#818C78",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "tertiary-fixed": "#ffdad6",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d8e3cc",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "inverse-primary": "#ffb59e",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e2de",
+                        "tertiary-fixed-dim": "#ffb4ab"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        gutter: "16px",
+                        "margin-mobile": "20px",
+                        unit: "4px",
+                        "margin-desktop": "40px",
+                        hairline: "0.5px",
+                        "border-width": "2px"
+                    },
+                    fontFamily: {
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"]
+                    },
+                    fontSize: {
+                        "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FDF9F5;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23dcc1b9' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .timer-circle {
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .pulse-ring {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-surface-parchment dark:bg-surface-dim border-b-[2px] border-border-primary dark:border-outline flex justify-between items-center px-gutter py-4 z-40 fixed">
+<button class="hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-DEFAULT text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">timer</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">01 / 05</h1>
+<button class="hover:bg-surface-container-high transition-colors active:scale-95 duration-100 p-2 rounded-DEFAULT text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center pt-24 pb-32 px-gutter md:px-margin-desktop w-full max-w-4xl mx-auto">
+<!-- Progress Strip (Session Player Context) -->
+<div class="flex items-center justify-center gap-unit mb-12 w-full max-w-md">
+<div class="h-2 flex-1 border-[0.5px] border-outline bg-surface-container-high"></div>
+<div class="h-2 flex-1 border-[0.5px] border-outline bg-surface-container-high"></div>
+<div class="h-2 flex-1 border-[0.5px] border-outline bg-surface-container-high"></div>
+<div class="h-2 flex-1 border-[0.5px] border-outline bg-surface-container-high"></div>
+<div class="h-3 flex-1 border-[2px] border-border-primary bg-primary"></div>
+</div>
+<!-- Central Card Container -->
+<article class="w-full bg-surface-parchment border-[2px] border-border-primary rounded-lg p-6 md:p-10 flex flex-col items-center text-center relative shadow-[4px_4px_0px_#7C2D12]">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-4 block">Session 26</span>
+<h2 class="font-display-lg text-display-lg text-primary mb-8 max-w-2xl">
+                Tomorrow I will turn one statistic into...
+            </h2>
+<!-- Interaction Zone -->
+<div class="mt-8 relative flex flex-col items-center justify-center w-full">
+<!-- SVG Timer Ring -->
+<div class="relative w-48 h-48 flex items-center justify-center mb-6">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="46" stroke-width="2"></circle>
+<circle class="stroke-primary timer-circle" cx="50" cy="50" fill="none" id="progressRing" r="46" stroke-dasharray="289" stroke-dashoffset="0" stroke-width="4"></circle>
+</svg>
+<!-- The Mic Button -->
+<button class="relative z-10 w-32 h-32 bg-primary rounded-full border-[2px] border-border-primary flex items-center justify-center group transition-transform active:scale-95" id="micBtn">
+<div class="absolute inset-0 rounded-full border-[1px] border-primary pulse-ring opacity-0 hidden" id="pulseEffect"></div>
+<span class="material-symbols-outlined text-[48px] text-surface-parchment group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="font-metric-hero text-metric-hero text-primary" id="timeDisplay">15</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mt-2">SECONDS REMAINING</div>
+</div>
+<!-- Hint / Status -->
+<div class="mt-10 p-4 border-[0.5px] border-outline bg-surface-container-low rounded-DEFAULT w-full max-w-md">
+<p class="font-body-md text-body-md text-on-surface-variant">Press the microphone to record your commitment. Speak clearly.</p>
+</div>
+</article>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const micBtn = document.getElementById('micBtn');
+            const pulseEffect = document.getElementById('pulseEffect');
+            const timeDisplay = document.getElementById('timeDisplay');
+            const progressRing = document.getElementById('progressRing');
+            
+            let isRecording = false;
+            let timeLeft = 15;
+            let timerInterval;
+            
+            // Circle circumference for stroke-dashoffset (2 * pi * r) -> r=46 -> ~289
+            const circumference = 289;
+
+            micBtn.addEventListener('click', () => {
+                if (!isRecording) {
+                    // Start recording
+                    isRecording = true;
+                    pulseEffect.classList.remove('hidden');
+                    pulseEffect.classList.add('block');
+                    micBtn.classList.replace('bg-primary', 'bg-surface-tint');
+                    
+                    timeLeft = 15;
+                    updateDisplay();
+                    
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        updateDisplay();
+                        
+                        if (timeLeft <= 0) {
+                            stopRecording();
+                        }
+                    }, 1000);
+                } else {
+                    stopRecording();
+                }
+            });
+
+            function updateDisplay() {
+                timeDisplay.textContent = timeLeft.toString().padStart(2, '0');
+                const offset = circumference - (timeLeft / 15) * circumference;
+                progressRing.style.strokeDashoffset = offset;
+            }
+
+            function stopRecording() {
+                isRecording = false;
+                clearInterval(timerInterval);
+                pulseEffect.classList.remove('block');
+                pulseEffect.classList.add('hidden');
+                micBtn.classList.replace('bg-surface-tint', 'bg-primary');
+                // Optional: reset or transition to next state
+                setTimeout(() => {
+                    timeLeft = 15;
+                    updateDisplay();
+                }, 1000);
+            }
+        });
+    </script>
+</body></html>

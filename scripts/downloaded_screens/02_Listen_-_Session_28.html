@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 28: Listen</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#410002",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "surface-container": "#f1ede9",
+                    "primary-fixed-dim": "#ffb59e",
+                    "outline-variant": "#dcc1b9",
+                    "background": "#fdf9f5",
+                    "on-tertiary-container": "#ff998e",
+                    "on-secondary-container": "#5b6653",
+                    "error-warning": "#B91C1C",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-surface": "#1c1c19",
+                    "surface-container-low": "#f7f3ef",
+                    "tertiary": "#680005",
+                    "on-surface-variant": "#55423d",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-parchment": "#FDF9F5",
+                    "on-primary-container": "#ff9b7b",
+                    "primary": "#5e1700",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "border-primary": "#7C2D12",
+                    "surface-tint": "#9b4427",
+                    "inverse-primary": "#ffb59e",
+                    "secondary-fixed": "#dbe6cf",
+                    "surface-container-highest": "#e5e2de",
+                    "outline": "#89726c",
+                    "surface-dim": "#ddd9d6",
+                    "on-secondary-fixed": "#151e10",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#93000b",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fdf9f5",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#7c2d12",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-high": "#ebe7e4",
+                    "on-background": "#1c1c19",
+                    "secondary-container": "#d8e3cc",
+                    "secondary": "#57624f",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "primary-fixed": "#ffdbd0",
+                    "surface": "#fdf9f5",
+                    "success-sage": "#818C78"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "hairline": "0.5px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom scrollbar for Brutalist aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+            border-left: 2px solid #7C2D12;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF9F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7C2D12;
+            border: 1px solid #FDF9F5;
+        }
+        .waveform-bar {
+            transition: height 0.1s ease-in-out;
+            will-change: height;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md antialiased">
+<!-- TopAppBar Shell Component -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface border-b-[2px] border-primary">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 -ml-2 flex items-center justify-center focus:outline-none">
+<span class="material-symbols-outlined text-primary">grid_view</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">02 / 05</h1>
+<div class="font-metric-sm text-metric-sm text-primary tracking-wider">12:45</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[88px] pb-12 px-gutter md:px-margin-desktop flex flex-col items-center">
+<div class="w-full max-w-4xl space-y-6 md:space-y-8">
+<!-- Brutalist Progress Flow -->
+<nav aria-label="Session Progress" class="w-full border-[2px] border-primary divide-y-[2px] md:divide-y-0 md:divide-x-[2px] divide-primary flex flex-col md:flex-row font-label-caps text-label-caps text-center bg-surface-parchment shadow-sm">
+<div class="flex-1 py-3 bg-surface-variant text-on-surface-variant line-through opacity-70">CENTRE</div>
+<div class="flex-1 py-3 bg-primary text-on-primary font-bold tracking-widest relative">
+                    LISTEN
+                    <!-- Active marker dot -->
+<span class="absolute top-1/2 -translate-y-1/2 left-4 w-2 h-2 bg-on-primary rounded-full animate-pulse"></span>
+</div>
+<div class="flex-1 py-3 text-primary hover:bg-surface-container-low transition-colors cursor-not-allowed">DO</div>
+<div class="flex-1 py-3 text-primary hover:bg-surface-container-low transition-colors cursor-not-allowed">SEE</div>
+<div class="flex-1 py-3 text-primary hover:bg-surface-container-low transition-colors cursor-not-allowed">COMMIT</div>
+</nav>
+<!-- Audio Player Card -->
+<article class="border-[2px] border-primary bg-surface-parchment rounded-DEFAULT p-6 md:p-10 relative group">
+<div class="flex flex-col md:flex-row md:justify-between items-start md:items-end gap-6 mb-8 border-b-[0.5px] border-outline pb-6">
+<div>
+<span class="font-label-caps text-label-caps text-primary border border-primary px-2 py-1 mb-4 inline-block bg-primary-fixed">AUDIO TIDBIT</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">Lead with the answer,<br/>then prove it.</h2>
+</div>
+<div class="font-metric-sm text-metric-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span>HYPOTHESIS-DRIVEN</span>
+</div>
+</div>
+<!-- Waveform & Controls -->
+<div class="flex flex-col md:flex-row items-center gap-8">
+<!-- Play Button -->
+<button class="w-16 h-16 shrink-0 rounded-full bg-primary border-[2px] border-primary flex items-center justify-center text-surface-parchment hover:bg-surface-tint focus:outline-none focus:ring-4 focus:ring-primary-fixed-dim transition-all group-active:scale-95 shadow-sm" id="playBtn">
+<span class="material-symbols-outlined" id="playIcon" style="font-variation-settings: 'FILL' 1; font-size: 32px;">play_arrow</span>
+</button>
+<div class="flex-grow w-full">
+<div class="flex justify-between font-metric-sm text-metric-sm text-primary mb-2">
+<span id="currentTime">00:42</span>
+<span class="text-on-surface-variant">01:15</span>
+</div>
+<!-- High Precision Data Waveform -->
+<div class="h-24 w-full flex items-end gap-[2px] border-b-[2px] border-primary pb-1" id="waveformContainer">
+<!-- JS injected bars -->
+</div>
+</div>
+</div>
+</article>
+<!-- Transcript Workspace -->
+<section class="border-[2px] border-primary bg-surface-parchment rounded-DEFAULT flex flex-col">
+<div class="px-6 py-4 border-b-[2px] border-primary bg-surface-container flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Transcript Record</h3>
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+</div>
+<!-- Scrollable Area -->
+<div class="p-6 h-[320px] overflow-y-auto space-y-6">
+<div class="flex gap-4">
+<div class="w-12 font-metric-sm text-metric-sm text-outline text-right shrink-0 pt-1 select-none">00:00</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            When entering a high-stakes meeting, the natural instinct is to build context. We want to show our work, outline the methodology, and gently guide the stakeholders down the path we took to reach our conclusion. This is comfortable, but it is fundamentally flawed.
+                        </p>
+</div>
+<div class="flex gap-4">
+<div class="w-12 font-metric-sm text-metric-sm text-primary font-bold text-right shrink-0 pt-1 select-none">00:42</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+<span class="bg-primary text-on-primary px-1.5 py-0.5 font-medium selection:bg-secondary-container selection:text-on-secondary-container inline-block shadow-[2px_2px_0px_0px_rgba(28,28,25,1)]">The hypothesis is the anchor of the senior intellectual posture.</span>
+                            You must invert the standard narrative flow. State your definitive conclusion in the first thirty seconds. Assume they trust your rigor until they have reason not to.
+                        </p>
+</div>
+<div class="flex gap-4 opacity-50">
+<div class="w-12 font-metric-sm text-metric-sm text-outline text-right shrink-0 pt-1 select-none">01:05</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                            Once the answer is on the table, the subsequent discussion shifts from 'what is the answer?' to 'how do we execute this reality?'. You control the frame.
+                        </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Waveform Generation
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('waveformContainer');
+            const barCount = 80; // Adjust based on visual density needed
+            const bars = [];
+
+            for (let i = 0; i < barCount; i++) {
+                const bar = document.createElement('div');
+                // Brutalist aesthetic: strict shapes, primary color
+                bar.className = 'flex-1 bg-primary waveform-bar opacity-80';
+                
+                // Generate a pseudo-random waveform shape
+                // Higher in middle, tapered at ends
+                const normalizedI = i / barCount;
+                const baseHeight = Math.sin(normalizedI * Math.PI) * 50;
+                const noise = Math.random() * 30;
+                const height = Math.max(4, baseHeight + noise); 
+                
+                bar.style.height = `${height}%`;
+                
+                // Color variation for "played" section
+                if (i < (barCount * 0.55)) { // Simulating 00:42 / 01:15
+                    bar.classList.replace('opacity-80', 'opacity-100');
+                    bar.classList.replace('bg-primary', 'bg-border-primary');
+                } else {
+                    bar.classList.add('bg-outline-variant');
+                    bar.classList.replace('bg-primary', 'bg-outline-variant');
+                }
+
+                container.appendChild(bar);
+                bars.push(bar);
+            }
+
+            // Play Button Interaction
+            const playBtn = document.getElementById('playBtn');
+            const playIcon = document.getElementById('playIcon');
+            let isPlaying = false;
+            let animationInterval;
+
+            playBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                if (isPlaying) {
+                    playIcon.textContent = 'pause';
+                    playBtn.classList.add('animate-pulse');
+                    
+                    // Simple active animation
+                    animationInterval = setInterval(() => {
+                        bars.forEach((bar, index) => {
+                            // Only animate the 'unplayed' part lightly
+                            if(index >= (barCount * 0.55)) {
+                                const currentH = parseFloat(bar.style.height);
+                                const newH = currentH + (Math.random() * 10 - 5);
+                                bar.style.height = `${Math.min(100, Math.max(4, newH))}%`;
+                            }
+                        });
+                    }, 100);
+
+                } else {
+                    playIcon.textContent = 'play_arrow';
+                    playBtn.classList.remove('animate-pulse');
+                    clearInterval(animationInterval);
+                }
+            });
+        });
+    </script>
+</body></html>

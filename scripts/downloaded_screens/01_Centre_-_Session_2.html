@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01 Centre - Session 2 | Clarity Coach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#ede1d2",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "secondary-fixed": "#ede1d2",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container-low": "#f7f3ef",
+                        "surface": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ec",
+                        "secondary": "#655d52",
+                        "primary-container": "#7c2d12",
+                        "on-primary-container": "#ff9b7b",
+                        "error": "#ba1a1a",
+                        "primary": "#5e1700",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "outline": "#89726c",
+                        "on-secondary-container": "#6b6357",
+                        "outline-variant": "#dcc1b9",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface": "#1c1c19",
+                        "surface-container": "#f1ede9",
+                        "on-secondary-fixed": "#201b12",
+                        "tertiary-container": "#004b71",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "inverse-surface": "#31302e",
+                        "background": "#fdf9f5",
+                        "surface-tint": "#9b4427",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "surface-dim": "#ddd9d6",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-surface-variant": "#55423d",
+                        "tertiary-fixed": "#cbe6ff",
+                        "tertiary": "#00334f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "xl": "80px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "margin": "32px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutal-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .breathing-circle {
+            transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .breathing-circle.inhale {
+            transform: scale(1.6);
+            transition-duration: 4s;
+        }
+        .breathing-circle.exhale {
+            transform: scale(1);
+            transition-duration: 6s;
+        }
+        body {
+            background-color: #fdf9f5;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- TopAppBar Navigation Shell -->
+<header class="flex justify-between items-center px-6 py-4 w-full z-50 bg-surface border-b-2 border-primary fixed top-0 left-0 right-0">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2">menu</button>
+<h1 class="font-headline-md text-xl font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-secondary uppercase">Step 01/05</span>
+<div class="w-10 h-10 border-2 border-primary bg-secondary-container overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSJe0zQdL46IHbXZLZYeGFb2BvbOgUsCtayTldDOvvtti9BaBaclg8-hgq-W4yweTurF57iIF3oV-AVGCBjvChNoCiH_-JWcdqqpKQTkAPGKyaxryUeadqN8FQW2sw93BYA8Cl6u5H_bPU1UMmr6BrOyW29_e1Kuaw6QBIjEXtjRwE9h5vHyZyKCwptV-XcU_LVe_7keKe24PJjZI7QDavNoMIF6-InPTvlgKUDRe0jKD8JGMRphl9NPHSYGOWD6QKRaKZeCm3Pzr"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col pt-24 pb-32 px-6">
+<!-- Session Badge -->
+<div class="mb-6">
+<div class="border-2 border-primary p-4 inline-block bg-surface">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Session 2: The Foundation</span>
+</div>
+</div>
+<!-- Screen Title -->
+<h2 class="font-headline-lg text-headline-lg-mobile text-primary tracking-tight mb-8">01 Centre</h2>
+<!-- Info Card -->
+<div class="border-2 border-primary p-6 bg-secondary-container mb-6">
+<h3 class="font-label-md text-label-md font-bold text-primary mb-3 uppercase tracking-wider">The Pattern</h3>
+<p class="font-body-md text-on-surface leading-relaxed">A balanced cadence to anchor your nervous system. Inhale deeply through the nose, exhale slowly through pursed lips.</p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="border-2 border-primary p-4 bg-surface">
+<span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Inhale</span>
+<span class="font-headline-md text-headline-md text-primary">4s</span>
+</div>
+<div class="border-2 border-primary p-4 bg-surface">
+<span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Exhale</span>
+<span class="font-headline-md text-headline-md text-primary">6s</span>
+</div>
+</div>
+<!-- Breathing Box -->
+<div class="border-2 border-primary bg-surface flex flex-col items-center justify-center py-16 relative overflow-hidden flex-grow min-h-[360px]">
+<!-- Grid Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#5e1700 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="relative z-10 flex flex-col items-center gap-8">
+<!-- Visual Box -->
+<div class="w-48 h-48 border-2 border-primary flex items-center justify-center relative bg-surface">
+<div class="breathing-circle absolute w-full h-full border-4 border-primary bg-secondary-container opacity-40" id="circle-visual"></div>
+<span class="font-headline-md text-headline-md text-primary uppercase z-20" id="breath-label">Begin</span>
+</div>
+<!-- Timer Pill -->
+<div class="border-2 border-primary px-6 py-2 bg-surface">
+<span class="font-label-md text-label-md text-primary font-bold tracking-widest" id="timer-text">0:00</span>
+</div>
+</div>
+</div>
+<!-- Action Bar (Floating above Bottom Nav) -->
+<div class="fixed bottom-20 left-0 right-0 px-6 pb-6 bg-surface/80 backdrop-blur-sm pt-4">
+<div class="flex border-2 border-primary overflow-hidden bg-surface">
+<button class="flex-1 flex items-center justify-center gap-2 py-4 font-label-md text-label-md text-primary border-r-2 border-primary hover:bg-secondary-container transition-colors uppercase">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                    Previous
+                </button>
+<button class="flex-[1.5] bg-primary text-on-primary py-4 font-label-md text-label-md font-bold uppercase tracking-widest transition-colors hover:bg-primary/90" id="start-btn">
+                    Start Session
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center bg-surface border-t-2 border-primary h-20">
+<a class="flex flex-col items-center justify-center text-primary pt-1" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase font-bold tracking-tighter">Today</span>
+<div class="w-8 h-1 bg-primary mt-1"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary/60 pt-1" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase font-bold tracking-tighter">Journal</span>
+<div class="w-8 h-1 bg-transparent mt-1"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary/60 pt-1" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase font-bold tracking-tighter">Curriculum</span>
+<div class="w-8 h-1 bg-transparent mt-1"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary/60 pt-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase font-bold tracking-tighter">Profile</span>
+<div class="w-8 h-1 bg-transparent mt-1"></div>
+</a>
+</nav>
+<script>
+        const startBtn = document.getElementById('start-btn');
+        const circle = document.getElementById('circle-visual');
+        const label = document.getElementById('breath-label');
+        const timerText = document.getElementById('timer-text');
+
+        let isRunning = false;
+        let globalTimer;
+        let seconds = 0;
+
+        function updateTimer() {
+            seconds++;
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            timerText.innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function runBreathingCycle() {
+            if (!isRunning) return;
+
+            // Inhale phase (4 seconds)
+            label.innerText = "Inhale";
+            circle.classList.remove('exhale');
+            circle.classList.add('inhale');
+
+            setTimeout(() => {
+                if (!isRunning) return;
+                // Exhale phase (6 seconds)
+                label.innerText = "Exhale";
+                circle.classList.remove('inhale');
+                circle.classList.add('exhale');
+                
+                setTimeout(() => {
+                    if (isRunning) runBreathingCycle();
+                }, 6000);
+            }, 4000);
+        }
+
+        startBtn.addEventListener('click', () => {
+            if (!isRunning) {
+                isRunning = true;
+                startBtn.innerText = "Pause Session";
+                startBtn.classList.replace('bg-primary', 'bg-surface');
+                startBtn.classList.replace('text-on-primary', 'text-primary');
+                globalTimer = setInterval(updateTimer, 1000);
+                runBreathingCycle();
+            } else {
+                isRunning = false;
+                startBtn.innerText = "Resume Session";
+                startBtn.classList.replace('bg-surface', 'bg-primary');
+                startBtn.classList.replace('text-primary', 'text-on-primary');
+                clearInterval(globalTimer);
+                circle.classList.remove('inhale', 'exhale');
+                label.innerText = "Ready";
+            }
+        });
+    </script>
+</body></html>

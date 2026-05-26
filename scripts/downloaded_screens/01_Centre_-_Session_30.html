@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01 / 05 - Centre</title>
+<!-- Google Fonts: Bricolage Grotesque & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-container": "#7c2d12",
+                    "surface": "#fdf9f5",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-high": "#ebe7e4",
+                    "inverse-primary": "#ffb59e",
+                    "secondary": "#57624f",
+                    "primary": "#5e1700",
+                    "on-primary-fixed": "#3a0b00",
+                    "tertiary-container": "#93000b",
+                    "surface-dim": "#ddd9d6",
+                    "success-sage": "#818C78",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-background": "#1c1c19",
+                    "on-secondary-container": "#5b6653",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "surface-tint": "#9b4427",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#410002",
+                    "inverse-surface": "#31302e",
+                    "border-primary": "#7C2D12",
+                    "outline-variant": "#dcc1b9",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-primary": "#ffffff",
+                    "background": "#fdf9f5",
+                    "surface-variant": "#e5e2de",
+                    "on-surface": "#1c1c19",
+                    "tertiary": "#680005",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary-fixed": "#151e10",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "error-warning": "#B91C1C",
+                    "surface-container": "#f1ede9",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdad6",
+                    "secondary-fixed": "#dbe6cf",
+                    "secondary-container": "#d8e3cc",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-low": "#f7f3ef",
+                    "outline": "#89726c",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-parchment": "#FDF9F5",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "hairline": "0.5px",
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ]
+            },
+            "fontSize": {
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Warm Brutalist Focus Ring and Base Resets */
+        *:focus-visible {
+            outline: 2px solid #7c2d12;
+            outline-offset: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (Semantic Canvas Header) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 border-b-2 border-primary bg-surface transition-colors">
+<!-- Leading Action: Close Flow -->
+<button aria-label="Close session" class="flex items-center justify-center p-2 rounded text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-transform duration-100 hover:scale-95 group">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<!-- Brand/Metric Anchor -->
+<div class="font-label-caps text-label-caps font-bold text-primary flex items-center justify-center">
+            01 / 05
+        </div>
+<!-- Trailing Action: Help -->
+<button aria-label="Help &amp; Information" class="flex items-center justify-center p-2 rounded text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-transform duration-100 hover:scale-95 group">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+</button>
+</header>
+<!-- Main Workspace Area -->
+<!-- Navigation Shell suppressed due to Linear Task Intent -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop mt-16 py-12 md:py-24">
+<!-- Architectural Card Containment (Card-on-Card Layering) -->
+<article class="w-full max-w-2xl bg-surface border-2 border-primary rounded p-8 md:p-12 relative flex flex-col items-center text-center shadow-none">
+<!-- Structural Progress Strip -->
+<nav aria-label="Session Progress" class="flex w-full justify-between items-center mb-12 gap-3">
+<!-- Step 1: Active -->
+<div class="flex-1 h-2 bg-primary border-2 border-primary rounded-full relative">
+<span class="sr-only">Step 1: Active</span>
+</div>
+<!-- Step 2: Inactive (Secondary hairline feel using thin borders) -->
+<div class="flex-1 h-2 bg-surface-container border border-outline rounded-full"></div>
+<!-- Step 3: Inactive -->
+<div class="flex-1 h-2 bg-surface-container border border-outline rounded-full"></div>
+<!-- Step 4: Inactive -->
+<div class="flex-1 h-2 bg-surface-container border border-outline rounded-full"></div>
+<!-- Step 5: Inactive -->
+<div class="flex-1 h-2 bg-surface-container border border-outline rounded-full"></div>
+</nav>
+<!-- Text & Identity Canvas -->
+<div class="flex flex-col items-center space-y-6 md:space-y-8 w-full max-w-lg">
+<div class="flex flex-col items-center space-y-3">
+<span class="font-label-caps text-label-caps text-outline tracking-widest uppercase">Self-orienting exercise</span>
+<h1 class="font-display-lg text-display-lg text-primary m-0">Centre</h1>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant m-0">
+                    You have earned the right to choose. What do you want to work on today?
+                </p>
+</div>
+<!-- Brutalist Call to Action -->
+<div class="mt-12 w-full max-w-sm">
+<button class="w-full bg-primary text-on-primary border-2 border-primary rounded py-4 px-8 font-headline-md text-headline-md hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 flex justify-center items-center gap-3 group">
+<span>Begin</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+</div>
+</article>
+</main>
+</body></html>

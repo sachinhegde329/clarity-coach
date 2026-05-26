@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Power Pauses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .interactive-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #5e1700;
+        }
+        /* Custom Scrollbar for Brutalist Aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf9f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5e1700;
+            border: 2px solid #fdf9f5;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "background": "#fdf9f5",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#ede1d2",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ede1d2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#655d52",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-container": "#6b6357",
+                        "on-tertiary-fixed": "#001e30",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#004b71",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "tertiary": "#00334f",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "surface-variant": "#e5e2de",
+                        "on-background": "#1c1c19",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container": "#f1ede9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="px-xs py-1 border-2 border-primary font-label-md text-primary">
+            01/05
+        </div>
+</header>
+<main class="flex-grow pb-32">
+<!-- Hero Section -->
+<section class="p-gutter md:p-lg border-b-2 border-primary bg-surface-container-low">
+<div class="max-w-4xl mx-auto space-y-md">
+<div class="inline-block bg-primary text-on-primary px-xs py-1 font-label-sm uppercase">
+                    Session 9: Power Pauses
+                </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-none">
+                    STEP 02: THE ART OF STRATEGIC SILENCE
+                </h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+                    A pause is never just a lack of sound. It is a tool for dominance, empathy, or reflection. Learn to distinguish between the pause that commands and the one that retreats.
+                </p>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="max-w-4xl mx-auto p-gutter grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Audio Player Card -->
+<div class="md:col-span-12 border-2 border-primary bg-background p-md flex flex-col md:flex-row gap-md items-center">
+<div class="w-full md:w-48 aspect-square border-2 border-primary relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A macro close-up of a vintage analog VU meter needle vibrating against a warm terracotta background. The lighting is dramatic and moody, with high contrast shadows that emphasize the mechanical textures of the audio equipment. The overall aesthetic is warm brutalist, combining technical precision with organic cream and deep earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZTe5cCe_gLmoXYS1lDzhkyUu94B7TQJoD08FgmXS-wsG9cvi4MwtB0jEV6EnGxgTqEf0Rw426CPCdkOu4x-Xck2BR7xkkLvAXlmbczst-fnWfxTzL1ZMc7-dnpaCA9cpLFGGVEFg1lJHjlZyyFCrGqHay7vKk33Cs8SnbCpFiEwaZxvlsfhEoAmj0sAzNjA3qLW3XSzXaM1B3skZBNOkWW4d6MzfJ5USm32r5I8sP9mCSCnTf2qyd8av4a2FzkISJEQ4Te4sFWFhi"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<button class="w-16 h-16 bg-primary text-on-primary border-2 border-primary flex items-center justify-center hover:translate-y-[-4px] hover:translate-x-[-4px] transition-all hover:shadow-[4px_4px_0px_0px_#7c2d12]">
+<span class="material-symbols-outlined text-4xl" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="flex-grow w-full space-y-sm">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-sm text-primary uppercase">Current Audio</span>
+<h3 class="font-headline-md text-primary">Strategic Silence vs. Anxious Gaps</h3>
+</div>
+<span class="font-label-md text-on-surface-variant">12:45 / 18:00</span>
+</div>
+<!-- Audio Waveform Visualization Placeholder -->
+<div class="h-16 w-full flex items-end gap-[2px]">
+<div class="bg-primary-container w-full h-1/2"></div>
+<div class="bg-primary-container w-full h-3/4"></div>
+<div class="bg-primary w-full h-2/3"></div>
+<div class="bg-primary w-full h-1/2"></div>
+<div class="bg-primary-container w-full h-1/4"></div>
+<div class="bg-primary-container w-full h-2/3"></div>
+<div class="bg-primary w-full h-3/4"></div>
+<div class="bg-primary w-full h-1/2"></div>
+<div class="bg-primary-container w-full h-1/4"></div>
+<div class="bg-primary w-full h-1/3"></div>
+<div class="bg-primary w-full h-2/3"></div>
+<div class="bg-primary-container w-full h-1/2"></div>
+<div class="bg-primary-container w-full h-1/4"></div>
+<div class="bg-primary w-full h-1/2"></div>
+</div>
+<div class="flex gap-sm">
+<button class="px-sm py-2 border-2 border-primary font-label-md hover:bg-surface-container-high transition-colors active:translate-y-1">
+                            DOWNLOAD AUDIO
+                        </button>
+<button class="px-sm py-2 border-2 border-primary bg-primary text-on-primary font-label-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all hover:shadow-[2px_2px_0px_0px_#3a0b00]">
+                            MARK COMPLETE
+                        </button>
+</div>
+</div>
+</div>
+<!-- Comparison Block -->
+<div class="md:col-span-5 border-2 border-primary bg-surface-container p-md space-y-md">
+<h4 class="font-headline-md text-primary uppercase tracking-tight">The Anatomy of a Pause</h4>
+<div class="space-y-sm">
+<div class="p-sm border-2 border-primary bg-background">
+<span class="font-label-sm text-primary font-bold">THOUGHTFUL (STRATEGIC)</span>
+<p class="font-body-md mt-xs">Deep eye contact, relaxed shoulders, stillness. Signifies processing and authority.</p>
+</div>
+<div class="p-sm border-2 border-outline-variant bg-surface-container-low opacity-70">
+<span class="font-label-sm text-on-surface-variant font-bold">ANXIOUS (PASSIVE)</span>
+<p class="font-body-md mt-xs">Averted gaze, fidgeting, "um" filler sounds. Signifies loss of control or fear of judgment.</p>
+</div>
+</div>
+</div>
+<!-- Transcript Section -->
+<div class="md:col-span-7 border-2 border-primary bg-background p-md">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-headline-md text-primary uppercase tracking-tight">Transcript</h4>
+<span class="material-symbols-outlined text-primary cursor-pointer" data-icon="search">search</span>
+</div>
+<div class="font-body-md text-on-surface space-y-md max-h-[300px] overflow-y-auto pr-xs">
+<p><span class="font-label-sm text-primary">[00:00]</span> "The hardest thing for a communicator to do is nothing. We are wired to fill the void. But in negotiation, the person who speaks first after a proposal often loses ground."</p>
+<p><span class="font-label-sm text-primary">[02:15]</span> "Strategic silence is a choice. It’s an active posture. When you pause to think, you are showing the other person that their words have weight. You are showing them that you are not a machine spitting out pre-programmed responses."</p>
+<p class="bg-secondary-container p-xs border-l-4 border-primary"><span class="font-label-sm text-primary font-bold">[04:40]</span> "Notice the difference. An anxious pause feels like a vacuum—it sucks the energy out of the room. A powerful pause feels like a solid object—it takes up space."</p>
+<p><span class="font-label-sm text-primary">[06:12]</span> "Let's practice the 'Four-Second Rule'. After asking a difficult question, count to four in your head before saying another word. Watch what happens to the tension."</p>
+</div>
+</div>
+<!-- Tidbit Quote -->
+<div class="md:col-span-12 bg-primary text-on-primary p-lg text-center border-2 border-primary relative overflow-hidden">
+<span class="material-symbols-outlined absolute top-4 left-4 text-6xl opacity-20" data-icon="format_quote">format_quote</span>
+<p class="font-headline-lg italic relative z-10">"Strategic silence is the architecture of a great conversation."</p>
+<div class="mt-md font-label-md uppercase tracking-widest">— Tidbit: THE MASTER CLASS</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md uppercase font-bold mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md uppercase font-bold mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-md uppercase font-bold mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md uppercase font-bold mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                console.log('Action triggered');
+            });
+        });
+
+        // Dynamic transcript highlighting logic (simulated)
+        const transcriptLines = document.querySelectorAll('.font-body-md p');
+        transcriptLines.forEach(line => {
+            line.addEventListener('mouseenter', () => {
+                line.style.backgroundColor = '#ede1d2';
+            });
+            line.addEventListener('mouseleave', () => {
+                line.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
+</body></html>

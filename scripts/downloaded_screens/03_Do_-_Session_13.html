@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 13: Do</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container": "#f1ede9",
+                        "tertiary": "#680005",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "primary": "#5e1700",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-primary": "#ffb59e",
+                        "surface": "#fdf9f5",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-parchment": "#FDF9F5",
+                        "primary-fixed-dim": "#ffb59e",
+                        "tertiary-fixed": "#ffdad6",
+                        "background": "#fdf9f5",
+                        "on-secondary-fixed": "#151e10",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#410002",
+                        "on-secondary": "#ffffff",
+                        "success-sage": "#818C78",
+                        "primary-container": "#7c2d12",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#ff9b7b",
+                        "primary-fixed": "#ffdbd0",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-container": "#ff998e",
+                        "on-secondary-container": "#5b6653",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe6cf",
+                        "inverse-on-surface": "#f4f0ec",
+                        "border-primary": "#7C2D12",
+                        "error-warning": "#B91C1C",
+                        "outline": "#89726c",
+                        "on-surface": "#1c1c19",
+                        "on-surface-variant": "#55423d",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e5e2de",
+                        "tertiary-container": "#93000b",
+                        "surface-dim": "#ddd9d6",
+                        "secondary": "#57624f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "hairline": "0.5px",
+                        "gutter": "16px",
+                        "border-width": "2px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dot-grid {
+            background-image: radial-gradient(#dcc1b9 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .mic-pulse-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #7C2D12;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        @keyframes pulse-fade {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1); }
+        }
+        .recording .mic-pulse-dot {
+            animation: pulse-fade 1.5s infinite;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col dot-grid">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-primary flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 sticky top-0">
+<div class="flex items-center gap-4 cursor-pointer">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+<h1 class="font-headline-md text-primary font-extrabold tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden bg-surface-container-high">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsi4WLzu-X03w--vOtqd4Fscm90IAhMBLyN7upB4MXvpjzlpqFDijr4pqTHk7_3YTNfWcW6EPAcpzaqnOMKHVuVssRasimUorRNyKFJMD36YLtn79f5zUyIaNXVHmA715PjT6_jPGQsPp4e5Mtc1KcD0mzLOdVGj17eLZHB_PUiPrnfoj5CiOOIwTXj8mdOtYW4mqGwVYzwDMrtogqtu5SYuzjHjTX5kk6wlzSliTpcl9ir0x5rtHqlfo2nmkma4df5Zdq_WWSPLEq"/>
+</div>
+</header>
+<main class="flex-grow w-full max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop py-8 flex flex-col gap-8">
+<!-- Progress Strip -->
+<nav class="w-full flex gap-2">
+<div class="flex-1 flex flex-col gap-2">
+<div class="h-2 w-full bg-primary opacity-20 border-border-width border-primary"></div>
+<span class="font-label-caps text-[10px] text-center text-on-surface-variant uppercase">CENTRE</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="h-2 w-full bg-primary opacity-20 border-border-width border-primary"></div>
+<span class="font-label-caps text-[10px] text-center text-on-surface-variant uppercase">LISTEN</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="h-2 w-full bg-primary border-border-width border-primary"></div>
+<span class="font-label-caps text-[10px] text-center text-primary font-bold uppercase">DO</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="h-2 w-full bg-primary opacity-10 border-border-width border-primary border-dashed"></div>
+<span class="font-label-caps text-[10px] text-center text-on-surface-variant opacity-40 uppercase">SEE</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="h-2 w-full bg-primary opacity-10 border-border-width border-primary border-dashed"></div>
+<span class="font-label-caps text-[10px] text-center text-on-surface-variant opacity-40 uppercase">COMMIT</span>
+</div>
+</nav>
+<!-- Challenge Content -->
+<div class="flex flex-col gap-6">
+<div class="bg-surface-parchment border-2 border-primary p-6 relative">
+<div class="flex justify-between items-start mb-6">
+<div class="flex flex-col">
+<span class="bg-primary text-surface px-2 py-0.5 font-label-caps text-[10px] uppercase tracking-widest self-start">CONSTRAINT CHALLENGE</span>
+<span class="font-label-caps text-[10px] text-primary mt-1">SESSION 13.03</span>
+</div>
+</div>
+<h2 class="font-headline-lg text-primary mb-8">Explain a recent project goal to a stakeholder.</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="border-2 border-primary p-4 bg-surface-parchment">
+<p class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Constraint 01</p>
+<p class="font-headline-md text-lg font-bold">BLUF Only</p>
+</div>
+<div class="border-2 border-primary p-4 bg-surface-parchment">
+<p class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Constraint 02</p>
+<p class="font-headline-md text-lg font-bold">30 Seconds Total</p>
+</div>
+<div class="border-2 border-primary p-4 bg-surface-parchment col-span-2">
+<p class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1">Critical Success Factor</p>
+<p class="font-headline-md text-lg font-bold">Conclusion in first 8s</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Interaction Area -->
+<div class="flex-grow flex flex-col items-center justify-center py-10 gap-10">
+<!-- Metrics -->
+<div class="flex items-center gap-10 w-full justify-center">
+<div class="text-center flex-1">
+<p class="font-label-caps text-[11px] text-on-surface-variant mb-1 uppercase tracking-widest">Time Remaining</p>
+<p class="font-metric-hero text-primary" id="timer">30.00</p>
+</div>
+<div class="h-12 w-0.5 bg-primary opacity-20"></div>
+<div class="text-center flex-1">
+<p class="font-label-caps text-[11px] text-on-surface-variant mb-1 uppercase tracking-widest">BLUF Window</p>
+<p class="font-metric-hero text-error-warning" id="bluf-timer">08.00</p>
+</div>
+</div>
+<!-- Brutalist Mic Button -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Progress Ring -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="48" stroke-width="2"></circle>
+<circle class="progress-ring-circle text-primary stroke-current" cx="50" cy="50" fill="transparent" id="progress-ring" r="48" stroke-dasharray="301.59" stroke-dashoffset="301.59" stroke-linecap="butt" stroke-width="2"></circle>
+<!-- 8 second notch -->
+<line stroke="#B91C1C" stroke-width="3" transform="rotate(96, 50, 50)" x1="50" x2="50" y1="2" y2="10"></line>
+<text class="font-label-caps text-[7px] fill-error-warning font-bold" transform="rotate(96, 50, 50)" x="54" y="16">BLUF LIMIT</text>
+</svg>
+<!-- Main Mic Button -->
+<button class="relative z-10 w-40 h-40 rounded-full bg-primary flex items-center justify-center transition-all active:scale-95 group border-4 border-surface" id="mic-trigger">
+<div class="mic-pulse-container absolute inset-0 rounded-full pointer-events-none">
+<div class="mic-pulse-dot" style="top: 15%; left: 50%;"></div>
+<div class="mic-pulse-dot" style="top: 50%; right: 15%;"></div>
+<div class="mic-pulse-dot" style="bottom: 15%; left: 50%;"></div>
+<div class="mic-pulse-dot" style="top: 50%; left: 15%;"></div>
+</div>
+<span class="material-symbols-outlined text-surface text-6xl group-hover:scale-110 transition-transform" id="mic-icon">mic</span>
+</button>
+</div>
+<p class="font-label-caps text-sm text-primary tracking-[0.2em] uppercase font-bold" id="status-text">Tap to begin ritual</p>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-20 bg-surface border-t-2 border-primary">
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:bg-surface-container flex-1">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Today</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:bg-surface-container flex-1">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Journey</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-surface flex-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Do</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:bg-surface-container flex-1">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Stats</span>
+</button>
+</nav>
+<div class="h-20 w-full"></div>
+<script>
+        const micTrigger = document.getElementById('mic-trigger');
+        const micIcon = document.getElementById('mic-icon');
+        const statusText = document.getElementById('status-text');
+        const timerDisplay = document.getElementById('timer');
+        const blufDisplay = document.getElementById('bluf-timer');
+        const progressRing = document.getElementById('progress-ring');
+        
+        let isRecording = false;
+        let timeLeft = 30.0;
+        let blufLeft = 8.0;
+        let interval;
+        const circumference = 301.59;
+
+        micTrigger.addEventListener('click', () => {
+            if (!isRecording) {
+                startRecording();
+            } else {
+                stopRecording();
+            }
+        });
+
+        function startRecording() {
+            isRecording = true;
+            micTrigger.parentElement.classList.add('recording');
+            micIcon.innerText = 'stop';
+            statusText.innerText = 'RECORDING...';
+            statusText.classList.add('animate-pulse');
+            
+            interval = setInterval(() => {
+                timeLeft -= 0.05;
+                blufLeft = Math.max(0, blufLeft - 0.05);
+
+                if (timeLeft <= 0) {
+                    stopRecording();
+                    timeLeft = 0;
+                }
+
+                updateUI();
+            }, 50);
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            clearInterval(interval);
+            micTrigger.parentElement.classList.remove('recording');
+            micIcon.innerText = 'mic';
+            statusText.innerText = 'COMPLETE. ANALYZING...';
+            statusText.classList.remove('animate-pulse');
+            
+            setTimeout(() => {
+                alert('Analysis complete: Precision target achieved.');
+            }, 800);
+        }
+
+        function updateUI() {
+            timerDisplay.innerText = timeLeft.toFixed(2);
+            blufDisplay.innerText = blufLeft.toFixed(2);
+            
+            const offset = circumference - (timeLeft / 30) * circumference;
+            progressRing.style.strokeDashoffset = offset;
+
+            if (blufLeft <= 0) {
+                blufDisplay.classList.remove('text-error-warning');
+                blufDisplay.classList.add('text-on-surface-variant');
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pressure Replay - Step 3: Do</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-parchment": "#FDF9F5",
+                      "primary": "#5e1700",
+                      "inverse-surface": "#31302e",
+                      "error-warning": "#B91C1C",
+                      "on-primary-fixed": "#3a0b00",
+                      "primary-container": "#7c2d12",
+                      "surface-container-high": "#ebe7e4",
+                      "tertiary-container": "#93000b",
+                      "error": "#ba1a1a",
+                      "surface": "#fdf9f5",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "background": "#fdf9f5",
+                      "surface-bright": "#fdf9f5",
+                      "on-surface-variant": "#55423d",
+                      "on-tertiary-fixed": "#410002",
+                      "tertiary": "#680005",
+                      "surface-dim": "#ddd9d6",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "outline-variant": "#dcc1b9",
+                      "inverse-primary": "#ffb59e",
+                      "surface-container-highest": "#e5e2de",
+                      "inverse-on-surface": "#f4f0ec",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "primary-fixed": "#ffdbd0",
+                      "surface-variant": "#e5e2de",
+                      "on-secondary-fixed": "#151e10",
+                      "surface-container": "#f1ede9",
+                      "secondary-fixed": "#dbe6cf",
+                      "on-secondary-container": "#5b6653",
+                      "tertiary-fixed": "#ffdad6",
+                      "outline": "#89726c",
+                      "success-sage": "#818C78",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "surface-tint": "#9b4427",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary-container": "#ff9b7b",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-error": "#ffffff",
+                      "on-background": "#1c1c19",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#d8e3cc",
+                      "on-secondary": "#ffffff",
+                      "on-surface": "#1c1c19",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "secondary": "#57624f",
+                      "on-tertiary-container": "#ff998e",
+                      "border-primary": "#7C2D12",
+                      "surface-container-lowest": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "hairline": "0.5px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "margin-desktop": "40px",
+                      "border-width": "2px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "metric-sm": ["JetBrains Mono"],
+                      "body-lg": ["Bricolage Grotesque"],
+                      "body-md": ["Bricolage Grotesque"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "metric-hero": ["JetBrains Mono"],
+                      "display-lg": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                      "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                      "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .brutalist-card {
+            border: 2px solid #7C2D12;
+            border-radius: 0.125rem;
+            background-color: #FDF9F5;
+        }
+        .brutalist-border { border: 2px solid #7C2D12; }
+        .hairline-border { border: 0.5px solid #89726c; }
+        .session-progress-strip {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+        }
+        .progress-segment {
+            height: 8px;
+            background-color: #e5e2de;
+            border: 0.5px solid #89726c;
+        }
+        .progress-segment.active {
+            background-color: #7c2d12;
+            border: 2px solid #5e1700;
+        }
+        .mic-button-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- Header Navigation (Suppressed for transactional/focused flow, but keeping TopAppBar style for session header) -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-background flex justify-between items-center px-margin-desktop py-xs z-10">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-secondary-container transition-colors p-2 rounded-DEFAULT flex items-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md tracking-tighter text-primary">SESSION 24</h1>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary border-2 border-primary px-3 py-1 rounded-DEFAULT bg-surface-container-low">
+            03 / 05
+        </div>
+</header>
+<main class="flex-grow flex flex-col px-margin-desktop py-8 max-w-7xl mx-auto w-full gap-8">
+<!-- Session Progress -->
+<div class="w-full session-progress-strip mb-4">
+<div class="progress-segment"></div>
+<div class="progress-segment"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment"></div>
+<div class="progress-segment"></div>
+</div>
+<!-- Header Content -->
+<div class="flex flex-col gap-2">
+<p class="font-label-caps text-label-caps text-primary uppercase">Step 3: Do</p>
+<h2 class="font-display-lg text-display-lg text-primary">Pressure Replay</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-2">
+                Re-attempt your toughest Hot Seat from this sprint. Same scenario, different you.
+            </p>
+</div>
+<!-- Split Screen Interface -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter flex-grow">
+<!-- Left Side: Inactive (Original Attempt) -->
+<div class="brutalist-card p-6 flex flex-col gap-6 opacity-70 bg-surface-container-low border-opacity-50">
+<div class="flex justify-between items-center border-b-[0.5px] border-outline pb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Original Attempt</h3>
+<span class="font-label-caps text-label-caps text-secondary px-2 py-1 hairline-border bg-surface-dim">RECORDED 3 DAYS AGO</span>
+</div>
+<div class="flex-grow flex flex-col justify-center items-center gap-8">
+<!-- Faux Waveform -->
+<div class="w-full h-24 flex items-center justify-center gap-1 opacity-50">
+<div class="w-1 h-8 bg-outline"></div><div class="w-1 h-12 bg-outline"></div><div class="w-1 h-16 bg-outline"></div><div class="w-1 h-10 bg-outline"></div><div class="w-1 h-20 bg-outline"></div><div class="w-1 h-6 bg-outline"></div><div class="w-1 h-14 bg-outline"></div><div class="w-1 h-24 bg-outline"></div><div class="w-1 h-12 bg-outline"></div><div class="w-1 h-18 bg-outline"></div><div class="w-1 h-8 bg-outline"></div><div class="w-1 h-16 bg-outline"></div>
+</div>
+<div class="text-center flex flex-col gap-2">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Previous Score</p>
+<div class="font-metric-hero text-metric-hero text-primary flex items-center justify-center gap-2">
+                            6.4 <span class="material-symbols-outlined text-error-warning" data-icon="arrow_drop_down" data-weight="fill">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<div class="hairline-border p-4 bg-surface flex flex-col gap-2 mt-auto">
+<p class="font-label-caps text-label-caps text-primary uppercase">Scenario Prompt</p>
+<p class="font-body-md text-body-md text-on-surface">"Explain the recent Q3 revenue dip to the board, acknowledging the supply chain issues without sounding defensive."</p>
+</div>
+</div>
+<!-- Right Side: Active (New Attempt) -->
+<div class="brutalist-card p-6 flex flex-col gap-6 relative shadow-[4px_4px_0px_#7C2D12]">
+<div class="flex justify-between items-center border-b-2 border-primary pb-4">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="w-3 h-3 bg-error-warning rounded-full animate-pulse inline-block"></span>
+                        New Attempt
+                    </h3>
+<div class="font-metric-sm text-metric-sm text-primary">
+                        00:00 / 02:00
+                    </div>
+</div>
+<div class="flex-grow flex flex-col justify-center items-center gap-12 py-12">
+<!-- Large Mic Button -->
+<div class="relative flex items-center justify-center w-32 h-32">
+<!-- Pulse Ring -->
+<div class="absolute inset-0 rounded-full border-2 border-primary-container mic-button-pulse"></div>
+<!-- Timer Ring (static for now, would be SVG stroke-dasharray in real implementation) -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="48" stroke="#e5e2de" stroke-width="2"></circle>
+<circle cx="50" cy="50" fill="transparent" r="48" stroke="#7C2D12" stroke-dasharray="301.59" stroke-dashoffset="0" stroke-width="4"></circle>
+</svg>
+<button class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-surface-parchment hover:bg-primary-container transition-colors shadow-none brutalist-border relative z-10 active:scale-95 group">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform" data-icon="mic">mic</span>
+</button>
+</div>
+<div class="text-center flex flex-col gap-2">
+<p class="font-headline-md text-headline-md text-primary">Tap to Begin</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Focus on clarity and pacing.</p>
+</div>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-surface-parchment border-2 border-primary text-primary font-body-lg font-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-surface-parchment transition-colors uppercase">
+                        Skip Rep
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

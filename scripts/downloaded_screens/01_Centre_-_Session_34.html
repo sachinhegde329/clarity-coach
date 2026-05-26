@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Centre - Session 34</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "success-sage": "#818C78",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary-fixed": "#3a0b00",
+                        "inverse-on-surface": "#f4f0ec",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-tertiary-container": "#ff998e",
+                        "surface-parchment": "#FDF9F5",
+                        "on-primary-container": "#ff9b7b",
+                        "on-secondary-fixed": "#151e10",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "secondary": "#57624f",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-container": "#5b6653",
+                        "background": "#fdf9f5",
+                        "tertiary": "#680005",
+                        "primary-fixed-dim": "#ffb59e",
+                        "primary-container": "#7c2d12",
+                        "on-surface-variant": "#55423d",
+                        "secondary-container": "#d8e3cc",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-container-highest": "#e5e2de",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#89726c",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "surface": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-tertiary-fixed": "#410002",
+                        "surface-container-high": "#ebe7e4",
+                        "surface-variant": "#e5e2de",
+                        "tertiary-container": "#93000b",
+                        "surface-tint": "#9b4427",
+                        "on-error-container": "#93000a",
+                        "primary": "#5e1700",
+                        "outline-variant": "#dcc1b9",
+                        "on-surface": "#1c1c19",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "border-primary": "#7C2D12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "border-width": "2px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    },
+                    "animation": {
+                        'breathe': 'breathe 8s ease-in-out infinite',
+                    },
+                    "keyframes": {
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.15)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary-container/20">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-surface-parchment z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<button aria-label="Close Session" class="text-primary hover:bg-primary-container/10 transition-colors cursor-pointer active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center group">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">
+                01 / 05
+            </div>
+<button aria-label="Settings" class="text-primary hover:bg-primary-container/10 transition-colors cursor-pointer active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center group">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<!-- Progress Indicator Bar -->
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="h-full bg-primary w-1/5 transition-all duration-500"></div>
+</div>
+</header>
+<!-- Main Content Canvas - Immersive Mode (No Bottom Nav) -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter relative overflow-hidden h-[calc(100vh-68px)]">
+<!-- Background Elements for Depth (Architectural Rigor) -->
+<div class="absolute inset-0 pointer-events-none grid grid-cols-4 md:grid-cols-12 gap-gutter px-gutter opacity-[0.03]">
+<!-- Grid Lines indicating structural boundary -->
+<div class="col-span-1 border-x border-primary h-full"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+<div class="col-span-1 border-x border-primary h-full hidden md:block"></div>
+</div>
+<!-- Session Title & Context -->
+<div class="absolute top-12 left-0 w-full text-center px-gutter z-10 flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 border border-primary px-3 py-1 rounded-sm bg-surface-parchment">Session 34: Memorable Closes</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface max-w-2xl text-balance">
+                Settle into your authority.
+            </h1>
+</div>
+<!-- Breathing Visual Element -->
+<div class="relative flex items-center justify-center w-full max-w-md mx-auto aspect-square my-12 z-20">
+<!-- Structural Anchor Rings -->
+<div class="absolute inset-0 border-hairline border-outline-variant rounded-full opacity-30"></div>
+<div class="absolute inset-8 border-hairline border-outline-variant rounded-full opacity-50"></div>
+<!-- Breathing Circle (The Core Interactive Visual) -->
+<div class="absolute inset-16 rounded-full border-border-width border-primary bg-surface-bright flex items-center justify-center animate-breathe shadow-[0_0_0_8px_rgba(124,45,18,0.05)]">
+<!-- Inner Content of the Breathing Circle -->
+<div class="text-center p-8 flex flex-col items-center justify-center h-full w-full relative z-10">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px; font-variation-settings: 'FILL' 1;">
+                        self_improvement
+                    </span>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-balance font-medium leading-relaxed">
+                        What sentence do you want them to repeat tomorrow?
+                    </p>
+</div>
+<!-- Physical Depth Layering (Tactile Depth) -->
+<div class="absolute inset-0 rounded-full border-hairline border-primary opacity-20 transform scale-[0.98]"></div>
+<div class="absolute inset-0 rounded-full border-hairline border-primary opacity-10 transform scale-[0.95]"></div>
+</div>
+<!-- Status Data Indicator (Data as Hero) -->
+<div class="absolute bottom-0 right-0 bg-surface-parchment border-border-width border-primary rounded-sm px-3 py-1 font-metric-sm text-metric-sm text-primary flex items-center gap-2 transform translate-x-4 translate-y-4">
+<div class="w-2 h-2 rounded-full bg-success-sage animate-pulse"></div>
+<span>RESTING HR: 64</span>
+</div>
+</div>
+<!-- Action / Instruction Area -->
+<div class="absolute bottom-12 left-0 w-full px-gutter flex justify-center z-10">
+<button class="bg-primary text-on-primary border-border-width border-primary rounded px-8 py-4 font-headline-md text-headline-md shadow-[4px_4px_0_0_#1c1c19] hover:translate-y-1 hover:shadow-[2px_2px_0_0_#1c1c19] transition-all duration-150 flex items-center gap-3 active:translate-y-2 active:shadow-none">
+<span>Continue to Listen</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Script for potential micro-interactions -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add subtle interaction to the breathing circle if hovered
+            const breather = document.querySelector('.animate-breathe');
+            if(breather) {
+                breather.addEventListener('mouseenter', () => {
+                    breather.style.animationPlayState = 'paused';
+                    breather.style.transform = 'scale(1.05)';
+                    breather.style.transition = 'transform 0.5s ease-out';
+                });
+                breather.addEventListener('mouseleave', () => {
+                    breather.style.animationPlayState = 'running';
+                    breather.style.transition = 'none'; // let animation take over
+                });
+            }
+        });
+    </script>
+</body></html>

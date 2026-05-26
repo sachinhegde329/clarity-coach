@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "background": "#fdf9f5",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ede1d2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary": "#655d52",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9d6",
+                    "on-secondary-container": "#6b6357",
+                    "on-tertiary-fixed": "#001e30",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#004b71",
+                    "surface-container-highest": "#e5e2de",
+                    "surface": "#fdf9f5",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-variant": "#e5e2de",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "surface-container": "#f1ede9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .brutal-shadow {
+        box-shadow: 4px 4px 0px 0px #5e1700;
+      }
+      .active-press:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px 0px #5e1700;
+      }
+      .recording-pulse {
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-background z-50">
+<div class="flex justify-between items-center w-full px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">CLARITY COACH</h1>
+</div>
+<div class="flex items-center">
+<span class="font-label-md text-label-md uppercase font-bold text-primary border-2 border-primary px-3 py-1">01/05</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col px-gutter py-lg max-w-2xl mx-auto w-full mb-20">
+<!-- Session Intro -->
+<div class="mb-lg">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-xs">Session 09: Power Pauses</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-md">FINAL STEP: COMMITMENT</h2>
+<div class="h-1 w-24 bg-primary mb-md"></div>
+</div>
+<!-- Commitment Card -->
+<div class="bg-surface-container-low border-2 border-primary p-md relative mb-lg">
+<span class="absolute -top-3 -left-3 bg-primary text-background px-2 py-1 font-label-sm text-label-sm">PROMPT</span>
+<blockquote class="font-body-lg text-body-lg text-on-surface italic leading-relaxed">
+                "Tomorrow I will pause before answering..."
+            </blockquote>
+</div>
+<!-- Recording Section -->
+<div class="flex flex-col items-center justify-center gap-lg py-md border-2 border-primary bg-surface-container border-dashed">
+<div class="text-center">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-base">Record your intent</p>
+<div class="font-headline-md text-headline-md font-bold text-primary" id="timer">00:15</div>
+</div>
+<!-- Mic Button -->
+<button class="group relative w-32 h-32 flex items-center justify-center bg-background border-4 border-primary brutal-shadow active-press transition-all" id="recordBtn">
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="mic" data-weight="fill" id="micIcon" style="font-variation-settings: 'FILL' 1;">mic</span>
+<div class="absolute inset-0 border-2 border-primary opacity-0 pointer-events-none" id="visualizer"></div>
+</button>
+<div class="px-md text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs">Hold to record your 15-second commitment. Vocalizing intent strengthens neural pathways for behavioral change.</p>
+</div>
+</div>
+<!-- Instructions / Context -->
+<div class="mt-lg grid grid-cols-1 gap-md">
+<div class="flex items-start gap-sm border-l-4 border-primary pl-md py-xs">
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary uppercase">Why this matters</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The "Power Pause" disrupts the automatic stimulus-response cycle, giving you the agency to choose your reaction.</p>
+</div>
+</div>
+</div>
+<!-- CTA Action -->
+<div class="mt-xl flex justify-end">
+<button class="bg-primary text-background px-lg py-md font-label-md text-label-md font-bold uppercase border-2 border-primary brutal-shadow hover:-translate-y-1 hover:-translate-x-1 transition-transform active:translate-y-0 active:translate-x-0">
+                COMPLETE SESSION
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+        const recordBtn = document.getElementById('recordBtn');
+        const micIcon = document.getElementById('micIcon');
+        const timer = document.getElementById('timer');
+        let isRecording = false;
+        let timeLeft = 15;
+        let interval;
+
+        recordBtn.addEventListener('mousedown', startRecording);
+        recordBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            startRecording();
+        });
+
+        window.addEventListener('mouseup', stopRecording);
+        window.addEventListener('touchend', stopRecording);
+
+        function startRecording() {
+            if (isRecording) return;
+            isRecording = true;
+            recordBtn.classList.add('recording-pulse');
+            micIcon.style.color = '#ff9b7b'; // on-primary-container
+            
+            interval = setInterval(() => {
+                timeLeft -= 1;
+                if (timeLeft <= 0) {
+                    stopRecording();
+                    timer.innerText = "DONE";
+                } else {
+                    timer.innerText = `00:${timeLeft.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        function stopRecording() {
+            if (!isRecording) return;
+            isRecording = false;
+            clearInterval(interval);
+            recordBtn.classList.remove('recording-pulse');
+            micIcon.style.color = '#5e1700'; // primary
+            
+            if (timeLeft > 0) {
+                // Reset if they let go early for demo purposes
+                // timeLeft = 15;
+                // timer.innerText = "00:15";
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 29 - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#ddd9d6",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "tertiary-fixed": "#ffdad6",
+                      "tertiary": "#680005",
+                      "on-surface-variant": "#55423d",
+                      "surface-container": "#f1ede9",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffdbd0",
+                      "tertiary-container": "#93000b",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "inverse-surface": "#31302e",
+                      "background": "#fdf9f5",
+                      "surface-container-low": "#f7f3ef",
+                      "border-primary": "#7C2D12",
+                      "primary-container": "#7c2d12",
+                      "error-warning": "#B91C1C",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "primary-fixed-dim": "#ffb59e",
+                      "inverse-primary": "#ffb59e",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "secondary-fixed": "#dbe6cf",
+                      "surface-tint": "#9b4427",
+                      "on-background": "#1c1c19",
+                      "on-primary-fixed": "#3a0b00",
+                      "surface-bright": "#fdf9f5",
+                      "on-tertiary-fixed": "#410002",
+                      "on-surface": "#1c1c19",
+                      "on-tertiary-container": "#ff998e",
+                      "on-secondary-fixed": "#151e10",
+                      "surface-parchment": "#FDF9F5",
+                      "surface": "#fdf9f5",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f4f0ec",
+                      "secondary": "#57624f",
+                      "on-primary-container": "#ff9b7b",
+                      "primary": "#5e1700",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#dcc1b9",
+                      "success-sage": "#818C78",
+                      "on-error-container": "#93000a",
+                      "outline": "#89726c",
+                      "on-secondary-container": "#5b6653",
+                      "secondary-container": "#d8e3cc",
+                      "surface-variant": "#e5e2de",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#ebe7e4",
+                      "surface-container-highest": "#e5e2de"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "hairline": "0.5px",
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "gutter": "16px",
+                      "margin-desktop": "40px",
+                      "border-width": "2px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            }
+          }
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface-parchment');
+            color: theme('colors.on-surface');
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Brutalist utility for hard shadows if needed, though strictly we use layering */
+        .brutalist-card {
+            border: theme('spacing.border-width') solid theme('colors.primary');
+            background-color: theme('colors.background');
+            border-radius: theme('borderRadius.lg');
+        }
+
+        /* Mic Pulse Animation */
+        @keyframes inkDotPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .mic-recording .dot {
+            animation: inkDotPulse 1.5s infinite ease-out;
+        }
+        .dot:nth-child(2) { animation-delay: 0.5s; }
+        .dot:nth-child(3) { animation-delay: 1s; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-border-width border-primary flex justify-between items-center px-margin-mobile py-4 z-40">
+<button aria-label="Close session" class="hover:bg-surface-container-highest p-2 rounded-full transition-colors active:scale-95 duration-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<div class="font-metric-hero text-metric-sm text-primary font-bold tracking-widest uppercase flex items-center gap-1">
+            05/05
+        </div>
+<button aria-label="More options" class="hover:bg-surface-container-highest p-2 rounded-full transition-colors active:scale-95 duration-100 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center p-gutter md:p-margin-desktop w-full max-w-2xl mx-auto pb-32">
+<!-- Header Stack -->
+<div class="text-center w-full mb-12 flex flex-col items-center">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Commit</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Bridges practice to real life.</p>
+</div>
+<!-- The Prompt Card (Brutalist Architectural Containment) -->
+<div class="brutalist-card w-full p-8 md:p-12 mb-16 flex items-center justify-center min-h-[200px]">
+<p class="font-headline-md text-headline-md text-center text-on-surface">
+                "Tomorrow I will pyramid one argument when..."
+            </p>
+</div>
+<!-- Interaction Zone -->
+<div class="flex flex-col items-center justify-center gap-8 w-full">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-center">
+                One sentence into the mic.
+            </p>
+<!-- Mic Button Assembly -->
+<div class="relative flex items-center justify-center" id="mic-assembly">
+<!-- Recording indicator dots (hidden by default, toggled via JS) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 transition-opacity" id="recording-dots">
+<div class="dot absolute w-20 h-20 border-border-width border-error-warning rounded-full"></div>
+<div class="dot absolute w-24 h-24 border-border-width border-error-warning rounded-full"></div>
+</div>
+<!-- Timer Depletion Ring (Resting state, full) -->
+<svg class="absolute w-[80px] h-[80px] -rotate-90 pointer-events-none" viewbox="0 0 80 80">
+<circle class="text-primary-fixed" cx="40" cy="40" fill="none" r="38" stroke="currentColor" stroke-width="2"></circle>
+<!-- The active progress stroke would go here, currently 100% full indicating readiness -->
+<circle class="text-primary transition-all duration-1000 ease-linear" cx="40" cy="40" fill="none" r="38" stroke="currentColor" stroke-dasharray="238" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+<!-- The Primary Action Button -->
+<button aria-label="Start recording" class="w-16 h-16 bg-primary rounded-full flex items-center justify-center z-10 hover:bg-surface-tint active:scale-95 transition-all duration-100 border-border-width border-primary focus:outline-none focus:ring-4 focus:ring-primary-fixed" id="record-btn">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Session Progress Strip) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-parchment border-t-border-width border-primary flex justify-around items-center px-margin-mobile h-20">
+<!-- Connecting Line behind items (Architectural detail) -->
+<div class="absolute top-1/2 left-margin-mobile right-margin-mobile h-[2px] bg-primary-fixed-dim -translate-y-1/2 z-0"></div>
+<!-- Item 1: Centre -->
+<div class="flex flex-col items-center justify-center text-outline opacity-40 z-10 bg-surface-parchment px-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">adjust</span>
+</div>
+<!-- Item 2: Listen -->
+<div class="flex flex-col items-center justify-center text-outline opacity-40 z-10 bg-surface-parchment px-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hearing</span>
+</div>
+<!-- Item 3: Do -->
+<div class="flex flex-col items-center justify-center text-outline opacity-40 z-10 bg-surface-parchment px-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<!-- Item 4: See -->
+<div class="flex flex-col items-center justify-center text-outline opacity-40 z-10 bg-surface-parchment px-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<!-- Item 5: Commit (ACTIVE STATE) -->
+<div class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full p-2 scale-110 z-10 shadow-[0_0_0_4px_theme('colors.surface-parchment')]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</nav>
+<!-- Micro-interaction JS -->
+<script>
+        const recordBtn = document.getElementById('record-btn');
+        const micAssembly = document.getElementById('mic-assembly');
+        const recordingDots = document.getElementById('recording-dots');
+        let isRecording = false;
+
+        recordBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            if (isRecording) {
+                micAssembly.classList.add('mic-recording');
+                recordingDots.classList.remove('opacity-0');
+                recordingDots.classList.add('opacity-100');
+                // Change icon to square (stop)
+                recordBtn.querySelector('span').textContent = 'square';
+                // Transition button color slightly to indicate active state visually against brutalist background
+                recordBtn.classList.remove('bg-primary');
+                recordBtn.classList.add('bg-error-warning', 'border-error-warning');
+            } else {
+                micAssembly.classList.remove('mic-recording');
+                recordingDots.classList.remove('opacity-100');
+                recordingDots.classList.add('opacity-0');
+                // Revert icon to mic
+                recordBtn.querySelector('span').textContent = 'mic';
+                recordBtn.classList.add('bg-primary');
+                recordBtn.classList.remove('bg-error-warning', 'border-error-warning');
+            }
+        });
+    </script>
+</body></html>

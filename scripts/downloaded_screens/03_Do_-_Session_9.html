@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Power Pauses</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-low": "#f7f3ef",
+                  "on-primary-container": "#ff9b7b",
+                  "tertiary-fixed": "#cbe6ff",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#3a0b00",
+                  "background": "#fdf9f5",
+                  "primary-fixed": "#ffdbd0",
+                  "on-surface-variant": "#55423d",
+                  "secondary-fixed": "#ede1d2",
+                  "inverse-surface": "#31302e",
+                  "inverse-on-surface": "#f4f0ec",
+                  "primary-fixed-dim": "#ffb59e",
+                  "on-secondary-fixed": "#201b12",
+                  "on-tertiary-container": "#85bbe6",
+                  "on-secondary-fixed-variant": "#4d463b",
+                  "surface-tint": "#9b4427",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#ffb59e",
+                  "on-primary-fixed-variant": "#7c2d12",
+                  "on-surface": "#1c1c19",
+                  "on-primary": "#ffffff",
+                  "secondary-container": "#ede1d2",
+                  "error-container": "#ffdad6",
+                  "on-tertiary-fixed-variant": "#004b71",
+                  "on-error": "#ffffff",
+                  "surface-container-high": "#ebe7e4",
+                  "secondary": "#655d52",
+                  "on-error-container": "#93000a",
+                  "surface-dim": "#ddd9d6",
+                  "on-secondary-container": "#6b6357",
+                  "on-tertiary-fixed": "#001e30",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#004b71",
+                  "surface-container-highest": "#e5e2de",
+                  "surface": "#fdf9f5",
+                  "outline-variant": "#dcc1b9",
+                  "primary-container": "#7c2d12",
+                  "secondary-fixed-dim": "#d0c5b7",
+                  "tertiary": "#00334f",
+                  "surface-bright": "#fdf9f5",
+                  "surface-container-lowest": "#ffffff",
+                  "primary": "#5e1700",
+                  "outline": "#89726c",
+                  "surface-variant": "#e5e2de",
+                  "on-background": "#1c1c19",
+                  "tertiary-fixed-dim": "#97ccf9",
+                  "surface-container": "#f1ede9"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "sm": "16px",
+                  "gutter": "24px",
+                  "base": "4px",
+                  "margin": "32px",
+                  "xs": "8px",
+                  "lg": "48px",
+                  "xl": "80px",
+                  "md": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Bricolage Grotesque"],
+                  "body-lg": ["Space Grotesk"],
+                  "label-sm": ["Space Mono"],
+                  "display-lg": ["Bricolage Grotesque"],
+                  "label-md": ["Space Mono"],
+                  "headline-lg": ["Bricolage Grotesque"],
+                  "body-md": ["Space Grotesk"],
+                  "headline-md": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                  "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                  "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                  "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .brutalist-shadow {
+      box-shadow: 4px 4px 0px 0px #5e1700;
+    }
+    .brutalist-button:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #5e1700;
+    }
+    .pause-ring {
+      transition: stroke-dashoffset 0.5s ease;
+    }
+    @keyframes pulse-ring {
+      0% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.1; transform: scale(1.1); }
+      100% { opacity: 0.3; transform: scale(1); }
+    }
+    .mic-pulse {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-background z-50 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="flex items-center">
+<span class="font-label-md text-label-md uppercase font-bold text-primary">03/05</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center p-gutter max-w-4xl mx-auto w-full mb-20">
+<!-- Session Context -->
+<div class="w-full mb-lg text-center">
+<div class="inline-block border-2 border-primary px-sm py-xs mb-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Session 9: Power Pauses</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary uppercase leading-none">What is a project you are currently working on?</h2>
+</div>
+<!-- Recording / Interaction Area -->
+<div class="w-full flex flex-col items-center gap-lg">
+<!-- Visualizer & Pause Tracker Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter w-full">
+<!-- Pause Tracker Card -->
+<div class="border-2 border-primary p-md flex flex-col items-center justify-center bg-surface-container-low">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Progress Ring Background -->
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-variant" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<!-- Progress Fill (90s logic placeholder) -->
+<circle class="text-primary pause-ring" cx="96" cy="96" fill="transparent" id="timer-circle" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="184.3" stroke-width="8"></circle>
+</svg>
+<!-- Pause Dots -->
+<div class="flex gap-xs z-10">
+<div class="w-4 h-4 bg-primary border-2 border-primary"></div>
+<div class="w-4 h-4 bg-primary border-2 border-primary"></div>
+<div class="w-4 h-4 bg-transparent border-2 border-primary"></div>
+</div>
+<!-- Labels around the ring -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 font-label-md text-label-md text-primary font-bold">
+              2 / 3 PAUSES
+            </div>
+</div>
+<p class="font-label-sm text-label-sm uppercase mt-md text-on-surface-variant tracking-tighter">90 Seconds required</p>
+</div>
+<!-- Mic / Audio State Card -->
+<div class="border-2 border-primary p-md flex flex-col items-center justify-center bg-background relative overflow-hidden">
+<div class="absolute inset-0 mic-pulse bg-primary-fixed"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 border-2 border-primary flex items-center justify-center bg-background mb-sm">
+<span class="material-symbols-outlined text-headline-lg text-primary" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary uppercase" id="recording-status">LISTENING</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-xs">00:42 / 01:30</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full max-w-sm">
+<button class="w-full border-2 border-primary bg-primary text-on-primary font-label-md text-label-md py-md px-lg uppercase font-bold brutalist-shadow brutalist-button transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="pause_circle">pause_circle</span>
+          INSERT POWER PAUSE
+        </button>
+</div>
+<!-- Tip Section -->
+<div class="w-full border-2 border-primary p-md bg-secondary-container">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+<div>
+<span class="font-label-md text-label-md font-bold text-primary uppercase block mb-xs">PRECISION TIP</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Don't rush to the answer. Use the pause to visualize the specific physical space where this project happens. Silence is your scaffolding.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 border-t-2 border-primary bg-background z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-x-1 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold mt-1">TODAY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-x-1 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold mt-1">JOURNAL</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold mt-1">CURRICULUM</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-x-1 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold mt-1">PROFILE</span>
+</div>
+</nav>
+<script>
+    // Minimal interaction to simulate timing
+    let offset = 184.3;
+    const ring = document.getElementById('timer-circle');
+    
+    // Simulate slow timer movement
+    setInterval(() => {
+      if (offset > 0) {
+        offset -= 0.5;
+        ring.style.strokeDashoffset = offset;
+      }
+    }, 1000);
+
+    // Toggle mic status text for "life"
+    const statusText = document.getElementById('recording-status');
+    setInterval(() => {
+        statusText.style.opacity = statusText.style.opacity === '0.5' ? '1' : '0.5';
+    }, 800);
+  </script>
+</body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-container": "#5b6653",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "primary-container": "#7c2d12",
+                      "on-error": "#ffffff",
+                      "error-warning": "#B91C1C",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdbd0",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "surface-container-high": "#ebe7e4",
+                      "surface-container": "#f1ede9",
+                      "inverse-primary": "#ffb59e",
+                      "surface-variant": "#e5e2de",
+                      "secondary-fixed": "#dbe6cf",
+                      "border-primary": "#7C2D12",
+                      "primary": "#5e1700",
+                      "secondary-container": "#d8e3cc",
+                      "on-surface": "#1c1c19",
+                      "tertiary": "#680005",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "outline": "#89726c",
+                      "on-secondary-fixed": "#151e10",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary": "#57624f",
+                      "primary-fixed-dim": "#ffb59e",
+                      "tertiary-container": "#93000b",
+                      "surface-parchment": "#FDF9F5",
+                      "inverse-surface": "#31302e",
+                      "on-tertiary-fixed": "#410002",
+                      "on-tertiary-container": "#ff998e",
+                      "error": "#ba1a1a",
+                      "success-sage": "#818C78",
+                      "surface-tint": "#9b4427",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "surface-bright": "#fdf9f5",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffdad6",
+                      "surface-dim": "#ddd9d6",
+                      "surface": "#fdf9f5",
+                      "on-primary-container": "#ff9b7b",
+                      "surface-container-highest": "#e5e2de",
+                      "on-surface-variant": "#55423d",
+                      "on-background": "#1c1c19",
+                      "outline-variant": "#dcc1b9",
+                      "background": "#fdf9f5",
+                      "inverse-on-surface": "#f4f0ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "hairline": "0.5px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "40px",
+                      "gutter": "16px",
+                      "border-width": "2px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "label-caps": ["JetBrains Mono"],
+                      "metric-hero": ["JetBrains Mono"],
+                      "body-md": ["Bricolage Grotesque"],
+                      "metric-sm": ["JetBrains Mono"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "display-lg": ["Bricolage Grotesque"],
+                      "body-lg": ["Bricolage Grotesque"],
+                      "headline-md": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                      "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+              },
+              "animation": {
+                  'breathe': 'breathe 8s ease-in-out infinite',
+              },
+              "keyframes": {
+                  breathe: {
+                      '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
+                      '50%': { transform: 'scale(1.5)', opacity: '0.2' },
+                  }
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hairline border utility for Brutalist nested cards */
+        .border-hairline {
+            border-width: 0.5px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen w-full flex flex-col overflow-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Session Header (Focused Task - Navigation Suppressed) -->
+<header class="w-full flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 border-b-2 border-primary bg-surface z-50 shrink-0">
+<div class="flex items-center space-x-4">
+<span class="font-label-caps text-label-caps text-primary">SESSION 19</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">01 / 05</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border-2 border-primary rounded-lg hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined text-primary">close</span>
+</button>
+</header>
+<!-- Main Workspace Area -->
+<main class="flex-grow flex flex-col items-center justify-center p-gutter md:p-margin-desktop relative">
+<!-- Progress Strip (Architectural Blueprint Style) -->
+<div class="absolute top-8 w-full max-w-2xl px-gutter flex justify-between items-center z-10">
+<!-- Step 1: Active -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full h-2 border-2 border-primary bg-primary mb-2"></div>
+<span class="font-label-caps text-label-caps text-primary">CENTRE</span>
+</div>
+<!-- Step 2-5: Inactive -->
+<div class="flex flex-col items-center flex-1 ml-2">
+<div class="w-full h-2 border-2 border-primary bg-transparent mb-2"></div>
+<span class="font-label-caps text-label-caps text-primary opacity-30">LISTEN</span>
+</div>
+<div class="flex flex-col items-center flex-1 ml-2">
+<div class="w-full h-2 border-2 border-primary bg-transparent mb-2"></div>
+<span class="font-label-caps text-label-caps text-primary opacity-30">DO</span>
+</div>
+<div class="flex flex-col items-center flex-1 ml-2">
+<div class="w-full h-2 border-2 border-primary bg-transparent mb-2"></div>
+<span class="font-label-caps text-label-caps text-primary opacity-30">SEE</span>
+</div>
+<div class="flex flex-col items-center flex-1 ml-2">
+<div class="w-full h-2 border-2 border-primary bg-transparent mb-2"></div>
+<span class="font-label-caps text-label-caps text-primary opacity-30">COMMIT</span>
+</div>
+</div>
+<!-- Central Hero Card (Physical Layering) -->
+<div class="w-full max-w-md bg-surface border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col items-center text-center relative mt-16 md:mt-24 shadow-[4px_4px_0px_0px_rgba(124,45,18,1)]">
+<h1 class="font-display-lg text-display-lg text-primary mb-8 uppercase tracking-tight">Centre</h1>
+<!-- Breathing Visualization / Timer Area -->
+<div class="relative w-48 h-48 mb-8 flex items-center justify-center border-hairline border-primary rounded-full">
+<!-- Outer Pulse Ring -->
+<div class="absolute inset-0 rounded-full border-2 border-primary/20 animate-breathe pointer-events-none"></div>
+<!-- Inner Core -->
+<div class="w-32 h-32 rounded-full border-2 border-primary bg-surface flex items-center justify-center z-10 relative">
+<span class="font-metric-hero text-metric-hero text-primary absolute">0:00</span>
+<!-- 2px Ring Depletion Placeholder -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="48" stroke="transparent" stroke-width="2"></circle>
+<circle class="stroke-primary" cx="50" cy="50" fill="none" r="48" stroke-dasharray="301.59" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<!-- Focus Text -->
+<div class="space-y-4 w-full">
+<div class="border-t-2 border-b-2 border-primary py-4">
+<p class="font-headline-md text-headline-md text-on-surface">The next push is information, not a threat.</p>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Reframes incoming pressure as data.</p>
+</div>
+<!-- Action Area (No skipping, just ready/continue) -->
+<div class="mt-8 w-full">
+<button class="w-full bg-primary text-surface border-2 border-primary py-3 rounded-lg font-body-md text-body-md font-bold hover:bg-surface hover:text-primary transition-colors duration-200">
+                    BEGIN FOCUS
+                </button>
+</div>
+</div>
+</main>
+</body></html>

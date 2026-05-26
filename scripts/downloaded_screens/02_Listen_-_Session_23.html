@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emotional Acknowledgement - Session 23</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-primary-container": "#ff9b7b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2de",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ffb59e",
+                        "surface-container-high": "#ebe7e4",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#dbe6cf",
+                        "background": "#fdf9f5",
+                        "on-surface": "#1c1c19",
+                        "secondary": "#57624f",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "inverse-surface": "#31302e",
+                        "error-warning": "#B91C1C",
+                        "primary-container": "#7c2d12",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container": "#f1ede9",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "outline-variant": "#dcc1b9",
+                        "surface": "#fdf9f5",
+                        "surface-variant": "#e5e2de",
+                        "surface-parchment": "#FDF9F5",
+                        "on-secondary-fixed": "#151e10",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "border-primary": "#7C2D12",
+                        "on-background": "#1c1c19",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-container": "#ff998e",
+                        "success-sage": "#818C78",
+                        "secondary-container": "#d8e3cc",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "inverse-primary": "#ffb59e",
+                        "outline": "#89726c",
+                        "surface-tint": "#9b4427",
+                        "on-secondary-container": "#5b6653"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #FDF9F5; }
+        .brutalist-border { border: 2px solid #7C2D12; }
+        .brutalist-hairline { border: 0.5px solid #7C2D12; }
+        .brutalist-shadow { box-shadow: 4px 4px 0px 0px #7C2D12; }
+        .waveform-bar {
+            width: 4px;
+            background-color: #7C2D12;
+            margin: 0 2px;
+            border-radius: 2px;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { height: 10%; }
+            100% { height: 100%; }
+        }
+        .transcript-line { transition: opacity 0.3s; opacity: 0.4; }
+        .transcript-line.active { opacity: 1; font-weight: 700; color: #5e1700; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md text-on-surface bg-surface-parchment min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface border-b-2 border-primary z-50">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-7xl mx-auto">
+<button aria-label="Menu" class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-DEFAULT">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-widest">
+                02 / 05
+            </div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim border-2 border-primary overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-8 flex flex-col gap-8">
+<!-- Header Section -->
+<section class="flex flex-col gap-2">
+<div class="font-label-caps text-label-caps text-primary uppercase">Session 23: Label and Pause</div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Emotional Acknowledgement</h1>
+</section>
+<!-- Audio Player Card -->
+<section class="brutalist-border rounded bg-surface-bright p-6 flex flex-col gap-6 relative brutalist-shadow">
+<!-- Controls & Timing -->
+<div class="flex items-center justify-between">
+<button class="w-16 h-16 rounded-full bg-primary border-2 border-primary flex items-center justify-center text-on-primary hover:bg-primary-container transition-colors shadow-[0_0_0_2px_#FDF9F5,0_0_0_4px_#7C2D12]">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<div class="flex gap-4 items-baseline">
+<span class="font-metric-hero text-metric-hero text-primary">00:14</span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant">/ 01:20</span>
+</div>
+</div>
+<!-- Waveform Visualizer -->
+<div class="h-24 w-full flex items-end justify-center overflow-hidden border-b border-outline-variant pb-2">
+<!-- Javascript will populate these -->
+<div class="flex items-end h-full w-full justify-around" id="waveform-container"></div>
+</div>
+</section>
+<!-- Transcript Area -->
+<section class="brutalist-border rounded bg-surface-container-low p-6 flex flex-col gap-4 overflow-hidden h-64 relative">
+<div class="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+<div class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-surface-container-low to-transparent z-10 pointer-events-none"></div>
+<div class="flex flex-col gap-6 overflow-y-auto pr-4 relative z-0 hide-scrollbar" id="transcript-container">
+<div class="flex gap-4 transcript-line">
+<div class="font-metric-sm text-metric-sm text-secondary w-12 flex-shrink-0 pt-1">00:08</div>
+<p class="font-body-lg text-body-lg">When dealing with an upset client, the first step is validation.</p>
+</div>
+<div class="flex gap-4 transcript-line active">
+<div class="font-metric-sm text-metric-sm text-primary w-12 flex-shrink-0 pt-1">00:14</div>
+<p class="font-body-lg text-body-lg text-primary border-l-2 border-primary pl-4">Label the emotion ("It sounds like you are frustrated") and then hold silence for at least 3 seconds.</p>
+</div>
+<div class="flex gap-4 transcript-line">
+<div class="font-metric-sm text-metric-sm text-secondary w-12 flex-shrink-0 pt-1">00:22</div>
+<p class="font-body-lg text-body-lg">This silence allows them to process that you have heard them, rather than you rushing to fix the problem immediately.</p>
+</div>
+</div>
+</section>
+<!-- Progress/Action Footer -->
+<section class="mt-auto flex justify-between items-center pt-8 border-t-2 border-primary">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary flex items-center gap-2 uppercase">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                Previous Step
+            </button>
+<button class="bg-primary text-on-primary font-headline-md text-headline-md px-6 py-3 rounded-DEFAULT border-2 border-primary hover:bg-primary-container transition-colors brutalist-shadow flex items-center gap-2">
+                Continue
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<script>
+        // Generate mock waveform
+        const container = document.getElementById('waveform-container');
+        const numBars = 50;
+        for (let i = 0; i < numBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'waveform-bar';
+            // Randomize animation delay and height to make it look organic
+            const delay = Math.random() * -2;
+            const height = Math.random() * 80 + 20; // 20% to 100%
+            bar.style.animationDelay = `${delay}s`;
+            bar.style.height = `${height}%`;
+            // Highlight current playback position
+            if(i < 15) bar.style.opacity = '0.4';
+            if(i == 15) { bar.style.backgroundColor = '#ba1a1a'; bar.style.height = '100%'; bar.style.animation = 'none'; }
+            container.appendChild(bar);
+        }
+    </script>
+</body></html>

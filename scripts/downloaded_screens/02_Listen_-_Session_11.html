@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 11: Listen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#ff9b7b",
+                        "on-surface-variant": "#55423d",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "outline": "#89726c",
+                        "on-tertiary-container": "#ff998e",
+                        "success-sage": "#818C78",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "surface-tint": "#9b4427",
+                        "surface-dim": "#ddd9d6",
+                        "surface-parchment": "#FDF9F5",
+                        "primary": "#5e1700",
+                        "background": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "tertiary": "#680005",
+                        "surface-container-high": "#ebe7e4",
+                        "tertiary-fixed": "#ffdad6",
+                        "border-primary": "#7C2D12",
+                        "inverse-surface": "#31302e",
+                        "tertiary-container": "#93000b",
+                        "surface-container-highest": "#e5e2de",
+                        "primary-container": "#7c2d12",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "error-warning": "#B91C1C",
+                        "on-secondary-fixed": "#151e10",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-low": "#f7f3ef",
+                        "on-secondary-container": "#5b6653",
+                        "on-background": "#1c1c19",
+                        "secondary-fixed": "#dbe6cf",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#57624f",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1c19",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface": "#fdf9f5",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-primary-fixed-variant": "#7c2d12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "hairline": "0.5px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "gutter": "16px",
+                        "margin": "40px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "data-lg": ["JetBrains Mono"],
+                        "data-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "data-lg": ["18px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "data-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .waveform-bar {
+            transition: height 0.2s ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+        }
+        .pulse { animation: pulse-dot 1s infinite; }
+        .text-glow { text-shadow: 0 0 10px rgba(124, 45, 18, 0.2); }
+        .step-inactive { opacity: 0.3; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low border-b-border-width border-primary dark:border-primary-fixed flex justify-between items-center px-margin h-16 w-full z-50 sticky top-0">
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px transition-colors duration-150 hover:bg-surface-container-highest p-2 rounded">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed">CLARITY COACH</div>
+<div class="h-10 w-10 rounded-full border-border-width border-primary bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A professional avatar of a mentor-like figure with a focused expression, rendered in a clean, minimalist vector style. The background is a soft parchment color, matching the warm brutalist aesthetic of the UI. The lighting is bright and even, conveying a sense of intellectual honesty and elite guidance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU8tHrXOXAEMXF5SP5oXwHyuTQnJkpKc4Klu0VEx8hF1Vp1biAZsWA74UDiBddkRebVjTFNTi6CWPv6823Iq_cNTsN2E-kRNAMfXoe3iESHeSd1XiDBKkpQ3WW9ZCKl0dsTTsKLUo12fUCR3DhmmpkCuwyS9hkv0ClD2LSE0KmLuPiGV_w6YOs5N9W27xdeAV24ovOO13PyVHegETrQk1TLst_DIWcWvjByEc9KnDXBvo_GlAEz_D8J-vKgXryY-hNA2vVk8Qfcv9F"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-6xl mx-auto px-4 md:px-margin-desktop py-8 md:py-12 flex flex-col gap-8">
+<!-- Step Indicator (Session Flow) -->
+<div class="flex justify-between items-center w-full gap-2 mb-4">
+<div class="flex-1 h-2 bg-primary-container step-inactive"></div>
+<div class="flex-1 h-2 bg-primary border-2 border-primary"></div>
+<div class="flex-1 h-2 bg-surface-container-highest"></div>
+<div class="flex-1 h-2 bg-surface-container-highest"></div>
+<div class="flex-1 h-2 bg-surface-container-highest"></div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end gap-4">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Phase 02</span>
+<h1 class="font-headline-lg text-headline-lg text-primary mt-1">02 LISTEN</h1>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Current Session</span>
+<div class="font-metric-hero text-metric-hero text-primary">11</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Hero Audio Section -->
+<div class="md:col-span-8 border-border-width border-primary bg-surface-parchment p-8 flex flex-col gap-10 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="max-w-md">
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">Cutting unnecessary words.</h2>
+<p class="font-body-md text-on-surface-variant mt-2">Listen closely to the pacing and the deliberate pauses used to emphasize intent.</p>
+</div>
+<div class="font-metric-hero text-metric-hero text-primary-container opacity-20 select-none">TIDBIT</div>
+</div>
+<!-- Waveform Visualizer -->
+<div class="h-32 flex items-end justify-between gap-hairline md:gap-1 px-2">
+<!-- Bars generated by script -->
+<div class="flex-1 bg-primary-container h-8 waveform-bar"></div>
+<div class="flex-1 bg-primary h-12 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-16 waveform-bar"></div>
+<div class="flex-1 bg-primary h-24 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-20 waveform-bar"></div>
+<div class="flex-1 bg-primary h-28 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-12 waveform-bar"></div>
+<div class="flex-1 bg-primary h-16 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-32 waveform-bar"></div>
+<div class="flex-1 bg-primary h-24 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-20 waveform-bar"></div>
+<div class="flex-1 bg-primary h-12 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-8 waveform-bar"></div>
+<div class="flex-1 bg-primary h-16 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-12 waveform-bar"></div>
+<div class="flex-1 bg-primary h-4 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-8 waveform-bar"></div>
+<div class="flex-1 bg-primary h-12 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-20 waveform-bar"></div>
+<div class="flex-1 bg-primary h-16 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-24 waveform-bar"></div>
+<div class="flex-1 bg-primary h-28 waveform-bar"></div>
+<div class="flex-1 bg-primary-container h-16 waveform-bar"></div>
+<div class="flex-1 bg-primary h-20 waveform-bar"></div>
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="p-2 border-hairline border-outline hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">replay_10</span>
+</button>
+<button class="w-16 h-16 bg-primary text-surface-parchment rounded-full flex items-center justify-center hover:bg-primary-container transition-all active:scale-95" id="playButton">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="p-2 border-hairline border-outline hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">forward_10</span>
+</button>
+</div>
+<div class="font-data-lg text-data-lg text-primary tracking-tighter">
+<span id="currentTime">00:14</span> / <span class="text-on-surface-variant">00:45</span>
+</div>
+</div>
+</div>
+<!-- Context/Transcript Card -->
+<div class="md:col-span-4 border-border-width border-primary bg-surface-container-low p-6 flex flex-col gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-2 block">Live Transcript</span>
+<div class="space-y-4 font-body-lg text-body-lg leading-relaxed">
+<p class="text-on-surface-variant transition-colors duration-300" id="transcript-1">"Most sentences can lose</p>
+<p class="text-primary font-bold border-l-border-width border-primary pl-4 bg-primary-fixed/30 py-1 transition-all duration-300" id="transcript-2">20 per cent of their words</p>
+<p class="text-on-surface-variant transition-colors duration-300" id="transcript-3">without losing meaning.</p>
+<p class="text-on-surface-variant transition-colors duration-300" id="transcript-4">Brevity is not just about being short;</p>
+<p class="text-on-surface-variant transition-colors duration-300" id="transcript-5">it's about being dense with intent."</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t-hairline border-outline-variant flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Session Progress</span>
+<span class="font-data-sm text-data-sm text-primary">31%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="w-[31%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Floating Sidebar Element - Stats -->
+<div class="md:col-span-4 border-border-width border-primary bg-primary text-surface-parchment p-6 flex flex-col justify-between">
+<span class="font-label-caps text-label-caps opacity-70 uppercase">Insight Engine</span>
+<div class="flex items-center gap-4 py-4">
+<span class="material-symbols-outlined text-4xl">trending_up</span>
+<div class="font-headline-md text-headline-md">Impact Score: +12</div>
+</div>
+<p class="font-data-sm text-data-sm opacity-80 leading-snug">
+                    Identifying filler patterns: "Um", "Actually", "Just". Reducing these increases authority by 40%.
+                </p>
+</div>
+<!-- Interaction Card -->
+<div class="md:col-span-8 border-border-width border-primary bg-surface-parchment p-6 flex items-center justify-between gap-6">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 bg-success-sage rounded-full flex items-center justify-center text-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary">Ready for 'Do' phase?</div>
+<p class="font-body-md text-on-surface-variant">Practice the brevity rule with your own voice.</p>
+</div>
+</div>
+<button class="bg-primary text-surface-parchment px-8 py-4 font-headline-md hover:bg-primary-container transition-all active:scale-95 flex items-center gap-3">
+                    CONTINUE <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface dark:bg-surface-container-low border-t-border-width border-primary dark:border-primary-fixed">
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-1">Today</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary dark:bg-primary-fixed text-surface dark:text-on-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-label-caps mt-1">Journey</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-label-caps mt-1">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-label-caps mt-1">Stats</span>
+</div>
+</nav>
+<!-- Desktop Navigation (Hidden on Mobile) -->
+<div class="hidden md:flex fixed left-0 top-16 bottom-0 w-16 bg-surface-container-low border-r-border-width border-primary flex-col items-center py-8 gap-10">
+<div class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" title="Today">
+<span class="material-symbols-outlined text-3xl">calendar_today</span>
+</div>
+<div class="text-primary cursor-pointer relative" title="Journey">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary"></div>
+</div>
+<div class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" title="Library">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer" title="Stats">
+<span class="material-symbols-outlined text-3xl">query_stats</span>
+</div>
+</div>
+<script>
+        // Micro-interaction: Waveform Animation
+        const bars = document.querySelectorAll('.waveform-bar');
+        const playBtn = document.getElementById('playButton');
+        let isPlaying = false;
+        let animationInterval;
+
+        function animateWaveform() {
+            bars.forEach(bar => {
+                const randomHeight = Math.floor(Math.random() * 80) + 10;
+                bar.style.height = `${randomHeight}%`;
+            });
+        }
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = playBtn.querySelector('.material-symbols-outlined');
+            
+            if (isPlaying) {
+                icon.innerText = 'pause';
+                animationInterval = setInterval(animateWaveform, 150);
+            } else {
+                icon.innerText = 'play_arrow';
+                clearInterval(animationInterval);
+                bars.forEach(bar => bar.style.height = '20%');
+            }
+        });
+
+        // Initialize waveform to subtle resting state
+        bars.forEach(bar => bar.style.height = '20%');
+    </script>
+</body></html>

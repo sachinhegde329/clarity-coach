@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - See</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d8e3cc",
+                        "primary": "#5e1700",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container": "#f1ede9",
+                        "surface-container-highest": "#e5e2de",
+                        "on-error": "#ffffff",
+                        "success-sage": "#818C78",
+                        "background": "#fdf9f5",
+                        "inverse-primary": "#ffb59e",
+                        "error-warning": "#B91C1C",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary-fixed": "#410002",
+                        "secondary": "#57624f",
+                        "border-primary": "#7C2D12",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-container": "#5b6653",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-container": "#ff9b7b",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#ff998e",
+                        "outline-variant": "#dcc1b9",
+                        "surface-dim": "#ddd9d6",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface-variant": "#55423d",
+                        "surface": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .brutalist-card {
+            border: theme('spacing.border-width') solid theme('colors.primary');
+            background-color: theme('colors.surface-parchment');
+            border-radius: theme('borderRadius.lg');
+        }
+        .brutalist-card-nested {
+            border: theme('spacing.hairline') solid theme('colors.primary');
+            background-color: theme('colors.surface-parchment');
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pt-16">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low border-b-border-width-thick border-primary dark:border-primary-fixed flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 fixed top-0">
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px text-primary dark:text-primary-fixed hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed">
+            CLARITY COACH
+        </div>
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px text-primary dark:text-primary-fixed hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded">
+<!-- Placeholder for trailing avatar/action on transaction screen -->
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-4xl mx-auto w-full gap-8">
+<!-- Session Progress Strip -->
+<nav aria-label="Session Progress" class="w-full mb-4">
+<div class="flex items-center justify-between gap-2 md:gap-4 w-full">
+<!-- Step 1 -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden border border-surface-container-highest">
+<div class="h-full bg-primary w-full"></div>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden border border-surface-container-highest">
+<div class="h-full bg-primary w-full"></div>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden border border-surface-container-highest">
+<div class="h-full bg-primary w-full"></div>
+</div>
+<!-- Step 4 (Active) -->
+<div class="flex-1 h-3 md:h-4 bg-surface-parchment rounded-full overflow-hidden border-2 border-primary relative flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+<!-- Step 5 -->
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden border border-surface-container-highest">
+</div>
+</div>
+<div class="flex justify-between w-full mt-2 px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant opacity-50">1</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant opacity-50">2</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant opacity-50">3</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">4. SEE</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant opacity-50">5</span>
+</div>
+</nav>
+<div class="w-full text-center mb-2">
+<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Session 16: Stacked Constraints</p>
+</div>
+<!-- Hero Metric -->
+<section class="w-full brutalist-card p-8 md:p-12 flex flex-col items-center justify-center text-center shadow-[4px_4px_0px_0px_rgba(94,23,0,0.1)] relative overflow-hidden">
+<!-- Decorative corner elements -->
+<div class="absolute top-2 left-2 w-2 h-2 border-t border-l border-primary"></div>
+<div class="absolute top-2 right-2 w-2 h-2 border-t border-r border-primary"></div>
+<div class="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-primary"></div>
+<div class="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-primary"></div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 tracking-[0.1em]">COMPOSITE SCORE</h2>
+<div class="flex items-end justify-center gap-2 mb-2">
+<span class="font-metric-hero text-metric-hero text-primary text-[64px] md:text-[80px] leading-none">88</span>
+<span class="font-metric-sm text-metric-sm text-success-sage mb-2 md:mb-4 flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+                    4%
+                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 max-w-lg">
+                You delivered a complete argument with surgical precision despite the stacked constraints.
+            </p>
+</section>
+<!-- Sub-metrics -->
+<section class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="brutalist-card-nested p-4 flex flex-col items-center text-center bg-surface-container-low hover:bg-surface-container transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">BLUF TIME</span>
+<span class="font-metric-hero text-metric-hero text-primary text-[32px] leading-none">6s</span>
+</div>
+<div class="brutalist-card-nested p-4 flex flex-col items-center text-center bg-surface-container-low hover:bg-surface-container transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">STRUCTURE</span>
+<span class="font-metric-hero text-metric-hero text-primary text-[32px] leading-none">3/3</span>
+</div>
+<div class="brutalist-card-nested p-4 flex flex-col items-center text-center bg-surface-container-low hover:bg-surface-container transition-colors">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">BREVITY</span>
+<span class="font-metric-hero text-metric-hero text-primary text-[32px] leading-none">42s</span>
+</div>
+</section>
+<!-- Analysis Section -->
+<section class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+<!-- Strength Card -->
+<div class="brutalist-card p-6 flex flex-col bg-surface">
+<div class="flex items-center gap-2 mb-4 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-success-sage" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="font-label-caps text-label-caps text-primary tracking-widest">STRENGTH</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                    Your Bottom Line Up Front was delivered immediately and contained the core assertion without preamble.
+                </p>
+</div>
+<!-- Refinement Card -->
+<div class="brutalist-card p-6 flex flex-col bg-surface">
+<div class="flex items-center gap-2 mb-4 border-b border-surface-container-highest pb-2">
+<span class="material-symbols-outlined text-error-warning" style="font-variation-settings: 'FILL' 1;">tune</span>
+<h3 class="font-label-caps text-label-caps text-primary tracking-widest">REFINEMENT</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+                    Pacing increased significantly during the final constraint. Focus on maintaining a consistent cadence even when under structural pressure.
+                </p>
+</div>
+</section>
+<!-- CTA -->
+<div class="w-full mt-8 md:mt-12 flex justify-center pb-12">
+<button class="bg-primary text-surface font-headline-md text-headline-md px-8 py-4 rounded border-2 border-primary hover:bg-primary-container transition-colors duration-200 active:scale-[0.98] shadow-[2px_2px_0px_0px_rgba(94,23,0,0.2)] hover:shadow-none translate-y-[-2px] hover:translate-y-[0px]">
+                COMMIT SESSION
+            </button>
+</div>
+</main>
+</body></html>

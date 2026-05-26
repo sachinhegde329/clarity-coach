@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 15: Signposting - Step 4 (See)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#31302e",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-container": "#93000b",
+                        "inverse-primary": "#ffb59e",
+                        "primary-fixed": "#ffdbd0",
+                        "border-primary": "#7C2D12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface-variant": "#55423d",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "success-sage": "#818C78",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "surface-bright": "#fdf9f5",
+                        "background": "#fdf9f5",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-parchment": "#FDF9F5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #fdf9f5; }
+        .border-primary-card { border: 2px solid #5e1700; }
+        .border-secondary-card { border: 0.5px solid #89726c; }
+        .progress-line { flex-grow: 1; height: 2px; background-color: #89726c; margin: 0 8px; }
+        .timeline-marker { position: absolute; top: -8px; width: 2px; height: 32px; background-color: #5e1700; }
+        .timeline-flag { position: absolute; top: -30px; transform: translateX(-50%); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- Top Navigation (Hidden on transactional flow, keeping minimal for session flow context if needed, but per rules, often suppressed. Adding minimal structured header) -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 border-b-border-width-thick border-primary bg-surface border-b-[2px]">
+<div class="flex items-center gap-4">
+<button aria-label="Close Session" class="text-primary hover:bg-surface-container-highest p-2 rounded transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary">Session 15: Signposting</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center py-8 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full gap-8">
+<!-- Progress Strip (5 Steps) -->
+<div class="w-full max-w-3xl flex items-center justify-between mb-8">
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-secondary-card text-outline font-metric-sm text-metric-sm bg-surface-container-highest">01</div>
+<div class="progress-line"></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-secondary-card text-outline font-metric-sm text-metric-sm bg-surface-container-highest">02</div>
+<div class="progress-line"></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-secondary-card text-outline font-metric-sm text-metric-sm bg-surface-container-highest">03</div>
+<div class="progress-line"></div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-primary-card bg-primary text-on-primary font-metric-sm text-metric-sm ring-4 ring-primary-fixed">04</div>
+<div class="progress-line"></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-secondary-card text-outline font-metric-sm text-metric-sm bg-surface">05</div>
+</div>
+<div class="text-center mb-4">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Step 4: See</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Review your performance markers and analyze structural flow.</p>
+</div>
+<!-- Metric Displays (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+<!-- Metric 1: Signpost Count -->
+<div class="bg-surface-parchment rounded border-primary-card p-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-low transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+</div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Signpost Count</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded font-metric-sm text-metric-sm border border-success-sage/30 flex items-center gap-1">
+                        Target: 3
+                    </span>
+</div>
+<div class="flex items-end gap-3 relative z-10">
+<span class="font-metric-hero text-metric-hero text-primary">4</span>
+<span class="material-symbols-outlined text-success-sage mb-2" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</div>
+</div>
+<!-- Metric 2: Structure Score -->
+<div class="bg-surface-parchment rounded border-primary-card p-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Structure Score</span>
+</div>
+<div class="flex items-end gap-3 relative z-10">
+<span class="font-metric-hero text-metric-hero text-primary">92</span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant mb-2">/100</span>
+</div>
+</div>
+<!-- Metric 3: Pace -->
+<div class="bg-surface-parchment rounded border-primary-card p-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Pace</span>
+</div>
+<div class="flex items-end gap-3 relative z-10">
+<span class="font-metric-hero text-metric-hero text-primary">124</span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant mb-2">WPM</span>
+</div>
+</div>
+</div>
+<!-- Visual Timeline Card -->
+<div class="w-full max-w-5xl bg-surface-parchment rounded border-primary-card p-8 mt-4 relative">
+<h3 class="font-headline-md text-headline-md text-primary mb-12">Recording Timeline</h3>
+<div class="relative w-full h-[60px] flex items-center">
+<!-- Base Timeline Line -->
+<div class="w-full h-[4px] bg-surface-variant rounded-full relative">
+<!-- Played Progress -->
+<div class="absolute left-0 top-0 h-full bg-primary rounded-full" style="width: 100%;"></div>
+<!-- Markers -->
+<div class="timeline-marker" style="left: 15%;">
+<div class="timeline-flag text-primary flex flex-col items-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="font-metric-sm text-[10px] bg-surface border border-primary px-1 rounded mt-1">0:24</span>
+</div>
+</div>
+<div class="timeline-marker" style="left: 45%;">
+<div class="timeline-flag text-primary flex flex-col items-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="font-metric-sm text-[10px] bg-surface border border-primary px-1 rounded mt-1">1:12</span>
+</div>
+</div>
+<div class="timeline-marker" style="left: 70%;">
+<div class="timeline-flag text-primary flex flex-col items-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="font-metric-sm text-[10px] bg-surface border border-primary px-1 rounded mt-1">1:50</span>
+</div>
+</div>
+<div class="timeline-marker" style="left: 90%;">
+<div class="timeline-flag text-primary flex flex-col items-center">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="font-metric-sm text-[10px] bg-surface border border-primary px-1 rounded mt-1">2:18</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between w-full mt-4 font-metric-sm text-metric-sm text-on-surface-variant">
+<span>0:00</span>
+<span>2:30</span>
+</div>
+</div>
+<!-- Commentary Card -->
+<div class="w-full max-w-5xl bg-surface-container-low rounded border-secondary-card p-6 mt-4 flex gap-4 items-start shadow-sm">
+<div class="bg-primary/10 p-3 rounded-full shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Coach Commentary</h4>
+<p class="font-body-lg text-body-lg text-on-surface">Excellent signposting. Your markers were spaced evenly, providing a clear map for the listener.</p>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-8 flex justify-end w-full max-w-5xl">
+<button class="bg-primary text-on-primary font-headline-md text-[18px] py-3 px-8 rounded border-primary-card shadow-sm hover:bg-tertiary-container transition-colors active:scale-95 flex items-center gap-2">
+                Continue to Commit
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

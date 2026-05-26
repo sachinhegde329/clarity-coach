@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "background": "#fdf9f5",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ede1d2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary": "#655d52",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9d6",
+                    "on-surface": "#1c1c19",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#004b71",
+                    "surface-container-highest": "#e5e2de",
+                    "surface": "#fdf9f5",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container": "#f1ede9",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-variant": "#e5e2de",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "surface-container": "#f1ede9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .active-nav-shadow {
+            box-shadow: 2px 2px 0px 0px #5e1700;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md uppercase tracking-tight font-bold text-primary">CLARITY COACH</h1>
+</div>
+<div class="font-label-md text-label-md font-bold text-primary border-2 border-primary px-3 py-1">
+            04/05
+        </div>
+</header>
+<main class="max-w-4xl mx-auto p-gutter lg:p-margin space-y-lg">
+<!-- Hero Header -->
+<section class="space-y-sm">
+<div class="inline-block border-2 border-primary px-3 py-1 bg-surface-container">
+<p class="font-label-sm text-label-sm uppercase text-primary">Session 8: Finding Your Pace</p>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">Performance Analysis</h2>
+<div class="h-1 w-full bg-primary"></div>
+</section>
+<!-- Commentary Box -->
+<section class="bg-secondary-container border-2 border-primary p-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-[80px]" data-icon="quote">format_quote</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface relative z-10">
+                "You maintained <span class="font-bold border-b-2 border-primary">142 WPM</span> — a highly authoritative and measured cadence."
+            </p>
+</section>
+<!-- Bento Grid Metrics -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Metric 1: WPM Mean -->
+<div class="md:col-span-8 border-2 border-primary p-md space-y-md flex flex-col justify-between hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all hover:hard-shadow bg-background">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md uppercase text-primary font-bold">WPM Mean</h3>
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-[64px] md:text-display-lg text-primary">142</span>
+<span class="font-label-md text-label-md uppercase">Words / Min</span>
+</div>
+<div class="h-24 w-full bg-surface-container relative overflow-hidden border-2 border-primary/20">
+<!-- Simple CSS Graph representation -->
+<div class="absolute inset-0 flex items-end gap-1 px-2">
+<div class="bg-primary-container w-full h-[60%]"></div>
+<div class="bg-primary-container w-full h-[65%]"></div>
+<div class="bg-primary-container w-full h-[62%]"></div>
+<div class="bg-primary-container w-full h-[70%]"></div>
+<div class="bg-primary-container w-full h-[68%]"></div>
+<div class="bg-primary-container w-full h-[72%]"></div>
+<div class="bg-primary w-full h-[75%] border-t-2 border-on-primary-container"></div>
+<div class="bg-primary-container w-full h-[70%]"></div>
+<div class="bg-primary-container w-full h-[66%]"></div>
+<div class="bg-primary-container w-full h-[68%]"></div>
+</div>
+</div>
+</div>
+<!-- Metric 2: Time-in-Zone -->
+<div class="md:col-span-4 border-2 border-primary p-md flex flex-col justify-between bg-surface-container-high hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all hover:hard-shadow">
+<h3 class="font-label-md text-label-md uppercase text-primary font-bold">Time-in-Zone</h3>
+<div class="py-lg flex flex-col items-center justify-center">
+<div class="relative w-32 h-32 border-4 border-primary rounded-full flex items-center justify-center overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary h-[88%]"></div>
+<span class="relative z-10 font-headline-md text-headline-md text-background">88%</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm uppercase text-center opacity-70">Target Cadence Met</p>
+</div>
+<!-- Metric 3: Pace Variance -->
+<div class="md:col-span-12 border-2 border-primary p-md md:flex items-center justify-between bg-background hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all hover:hard-shadow">
+<div class="space-y-base mb-4 md:mb-0">
+<h3 class="font-label-md text-label-md uppercase text-primary font-bold">Pace Variance</h3>
+<p class="font-body-md text-body-md">Minimal deviation detected. Consistent flow.</p>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-2 md:pb-0">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="trending_flat">trending_flat</span>
+<div>
+<p class="font-label-sm text-label-sm uppercase opacity-60">Variance</p>
+<p class="font-label-md text-label-md font-bold">± 4.2%</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="timer">timer</span>
+<div>
+<p class="font-label-sm text-label-sm uppercase opacity-60">Session</p>
+<p class="font-label-md text-label-md font-bold">08:24</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="flex flex-col md:flex-row gap-gutter pt-lg">
+<button class="flex-1 bg-primary text-background p-md font-label-md text-label-md uppercase font-bold border-2 border-primary active:translate-x-1 active:translate-y-1 transition-all hover:translate-x-[-4px] hover:translate-y-[-4px] hover:hard-shadow">
+                Next: Deep Reflection
+            </button>
+<button class="flex-1 bg-transparent text-primary p-md font-label-md text-label-md uppercase font-bold border-2 border-primary active:translate-x-1 active:translate-y-1 transition-all hover:bg-surface-container">
+                Retake Measurement
+            </button>
+</section>
+<!-- Decorative Image -->
+<section class="border-2 border-primary overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img alt="Cadence" class="w-full h-64 object-cover" data-alt="A high-contrast, artistic architectural close-up of a minimalist concrete staircase in sunlight. The image features strong geometric shadows and warm, terracotta-toned concrete textures, evoking a sense of rhythm, measured pace, and structural precision. The lighting is bright and architectural, perfectly matching a warm brutalist aesthetic with high-end design sensibilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFohpmRWkTA7n4zowbTki5H9tUYNMS6gHsskPYveSnMsLl70r9Hd6fl4EMENptd7TDLJRdlxzaF54NJw1FJCIamW8KI8IVJBVzKhcF5312RCfta-YuxyBBRXpWM6iwvWQZjN46_-9VJviReMaVAVz_6Qimw4gL5Iw4xvJS7zFUteD9449ZIeBQsN_1sI-redR4lg40YJrJbWQj2BOPoPcNKkxMiM1b3u3I56nQXIrYFa-6RsTejUgu3XZ2Zc4OUKugubs35AQf0Rs9"/>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('section > div').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'translate(2px, 2px)';
+                card.style.boxShadow = 'none';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+    </script>
+</body></html>

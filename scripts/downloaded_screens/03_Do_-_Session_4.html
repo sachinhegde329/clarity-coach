@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .brutalist-shadow-sm {
+            box-shadow: 2px 2px 0px 0px #5e1700;
+        }
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #5e1700;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        .recording-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#00334f",
+                        "surface-bright": "#fdf9f5",
+                        "tertiary-container": "#004b71",
+                        "on-secondary-container": "#6b6357",
+                        "surface": "#fdf9f5",
+                        "on-tertiary-fixed": "#001e30",
+                        "secondary-container": "#ede1d2",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container": "#f1ede9",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-primary-container": "#ff9b7b",
+                        "inverse-surface": "#31302e",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1c19",
+                        "primary-fixed-dim": "#ffb59e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "primary-container": "#7c2d12",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container-high": "#ebe7e4",
+                        "on-surface-variant": "#55423d",
+                        "background": "#fdf9f5",
+                        "surface-container-highest": "#e5e2de",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "primary-fixed": "#ffdbd0",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "tertiary-fixed": "#cbe6ff",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#655d52",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "secondary-fixed": "#ede1d2",
+                        "outline-variant": "#dcc1b9",
+                        "inverse-primary": "#ffb59e",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#9b4427",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "sm": "16px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin py-4 w-full z-50 border-b-2 border-primary fixed top-0 bg-surface">
+<div class="flex items-center gap-4">
+<button class="hover:bg-secondary-fixed transition-colors p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden md:block font-label-md text-label-md text-secondary uppercase tracking-widest">Step 03/05</div>
+<img alt="User profile photo" class="w-10 h-10 border-2 border-primary object-cover" data-alt="A professional studio headshot of a creative individual with an focused expression, set against a warm cream architectural background. The lighting is soft and intentional, emphasizing a high-end editorial aesthetic with terracotta accents that match the brutalist design system's color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEt0UxWw6CVWWcQ5rUHm5vevltSvy0R3DYOQA3WXTm3fwJrdAC9FOm76hqo86w4dLmB_nkFii47tjBdEuARJgDdeJVWg6eAZd1oNU5-r2cck5iu4dCiBmOsghFyvB1OYj_1eYl_8aLfg06BZpTG1xLa496jVUTHY3LsiPEY0ZLoxrFPb-CxkoRuIBi_jmmUr7bTD1bJhnxa7AS2cFBCrYUoPita6y4sNOjA8xs0tOcsOS8dbV5OGVcDEJa1wtiEfCVigB2CZhLO2c8"/>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-40 px-margin flex flex-col items-center max-w-4xl mx-auto w-full">
+<!-- Progress Indicator -->
+<div class="w-full mb-lg">
+<div class="flex justify-between mb-2">
+<span class="font-label-md text-label-md text-primary uppercase">Current Constraint</span>
+<span class="font-label-md text-label-md text-primary">ENERGY CHECK</span>
+</div>
+<div class="h-4 w-full bg-secondary-container border-2 border-primary relative">
+<div class="absolute left-0 top-0 h-full bg-primary" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Prompt Card -->
+<section class="w-full border-2 border-primary p-md bg-surface-container-low mb-lg relative">
+<div class="absolute -top-3 left-4 bg-primary text-surface px-2 py-1 font-label-sm text-label-sm uppercase">The Challenge</div>
+<h2 class="font-headline-md text-headline-md mb-sm text-primary">Tell a random three-word story using three generated nouns.</h2>
+<!-- Noun Randomizer UI -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm mt-md">
+<div class="border-2 border-primary bg-surface p-sm flex justify-between items-center group" id="word-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Lighthouse</span>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer" onclick="randomize(1)">refresh</button>
+</div>
+<div class="border-2 border-primary bg-surface p-sm flex justify-between items-center group" id="word-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Anchor</span>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer" onclick="randomize(2)">refresh</button>
+</div>
+<div class="border-2 border-primary bg-surface p-sm flex justify-between items-center group" id="word-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">Compass</span>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors cursor-pointer" onclick="randomize(3)">refresh</button>
+</div>
+</div>
+<div class="mt-md text-center">
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary underline uppercase tracking-tighter" onclick="randomizeAll()">Randomize All Words</button>
+</div>
+</section>
+<!-- High-Precision Recording Interface -->
+<section class="w-full flex flex-col items-center">
+<!-- Countdown Timer -->
+<div class="mb-md text-center">
+<div class="font-display-lg text-7xl md:text-8xl text-primary font-black mb-xs" id="timer">01:30</div>
+<div class="font-label-md text-label-md text-secondary uppercase tracking-widest">Time Remaining</div>
+</div>
+<!-- Mic Button -->
+<div class="relative group mt-md">
+<div class="absolute inset-0 rounded-full bg-primary/20 scale-125 hidden recording-pulse" id="pulse-element"></div>
+<button class="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-primary bg-surface flex items-center justify-center brutalist-shadow active-press relative z-10" id="mic-btn" onclick="toggleRecording()">
+<span class="material-symbols-outlined text-primary !text-5xl md:!text-7xl" id="mic-icon">mic</span>
+</button>
+</div>
+<!-- Status -->
+<div class="mt-lg font-label-md text-label-md text-secondary uppercase text-center flex items-center gap-2" id="status-text">
+<span class="w-2 h-2 bg-outline rounded-full"></span>
+                Ready to Record
+            </div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin bg-surface border-t-2 border-primary h-20">
+<button class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md mt-1">JOURNAL</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary border-t-4 border-primary pt-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md mt-1">CURRICULUM</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">PROFILE</span>
+</button>
+</nav>
+<script>
+        let isRecording = false;
+        let timerSeconds = 90;
+        let timerInterval;
+
+        const nouns = ["Lighthouse", "Anchor", "Compass", "Mountain", "Forest", "Feather", "Clock", "Horizon", "Shadow", "Bridge", "Key", "Mirror", "Desert", "Ocean", "Summit"];
+
+        function randomize(id) {
+            const wordElement = document.querySelector(`#word-${id} span`);
+            const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            wordElement.textContent = randomNoun;
+            
+            // Visual feedback
+            const container = document.getElementById(`word-${id}`);
+            container.classList.add('bg-secondary-container');
+            setTimeout(() => container.classList.remove('bg-secondary-container'), 200);
+        }
+
+        function randomizeAll() {
+            randomize(1);
+            randomize(2);
+            randomize(3);
+        }
+
+        function toggleRecording() {
+            const micBtn = document.getElementById('mic-btn');
+            const micIcon = document.getElementById('mic-icon');
+            const pulse = document.getElementById('pulse-element');
+            const status = document.getElementById('status-text');
+            const timerDisplay = document.getElementById('timer');
+
+            isRecording = !isRecording;
+
+            if (isRecording) {
+                micBtn.classList.replace('bg-surface', 'bg-primary');
+                micIcon.classList.replace('text-primary', 'text-surface');
+                micIcon.textContent = 'pause';
+                pulse.classList.remove('hidden');
+                status.innerHTML = '<span class="w-2 h-2 bg-error rounded-full animate-pulse"></span> Recording in Progress';
+                status.classList.replace('text-secondary', 'text-error');
+                
+                startTimer();
+            } else {
+                micBtn.classList.replace('bg-primary', 'bg-surface');
+                micIcon.classList.replace('text-surface', 'text-primary');
+                micIcon.textContent = 'mic';
+                pulse.classList.add('hidden');
+                status.innerHTML = '<span class="w-2 h-2 bg-outline rounded-full"></span> Ready to Record';
+                status.classList.replace('text-error', 'text-secondary');
+                
+                clearInterval(timerInterval);
+            }
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    toggleRecording();
+                    alert("Session complete!");
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+    </script>
+</body></html>

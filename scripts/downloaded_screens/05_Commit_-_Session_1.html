@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Space+Grotesk:wght@400&amp;family=Space+Mono:wght@400;500&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .active-press:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #5e1700;
+        }
+        .record-pulse {
+            animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .font-jetbrains { font-family: 'JetBrains Mono', monospace; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary": "#655d52",
+                        "secondary-container": "#ede1d2",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "surface": "#fdf9f5",
+                        "tertiary": "#00334f",
+                        "primary-container": "#7c2d12",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-background": "#1c1c19",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "tertiary-container": "#004b71",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b6357",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed": "#001e30",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-fixed": "#ede1d2",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container": "#f1ede9",
+                        "background": "#fdf9f5",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Navigation -->
+<header class="bg-surface border-b-4 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-20">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold uppercase tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="flex-grow pt-20 pb-12 flex flex-col items-center">
+<!-- Step & Timer Bar -->
+<div class="w-full bg-secondary-container border-b-4 border-primary px-gutter py-xs flex justify-between items-center font-jetbrains sticky top-20 z-40">
+<div class="flex items-center gap-xs">
+<span class="text-label-sm font-bold text-primary uppercase">Step</span>
+<span class="text-label-md bg-primary text-on-primary px-2 py-0.5">05/05</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="timer">timer</span>
+<span class="text-label-md font-bold text-primary">04:18</span>
+</div>
+</div>
+<div class="max-w-2xl w-full px-gutter mt-lg flex flex-col gap-lg">
+<!-- Prompt Card -->
+<section class="bg-surface border-4 border-primary p-md hard-shadow">
+<p class="font-jetbrains text-label-sm text-primary uppercase tracking-widest mb-xs">Reflection Prompt</p>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-tight">
+                Tomorrow I will notice...
+            </h2>
+</section>
+<!-- Recording Console -->
+<section class="relative bg-surface-container border-4 border-primary p-md flex flex-col items-center gap-md">
+<!-- Time Progress -->
+<div class="w-full h-8 border-4 border-primary bg-surface overflow-hidden relative">
+<div class="h-full bg-primary transition-all duration-100 ease-linear" id="progress-bar" style="width: 0%"></div>
+<div class="absolute inset-0 flex justify-between items-center px-xs pointer-events-none">
+<span class="font-jetbrains text-label-sm text-on-primary mix-blend-difference">0s</span>
+<span class="font-jetbrains text-label-sm text-on-primary mix-blend-difference">15s CAP</span>
+</div>
+</div>
+<!-- Waveform Area -->
+<div class="flex items-center justify-center gap-1 h-32 w-full opacity-30" id="waveform">
+<div class="w-1.5 bg-primary h-4 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-8 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-12 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-16 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-12 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-20 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-24 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-14 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-10 transition-all duration-150"></div>
+<div class="w-1.5 bg-primary h-18 transition-all duration-150"></div>
+</div>
+<!-- Central Mic Button -->
+<div class="flex flex-col items-center gap-sm">
+<button class="w-24 h-24 bg-surface border-4 border-primary rounded-full flex items-center justify-center hard-shadow active-press group" id="record-btn">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center" id="record-inner">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="mic" id="record-icon">mic</span>
+</div>
+</button>
+<p class="font-jetbrains text-label-md text-primary uppercase font-bold" id="record-status">Tap to Record</p>
+</div>
+</section>
+<!-- Context/Suggested Card -->
+<section class="bg-primary-container border-4 border-primary p-md hard-shadow">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="lightbulb">lightbulb</span>
+<span class="font-jetbrains text-label-sm text-on-primary-container font-bold uppercase tracking-wider">Suggested Opener</span>
+</div>
+<p class="font-body-lg text-on-primary-container italic">
+                "Tomorrow I will notice the small ways I choose focus over distraction, starting with..."
+            </p>
+</section>
+<!-- Actions -->
+<div class="mt-md flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary py-md font-jetbrains font-bold text-label-md uppercase tracking-widest border-4 border-primary hard-shadow active-press flex items-center justify-center gap-xs">
+                Commit Reflection
+                <span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+</button>
+<button class="w-full bg-transparent text-primary py-md font-jetbrains font-bold text-label-md uppercase tracking-widest border-4 border-primary hover:bg-surface-container-highest active-press">
+                Retake Audio
+            </button>
+</div>
+</div>
+</main>
+<!-- Decorative Background Element -->
+<div class="fixed bottom-12 -right-12 w-64 h-64 -z-10 opacity-10 rotate-12 pointer-events-none">
+<img alt="Brutalist Architecture" class="w-full h-full object-cover grayscale border-4 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMm43KIL5_mjDSAT90Xj-zIm7e90HBJF-4uvAdwQra_eHn7vIsAbONZC1ELOOHAKK_RcwQu1A3KWp5ORokrWSpZDkc1pRw5WRMIH0KWL3P5QE9NZCn9ykXjMsRhoa5d0vRCm0ggEFc-avBe_83TXLuLBeCDolekqKo0FBoHrw_IzDeBLOKZ7rkkXEjrdh7KKywub1SNdEQssfDzgsUEbMhC7VWeaRXpFdMuebBd80rnjv8l_tMLbGNomtFpUeF_TaDd2R_vGBR_6Vz"/>
+</div>
+<script>
+    const recordBtn = document.getElementById('record-btn');
+    const recordInner = document.getElementById('record-inner');
+    const recordIcon = document.getElementById('record-icon');
+    const recordStatus = document.getElementById('record-status');
+    const progressBar = document.getElementById('progress-bar');
+    const waveform = document.getElementById('waveform');
+    
+    let isRecording = false;
+    let progress = 0;
+    let interval;
+
+    recordBtn.addEventListener('click', () => {
+        if (!isRecording) {
+            startRecording();
+        } else {
+            stopRecording();
+        }
+    });
+
+    function startRecording() {
+        isRecording = true;
+        progress = 0;
+        recordStatus.textContent = "Recording...";
+        recordIcon.textContent = "stop";
+        recordInner.classList.add('record-pulse');
+        waveform.classList.remove('opacity-30');
+        
+        interval = setInterval(() => {
+            progress += (100 / 150); // 15 seconds
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
+            
+            // Randomized waveform motion
+            Array.from(waveform.children).forEach(bar => {
+                const h = Math.floor(Math.random() * 90) + 10;
+                bar.style.height = `${h}px`;
+            });
+
+            if (progress >= 100) {
+                stopRecording();
+            }
+        }, 100);
+    }
+
+    function stopRecording() {
+        isRecording = false;
+        clearInterval(interval);
+        recordStatus.textContent = "Review Recording";
+        recordIcon.textContent = "play_arrow";
+        recordInner.classList.remove('record-pulse');
+        waveform.classList.add('opacity-30');
+        progressBar.style.backgroundColor = '#655d52'; 
+    }
+</script>
+</body></html>

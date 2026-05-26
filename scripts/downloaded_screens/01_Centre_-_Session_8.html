@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach | Session 8: Finding Your Pace</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-low": "#f7f3ef",
+                  "on-primary-container": "#ff9b7b",
+                  "tertiary-fixed": "#cbe6ff",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#3a0b00",
+                  "background": "#fdf9f5",
+                  "primary-fixed": "#ffdbd0",
+                  "on-surface-variant": "#55423d",
+                  "secondary-fixed": "#ede1d2",
+                  "inverse-surface": "#31302e",
+                  "inverse-on-surface": "#f4f0ec",
+                  "primary-fixed-dim": "#ffb59e",
+                  "on-secondary-fixed": "#201b12",
+                  "on-tertiary-container": "#85bbe6",
+                  "on-secondary-fixed-variant": "#4d463b",
+                  "surface-tint": "#9b4427",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#ffb59e",
+                  "on-primary-fixed-variant": "#7c2d12",
+                  "on-surface": "#1c1c19",
+                  "on-primary": "#ffffff",
+                  "secondary-container": "#ede1d2",
+                  "error-container": "#ffdad6",
+                  "on-tertiary-fixed-variant": "#004b71",
+                  "on-error": "#ffffff",
+                  "surface-container-high": "#ebe7e4",
+                  "secondary": "#655d52",
+                  "on-error-container": "#93000a",
+                  "surface-dim": "#ddd9d6",
+                  "on-secondary-container": "#6b6357",
+                  "on-tertiary-fixed": "#001e30",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#004b71",
+                  "surface-container-highest": "#e5e2de",
+                  "surface": "#fdf9f5",
+                  "outline-variant": "#dcc1b9",
+                  "primary-container": "#7c2d12",
+                  "secondary-fixed-dim": "#d0c5b7",
+                  "tertiary": "#00334f",
+                  "surface-bright": "#fdf9f5",
+                  "surface-container-lowest": "#ffffff",
+                  "primary": "#5e1700",
+                  "outline": "#89726c",
+                  "surface-variant": "#e5e2de",
+                  "on-background": "#1c1c19",
+                  "tertiary-fixed-dim": "#97ccf9",
+                  "surface-container": "#f1ede9"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "sm": "16px",
+                  "gutter": "24px",
+                  "base": "4px",
+                  "margin": "32px",
+                  "xs": "8px",
+                  "lg": "48px",
+                  "xl": "80px",
+                  "md": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Bricolage Grotesque"],
+                  "body-lg": ["Space Grotesk"],
+                  "label-sm": ["Space Mono"],
+                  "display-lg": ["Bricolage Grotesque"],
+                  "label-md": ["Space Mono"],
+                  "headline-lg": ["Bricolage Grotesque"],
+                  "body-md": ["Space Grotesk"],
+                  "headline-md": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                  "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                  "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                  "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .brutal-shadow {
+      box-shadow: 4px 4px 0px 0px #5e1700;
+    }
+    .active-brutal-shadow:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #5e1700;
+    }
+    .metronome-pulse {
+      animation: pulse-ring 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .metronome-bar {
+      transition: height 2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .grid-pattern {
+      background-image: radial-gradient(#dcc1b9 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="bg-primary text-background font-label-md px-3 py-1 border-2 border-primary">
+      01/05
+    </div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center p-gutter grid-pattern">
+<!-- Exercise Container -->
+<div class="w-full max-w-2xl bg-surface-container border-2 border-primary brutal-shadow p-md md:p-lg relative overflow-hidden">
+<!-- Content Header -->
+<div class="mb-lg border-b-2 border-primary pb-sm">
+<p class="font-label-md text-primary mb-xs uppercase tracking-widest">Session 08: Finding Your Pace</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase text-on-surface">Step 01: Centre</h2>
+</div>
+<!-- Visualiser Area -->
+<div class="aspect-square w-full max-w-md mx-auto relative flex items-center justify-center border-2 border-primary bg-background mb-lg overflow-hidden">
+<!-- Structural Brutalist Elements -->
+<div class="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-10">
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-r border-b border-primary"></div>
+<div class="border-b border-primary"></div>
+</div>
+<!-- Dynamic Pulse Circle -->
+<div class="w-48 h-48 border-4 border-primary rounded-full flex items-center justify-center transition-all duration-[4000ms] ease-in-out" id="visual-circle">
+<div class="w-32 h-32 bg-primary-container opacity-20 rounded-full metronome-pulse"></div>
+<span class="absolute font-headline-md text-primary uppercase font-bold tracking-tighter" id="breath-indicator">Inhale</span>
+</div>
+<!-- Metronome Tick (Linear) -->
+<div class="absolute bottom-0 left-0 w-full h-2 bg-surface-container-highest">
+<div class="h-full bg-primary w-0" id="progress-tick"></div>
+</div>
+</div>
+<!-- Instruction Text -->
+<div class="text-center mb-lg">
+<p class="font-body-lg text-body-lg italic text-on-surface-variant">
+          “Three breaths at a deliberate tempo.”
+        </p>
+</div>
+<!-- Interaction Bar -->
+<div class="flex flex-col md:flex-row gap-md items-center justify-between border-t-2 border-primary pt-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="timer">timer</span>
+<span class="font-label-md text-primary uppercase">60 BPM Pulse</span>
+</div>
+<button class="w-full md:w-auto px-xl py-md bg-primary text-background font-label-md border-2 border-primary brutal-shadow active-brutal-shadow transition-all uppercase font-bold" id="start-btn">
+          Begin Exercise
+        </button>
+</div>
+</div>
+<!-- Background Decorative Element (Asymmetric) -->
+<div class="hidden lg:block fixed -bottom-10 -right-10 w-64 h-64 bg-secondary-container border-2 border-primary -rotate-12 -z-10 opacity-50"></div>
+<div class="hidden lg:block fixed top-20 -left-20 w-80 h-40 bg-primary-fixed-dim border-2 border-primary rotate-6 -z-10 opacity-30"></div>
+</main>
+<!-- BottomNavBar (Suppressed for focused task, but kept structure for global shell consistency if navigating back) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+    const startBtn = document.getElementById('start-btn');
+    const circle = document.getElementById('visual-circle');
+    const indicator = document.getElementById('breath-indicator');
+    const progress = document.getElementById('progress-tick');
+    
+    let isRunning = false;
+    let breathPhase = 0; // 0: Inhale, 1: Hold, 2: Exhale, 3: Hold
+
+    function runMetronome() {
+      if (!isRunning) return;
+
+      const phases = ['Inhale', 'Hold', 'Exhale', 'Hold'];
+      indicator.innerText = phases[breathPhase];
+
+      // Update Visuals
+      if (breathPhase === 0) {
+        circle.style.transform = 'scale(1.2)';
+        circle.style.borderColor = 'var(--tw-primary)';
+        progress.style.transition = 'width 4000ms linear';
+        progress.style.width = '100%';
+      } else if (breathPhase === 2) {
+        circle.style.transform = 'scale(0.8)';
+        progress.style.transition = 'width 4000ms linear';
+        progress.style.width = '0%';
+      }
+
+      breathPhase = (breathPhase + 1) % 4;
+      setTimeout(runMetronome, 4000);
+    }
+
+    startBtn.addEventListener('click', () => {
+      if (!isRunning) {
+        isRunning = true;
+        startBtn.innerText = 'Stop';
+        startBtn.classList.remove('bg-primary');
+        startBtn.classList.add('bg-secondary');
+        runMetronome();
+      } else {
+        isRunning = false;
+        startBtn.innerText = 'Begin Exercise';
+        startBtn.classList.add('bg-primary');
+        startBtn.classList.remove('bg-secondary');
+        indicator.innerText = 'Ready';
+        circle.style.transform = 'scale(1)';
+        progress.style.width = '0%';
+      }
+    });
+  </script>
+</body></html>

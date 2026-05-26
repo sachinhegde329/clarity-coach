@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Commit - Master Answer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=JetBrains+Mono:wght@400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface": "#1c1c19",
+                        "on-tertiary-container": "#ff998e",
+                        "surface-parchment": "#FDF9F5",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f4f0ec",
+                        "secondary": "#57624f",
+                        "outline-variant": "#dcc1b9",
+                        "success-sage": "#818C78",
+                        "on-error-container": "#93000a",
+                        "outline": "#89726c",
+                        "on-secondary-container": "#5b6653",
+                        "primary": "#5e1700",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d8e3cc",
+                        "surface-container-high": "#ebe7e4",
+                        "surface-container-highest": "#e5e2de",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-dim": "#ddd9d6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "tertiary-fixed": "#ffdad6",
+                        "tertiary": "#680005",
+                        "on-surface-variant": "#55423d",
+                        "surface-container": "#f1ede9",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "inverse-surface": "#31302e",
+                        "background": "#fdf9f5",
+                        "tertiary-container": "#93000b",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "error-warning": "#B91C1C",
+                        "surface-container-low": "#f7f3ef",
+                        "border-primary": "#7C2D12",
+                        "primary-container": "#7c2d12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "inverse-primary": "#ffb59e",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "secondary-fixed": "#dbe6cf"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "4pt": "4px"
+                    },
+                    spacing: {
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "hairline": "0.5px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-background min-h-screen flex flex-col antialiased">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 border-b-2 border-primary dark:border-primary-fixed-dim bg-surface-parchment dark:bg-surface-dim text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 flat no shadows z-40">
+<div class="flex items-center gap-4 cursor-pointer hover:bg-primary-container dark:hover:bg-primary-fixed transition-colors p-2 rounded-4pt">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim uppercase tracking-widest text-center flex-1">
+            05 / 05
+        </div>
+<div class="flex items-center gap-4 cursor-pointer hover:bg-primary-container dark:hover:bg-primary-fixed transition-colors p-2 rounded-4pt">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center p-gutter md:p-margin-desktop relative">
+<div class="w-full max-w-2xl flex flex-col items-center gap-8 z-10">
+<!-- Progress Strip -->
+<div class="flex gap-2 w-full max-w-xs mx-auto mb-4">
+<div class="h-1 flex-1 bg-primary/20"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+<div class="h-1 flex-1 bg-primary/20"></div>
+<div class="h-1 flex-1 bg-primary"></div>
+</div>
+<!-- Title & Prompt -->
+<div class="text-center space-y-4">
+<h1 class="font-display-lg text-display-lg text-primary">Commit</h1>
+<p class="font-headline-md text-headline-md text-on-background">What will you watch for tomorrow?</p>
+</div>
+<!-- The Commit Card -->
+<div class="border-2 border-primary bg-surface-bright rounded-4pt p-6 w-full relative shadow-[4px_4px_0px_#7c2d12]">
+<div class="absolute -top-3 -left-3 border-2 border-primary bg-surface-parchment px-2 py-1 font-label-caps text-label-caps text-primary">
+                    PROMPT
+                </div>
+<div class="border-b-[0.5px] border-primary pb-4 mb-4">
+<p class="font-body-lg text-body-lg text-on-background/70 italic">
+                        "Tomorrow I will mimic one phrase from..."
+                    </p>
+</div>
+<textarea class="w-full h-32 bg-transparent border-[0.5px] border-primary p-4 font-body-md text-body-md text-on-background placeholder:text-on-background/30 focus:outline-none focus:ring-1 focus:ring-primary rounded-4pt resize-none" placeholder="Start speaking or type here..."></textarea>
+</div>
+<!-- Controls -->
+<div class="flex flex-col items-center gap-6 mt-8">
+<!-- Mic Button -->
+<button class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-surface-parchment relative group transition-transform hover:scale-105 active:scale-95" id="micBtn">
+<span class="material-symbols-outlined text-[32px]">mic</span>
+<!-- Timer Ring (Static visual for now) -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 64 64">
+<circle class="text-surface-parchment/30" cx="32" cy="32" fill="none" r="30" stroke="currentColor" stroke-dasharray="188.4" stroke-dashoffset="47.1" stroke-width="2"></circle>
+</svg>
+<!-- Pulse rings (hidden by default) -->
+<div class="absolute inset-0 rounded-full border-2 border-primary opacity-0 scale-100" id="pulseRing"></div>
+</button>
+<!-- Timer Display -->
+<div class="font-metric-hero text-metric-hero text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+                    00:15
+                </div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Suppressed on this linear/transactional session flow screen) -->
+<script>
+        // Simple mic pulse interaction
+        const micBtn = document.getElementById('micBtn');
+        const pulseRing = document.getElementById('pulseRing');
+        let isRecording = false;
+        let pulseInterval;
+
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            
+            if (isRecording) {
+                micBtn.classList.replace('bg-primary', 'bg-error-warning');
+                micBtn.querySelector('.material-symbols-outlined').textContent = 'mic_off';
+                
+                // Start pulse animation
+                pulseInterval = setInterval(() => {
+                    pulseRing.animate([
+                        { transform: 'scale(1)', opacity: 0.8 },
+                        { transform: 'scale(1.5)', opacity: 0 }
+                    ], {
+                        duration: 1000,
+                        easing: 'ease-out'
+                    });
+                }, 1000);
+            } else {
+                micBtn.classList.replace('bg-error-warning', 'bg-primary');
+                micBtn.querySelector('.material-symbols-outlined').textContent = 'mic';
+                clearInterval(pulseInterval);
+            }
+        });
+    </script>
+</body></html>

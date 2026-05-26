@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 02</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary": "#655d52",
+                        "secondary-container": "#ede1d2",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "surface": "#fdf9f5",
+                        "tertiary": "#00334f",
+                        "primary-container": "#7c2d12",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-background": "#1c1c19",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "tertiary-container": "#004b71",
+                        "on-tertiary-container": "#85bbe6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b6357",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed": "#001e30",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-fixed": "#ede1d2",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container": "#f1ede9",
+                        "background": "#fdf9f5",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "mono-metrics": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .active-press:active {
+            transform: translate(1px, 1px);
+        }
+        .waveform-bar {
+            transition: height 0.15s ease-in-out;
+        }
+        .transcript-blur {
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #89726c;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<!-- Standardized Header -->
+<header class="bg-surface border-b-2 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="text-headline-md font-headline-md font-extrabold uppercase tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex items-center gap-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">S02_L05</span>
+</div>
+<button class="flex items-center justify-center p-base hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-xl px-gutter max-w-4xl mx-auto">
+<!-- Progress Tracking Mobile/Standardized -->
+<div class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest mb-1">Session Progress</span>
+<div class="flex items-center gap-xs">
+<span class="text-display-lg leading-none font-display-lg text-primary">02</span>
+<span class="text-headline-md text-outline font-headline-md self-end mb-1">/05</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest mb-1">Elapsed Time</span>
+<span class="text-headline-lg font-mono-metrics text-primary tabular-nums">0:32</span>
+</div>
+</div>
+<!-- Main Player Area -->
+<div class="space-y-lg">
+<!-- Player Card -->
+<section class="bg-surface-container-lowest border-2 border-primary p-md md:p-lg relative">
+<div class="flex flex-col md:flex-row justify-between items-start gap-md mb-lg">
+<div class="max-w-xl">
+<h2 class="text-headline-md font-headline-md text-primary mb-xs">What fillers really are</h2>
+<p class="text-body-md font-body-md text-secondary">A neuro-linguistic breakdown of cognitive processing markers during high-stakes speech.</p>
+</div>
+<div class="bg-primary text-on-primary px-sm py-1">
+<span class="text-label-sm font-label-sm uppercase tracking-[0.2em] font-bold">LIVE_FEED</span>
+</div>
+</div>
+<!-- Enhanced Waveform -->
+<div class="h-40 flex items-center justify-center gap-1.5 mb-lg bg-surface-container-low/30 py-md" id="waveform">
+<!-- Bars generated by JS -->
+</div>
+<!-- Controls -->
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary w-14 h-14 flex items-center justify-center active-press transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<div class="flex-grow flex flex-col gap-2">
+<div class="bg-surface-container-high h-1.5 relative w-full">
+<div class="absolute top-0 left-0 h-full bg-primary w-[32%] after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-3 after:h-3 after:bg-primary"></div>
+</div>
+<div class="flex justify-between">
+<span class="text-label-sm font-mono-metrics text-secondary">0:32</span>
+<span class="text-label-sm font-mono-metrics text-primary font-bold">1:45</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Theory Tidbit & Transcript Split -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- Insight / Theory -->
+<div class="space-y-md">
+<div class="bg-primary text-on-primary p-md border-2 border-primary h-full flex flex-col justify-center">
+<div class="flex items-center gap-sm mb-md opacity-80">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest">Core Insight</span>
+</div>
+<blockquote class="text-body-lg font-body-lg leading-relaxed italic">
+                        "Fillers aren't a lack of intelligence; they are your brain's way of signal-processing. When you hear a filler, you're actually hearing the sound of thought occurring in real-time."
+                    </blockquote>
+<p class="mt-md text-label-md font-label-md uppercase tracking-tighter opacity-60">— Dr. Elena Vance, Cognitive Analyst</p>
+</div>
+</div>
+<!-- Immersive Transcript -->
+<div class="bg-surface border-2 border-primary-container h-[400px] flex flex-col overflow-hidden">
+<div class="px-md py-sm bg-surface-container border-b border-primary-container flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-[0.15em] font-bold">Transcription</span>
+<span class="text-label-sm font-mono-metrics text-secondary">SCROLL_ACTIVE</span>
+</div>
+<div class="flex-grow overflow-y-auto p-md space-y-md transcript-blur" id="transcript-scroll">
+<p class="text-body-md text-secondary/40">...so we look at the pause as a negative space, but in reality, that space is where the listener catches up with your logic.</p>
+<p class="text-body-md text-secondary/60">When we transition to the core concept of cognitive load, we find that the human brain requires markers to indicate it is still processing information.</p>
+<div class="bg-primary-container/5 border-l-2 border-primary p-sm my-md">
+<p class="text-body-lg font-body-lg text-primary font-bold tracking-tight">
+                            "YOU ARE NOT YOUR FILLERS."
+                        </p>
+<p class="text-label-sm font-label-sm text-secondary mt-xs uppercase">Instructional Emphasis</p>
+</div>
+<p class="text-body-md text-on-surface font-medium leading-relaxed">
+                        Fillers function as placeholders. They tell the audience: "I'm not finished, I'm just calculating." By recognizing this, we can begin to replace the sound with a purposeful silence...
+                    </p>
+<p class="text-body-md text-secondary/50">This allows for a more rhythmic delivery and gives the speaker a moment to reset their breathing posture.</p>
+</div>
+<div class="p-sm bg-surface-container border-t border-primary-container">
+<button class="w-full text-center text-label-sm font-label-sm text-primary py-xs hover:underline uppercase tracking-widest active-press">
+                        Bookmark Current Segment
+                    </button>
+</div>
+</div>
+</div>
+<!-- Metric Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="border-2 border-outline-variant p-md bg-surface transition-colors hover:border-primary">
+<p class="text-label-sm font-label-sm text-secondary uppercase mb-xs tracking-widest">Fillers/Min</p>
+<p class="text-headline-md font-mono-metrics text-primary">4.2</p>
+</div>
+<div class="border-2 border-outline-variant p-md bg-surface transition-colors hover:border-primary">
+<p class="text-label-sm font-label-sm text-secondary uppercase mb-xs tracking-widest">Cognitive Load</p>
+<p class="text-headline-md font-mono-metrics text-primary uppercase">High</p>
+</div>
+<div class="border-2 border-outline-variant p-md bg-surface transition-colors hover:border-primary">
+<p class="text-label-sm font-label-sm text-secondary uppercase mb-xs tracking-widest">Sync Rate</p>
+<p class="text-headline-md font-mono-metrics text-primary">94%</p>
+</div>
+<div class="border-2 border-outline-variant p-md bg-surface transition-colors hover:border-primary">
+<p class="text-label-sm font-label-sm text-secondary uppercase mb-xs tracking-widest">Clarity Score</p>
+<p class="text-headline-md font-mono-metrics text-primary">8.5</p>
+</div>
+</div>
+<!-- Visual Anchor -->
+<div class="border-2 border-primary overflow-hidden h-64 relative group">
+<img alt="Structural Breathing" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACQc_K9QOzyog12dChFuey4jUG2H11B6tKtKUijzKAWI4atLRkAuANROQPWbhN8Pz7Gcr-iRxRjSE14nP3oCyAthveUEMQ2mHNeRNTFDaHVnQXOKE9cDQxsqWa8SfBvbmAKPymscCyvm89xVyl8oVXWgyBkw-JcKZeZ_SNNSNSge-NotYypNdVtE30U8Auwtqq-krtECI0Qa0XommER7ej6-_ph_O490-11zJ0tQyF8FLHOrdH_BrRxED9s4J_4gkWHfdg6nyFfyoO"/>
+<div class="absolute inset-0 border-[24px] border-transparent group-hover:border-primary/10 transition-all pointer-events-none"></div>
+<div class="absolute bottom-6 left-6 bg-primary text-on-primary px-sm py-1">
+<span class="text-label-sm font-label-sm uppercase font-bold tracking-widest">FIG. 02 — STRUCTURAL BREATHING</span>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Generate procedural waveform
+    const waveform = document.getElementById('waveform');
+    const barCount = 48;
+    for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'waveform-bar w-1 md:w-1.5 bg-primary/40';
+        const randomHeight = Math.floor(Math.random() * 70) + 15;
+        bar.style.height = `${randomHeight}%`;
+        waveform.appendChild(bar);
+    }
+
+    // Subtle animation for live feedback feeling
+    function animateWave() {
+        const bars = document.querySelectorAll('.waveform-bar');
+        bars.forEach((bar, index) => {
+            // Animate only the "upcoming" or "recent" part for a more controlled look
+            if (Math.random() > 0.8) {
+                const randomHeight = Math.floor(Math.random() * 80) + 10;
+                bar.style.height = `${randomHeight}%`;
+                bar.classList.add('bg-primary');
+                bar.classList.remove('bg-primary/40');
+            } else {
+                bar.classList.remove('bg-primary');
+                bar.classList.add('bg-primary/40');
+            }
+        });
+    }
+    setInterval(animateWave, 200);
+
+    // Initial Scroll Position
+    const transcript = document.getElementById('transcript-scroll');
+    transcript.scrollTop = 120;
+</script>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>03 Do - Session 26</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#9b4427",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed": "#dbe6cf",
+                        "outline-variant": "#dcc1b9",
+                        "on-tertiary-container": "#ff998e",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "outline": "#89726c",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface-container-low": "#f7f3ef",
+                        "secondary": "#57624f",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "border-primary": "#7C2D12",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb59e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-tertiary-fixed": "#410002",
+                        "error-warning": "#B91C1C",
+                        "surface-dim": "#ddd9d6",
+                        "on-background": "#1c1c19",
+                        "background": "#fdf9f5",
+                        "primary-container": "#7c2d12",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-highest": "#e5e2de",
+                        "success-sage": "#818C78",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "tertiary-fixed": "#ffdad6",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d8e3cc",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "inverse-primary": "#ffb59e",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e2de",
+                        "tertiary-fixed-dim": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "margin-desktop": "40px",
+                        "hairline": "0.5px",
+                        "border-width": "2px"
+                    },
+                    "fontFamily": {
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { opacity: 0.1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .timer-circle {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .is-recording .timer-circle {
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 60s linear;
+        }
+        
+        .ink-dot {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        .is-recording .ink-dot {
+            animation: flash 3s infinite;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="bg-surface-parchment dark:bg-surface-dim border-b-border-width border-primary dark:border-outline flex justify-between items-center px-gutter py-4 w-full sticky top-0 z-50">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-primary active:scale-95 duration-100">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="text-headline-md font-headline-md font-bold text-primary text-center tracking-tight">
+            03 / 05
+        </div>
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-surface-container-high transition-colors text-primary active:scale-95 duration-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col px-gutter py-8 md:px-margin-desktop max-w-3xl mx-auto w-full relative">
+<div class="mb-8 flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Session 26</span>
+<h1 class="font-display-lg text-display-lg text-primary">03 Do</h1>
+</div>
+<div class="relative w-full mb-12 group perspective-1000">
+<div class="absolute inset-0 bg-surface-container-highest border-border-width border-primary rounded-lg translate-x-2 translate-y-2 z-0 transition-transform group-hover:translate-x-3 group-hover:translate-y-3"></div>
+<div class="relative z-10 border-border-width border-primary bg-surface rounded-lg p-6 md:p-8 flex flex-col gap-8 shadow-none transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1">
+<div class="flex items-center gap-3 border-b-hairline border-outline pb-4">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<h2 class="font-headline-md text-headline-md text-primary uppercase">Challenge: Data to Story</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-border-width border-primary bg-surface-container-low rounded-DEFAULT overflow-hidden">
+<div class="p-6 border-b-border-width md:border-b-0 md:border-r-border-width border-primary flex flex-col items-center justify-center text-center gap-2 relative bg-surface">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Sales Growth</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success-sage" style="font-variation-settings: 'wght' 700;">arrow_upward</span>
+<span class="font-metric-hero text-metric-hero text-primary">23%</span>
+</div>
+<span class="font-metric-sm text-metric-sm text-outline mt-1">Last Quarter</span>
+</div>
+<div class="p-6 border-b-border-width md:border-b-0 md:border-r-border-width border-primary flex flex-col items-center justify-center text-center gap-2 relative bg-surface">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Team Size</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success-sage" style="font-variation-settings: 'wght' 700;">arrow_upward</span>
+<span class="font-metric-hero text-metric-hero text-primary">5%</span>
+</div>
+<span class="font-metric-sm text-metric-sm text-outline mt-1">Headcount</span>
+</div>
+<div class="p-6 flex flex-col items-center justify-center text-center gap-2 relative bg-surface-container-high">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">CSAT Score</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error-warning" style="font-variation-settings: 'wght' 700;">arrow_downward</span>
+<span class="font-metric-hero text-metric-hero text-error-warning">-8</span>
+</div>
+<span class="font-metric-sm text-metric-sm text-outline mt-1">Points</span>
+</div>
+</div>
+<div class="bg-primary-fixed-dim border-l-[4px] border-primary p-4 rounded-r-DEFAULT">
+<p class="font-body-lg text-body-lg text-on-primary-fixed">
+<strong>Instruction:</strong> Turn this data into a 60-second story. Connect the rapid growth to the drop in customer satisfaction.
+                    </p>
+</div>
+</div>
+</div>
+<div class="mt-auto flex flex-col items-center justify-center pt-8 pb-4">
+<div class="relative flex items-center justify-center w-32 h-32" id="record-container">
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="stroke-outline-variant fill-none" cx="50" cy="50" r="45" stroke-width="2"></circle>
+<circle class="timer-circle stroke-primary fill-none" cx="50" cy="50" r="45" stroke-linecap="square" stroke-width="3"></circle>
+<circle class="ink-dot fill-primary" cx="50" cy="5" r="2" style="animation-delay: 0.5s;"></circle>
+<circle class="ink-dot fill-primary" cx="95" cy="50" r="2" style="animation-delay: 1.2s;"></circle>
+<circle class="ink-dot fill-primary" cx="50" cy="95" r="2" style="animation-delay: 0.8s;"></circle>
+<circle class="ink-dot fill-primary" cx="5" cy="50" r="2" style="animation-delay: 2.1s;"></circle>
+</svg>
+<div class="absolute inset-0 bg-primary/10 rounded-full pulse-ring hidden" id="pulse-element"></div>
+<button class="relative z-10 w-[64px] h-[64px] rounded-full bg-primary flex items-center justify-center border-border-width border-surface-tint shadow-none active:scale-95 transition-all duration-150 hover:bg-surface-tint cursor-pointer" id="mic-button">
+<span class="material-symbols-outlined text-on-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="mt-6 flex flex-col items-center gap-1">
+<span class="font-metric-hero text-metric-hero text-primary" id="timer-display">60</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Seconds Limit</span>
+</div>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const micBtn = document.getElementById('mic-button');
+            const container = document.getElementById('record-container');
+            const pulse = document.getElementById('pulse-element');
+            const timerDisplay = document.getElementById('timer-display');
+            let isRecording = false;
+            let timerInterval;
+            let timeLeft = 60;
+
+            micBtn.addEventListener('click', () => {
+                if (!isRecording) {
+                    isRecording = true;
+                    container.classList.add('is-recording');
+                    pulse.classList.remove('hidden');
+                    micBtn.classList.add('bg-error-warning', 'border-error-warning');
+                    micBtn.classList.remove('bg-primary', 'border-surface-tint');
+                    micBtn.querySelector('.material-symbols-outlined').textContent = 'stop';
+                    
+                    timeLeft = 60;
+                    timerDisplay.textContent = timeLeft;
+                    
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        if (timeLeft >= 0) {
+                            timerDisplay.textContent = timeLeft.toString().padStart(2, '0');
+                        } else {
+                            stopRecording();
+                        }
+                    }, 1000);
+
+                } else {
+                    stopRecording();
+                }
+            });
+
+            function stopRecording() {
+                isRecording = false;
+                clearInterval(timerInterval);
+                container.classList.remove('is-recording');
+                pulse.classList.add('hidden');
+                micBtn.classList.remove('bg-error-warning', 'border-error-warning');
+                micBtn.classList.add('bg-primary', 'border-surface-tint');
+                micBtn.querySelector('.material-symbols-outlined').textContent = 'mic';
+                timerDisplay.textContent = '60';
+                
+                // Reset SVG animation state by re-triggering reflow
+                const circle = document.querySelector('.timer-circle');
+                circle.style.transition = 'none';
+                circle.style.strokeDashoffset = '0';
+                setTimeout(() => {
+                    circle.style.transition = '';
+                }, 50);
+            }
+        });
+    </script>
+</body></html>

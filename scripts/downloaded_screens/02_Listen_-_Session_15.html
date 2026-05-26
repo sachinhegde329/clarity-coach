@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Step 2: Listen - Session 15: Signposting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#31302e",
+                      "primary": "#5e1700",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#ebe7e4",
+                      "inverse-on-surface": "#f4f0ec",
+                      "tertiary-container": "#93000b",
+                      "inverse-primary": "#ffb59e",
+                      "primary-fixed": "#ffdbd0",
+                      "border-primary": "#7C2D12",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdad6",
+                      "on-surface-variant": "#55423d",
+                      "surface-dim": "#ddd9d6",
+                      "secondary-container": "#d8e3cc",
+                      "on-tertiary-fixed": "#410002",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#ff9b7b",
+                      "surface": "#fdf9f5",
+                      "on-background": "#1c1c19",
+                      "surface-tint": "#9b4427",
+                      "outline-variant": "#dcc1b9",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#ff998e",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#151e10",
+                      "on-surface": "#1c1c19",
+                      "on-primary-fixed": "#3a0b00",
+                      "primary-container": "#7c2d12",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#dbe6cf",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "success-sage": "#818C78",
+                      "secondary": "#57624f",
+                      "surface-variant": "#e5e2de",
+                      "surface-bright": "#fdf9f5",
+                      "background": "#fdf9f5",
+                      "on-secondary-container": "#5b6653",
+                      "tertiary": "#680005",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "outline": "#89726c",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e5e2de",
+                      "surface-container": "#f1ede9",
+                      "error-warning": "#B91C1C",
+                      "surface-parchment": "#FDF9F5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "hairline": "0.5px",
+                      "border-width": "2px",
+                      "margin-desktop": "40px",
+                      "gutter": "16px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for transcript */
+        .transcript-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .transcript-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .transcript-scroll::-webkit-scrollbar-thumb {
+            background-color: #7C2D12;
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-full flex flex-col antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- Header (No Nav Shell as it's a focused session flow) -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full border-b-[2px] border-primary bg-surface z-50 shrink-0">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT active:translate-y-px cursor-pointer flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Session 15</span>
+</div>
+<!-- Progress Strip -->
+<div class="flex items-center gap-2">
+<div class="h-2 w-8 border-[0.5px] border-primary bg-surface"></div>
+<div class="h-2 w-8 border-[2px] border-primary bg-primary"></div>
+<div class="h-2 w-8 border-[0.5px] border-primary bg-surface"></div>
+<div class="h-2 w-8 border-[0.5px] border-primary bg-surface"></div>
+<div class="h-2 w-8 border-[0.5px] border-primary bg-surface"></div>
+</div>
+<div class="font-label-caps text-label-caps text-primary">02 LISTEN</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-4xl mx-auto w-full flex flex-col gap-8">
+<!-- Title Section -->
+<div class="flex flex-col gap-2">
+<h1 class="font-display-lg text-display-lg text-on-surface">First, Second, Finally</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Signposting is the verbal equivalent of headings in a document. It provides structure and guides your listener through complex ideas.</p>
+</div>
+<!-- Audio Player Section -->
+<div class="border-[2px] border-primary bg-surface-parchment p-6 md:p-8 rounded-DEFAULT flex flex-col gap-6 relative shadow-[4px_4px_0px_#5e1700]">
+<!-- Waveform Placeholder -->
+<div class="h-24 border-[0.5px] border-primary bg-surface-container-lowest relative flex items-end justify-between px-2 gap-1 overflow-hidden" id="waveform">
+<!-- Generated simple static waveform bars for structural layout -->
+<div class="w-1 bg-outline-variant h-[20%]"></div>
+<div class="w-1 bg-outline-variant h-[40%]"></div>
+<div class="w-1 bg-outline-variant h-[30%]"></div>
+<div class="w-1 bg-outline-variant h-[60%]"></div>
+<div class="w-1 bg-outline-variant h-[80%]"></div>
+<div class="w-1 bg-outline-variant h-[50%]"></div>
+<div class="w-1 bg-outline-variant h-[70%]"></div>
+<div class="w-1 bg-outline-variant h-[90%]"></div>
+<div class="w-1 bg-outline-variant h-[40%]"></div>
+<div class="w-1 bg-primary h-[60%]"></div>
+<div class="w-1 bg-primary h-[85%]"></div>
+<div class="w-1 bg-primary h-[100%]"></div>
+<div class="w-1 bg-primary h-[75%]"></div>
+<div class="w-1 bg-outline-variant h-[50%]"></div>
+<div class="w-1 bg-outline-variant h-[30%]"></div>
+<div class="w-1 bg-outline-variant h-[45%]"></div>
+<div class="w-1 bg-outline-variant h-[65%]"></div>
+<div class="w-1 bg-outline-variant h-[20%]"></div>
+<div class="w-1 bg-outline-variant h-[35%]"></div>
+<div class="w-1 bg-outline-variant h-[15%]"></div>
+<!-- Playhead -->
+<div class="absolute left-1/2 top-0 bottom-0 w-[2px] bg-primary"></div>
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 rounded-full border-[2px] border-primary flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[28px]" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="replay_10">replay_10</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="forward_10">forward_10</span>
+</button>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary tracking-widest">
+<span class="font-bold">0:18</span> <span class="text-on-surface-variant">/ 1:00</span>
+</div>
+</div>
+</div>
+<!-- Transcript Section -->
+<div class="border-[0.5px] border-primary bg-surface-container-lowest p-6 flex flex-col gap-4 h-64">
+<div class="flex items-center justify-between border-b-[0.5px] border-primary pb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">TRANSCRIPT</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="subtitles">subtitles</span>
+</div>
+<div class="transcript-scroll overflow-y-auto pr-4 flex flex-col gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-50">
+                    When you are presenting a complex argument, it's easy for your audience to get lost in the details. 
+                </p>
+<p class="font-body-md text-body-md text-primary font-semibold">
+                    Think of signposting as handing them a map before the journey begins. 
+                </p>
+<p class="font-body-md text-body-md text-on-surface">
+                    By explicitly stating "First, I will cover X, second, we will look at Y, and finally, we will conclude with Z," you establish a clear expectation. This reduces cognitive load and allows the listener to focus on your content rather than figuring out where you are going.
+                </p>
+<p class="font-body-md text-body-md text-on-surface">
+                    Notice how this simple framework immediately adds authority to the delivery. It sounds structured, deliberate, and confident.
+                </p>
+</div>
+</div>
+</main>
+<!-- Action Footer (Floating) -->
+<div class="fixed bottom-0 left-0 w-full p-margin-mobile md:p-margin-desktop flex justify-end bg-gradient-to-t from-surface via-surface to-transparent pointer-events-none">
+<button class="pointer-events-auto bg-primary text-on-primary font-body-md text-body-md font-bold px-8 py-4 rounded-DEFAULT border-[2px] border-primary hover:bg-primary-container transition-colors shadow-[2px_2px_0px_#1c1c19] active:translate-y-px active:shadow-none flex items-center gap-2">
+            Continue to Do
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</body></html>

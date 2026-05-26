@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 13: Centre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-dot {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+        .timer-ring {
+            transition: stroke-dashoffset 0.1s linear;
+        }
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px #7c2d12;
+        }
+        .dot-grid {
+            background-image: radial-gradient(#7c2d12 0.5px, transparent 0.5px);
+            background-size: 16px 16px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#7c2d12",
+                      "on-primary": "#ffffff",
+                      "background": "#fdf9f5",
+                      "surface": "#fdf9f5",
+                      "surface-container": "#f1ede9",
+                      "on-surface": "#1c1c19",
+                      "on-surface-variant": "#53433f",
+                      "outline": "#85736e",
+                      "border-primary": "#7c2d12"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "margin-desktop": "40px",
+                      "gutter": "16px",
+                      "hairline": "0.5px",
+                      "unit": "4px",
+                      "border-width": "2px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Bricolage Grotesque"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "body-lg": ["Bricolage Grotesque"],
+                      "body-md": ["Bricolage Grotesque"],
+                      "metric-hero": ["JetBrains Mono"],
+                      "label-caps": ["Bricolage Grotesque"],
+                      "metric-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden selection:bg-primary/20">
+<!-- TopAppBar -->
+<header class="bg-surface border-b-2 border-primary flex justify-between items-center px-5 h-16 w-full z-50 sticky top-0 left-0">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+<div class="font-headline-md text-primary tracking-tighter uppercase font-bold">CLARITY COACH</div>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnqr5RS9Xk49MZV7tSMywJmGkBMjRS0mphC8JATgjkySxaWddy7zJO1530R17iY6GqgtYDogx-wXZaCZb2QpwkACFpo0wtIY1t0z23DGrlNRXrgEuCVKKumms8N_dC_5y-SMgehfE3LUttO0EUpcnGvdpwPJuMq3x6fk7DjNNu8bvo4_fJ0DoFv36Q4BjspeM3VYwCF5Oi7J7q44FcpxH47BWiidKvah6wFbAl4jaazgHeqBQQT0pHBw_R7yMRHnthSCEWYBRmNWxc"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-8 pb-32 px-5 max-w-4xl mx-auto w-full">
+<!-- Step Indicator -->
+<nav class="mb-12 flex justify-between items-center w-full relative">
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-primary/20 -translate-y-1/2 -z-10"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-primary border-2 border-primary text-white flex items-center justify-center font-metric-sm text-metric-sm">01</div>
+<span class="font-label-caps text-[10px] text-primary uppercase">CENTRE</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-surface border-2 border-primary text-primary flex items-center justify-center font-metric-sm text-metric-sm">02</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">LISTEN</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-surface border-2 border-primary text-primary flex items-center justify-center font-metric-sm text-metric-sm">03</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">DO</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-surface border-2 border-primary text-primary flex items-center justify-center font-metric-sm text-metric-sm">04</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">SEE</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 bg-surface border-2 border-primary text-primary flex items-center justify-center font-metric-sm text-metric-sm">05</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">COMMIT</span>
+</div>
+</nav>
+<!-- Session Header -->
+<section class="mb-10">
+<div class="inline-block border-2 border-primary px-2 py-0.5 mb-4 bg-primary/5">
+<span class="font-metric-sm text-metric-sm text-primary uppercase">SESSION 13</span>
+</div>
+<h1 class="font-display-lg text-primary mb-2 uppercase leading-none">BLUF Strategy</h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl italic">"What is the single most important thing you want them to remember?"</p>
+</section>
+<!-- Centring Exercise Card -->
+<div class="bg-surface border-2 border-primary brutalist-shadow p-8 mb-8 relative overflow-hidden">
+<!-- Dot Grid Pattern Overlay -->
+<div class="absolute inset-0 opacity-[0.05] pointer-events-none dot-grid"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="mb-8">
+<span class="font-label-caps text-primary tracking-widest block mb-2 uppercase">PREPARATION</span>
+<h2 class="font-headline-lg text-primary uppercase">Settle the Mind</h2>
+</div>
+<!-- Focus Visualization -->
+<div class="relative w-64 h-64 flex items-center justify-center mb-10">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary timer-ring" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-dasharray="754" stroke-dashoffset="180" stroke-width="4"></circle>
+</svg>
+<button class="relative z-20 w-32 h-32 bg-primary rounded-full flex items-center justify-center text-white shadow-xl active:scale-95 transition-transform group">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform">graphic_eq</span>
+<div class="absolute -inset-4 border-2 border-primary opacity-20 rounded-full animate-ping"></div>
+</button>
+<!-- Atmospheric Dots -->
+<div class="absolute top-4 left-4 w-1.5 h-1.5 bg-primary rounded-full pulse-dot"></div>
+<div class="absolute bottom-10 right-2 w-2 h-2 bg-primary rounded-full pulse-dot" style="animation-delay: 0.5s"></div>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-md mx-auto italic mb-8">
+                Focus on the breath. When your mind wanders, bring it back to the single core message.
+            </p>
+<div class="w-full flex justify-center gap-12 border-t-2 border-primary/10 pt-8">
+<div class="text-center">
+<div class="font-metric-hero text-primary mb-1">02:45</div>
+<div class="font-label-caps text-on-surface-variant uppercase text-[10px]">ELAPSED</div>
+</div>
+<div class="text-center">
+<div class="font-metric-hero text-primary mb-1">64</div>
+<div class="font-label-caps text-on-surface-variant uppercase text-[10px]">BPM</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Metric Details Bento -->
+<div class="grid grid-cols-1 gap-4">
+<div class="flex gap-4">
+<div class="flex-1 border-2 border-primary p-6 bg-surface brutalist-shadow">
+<span class="font-label-caps text-on-surface-variant block mb-4 uppercase text-[10px]">CLARITY SCORE</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-hero text-primary">88</span>
+<span class="text-primary material-symbols-outlined align-middle">arrow_upward</span>
+</div>
+</div>
+<div class="flex-1 border-2 border-primary p-6 bg-surface brutalist-shadow">
+<span class="font-label-caps text-on-surface-variant block mb-4 uppercase text-[10px]">FILLER COUNT</span>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-hero text-primary">02</span>
+<span class="text-primary material-symbols-outlined align-middle">arrow_downward</span>
+</div>
+</div>
+</div>
+<!-- Next Step Card -->
+<div class="border-2 border-primary p-8 bg-primary text-white brutalist-shadow flex justify-between items-center">
+<div>
+<span class="font-label-caps opacity-80 block mb-2 uppercase text-[10px]">NEXT STEP</span>
+<h3 class="font-headline-md leading-tight uppercase">Listen &amp; Deconstruct</h3>
+</div>
+<span class="material-symbols-outlined text-4xl">arrow_forward</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-20 bg-surface border-t-2 border-primary">
+<a class="flex flex-col items-center justify-center bg-primary text-white flex-1" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-caps text-[10px]">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary flex-1 border-l-2 border-primary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">architecture</span>
+<span class="font-label-caps text-[10px]">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary flex-1 border-l-2 border-primary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-caps text-[10px]">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary flex-1 border-l-2 border-primary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">query_stats</span>
+<span class="font-label-caps text-[10px]">STATS</span>
+</a>
+</nav>
+<script>
+    // Simple micro-interaction for the timer ring
+    let offset = 180;
+    const ring = document.querySelector('.timer-ring');
+    if (ring) {
+        setInterval(() => {
+            offset = (offset + 1) % 754;
+            ring.style.strokeDashoffset = offset;
+        }, 100);
+    }
+</script>
+</body></html>

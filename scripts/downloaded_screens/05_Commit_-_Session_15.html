@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#31302e",
+                      "primary": "#5e1700",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#ebe7e4",
+                      "inverse-on-surface": "#f4f0ec",
+                      "tertiary-container": "#93000b",
+                      "inverse-primary": "#ffb59e",
+                      "primary-fixed": "#ffdbd0",
+                      "border-primary": "#7C2D12",
+                      "primary-fixed-dim": "#ffb59e",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffdad6",
+                      "on-surface-variant": "#55423d",
+                      "surface-dim": "#ddd9d6",
+                      "secondary-container": "#d8e3cc",
+                      "on-tertiary-fixed": "#410002",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#ff9b7b",
+                      "surface": "#fdf9f5",
+                      "on-background": "#1c1c19",
+                      "surface-tint": "#9b4427",
+                      "outline-variant": "#dcc1b9",
+                      "surface-container-low": "#f7f3ef",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-container": "#ff998e",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#151e10",
+                      "on-surface": "#1c1c19",
+                      "on-primary-fixed": "#3a0b00",
+                      "primary-container": "#7c2d12",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#dbe6cf",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "success-sage": "#818C78",
+                      "secondary": "#57624f",
+                      "surface-variant": "#e5e2de",
+                      "surface-bright": "#fdf9f5",
+                      "background": "#fdf9f5",
+                      "on-secondary-container": "#5b6653",
+                      "tertiary": "#680005",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "outline": "#89726c",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e5e2de",
+                      "surface-container": "#f1ede9",
+                      "error-warning": "#B91C1C",
+                      "surface-parchment": "#FDF9F5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "hairline": "0.5px",
+                      "border-width": "2px",
+                      "margin-desktop": "40px",
+                      "gutter": "16px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #FDF9F5;
+            color: #1c1c19;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+        .border-heavy {
+            border-width: 2px;
+            border-color: #7C2D12;
+            border-style: solid;
+        }
+        .border-hairline {
+            border-width: 0.5px;
+            border-color: #7C2D12;
+            border-style: solid;
+        }
+        .recording-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .progress-indicator.active {
+            background-color: #5e1700;
+            color: #FDF9F5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface flex flex-col min-h-screen font-body-md text-on-surface pb-20 md:pb-0 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 flex justify-between items-center px-margin-desktop h-16 w-full z-50 bg-surface border-b-border-width-thick border-primary flat no shadows">
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px text-primary">
+<span class="material-symbols-outlined font-headline-md text-headline-md">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary">
+            CLARITY COACH
+        </div>
+<div class="flex items-center cursor-pointer active:translate-y-px hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center p-gutter md:p-margin-desktop w-full max-w-4xl mx-auto gap-8 relative z-10">
+<!-- Progress Strip -->
+<div class="w-full flex justify-between items-center border-heavy bg-surface-parchment rounded p-2 mb-8">
+<div class="flex-1 text-center font-metric-sm text-metric-sm text-on-surface-variant border-r-hairline py-1">01</div>
+<div class="flex-1 text-center font-metric-sm text-metric-sm text-on-surface-variant border-r-hairline py-1">02</div>
+<div class="flex-1 text-center font-metric-sm text-metric-sm text-on-surface-variant border-r-hairline py-1">03</div>
+<div class="flex-1 text-center font-metric-sm text-metric-sm text-on-surface-variant border-r-hairline py-1">04</div>
+<div class="flex-1 text-center font-metric-sm text-metric-sm bg-primary text-surface py-1 px-4">05 COMMIT</div>
+</div>
+<!-- Session Meta -->
+<div class="text-center mb-4">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-2">Session 15</h2>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">Signposting</h1>
+</div>
+<!-- Main Prompt Card -->
+<div class="border-heavy bg-surface-parchment rounded p-8 w-full relative z-20 flex flex-col items-center justify-center min-h-[300px]">
+<p class="font-body-lg text-body-lg text-on-surface text-center max-w-lg mb-12">
+                "Tomorrow I will signal my structure before..."
+            </p>
+<!-- Mic Button Container -->
+<div class="relative flex items-center justify-center mt-8">
+<!-- Decorative Timer Ring -->
+<svg class="absolute w-24 h-24 -rotate-90" viewbox="0 0 100 100">
+<circle class="stroke-surface-variant" cx="50" cy="50" fill="none" r="48" stroke-width="2"></circle>
+<circle class="stroke-primary" cx="50" cy="50" fill="none" r="48" stroke-dasharray="301.59" stroke-dashoffset="150" stroke-width="2"></circle>
+</svg>
+<!-- Pulse Effect (Simulated Recording State via JS toggle) -->
+<div class="absolute w-16 h-16 rounded-full bg-primary-fixed opacity-0 pointer-events-none" id="pulse-ring"></div>
+<button class="w-16 h-16 rounded-full bg-primary border-heavy border-primary text-surface flex items-center justify-center relative z-10 active:scale-95 transition-transform" id="mic-btn">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="mt-4 font-metric-sm text-metric-sm text-on-surface-variant font-mono">
+                00:15 / LIMIT
+            </div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-border-width-thick border-primary flat no shadows">
+<div class="flex flex-col items-center justify-center bg-primary text-surface h-full w-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase">Today</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95 transition-transform">
+<span class="material-symbols-outlined mb-1">architecture</span>
+<span class="font-label-caps text-label-caps uppercase">Journey</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95 transition-transform">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-caps text-label-caps uppercase">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95 transition-transform">
+<span class="material-symbols-outlined mb-1">query_stats</span>
+<span class="font-label-caps text-label-caps uppercase">Stats</span>
+</div>
+</nav>
+<script>
+        document.getElementById('mic-btn').addEventListener('click', function() {
+            const pulse = document.getElementById('pulse-ring');
+            if (pulse.classList.contains('recording-pulse')) {
+                pulse.classList.remove('recording-pulse');
+                pulse.style.opacity = '0';
+                this.classList.remove('bg-error-warning');
+                this.classList.add('bg-primary');
+            } else {
+                pulse.classList.add('recording-pulse');
+                this.classList.add('bg-error-warning');
+                this.classList.remove('bg-primary');
+            }
+        });
+    </script>
+</body></html>

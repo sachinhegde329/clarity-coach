@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Today</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#7c2d12",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "surface": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "inverse-primary": "#ffdbd0",
+                        "on-surface": "#1c1c19",
+                        "outline": "#7c2d12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-page": "40px",
+                        "border-width": "2px",
+                        "border-width-heavy": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["JetBrains Mono", "monospace"],
+                        "label-sm": ["JetBrains Mono", "monospace"],
+                        "data-display": ["JetBrains Mono", "monospace"],
+                        "label-md": ["JetBrains Mono", "monospace"],
+                        "headline-lg": ["JetBrains Mono", "monospace"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["JetBrains Mono", "monospace"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "data-display": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-primary min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shared Component -->
+<header class="flex justify-between items-center w-full px-gutter h-20 border-b-4 border-primary bg-surface sticky top-0 z-40">
+<div class="flex items-center gap-unit cursor-pointer p-2 border-2 border-transparent hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold uppercase tracking-tighter text-primary m-0 p-0 leading-none">CLARITY COACH</h1>
+</div>
+<button class="w-12 h-12 flex items-center justify-center border-2 border-primary bg-surface shadow-[4px_4px_0px_0px_#7c2d12] hover:bg-primary hover:text-on-primary hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col px-gutter py-margin-page gap-8 pb-32 max-w-3xl mx-auto w-full">
+<!-- Greeting -->
+<section>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-primary">Good morning, Sahana.</h2>
+</section>
+<!-- Sprint Progress -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Sprint Progress</span>
+<span class="font-data-display text-data-display text-primary">2/6</span>
+</div>
+<div class="flex gap-2 w-full h-4">
+<div class="flex-1 bg-primary border-2 border-primary"></div>
+<div class="flex-1 bg-primary border-2 border-primary"></div>
+<div class="flex-1 bg-surface border-2 border-primary relative overflow-hidden">
+<!-- Hatch pattern for current active using #7c2d12 -->
+<div class="absolute inset-0 opacity-50" style="background-image: repeating-linear-gradient(45deg, #7c2d12 25%, transparent 25%, transparent 75%, #7c2d12 75%, #7c2d12), repeating-linear-gradient(45deg, #7c2d12 25%, transparent 25%, transparent 75%, #7c2d12 75%, #7c2d12); background-position: 0 0, 4px 4px; background-size: 8px 8px;"></div>
+</div>
+<div class="flex-1 bg-surface border-2 border-primary"></div>
+<div class="flex-1 bg-surface border-2 border-primary"></div>
+<div class="flex-1 bg-surface border-2 border-primary"></div>
+</div>
+</section>
+<!-- Today's Session Card -->
+<section class="bg-surface border-2 border-primary shadow-[8px_8px_0px_0px_#7c2d12] flex flex-col mt-4 relative">
+<!-- Pin accent -->
+<div class="absolute -top-3 -right-3 w-6 h-6 bg-primary"></div>
+<div class="p-6 border-b-4 border-primary bg-primary text-on-primary">
+<div class="font-label-sm text-label-sm uppercase tracking-widest mb-2 text-inverse-primary opacity-80">Sprint 3 - Lead</div>
+<h3 class="font-headline-xl text-headline-xl uppercase tracking-tighter m-0 leading-none">Downward<br/>Inflection</h3>
+</div>
+<div class="flex flex-col p-6 gap-0">
+<div class="font-label-sm text-label-sm uppercase tracking-widest mb-4 border-b-2 border-primary pb-2">Session Protocol</div>
+<!-- Steps List -->
+<ul class="flex flex-col m-0 p-0 list-none">
+<li class="flex items-center justify-between py-3 border-b-2 border-primary last:border-b-0 group hover:bg-primary hover:text-on-primary transition-colors px-2 -mx-2 cursor-crosshair">
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md w-6">01</span>
+<span class="font-data-display text-data-display uppercase">Centre</span>
+</div>
+<span class="font-data-display text-data-display bg-surface border-2 border-primary px-2 text-primary group-hover:text-primary group-hover:bg-on-primary">1m</span>
+</li>
+<li class="flex items-center justify-between py-3 border-b-2 border-primary last:border-b-0 group hover:bg-primary hover:text-on-primary transition-colors px-2 -mx-2 cursor-crosshair">
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md w-6">02</span>
+<span class="font-data-display text-data-display uppercase">Listen</span>
+</div>
+<span class="font-data-display text-data-display bg-surface border-2 border-primary px-2 text-primary group-hover:text-primary group-hover:bg-on-primary">3m</span>
+</li>
+<li class="flex items-center justify-between py-3 border-b-2 border-primary last:border-b-0 group hover:bg-primary hover:text-on-primary transition-colors px-2 -mx-2 cursor-crosshair">
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md w-6">03</span>
+<span class="font-data-display text-data-display uppercase">Do</span>
+</div>
+<span class="font-data-display text-data-display bg-surface border-2 border-primary px-2 text-primary group-hover:text-primary group-hover:bg-on-primary">5m</span>
+</li>
+<li class="flex items-center justify-between py-3 border-b-2 border-primary last:border-b-0 group hover:bg-primary hover:text-on-primary transition-colors px-2 -mx-2 cursor-crosshair">
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md w-6">04</span>
+<span class="font-data-display text-data-display uppercase">See</span>
+</div>
+<span class="font-data-display text-data-display bg-surface border-2 border-primary px-2 text-primary group-hover:text-primary group-hover:bg-on-primary">2m</span>
+</li>
+<li class="flex items-center justify-between py-3 border-b-2 border-primary last:border-b-0 group hover:bg-primary hover:text-on-primary transition-colors px-2 -mx-2 cursor-crosshair">
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md w-6">05</span>
+<span class="font-data-display text-data-display uppercase">Commit</span>
+</div>
+<span class="font-data-display text-data-display bg-surface border-2 border-primary px-2 text-primary group-hover:text-primary group-hover:bg-on-primary">1m</span>
+</li>
+</ul>
+</div>
+<!-- Primary Action -->
+<div class="p-6 pt-0 mt-4">
+<button class="w-full bg-surface border-4 border-primary py-4 px-8 font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter text-center shadow-[6px_6px_0px_0px_#7c2d12] hover:bg-primary hover:text-on-primary active:shadow-none active:translate-x-[6px] active:translate-y-[6px] transition-all flex items-center justify-center gap-4">
+                BEGIN
+                <span class="material-symbols-outlined text-[32px]">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shared Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-stretch h-24 border-t-4 border-primary bg-surface shadow-[0_-8px_24px_rgba(124,45,18,0.1)]">
+<!-- Active Tab: TODAY -->
+<a class="bg-primary text-on-primary flex flex-col items-center justify-center w-full h-full border-r-2 border-primary last:border-r-0 transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="target">target</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest font-bold">TODAY</span>
+</a>
+<!-- Inactive Tab: JOURNEY -->
+<a class="text-primary flex flex-col items-center justify-center w-full h-full border-r-2 border-primary last:border-r-0 hover:bg-inverse-primary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="timeline">timeline</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">JOURNEY</span>
+</a>
+<!-- Inactive Tab: LIBRARY -->
+<a class="text-primary flex flex-col items-center justify-center w-full h-full border-r-2 border-primary last:border-r-0 hover:bg-inverse-primary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">LIBRARY</span>
+</a>
+<!-- Inactive Tab: STATS -->
+<a class="text-primary flex flex-col items-center justify-center w-full h-full border-r-2 border-primary last:border-r-0 hover:bg-inverse-primary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">STATS</span>
+</a>
+</nav>
+</body></html>

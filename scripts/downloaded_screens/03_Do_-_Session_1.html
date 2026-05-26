@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mic-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .timer-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .brutal-border {
+            border: 2px solid #5e1700;
+        }
+        .hard-shadow-active {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#f4f0ec",
+                      "on-primary-fixed": "#3a0b00",
+                      "secondary": "#655d52",
+                      "secondary-container": "#ede1d2",
+                      "primary-fixed": "#ffdbd0",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#e5e2de",
+                      "on-secondary-fixed-variant": "#4d463b",
+                      "on-tertiary-fixed-variant": "#004b71",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#9b4427",
+                      "surface": "#fdf9f5",
+                      "tertiary": "#00334f",
+                      "primary-container": "#7c2d12",
+                      "on-surface-variant": "#55423d",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#31302e",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#cbe6ff",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "on-background": "#1c1c19",
+                      "surface-container-high": "#ebe7e4",
+                      "on-primary-container": "#ff9b7b",
+                      "primary": "#5e1700",
+                      "tertiary-container": "#004b71",
+                      "on-tertiary-container": "#85bbe6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#6b6357",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#fdf9f5",
+                      "secondary-fixed-dim": "#d0c5b7",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#1c1c19",
+                      "surface-container-low": "#f7f3ef",
+                      "on-tertiary-fixed": "#001e30",
+                      "inverse-primary": "#ffb59e",
+                      "secondary-fixed": "#ede1d2",
+                      "tertiary-fixed-dim": "#97ccf9",
+                      "surface-container-highest": "#e5e2de",
+                      "outline": "#89726c",
+                      "surface-dim": "#ddd9d6",
+                      "on-secondary-fixed": "#201b12",
+                      "surface-container": "#f1ede9",
+                      "background": "#fdf9f5",
+                      "primary-fixed-dim": "#ffb59e",
+                      "outline-variant": "#dcc1b9",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "sm": "16px",
+                      "md": "24px",
+                      "xl": "80px",
+                      "lg": "48px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Bricolage Grotesque"],
+                      "body-md": ["Space Grotesk"],
+                      "label-md": ["Space Mono"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "body-lg": ["Space Grotesk"],
+                      "label-sm": ["Space Mono"],
+                      "headline-lg-mobile": ["Bricolage Grotesque"],
+                      "headline-md": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                      "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md overflow-hidden">
+<!-- Header / TopAppBar -->
+<header class="flex justify-between items-center w-full px-gutter h-20 border-b-2 border-primary bg-surface z-50">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="graphic_eq">graphic_eq</span>
+<span class="text-headline-md font-extrabold uppercase tracking-tighter text-primary">CLARITY COACH</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary uppercase">SESSION 03/05</span>
+<span class="timer-mono text-headline-md font-bold text-primary">1:38</span>
+</div>
+<button class="brutal-border p-xs hover:bg-primary-fixed transition-colors active:translate-x-0.5 active:translate-y-0.5">
+<span class="material-symbols-outlined text-primary" data-icon="close">close</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-between py-lg px-gutter relative">
+<!-- Constraint/Prompt Card -->
+<div class="w-full max-w-md brutal-border bg-surface-container-low p-md relative z-10">
+<div class="flex flex-col gap-sm">
+<div>
+<span class="bg-primary text-on-primary px-xs py-0.5 font-label-sm text-[10px] uppercase tracking-wider">PHASE: BASELINE</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary leading-tight">
+                    Tell me about something you did last weekend.
+                </h1>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                    Speak naturally. We are measuring your natural cadence and clarity without any cognitive constraints.
+                </p>
+</div>
+</div>
+<!-- Timer & Recording Area -->
+<div class="flex-1 flex flex-col items-center justify-center gap-lg w-full relative z-10">
+<!-- Background Decorative Number (Standardized) -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center -z-10">
+<span class="text-[18rem] font-black leading-none select-none">03</span>
+</div>
+<!-- 90s Countdown -->
+<div class="flex flex-col items-center">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-xs">REMAINING</span>
+<div class="timer-mono text-display-lg text-primary tabular-nums" id="countdown">01:30</div>
+</div>
+<!-- Central Mic Button Pattern -->
+<div class="relative flex items-center justify-center">
+<!-- Pulse Rings -->
+<div class="absolute w-44 h-44 rounded-full border border-primary/20 mic-pulse"></div>
+<div class="absolute w-52 h-52 rounded-full border border-primary/10 mic-pulse" style="animation-delay: 0.5s;"></div>
+<!-- Inner Decorative Ring -->
+<div class="absolute w-36 h-36 rounded-full border-2 border-primary/40"></div>
+<!-- Main Button -->
+<button class="w-28 h-28 rounded-full bg-primary flex items-center justify-center border-4 border-primary transition-all duration-300 active:scale-95 group hover:hard-shadow-active" id="recordButton">
+<span class="material-symbols-outlined text-on-primary text-5xl transition-transform group-hover:scale-110" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Recording State Label -->
+<div class="text-center">
+<p class="font-label-md text-label-md text-primary font-bold uppercase tracking-widest animate-pulse flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                    Recording In Progress
+                </p>
+</div>
+</div>
+<!-- Waveform Simulation (Consistent with Design) -->
+<div class="w-full max-w-[200px] h-12 flex items-center justify-center gap-1.5 mb-sm">
+<div class="w-1.5 bg-primary animate-[bounce_1.2s_infinite]" style="height: 40%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1s_infinite]" style="height: 70%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1.5s_infinite]" style="height: 30%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_0.8s_infinite]" style="height: 90%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1.1s_infinite]" style="height: 50%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1.3s_infinite]" style="height: 80%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1s_infinite]" style="height: 40%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1.6s_infinite]" style="height: 60%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_0.9s_infinite]" style="height: 100%;"></div>
+<div class="w-1.5 bg-primary animate-[bounce_1.4s_infinite]" style="height: 30%;"></div>
+</div>
+</main>
+<!-- Interactive Layer -->
+<script>
+        let timeLeft = 90;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                return;
+            }
+            timeLeft--;
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            countdownEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            
+            if (timeLeft < 10) {
+                countdownEl.classList.remove('text-primary');
+                countdownEl.classList.add('text-error');
+            }
+        }, 1000);
+
+        const btn = document.getElementById('recordButton');
+        btn.addEventListener('mousedown', () => {
+            btn.style.transform = 'scale(0.95)';
+        });
+        btn.addEventListener('mouseup', () => {
+            btn.style.transform = 'scale(1)';
+        });
+    </script>
+</body></html>

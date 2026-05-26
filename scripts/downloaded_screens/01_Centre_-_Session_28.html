@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hypothesis-Driven - Step 1: Centre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#410002",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-container": "#f1ede9",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "background": "#fdf9f5",
+                        "on-tertiary-container": "#ff998e",
+                        "on-secondary-container": "#5b6653",
+                        "error-warning": "#B91C1C",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-surface": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "tertiary": "#680005",
+                        "on-surface-variant": "#55423d",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#31302e",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-parchment": "#FDF9F5",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "border-primary": "#7C2D12",
+                        "surface-tint": "#9b4427",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-container-highest": "#e5e2de",
+                        "outline": "#89726c",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-fixed": "#151e10",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#7c2d12",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-container-high": "#ebe7e4",
+                        "on-background": "#1c1c19",
+                        "secondary-container": "#d8e3cc",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "primary-fixed": "#ffdbd0",
+                        "surface": "#fdf9f5",
+                        "success-sage": "#818C78"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pulse-ring {
+            animation: pulse-animation 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-animation {
+            0%, 100% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.4; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface dark:bg-surface border-b-2 border-primary dark:border-primary-container">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors group">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim group-active:translate-y-0.5 transition-transform" data-icon="grid_view">grid_view</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">01 / 05</h1>
+</div>
+<div class="flex items-center">
+<span class="font-metric-sm text-metric-sm text-primary dark:text-primary-fixed-dim font-bold bg-surface-container-low px-3 py-1 rounded-sm border-hairline border-outline-variant">12:45</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 flex flex-col items-center justify-center p-gutter md:p-margin-desktop w-full max-w-4xl mx-auto">
+<!-- Structural Card (Warm Brutalist) -->
+<article class="w-full flex flex-col items-center border-border-width border-border-primary rounded-lg bg-surface-parchment p-8 md:p-12 shadow-[4px_4px_0px_0px_#7C2D12] relative overflow-hidden">
+<!-- Step Indicator -->
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="w-12 h-2 bg-primary rounded-sm"></div>
+<div class="w-12 h-2 bg-surface-dim rounded-sm border-hairline border-outline-variant"></div>
+<div class="w-12 h-2 bg-surface-dim rounded-sm border-hairline border-outline-variant"></div>
+<div class="w-12 h-2 bg-surface-dim rounded-sm border-hairline border-outline-variant"></div>
+<div class="w-12 h-2 bg-surface-dim rounded-sm border-hairline border-outline-variant"></div>
+</div>
+<div class="absolute top-4 right-4">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Session 28</span>
+</div>
+<div class="mt-8 mb-12 flex flex-col items-center text-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Step 1: Centre</h2>
+<h3 class="font-display-lg text-display-lg text-on-surface mb-6">Hypothesis-Driven</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg border-l-border-width border-primary pl-4 py-1 text-left">
+                    State a hypothesis in 10 seconds, support it for 50.
+                </p>
+</div>
+<!-- Central Breathing Graphic -->
+<div class="relative w-64 h-64 flex items-center justify-center mb-8">
+<!-- Outer Pulse Rings -->
+<div class="absolute inset-0 border-border-width border-primary/20 rounded-full pulse-ring" style="animation-delay: 0s;"></div>
+<div class="absolute inset-4 border-border-width border-primary/40 rounded-full pulse-ring" style="animation-delay: -1s;"></div>
+<div class="absolute inset-8 border-border-width border-primary/60 rounded-full pulse-ring" style="animation-delay: -2s;"></div>
+<!-- Inner Core -->
+<div class="relative w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-[inset_0_4px_10px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined text-on-primary text-5xl" data-icon="self_improvement" data-weight="fill" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-auto pt-8 border-t-hairline border-outline-variant w-full flex justify-center">
+<button class="bg-primary text-on-primary border-border-width border-primary rounded-lg px-8 py-4 font-headline-md text-headline-md hover:bg-surface-tint active:translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[2px_2px_0px_0px_#410002]">
+                    Begin Session
+                </button>
+</div>
+</article>
+</main>
+<script>
+        // Simple breathing rhythm instruction update
+        document.addEventListener('DOMContentLoaded', () => {
+            const phaseText = document.createElement('div');
+            phaseText.className = 'font-label-caps text-label-caps text-primary mt-4 absolute bottom-4 text-center w-full transition-opacity duration-1000';
+            document.querySelector('.w-64.h-64').appendChild(phaseText);
+
+            const phases = ['Inhale...', 'Hold...', 'Exhale...'];
+            let currentPhase = 0;
+
+            setInterval(() => {
+                phaseText.style.opacity = 0;
+                setTimeout(() => {
+                    phaseText.textContent = phases[currentPhase];
+                    phaseText.style.opacity = 1;
+                    currentPhase = (currentPhase + 1) % phases.length;
+                }, 500); // Wait for fade out
+            }, 4000); // 4 seconds per phase matching CSS animation
+            
+            // Initial setting
+            phaseText.textContent = phases[0];
+            phaseText.style.opacity = 1;
+        });
+    </script>
+</body></html>

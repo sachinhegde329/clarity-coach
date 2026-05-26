@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Public+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#1c1c19",
+                      "inverse-surface": "#31302e",
+                      "outline-variant": "#dcc1b9",
+                      "surface-container": "#f1ede9",
+                      "tertiary": "#680005",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#f7f3ef",
+                      "surface-variant": "#e5e2de",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#9b4427",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "primary": "#5e1700",
+                      "surface-bright": "#fdf9f5",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-fixed": "#3a0b00",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "surface-container-high": "#ebe7e4",
+                      "inverse-primary": "#ffb59e",
+                      "surface": "#fdf9f5",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "surface-parchment": "#FDF9F5",
+                      "primary-fixed-dim": "#ffb59e",
+                      "tertiary-fixed": "#ffdad6",
+                      "background": "#fdf9f5",
+                      "on-secondary-fixed": "#151e10",
+                      "secondary-fixed-dim": "#bfcab4",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#410002",
+                      "on-secondary": "#ffffff",
+                      "success-sage": "#818C78",
+                      "primary-container": "#7c2d12",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#ff9b7b",
+                      "primary-fixed": "#ffdbd0",
+                      "secondary-container": "#d8e3cc",
+                      "on-tertiary-container": "#ff998e",
+                      "on-secondary-container": "#5b6653",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#dbe6cf",
+                      "inverse-on-surface": "#f4f0ec",
+                      "border-primary": "#7C2D12",
+                      "error-warning": "#B91C1C",
+                      "outline": "#89726c",
+                      "on-surface": "#1c1c19",
+                      "on-surface-variant": "#55423d",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e5e2de",
+                      "tertiary-container": "#93000b",
+                      "surface-dim": "#ddd9d6",
+                      "secondary": "#57624f",
+                      "brutalist-border": "#7C2D12"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "40px",
+                      "hairline": "0.5px",
+                      "gutter": "16px",
+                      "border-width": "2px",
+                      "border-width-thick": "2px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "metric-sm": ["JetBrains Mono"],
+                      "body-lg": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "headline-lg": ["Bricolage Grotesque"],
+                      "metric-hero": ["JetBrains Mono"],
+                      "label-caps": ["Bricolage Grotesque"],
+                      "display-lg": ["Bricolage Grotesque"],
+                      "headline-md": ["Bricolage Grotesque"],
+                      "data-lg": ["JetBrains Mono"],
+                      "data-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #7C2D12;
+        }
+        .dot-grid {
+            background-image: radial-gradient(#7C2D12 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #FDF9F5;
+        }
+        .recording-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col font-body-md overflow-x-hidden">
+<!-- Header: Standard Centered Wordmark + Avatar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b-2 border-brutalist-border flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer">menu</span>
+</div>
+<h1 class="font-headline-md text-primary tracking-tighter uppercase font-bold text-center flex-grow">CLARITY COACH</h1>
+<div class="h-10 w-10 border-2 border-primary overflow-hidden rounded-sm shrink-0">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOThgU4V-DY_xlSODzYeAqbyGBQ2MfM3BICKlYQ9sUDqzerbJ9JKQ-vH4BMRB_uQr4Jals_CiYp8y9SPxVCvbt1l-OPeKess-85MOXCvyiZ0EsSu6USyIvKl_Ir3M3cqr25i1qXnaiONNSClN7zSLTT7RizeMBSUXmti42qdBrjVKK40Jr3_cBeOchLVpGxGC5iwXu52DyC3vyl5pVH9YEvv4loj-uOCYQs7U4sImUHcdzAGmT_Fz0oqr964tbsi0PYbi4c-ZRNSgK"/>
+</div>
+</header>
+<main class="flex-grow px-margin pt-8 pb-32 max-w-2xl mx-auto w-full flex flex-col">
+<!-- Navigation: Standard Horizontal Segment Bar -->
+<div class="w-full flex gap-2 mb-10 h-3">
+<div class="flex-1 bg-primary-fixed border border-primary opacity-30"></div>
+<div class="flex-1 bg-primary-fixed border border-primary opacity-30"></div>
+<div class="flex-1 bg-primary-fixed border border-primary opacity-30"></div>
+<div class="flex-1 bg-primary-fixed border border-primary opacity-30"></div>
+<div class="flex-1 bg-primary border-2 border-primary relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 font-label-caps text-[10px] text-primary whitespace-nowrap">COMMIT</span>
+</div>
+</div>
+<!-- Session Breadcrumb -->
+<div class="w-full text-center mb-10">
+<p class="font-metric-sm text-on-surface-variant uppercase tracking-widest mb-2">Session 13: The Executive Summary</p>
+<h2 class="font-headline-lg text-primary uppercase">Final Reflection</h2>
+</div>
+<!-- Prompt Card: Brutalist Style with Dot Grid -->
+<div class="w-full bg-surface-parchment border-2 border-brutalist-border p-8 mb-12 relative overflow-hidden hard-shadow">
+<div class="absolute inset-0 dot-grid opacity-[0.05] pointer-events-none"></div>
+<div class="relative z-10">
+<span class="font-label-caps text-[10px] text-on-surface-variant block mb-6 uppercase">THE PROMPT</span>
+<p class="font-headline-md text-on-surface leading-tight">
+                "Tomorrow I will lead with my conclusion when..."
+            </p>
+</div>
+</div>
+<!-- Timer & Mic UI -->
+<div class="flex-grow flex flex-col items-center justify-center gap-12 mb-8">
+<!-- Timer: JetBrains Mono -->
+<div class="text-center">
+<div class="font-metric-hero text-[56px] text-primary tracking-tighter" id="timer-display">15.00</div>
+<p class="font-metric-sm text-on-surface-variant tracking-wider mt-1 uppercase">Seconds Remaining</p>
+</div>
+<!-- Mic Button: 64pt Recording UI -->
+<div class="relative flex items-center justify-center">
+<div class="absolute inset-0 hidden" id="recording-pulse">
+<div class="absolute inset-0 rounded-full border-2 border-primary recording-pulse"></div>
+<div class="absolute inset-0 rounded-full border-2 border-primary recording-pulse" style="animation-delay: 0.5s"></div>
+</div>
+<button class="w-24 h-24 rounded-full bg-primary border-4 border-primary text-surface flex items-center justify-center transition-all active:scale-95 z-20 brutalist-shadow" id="mic-btn">
+<span class="material-symbols-outlined text-4xl" id="mic-icon" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<!-- Progress Circle -->
+<svg class="absolute w-32 h-32 -rotate-90 pointer-events-none z-10">
+<circle cx="64" cy="64" fill="transparent" r="60" stroke="#ffdbd0" stroke-width="2"></circle>
+<circle cx="64" cy="64" fill="transparent" id="timer-ring" r="60" stroke="#5e1700" stroke-dasharray="377" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+</div>
+<p class="font-label-caps text-primary uppercase tracking-widest" id="status-label">Tap to start recording</p>
+</div>
+<!-- Instruction Footer -->
+<div class="w-full text-center border-t-2 border-primary/10 pt-8">
+<p class="font-body-md text-on-surface-variant max-w-sm mx-auto">
+            State your commitment clearly. This will be stored as your primary goal for tomorrow's performance review.
+        </p>
+</div>
+</main>
+<!-- Footer: Standard Bottom Nav Destinations -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-surface border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">today</span>
+<span class="font-label-caps text-[10px] mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-label-caps text-[10px] mt-1">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-[10px] mt-1">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary bg-primary h-full flex-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-label-caps text-[10px] mt-1">STATS</span>
+</a>
+</nav>
+<script>
+    const micBtn = document.getElementById('mic-btn');
+    const micIcon = document.getElementById('mic-icon');
+    const timerDisplay = document.getElementById('timer-display');
+    const timerRing = document.getElementById('timer-ring');
+    const statusLabel = document.getElementById('status-label');
+    const pulseEffect = document.getElementById('recording-pulse');
+
+    let isRecording = false;
+    let timeLeft = 15.00;
+    let timerInterval;
+    const totalDuration = 15.00;
+    const dashArray = 377;
+
+    micBtn.addEventListener('click', () => {
+        if (!isRecording) {
+            startRecording();
+        } else {
+            stopRecording();
+        }
+    });
+
+    function startRecording() {
+        isRecording = true;
+        micBtn.classList.add('bg-error', 'border-error');
+        micIcon.innerText = 'stop';
+        statusLabel.innerText = 'RECORDING...';
+        statusLabel.classList.add('text-error', 'animate-pulse');
+        pulseEffect.classList.remove('hidden');
+
+        timerInterval = setInterval(() => {
+            timeLeft -= 0.01;
+            if (timeLeft <= 0) {
+                timeLeft = 0;
+                stopRecording();
+            }
+            timerDisplay.innerText = timeLeft.toFixed(2);
+            const offset = dashArray - (timeLeft / totalDuration) * dashArray;
+            timerRing.style.strokeDashoffset = offset;
+        }, 10);
+    }
+
+    function stopRecording() {
+        isRecording = false;
+        clearInterval(timerInterval);
+        micBtn.classList.remove('bg-error', 'border-error');
+        micBtn.classList.add('bg-success-sage', 'border-success-sage');
+        micIcon.innerText = 'check';
+        statusLabel.innerText = 'COMMITMENT SAVED';
+        statusLabel.classList.remove('text-error', 'animate-pulse');
+        statusLabel.classList.add('text-success-sage');
+        pulseEffect.classList.add('hidden');
+        
+        setTimeout(() => {
+            alert('Reflection Complete. Your commitment is set for tomorrow.');
+        }, 500);
+    }
+</script>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "background": "#fdf9f5",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ede1d2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary": "#655d52",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9d6",
+                    "on-secondary-container": "#6b6357",
+                    "on-tertiary-fixed": "#001e30",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#004b71",
+                    "surface-container-highest": "#e5e2de",
+                    "surface": "#fdf9f5",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container": "#f1ede9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .active-recording {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .grid-bg {
+            background-image: linear-gradient(#5e170011 1px, transparent 1px), linear-gradient(90deg, #5e170011 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background dark:bg-background border-b-2 border-primary dark:border-primary-fixed-dim flex justify-between items-center w-full px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tighter uppercase">CLARITY COACH</h1>
+</div>
+<div class="font-headline-md text-headline-md uppercase tracking-tight text-primary dark:text-primary-fixed-dim">
+            01/05
+        </div>
+</header>
+<main class="flex-grow container mx-auto px-gutter py-lg max-w-4xl grid-bg">
+<!-- Progress Indicator -->
+<div class="mb-lg">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-label-md text-label-md text-primary uppercase">Session 7: Cutting Fillers</span>
+<span class="font-label-sm text-label-sm text-outline">STEP 05 OF 05</span>
+</div>
+<div class="h-4 w-full bg-surface-container border-2 border-primary overflow-hidden">
+<div class="h-full bg-primary w-full transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Hero Content / Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Prompt Display -->
+<div class="md:col-span-8 bg-surface-container-low border-2 border-primary p-md hard-shadow relative">
+<span class="absolute top-0 right-0 bg-primary text-background px-xs py-1 font-label-sm text-label-sm">COMMITMENT PROMPT</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-md leading-none">
+                    "Tomorrow I will catch one filler before..."
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Complete this sentence out loud. State a specific situation where you usually struggle with filler words—like a morning stand-up or a client call.
+                </p>
+</div>
+<!-- Visualization/Context Card -->
+<div class="md:col-span-4 bg-secondary-container border-2 border-primary p-md flex flex-col justify-between">
+<div class="font-label-md text-label-md text-primary uppercase mb-sm">Why this matters</div>
+<p class="font-body-md text-body-md text-on-secondary-container italic">
+                    "Verbal commitment anchors the brain's correction mechanism 40% faster than internal thought."
+                </p>
+<div class="mt-md border-t-2 border-primary pt-xs">
+<span class="font-label-sm text-label-sm uppercase opacity-70">Speaker Science Vol. 04</span>
+</div>
+</div>
+<!-- Recording Interaction -->
+<div class="md:col-span-12 bg-background border-2 border-primary p-lg flex flex-col items-center justify-center text-center relative overflow-hidden">
+<!-- Decorative Abstract Element -->
+<div class="absolute -bottom-10 -left-10 w-40 h-40 border-2 border-primary opacity-10 rotate-12"></div>
+<div class="font-display-lg text-display-lg text-primary mb-md tabular-nums" id="recording-timer">15:00</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-lg max-w-sm">
+                    Hold the button and speak your commitment. Be clear, be bold.
+                </p>
+<!-- Mic Button -->
+<button class="w-32 h-32 bg-primary text-background flex items-center justify-center transition-all duration-200 active:translate-y-1 hard-shadow hard-shadow-hover" id="mic-trigger">
+<span class="material-symbols-outlined !text-6xl" id="mic-icon">mic</span>
+</button>
+<div class="mt-lg flex gap-sm">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 bg-error rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Ready to capture</span>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="md:col-span-12 flex justify-end items-center py-md">
+<button class="bg-surface-container-highest border-2 border-primary px-lg py-sm font-label-md text-label-md uppercase text-primary hover:bg-primary hover:text-background transition-colors flex items-center gap-xs">
+                    Finish Session
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background dark:bg-background border-t-2 border-primary dark:border-primary-fixed-dim z-50">
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-container bg-primary-container dark:bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container dark:hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container dark:hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container dark:hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<!-- Spacing for BottomNav -->
+<div class="h-24"></div>
+<script>
+        const micBtn = document.getElementById('mic-trigger');
+        const micIcon = document.getElementById('mic-icon');
+        const timerDisplay = document.getElementById('recording-timer');
+        let isRecording = false;
+        let timerInterval;
+        let timeLeft = 1500; // 15.00 seconds
+
+        function updateTimer() {
+            if (timeLeft <= 0) {
+                stopRecording();
+                return;
+            }
+            timeLeft -= 10;
+            const seconds = (timeLeft / 100).toFixed(2);
+            timerDisplay.textContent = seconds.replace('.', ':');
+        }
+
+        function startRecording() {
+            isRecording = true;
+            micIcon.textContent = 'fiber_manual_record';
+            micBtn.classList.add('active-recording');
+            micBtn.classList.add('bg-error');
+            micBtn.classList.remove('bg-primary');
+            timerInterval = setInterval(updateTimer, 100);
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            clearInterval(timerInterval);
+            micIcon.textContent = 'check_circle';
+            micBtn.classList.remove('active-recording');
+            micBtn.classList.remove('bg-error');
+            micBtn.classList.add('bg-on-tertiary-container');
+            timerDisplay.textContent = 'SAVED';
+            timerDisplay.classList.add('text-on-tertiary-container');
+            
+            setTimeout(() => {
+                // Flash success state
+                micBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => micBtn.style.transform = '', 200);
+            }, 100);
+        }
+
+        micBtn.addEventListener('mousedown', startRecording);
+        micBtn.addEventListener('mouseup', stopRecording);
+        micBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            startRecording();
+        });
+        micBtn.addEventListener('touchend', stopRecording);
+    </script>
+</body></html>

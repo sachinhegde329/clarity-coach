@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Pressure Replay - Step 4</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-parchment": "#FDF9F5",
+                        "primary": "#5e1700",
+                        "inverse-surface": "#31302e",
+                        "error-warning": "#B91C1C",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "surface-container-high": "#ebe7e4",
+                        "tertiary-container": "#93000b",
+                        "error": "#ba1a1a",
+                        "surface": "#fdf9f5",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "background": "#fdf9f5",
+                        "surface-bright": "#fdf9f5",
+                        "on-surface-variant": "#55423d",
+                        "on-tertiary-fixed": "#410002",
+                        "tertiary": "#680005",
+                        "surface-dim": "#ddd9d6",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "outline-variant": "#dcc1b9",
+                        "inverse-primary": "#ffb59e",
+                        "surface-container-highest": "#e5e2de",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "primary-fixed": "#ffdbd0",
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-container": "#f1ede9",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary-fixed": "#ffdad6",
+                        "outline": "#89726c",
+                        "success-sage": "#818C78",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface-tint": "#9b4427",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#d8e3cc",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "secondary": "#57624f",
+                        "on-tertiary-container": "#ff998e",
+                        "border-primary": "#7C2D12",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "hairline": "0.5px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono", "monospace"],
+                        "body-lg": ["Bricolage Grotesque", "sans-serif"],
+                        "body-md": ["Bricolage Grotesque", "sans-serif"],
+                        "label-caps": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["Bricolage Grotesque", "sans-serif"],
+                        "headline-lg": ["Bricolage Grotesque", "sans-serif"],
+                        "metric-hero": ["JetBrains Mono", "monospace"],
+                        "display-lg": ["Bricolage Grotesque", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .brutalist-card {
+                @apply bg-surface-parchment border-border-width border-primary rounded-lg;
+            }
+            .brutalist-inner {
+                @apply border-hairline border-outline;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background border-b-2 border-primary flex justify-between items-center px-6 py-4 shadow-none">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div>
+<div class="w-10 h-10 rounded-full border-border-width border-primary overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-grow container mx-auto px-gutter md:px-margin-desktop py-8 md:py-12 pb-24 md:pb-12 max-w-7xl flex flex-col gap-8">
+<!-- Session Header & Progress -->
+<section class="flex flex-col gap-6">
+<div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 border-b-[0.5px] border-outline pb-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Session 24</span>
+<h2 class="font-display-lg text-display-lg text-primary uppercase">Pressure Replay</h2>
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Step 4: See</h3>
+</div>
+<!-- Progress Strip (5 Steps) -->
+<div class="flex items-center gap-2 md:pb-2">
+<span class="font-metric-sm text-metric-sm text-primary pr-2">04 / 05</span>
+<div class="flex gap-1 h-3">
+<div class="w-8 border-border-width border-primary bg-primary rounded-sm"></div>
+<div class="w-8 border-border-width border-primary bg-primary rounded-sm"></div>
+<div class="w-8 border-border-width border-primary bg-primary rounded-sm"></div>
+<div class="w-12 border-border-width border-primary bg-surface-parchment rounded-sm relative overflow-hidden">
+<!-- Active Step Indicator -->
+<div class="absolute inset-y-0 left-0 bg-primary w-1/2"></div>
+</div>
+<div class="w-8 border-border-width border-primary bg-transparent rounded-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sprint Analysis Title -->
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="monitoring">monitoring</span>
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase border-l-border-width border-primary pl-4">Sprint 4 Trend Analysis</h3>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:gap-6">
+<!-- Hero Metrics Panel (Spans Full Width on Mobile, 12 Cols on Desktop) -->
+<div class="col-span-1 md:col-span-12 brutalist-card p-6 md:p-8 flex flex-col gap-6 relative overflow-hidden">
+<!-- Decorative structural corner -->
+<div class="absolute top-0 right-0 w-8 h-8 border-b-border-width border-l-border-width border-primary bg-surface-container"></div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Performance Deltas</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-outline border-hairline border-outline p-4 md:p-6 bg-surface-bright rounded-lg">
+<!-- Metric 1 -->
+<div class="flex flex-col gap-2 pt-4 md:pt-0 pl-0 md:pl-4 first:pt-0 first:pl-0">
+<span class="font-body-md text-body-md text-on-surface-variant">Recovery Delta</span>
+<div class="flex items-baseline gap-2">
+<span class="material-symbols-outlined text-success-sage text-2xl font-bold" data-icon="arrow_downward" style="font-variation-settings: 'wght' 700;">arrow_downward</span>
+<span class="font-metric-hero text-metric-hero text-success-sage">-1.2s</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="flex flex-col gap-2 pt-4 md:pt-0 pl-0 md:pl-8">
+<span class="font-body-md text-body-md text-on-surface-variant">Composure Delta</span>
+<div class="flex items-baseline gap-2">
+<span class="material-symbols-outlined text-success-sage text-2xl font-bold" data-icon="arrow_upward" style="font-variation-settings: 'wght' 700;">arrow_upward</span>
+<span class="font-metric-hero text-metric-hero text-success-sage">+14%</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="flex flex-col gap-2 pt-4 md:pt-0 pl-0 md:pl-8">
+<span class="font-body-md text-body-md text-on-surface-variant">Structural Delta</span>
+<div class="flex items-baseline gap-2">
+<span class="material-symbols-outlined text-success-sage text-2xl font-bold" data-icon="arrow_upward" style="font-variation-settings: 'wght' 700;">arrow_upward</span>
+<span class="font-metric-hero text-metric-hero text-success-sage">+8%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chart Area (Left Col, 8 Cols on Desktop) -->
+<div class="col-span-1 md:col-span-8 brutalist-card p-6 flex flex-col gap-6">
+<div class="flex justify-between items-center border-b-[0.5px] border-outline pb-2">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Recovery Time (Sessions 19-23)</h4>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant">SECONDS</span>
+</div>
+<!-- Abstract Data Visualization / Chart Placeholder -->
+<div class="flex-grow min-h-[240px] border-hairline border-outline bg-surface-container-low flex flex-col justify-end p-4 relative rounded-lg">
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none p-4 pb-8">
+<div class="w-full border-t border-dashed border-outline-variant opacity-50"></div>
+<div class="w-full border-t border-dashed border-outline-variant opacity-50"></div>
+<div class="w-full border-t border-dashed border-outline-variant opacity-50"></div>
+<div class="w-full border-t border-solid border-outline-variant"></div>
+</div>
+<!-- Line Chart Representation (CSS Based) -->
+<div class="relative w-full h-[180px] flex items-end justify-between px-2 md:px-8 z-10 pb-4">
+<!-- Data Points -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-3 h-3 bg-primary rounded-full border border-surface-parchment relative z-20 group-hover:scale-150 transition-transform cursor-pointer" style="margin-bottom: 120px;"></div>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant text-xs absolute bottom-0">S19</span>
+</div>
+<!-- Connecting Line Segment -->
+<div class="absolute top-[50px] left-[10%] w-[20%] h-[2px] bg-primary origin-left rotate-[15deg]"></div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-3 h-3 bg-primary rounded-full border border-surface-parchment relative z-20 group-hover:scale-150 transition-transform cursor-pointer" style="margin-bottom: 95px;"></div>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant text-xs absolute bottom-0">S20</span>
+</div>
+<!-- Connecting Line Segment -->
+<div class="absolute top-[80px] left-[32%] w-[20%] h-[2px] bg-primary origin-left -rotate-[5deg]"></div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-3 h-3 bg-primary rounded-full border border-surface-parchment relative z-20 group-hover:scale-150 transition-transform cursor-pointer" style="margin-bottom: 105px;"></div>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant text-xs absolute bottom-0">S21</span>
+</div>
+<!-- Connecting Line Segment -->
+<div class="absolute top-[70px] left-[55%] w-[20%] h-[2px] bg-primary origin-left rotate-[35deg]"></div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-3 h-3 bg-primary rounded-full border border-surface-parchment relative z-20 group-hover:scale-150 transition-transform cursor-pointer" style="margin-bottom: 45px;"></div>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant text-xs absolute bottom-0">S22</span>
+</div>
+<!-- Connecting Line Segment -->
+<div class="absolute top-[130px] left-[78%] w-[20%] h-[2px] bg-success-sage origin-left rotate-[10deg] border-b-2 border-dashed border-success-sage"></div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-4 h-4 bg-success-sage rounded-full border-2 border-surface-parchment relative z-20 shadow-[0_0_0_4px_rgba(129,140,120,0.2)]" style="margin-bottom: 30px;"></div>
+<span class="font-metric-sm text-metric-sm text-primary font-bold text-xs absolute bottom-0">S23</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Commentary Panel (Right Col, 4 Cols on Desktop) -->
+<div class="col-span-1 md:col-span-4 brutalist-card bg-surface-container p-6 flex flex-col gap-6 justify-between">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="format_quote" data-weight="fill" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Coach Synthesis</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        You re-stabilized <strong class="font-metric-sm text-metric-sm text-primary bg-primary-fixed px-1 border border-primary">30%</strong> faster today. Your structure held even under the heaviest pushback.
+                    </p>
+<div class="w-full h-[1px] bg-outline-variant my-2"></div>
+<p class="font-body-md text-body-md text-on-surface-variant italic opacity-80">
+                        "The data shows a significant resistance to induced cognitive load compared to last week."
+                    </p>
+</div>
+<!-- Action / Next Step -->
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md border-border-width border-primary rounded-lg py-4 flex items-center justify-center gap-2 hover:bg-primary-container active:translate-y-1 transition-transform">
+<span>COMMIT</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-background border-t-2 border-primary z-50 md:hidden flat no shadows">
+<!-- Inactive: TODAY -->
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="today">today</span>
+<span class="font-label-caps text-label-caps uppercase text-[10px]">TODAY</span>
+</a>
+<!-- Active: JOURNEY (Matches intent of viewing session metrics/progress) -->
+<a class="flex flex-col items-center justify-center text-on-primary bg-primary h-full px-4 flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="auto_graph" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_graph</span>
+<span class="font-label-caps text-label-caps uppercase text-[10px]">JOURNEY</span>
+</a>
+<!-- Inactive: LIBRARY -->
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-caps text-label-caps uppercase text-[10px]">LIBRARY</span>
+</a>
+<!-- Inactive: STATS -->
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-primary-fixed transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-label-caps uppercase text-[10px]">STATS</span>
+</a>
+</nav>
+</body></html>
