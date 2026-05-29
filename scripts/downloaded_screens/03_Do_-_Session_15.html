@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Step 3: Do</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#31302e",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-container": "#93000b",
+                        "inverse-primary": "#ffb59e",
+                        "primary-fixed": "#ffdbd0",
+                        "border-primary": "#7C2D12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface-variant": "#55423d",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "success-sage": "#818C78",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "surface-bright": "#fdf9f5",
+                        "background": "#fdf9f5",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-parchment": "#FDF9F5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid theme('colors.primary');
+            width: 100%;
+            height: 100%;
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .waveform-bar {
+            width: 4px;
+            background-color: theme('colors.primary');
+            border-radius: 2px;
+            animation: waveform 1.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes waveform {
+            0% { height: 8px; }
+            100% { height: 48px; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed border-b-border-width-thick border-primary dark:border-primary-fixed flat no shadows flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 sticky top-0">
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed">
+            CLARITY COACH
+        </div>
+<div class="flex items-center gap-4 cursor-pointer active:translate-y-px hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-caps text-label-caps overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a confident professional. The lighting is bright and even, highlighting their features against a subtle, neutral background. This aligns with the warm, precise brutalist aesthetic of the application, emphasizing functionality over decoration. The image feels crisp, professional, and entirely integrated into a structured data-focused layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdd6kXHcuQDT3tXAHFj-j6PGFJFIioWQVajMeEozjdCi_2f-EsHA3WL-Pp2qeQ-7Xk0S9rqaiyXEhlJq4k76mTvcBoPaSiv55nV93PZBZLPh5Q-b1cFAv2N8Se5zscqWYEVf5HDmu9FuPx1SjSVAZ6KPNJOd7smkiC7PAwW5XSWeqQJP4wvQdo69uK4_vX8HXc2alkiviR9j_-g5jY0Oc7aH-8IqTQW3pYgEKgGtcGXb0P5wwHY_T2gxAijS4zajmt80BS8mjFh8NE"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop py-8 max-w-5xl mx-auto w-full gap-8">
+<!-- Session Header & Progress -->
+<div class="w-full flex flex-col gap-4">
+<div class="flex justify-between items-end border-b-hairline border-outline pb-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Session 15: Signposting</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Step 3: Do</p>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary">
+                    03 / 05
+                </div>
+</div>
+<!-- Progress Strip -->
+<div class="flex w-full h-2 gap-2">
+<div class="flex-1 bg-primary rounded-DEFAULT"></div>
+<div class="flex-1 bg-primary rounded-DEFAULT"></div>
+<div class="flex-1 bg-primary rounded-DEFAULT relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-fixed opacity-50"></div>
+</div>
+<div class="flex-1 bg-surface-variant border-hairline border-outline rounded-DEFAULT"></div>
+<div class="flex-1 bg-surface-variant border-hairline border-outline rounded-DEFAULT"></div>
+</div>
+<div class="flex w-full justify-between px-1">
+<span class="font-label-caps text-label-caps text-primary">Centre</span>
+<span class="font-label-caps text-label-caps text-primary">Listen</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">Do</span>
+<span class="font-label-caps text-label-caps text-outline">See</span>
+<span class="font-label-caps text-label-caps text-outline">Commit</span>
+</div>
+</div>
+<!-- Central Layout -->
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-gutter mt-8">
+<!-- Left Column: Context & Constraints (4 Cols) -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<!-- Constraint Card -->
+<div class="bg-surface border-border-width border-primary rounded-DEFAULT p-6 flex flex-col gap-4 relative">
+<!-- Layering effect -->
+<div class="absolute inset-0 bg-surface-tint opacity-5 translate-x-1 translate-y-1 -z-10 rounded-DEFAULT border-border-width border-primary"></div>
+<div class="flex items-center gap-2 border-b-hairline border-outline pb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">rule</span>
+<h2 class="font-label-caps text-label-caps text-primary">CONSTRAINTS</h2>
+</div>
+<div class="flex flex-col gap-4 pt-2">
+<div class="flex justify-between items-center border border-outline rounded-DEFAULT p-3 bg-surface-container-low">
+<span class="font-body-md text-body-md">Signposts Required</span>
+<span class="font-metric-hero text-metric-hero text-primary">3</span>
+</div>
+<div class="flex justify-between items-center border border-outline rounded-DEFAULT p-3 bg-surface-container-low">
+<span class="font-body-md text-body-md">Time Limit</span>
+<span class="font-metric-hero text-metric-hero text-primary">90s</span>
+</div>
+</div>
+</div>
+<!-- Prompt Card -->
+<div class="bg-surface border-border-width border-primary rounded-DEFAULT p-6 flex flex-col gap-4 relative">
+<div class="absolute inset-0 bg-surface-tint opacity-5 translate-x-1 translate-y-1 -z-10 rounded-DEFAULT border-border-width border-primary"></div>
+<div class="flex items-center gap-2 border-b-hairline border-outline pb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<h2 class="font-label-caps text-label-caps text-primary">THE PROMPT</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface pt-2">
+                        "Explain a complex process you manage. Use clear markers (First, Second, Finally) to guide the listener."
+                    </p>
+</div>
+</div>
+<!-- Right Column: Interactive Canvas (8 Cols) -->
+<div class="col-span-1 md:col-span-8 flex flex-col border-border-width border-primary rounded-DEFAULT bg-surface-container-lowest p-8 relative min-h-[400px] items-center justify-center gap-12">
+<!-- Drafting table floating effect -->
+<div class="absolute -inset-2 bg-surface border-border-width border-outline opacity-20 -z-20"></div>
+<!-- Live Metrics Grid -->
+<div class="absolute top-4 right-4 flex gap-4">
+<div class="border border-outline bg-surface px-3 py-1 flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline">TIME</span>
+<span class="font-metric-sm text-metric-sm text-primary">00:42</span>
+</div>
+<div class="border border-outline bg-surface px-3 py-1 flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline">SIGNPOSTS</span>
+<span class="font-metric-sm text-metric-sm text-primary">1/3</span>
+</div>
+</div>
+<!-- The Mic Button Area -->
+<div class="relative flex flex-col items-center justify-center mt-8">
+<!-- Recording Indicator Pulses -->
+<div class="absolute w-[120px] h-[120px]">
+<div class="pulse-ring"></div>
+<div class="pulse-ring"></div>
+<div class="pulse-ring"></div>
+<!-- Detected Signpost Marker (Ink Dot) -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-success-sage rounded-full border border-surface shadow-sm"></div>
+</div>
+<!-- Mic Button -->
+<button class="relative z-10 w-[64px] h-[64px] bg-primary rounded-full flex items-center justify-center border-border-width border-primary hover:bg-tertiary-container transition-colors active:scale-95 group focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-primary focus:ring-offset-surface">
+<!-- Timer Ring Depletion (Simulated with SVG) -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 64 64">
+<circle class="text-surface-variant opacity-30" cx="32" cy="32" fill="none" r="30" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-surface" cx="32" cy="32" fill="none" r="30" stroke="currentColor" stroke-dasharray="188.4" stroke-dashoffset="80" stroke-linecap="round" stroke-width="2"></circle>
+</svg>
+<span class="material-symbols-outlined text-surface group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1; font-size: 32px;">mic</span>
+</button>
+<span class="mt-8 font-label-caps text-label-caps text-primary tracking-widest uppercase">Recording</span>
+</div>
+<!-- Live Waveform -->
+<div class="flex items-end justify-center h-16 gap-1 w-full max-w-md px-4">
+<!-- Generating random looking waveform bars with CSS delays -->
+<div class="waveform-bar" style="animation-delay: 0.1s; height: 12px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.3s; height: 24px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.2s; height: 16px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.5s; height: 42px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.4s; height: 32px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.7s; height: 20px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.6s; height: 48px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.8s; height: 36px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.9s; height: 18px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.5s; height: 28px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.2s; height: 14px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.4s; height: 38px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.3s; height: 22px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.6s; height: 16px;"></div>
+<div class="waveform-bar" style="animation-delay: 0.1s; height: 8px;"></div>
+</div>
+<!-- Action Controls -->
+<div class="flex gap-4 mt-auto pt-8 w-full border-t-hairline border-outline justify-end">
+<button class="px-6 py-2 border-border-width border-primary text-primary font-body-md font-bold rounded-DEFAULT hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Restart
+                    </button>
+<button class="px-6 py-2 bg-primary border-border-width border-primary text-surface font-body-md font-bold rounded-DEFAULT hover:bg-tertiary-container transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary flex items-center gap-2">
+                        Finish <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed border-t-border-width-thick border-primary dark:border-primary-fixed flat no shadows fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe">
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary dark:bg-primary-fixed text-surface dark:text-on-primary-fixed h-full w-full active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-label-caps text-label-caps">Journey</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-label-caps text-label-caps">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">query_stats</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</div>
+</nav>
+<!-- Script to handle dynamic waveform heights randomly for visual effect -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.waveform-bar');
+            setInterval(() => {
+                bars.forEach(bar => {
+                    const randomHeight = Math.floor(Math.random() * 40) + 8;
+                    bar.style.height = `${randomHeight}px`;
+                });
+            }, 1200); // Change heights slightly out of sync with animation
+        });
+    </script>
+</body></html>

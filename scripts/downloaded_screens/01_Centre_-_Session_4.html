@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "tertiary-container": "#004b71",
+                    "on-secondary-container": "#6b6357",
+                    "surface": "#fdf9f5",
+                    "on-tertiary-fixed": "#001e30",
+                    "secondary-container": "#ede1d2",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-dim": "#ddd9d6",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-primary-container": "#ff9b7b",
+                    "inverse-surface": "#31302e",
+                    "error": "#ba1a1a",
+                    "on-background": "#1c1c19",
+                    "primary-fixed-dim": "#ffb59e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "primary-container": "#7c2d12",
+                    "on-secondary-fixed": "#201b12",
+                    "surface-container-high": "#ebe7e4",
+                    "on-surface-variant": "#55423d",
+                    "background": "#fdf9f5",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "tertiary-fixed": "#cbe6ff",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#655d52",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary-fixed": "#ede1d2",
+                    "outline-variant": "#dcc1b9",
+                    "inverse-primary": "#ffb59e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#9b4427",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "xs": "8px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "sm": "16px",
+                    "margin": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .btn-hover:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .floating-bg {
+            background-image: radial-gradient(#89726c 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            animation: float 20s linear infinite;
+        }
+        @keyframes float {
+            from { background-position: 0 0; }
+            to { background-position: 24px 24px; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="flex justify-between items-center px-6 py-4 w-full z-50 border-b-2 border-primary fixed top-0 bg-surface">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-secondary-fixed p-2 transition-colors">menu</button>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="h-10 w-10 border-2 border-primary bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg8iVyXyUU8GyQWJD1Zm3VnFqAXPmvnZAxB6w7CZzQ3X4uBulxFXYk23z2zaEWozuX29ruJJkb7S1qrKEiz_hjJRJA5R5et7nLZlhjQmwdfu54mjkaJiV8DNB2Dn6kIKLSp8OuPa73ilKGDkQ_LyYOTFqVmFJAV4uzHvfaV4dQIZiyqTZpUFgL5ziGgMV5h3g4iHemMpYmgBjQvGSn3_z7F6ZPnOOLsl6J2DXlOr8roj88hLrTnXbOMb0htDfrWlSk_BY1YchNSWr5"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-6 min-h-screen relative flex flex-col items-center justify-center">
+<!-- Floating Animated Background Element -->
+<div class="fixed inset-0 floating-bg opacity-10 pointer-events-none -z-10"></div>
+<!-- Progress Tracker -->
+<div class="w-full max-w-2xl mb-8 flex justify-between items-end border-b-2 border-primary pb-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Current Module</span>
+<p class="font-headline-md text-headline-md text-primary">01 Centre</p>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-primary font-bold">01/05</span>
+<div class="w-32 h-2 bg-secondary-container mt-1 border border-primary">
+<div class="bg-primary h-full" style="width: 20%"></div>
+</div>
+</div>
+</div>
+<!-- Exercise Card -->
+<section class="w-full max-w-2xl bg-surface border-2 border-primary p-12 relative">
+<div class="absolute -top-4 -left-4 bg-primary text-surface px-4 py-1 font-label-md">SESSION 4</div>
+<header class="mb-xl">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Energy Priming</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Calibrate your vocal resonance. Speak your own name three times, shifting intensity with each repetition.
+                </p>
+</header>
+<!-- Interaction Steps -->
+<div class="space-y-gutter">
+<!-- Step 1 -->
+<div class="flex items-start gap-sm p-sm border-2 border-primary hover:bg-surface-container transition-colors group cursor-pointer" onclick="setActive(this)">
+<div class="flex-none w-12 h-12 border-2 border-primary flex items-center justify-center bg-secondary-container group-[.active]:bg-primary group-[.active]:text-surface transition-all">
+<span class="font-label-md">01</span>
+</div>
+<div class="flex-grow pt-2">
+<h3 class="font-label-md text-label-md font-bold uppercase mb-1">Quiet</h3>
+<p class="font-body-md text-body-md text-secondary">A whisper of presence. Just for you.</p>
+</div>
+<span class="material-symbols-outlined text-primary self-center opacity-0 group-[.active]:opacity-100">check_circle</span>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-sm p-sm border-2 border-primary hover:bg-surface-container transition-colors group cursor-pointer" onclick="setActive(this)">
+<div class="flex-none w-12 h-12 border-2 border-primary flex items-center justify-center bg-secondary-container group-[.active]:bg-primary group-[.active]:text-surface transition-all">
+<span class="font-label-md">02</span>
+</div>
+<div class="flex-grow pt-2">
+<h3 class="font-label-md text-label-md font-bold uppercase mb-1">Normal</h3>
+<p class="font-body-md text-body-md text-secondary">Your conversational baseline. Grounded.</p>
+</div>
+<span class="material-symbols-outlined text-primary self-center opacity-0 group-[.active]:opacity-100">check_circle</span>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-sm p-sm border-2 border-primary hover:bg-surface-container transition-colors group cursor-pointer" onclick="setActive(this)">
+<div class="flex-none w-12 h-12 border-2 border-primary flex items-center justify-center bg-secondary-container group-[.active]:bg-primary group-[.active]:text-surface transition-all">
+<span class="font-label-md">03</span>
+</div>
+<div class="flex-grow pt-2">
+<h3 class="font-label-md text-label-md font-bold uppercase mb-1">Loud</h3>
+<p class="font-body-md text-body-md text-secondary">Projecting command. Taking space.</p>
+</div>
+<span class="material-symbols-outlined text-primary self-center opacity-0 group-[.active]:opacity-100">check_circle</span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-xl flex justify-end">
+<button class="bg-surface border-2 border-primary px-8 py-4 font-label-md text-label-md uppercase tracking-widest text-primary hard-shadow btn-hover transition-all active:translate-y-0 active:translate-x-0 active:shadow-none">
+                    Complete Session
+                </button>
+</div>
+</section>
+<!-- Decorative Illustration -->
+<div class="mt-xl w-full max-w-2xl grid grid-cols-3 gap-gutter h-24">
+<div class="border-2 border-primary-fixed-dim bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="A close-up abstract architectural detail of a brutalist concrete structure under warm golden hour sunlight. The image showcases sharp geometric angles, deep shadows, and a raw textured surface. The color palette consists of warm terracottas, muted creams, and rich brown tones, embodying a sense of silent strength and grounded clarity in a modern minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwxQAzwO0vmqq6Z2LV44odbdNE_f4Imdodq_LTDPo_S3Ex8PYXc6vZ1NcNuV3vUlFDZeeyS0CYt-l1rV5pTpylpG7DfBLkp5RD74RgmfbPrndA3PNqPhf1K5pTrrHHEKj4Vf0_5UrGr9ypXNr-U7yKF2_4ND4kK6l2QZNLZbI9bzNb8qBITkxps7Bms7HVtXl7BcrEv-0ShOlaI9OHewcofI4qabchQKQ8hRjpVYEOKLo_w8rmJYkK5aM75x6ws0wWo0wffzso8Cql"/>
+</div>
+<div class="border-2 border-primary-fixed-dim bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="A high-end minimalist interior with a single sculptural wooden chair against a stark cream-colored wall. The lighting is focused and dramatic, casting sharp geometric shadows that mimic the brutalist design language. The overall aesthetic is one of intellectual rigor and tactile comfort, using a warm palette of sienna and sand colors to create a serene, focused atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB0GRysxt2cQX-h8a_ascCkmupBr4pf48WE2PKpgP1ArXOXlNaNWz044TSNeJne-1zvObHbry0e1j6mnv9WRhiMWdLSd35x2cBbHKOkyRMzsahMhrz6Kh3npFFPnEVrhtW-x_ULbTfq_eQ6mxKQojbmGGb2oQ1MQAgCiCAujqMh9-r-mpSDXqsFHKARHgE2b0XIUEISAcmUwLbse4h0NOZAL34ljN1TJGGZmqLAnxlyaBvmLBm3aH6vzNXc7d23PUWPa4vigSG2aV0"/>
+</div>
+<div class="border-2 border-primary-fixed-dim bg-surface-container-low flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500" data-alt="An artistic representation of sound waves rendered as physical, stepped layers of heavy cardstock paper. The layers transition from light cream to deep sienna brown, creating a three-dimensional topographic effect. The lighting is soft but directional, highlighting the raw edges and structural geometry of the composition, reflecting a calm and calculated architectural mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArdjB38hGWtAbQbI5Xyhy9syfaMVnyTGQIKfXHSwgc7p1ofSE8d7_l2lhfSInO1ZyXn4-Xr9m-Y54L4a1N7nyniseSxtfKE7OZJsDD6NT-JDw_VLmg6ME_CJeBWO_jq1jIYzxZF3C-SII9pyulbAX8BiMb6cdkxmf1HEsf223tzpyy1q9H1F_hAmifrEdkrOyXPoc_3svkbgCvPdnMtVIyD8Hi979q7Lu6hvIleGs4otmKg8oZGLSVwCTtCsZwVeCr_XYYVQYn-6-k"/>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-6 bg-surface border-t-2 border-primary h-16">
+<a class="flex flex-col items-center justify-center text-primary border-t-4 border-primary pt-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors pt-2" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors pt-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors pt-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        function setActive(el) {
+            // Remove active class from all steps
+            document.querySelectorAll('.cursor-pointer').forEach(step => {
+                step.classList.remove('active');
+                step.classList.remove('bg-surface-container-low');
+            });
+            // Add active class to clicked step
+            el.classList.add('active');
+            el.classList.add('bg-surface-container-low');
+        }
+    </script>
+</body></html>

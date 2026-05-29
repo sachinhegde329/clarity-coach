@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 21</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-primary-fixed": "#3a0b00",
+                    "primary-container": "#7c2d12",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#dbe6cf",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#151e10",
+                    "on-surface": "#1c1c19",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-container": "#f1ede9",
+                    "error-warning": "#B91C1C",
+                    "surface-parchment": "#FDF9F5",
+                    "outline": "#89726c",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#fdf9f5",
+                    "background": "#fdf9f5",
+                    "on-secondary-container": "#5b6653",
+                    "tertiary": "#680005",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "success-sage": "#818C78",
+                    "secondary": "#57624f",
+                    "surface-variant": "#e5e2de",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-container": "#93000b",
+                    "inverse-primary": "#ffb59e",
+                    "surface-container-high": "#ebe7e4",
+                    "inverse-on-surface": "#f4f0ec",
+                    "inverse-surface": "#31302e",
+                    "primary": "#5e1700",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1c1c19",
+                    "surface-tint": "#9b4427",
+                    "outline-variant": "#dcc1b9",
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#ddd9d6",
+                    "secondary-container": "#d8e3cc",
+                    "on-tertiary-fixed": "#410002",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#ff9b7b",
+                    "surface": "#fdf9f5",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-surface-variant": "#55423d",
+                    "border-primary": "#7C2D12",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "hairline": "0.5px",
+                    "border-width": "2px",
+                    "margin-desktop": "40px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Bricolage Grotesque"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Warm Brutalist Custom Utilities */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        @keyframes ink-dot {
+            0% { transform: translate(0,0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+        .ink-dot-anim {
+            animation: ink-dot 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SUPPRESSION RATIONALE: TopAppBar, BottomNavBar, and NavigationDrawer are explicitly excluded. 
+         This is a Task-Focused, linear practice session ("Session 21: Accusation Audit"). 
+         The user is in a focused journey, implying a temporary departure from global navigation. 
+         Therefore, the Global Nav Shell is hidden to prioritize the structural canvas. -->
+<!-- Session Header (Architectural Rigor) -->
+<header class="flex items-center justify-between px-gutter py-unit border-b-border-width border-primary bg-surface-bright z-10 sticky top-0">
+<button aria-label="Exit Session" class="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary-container/10 transition-colors border-border-width border-transparent hover:border-primary rounded-lg active:scale-95">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="font-metric-sm text-metric-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 16px;">trip_origin</span>
+            05 / 05
+        </div>
+<div class="font-label-caps text-label-caps text-outline w-10 text-right">
+<!-- Balancer for flex -->
+</div>
+</header>
+<!-- Session Flow Progress Strip (Data as Hero, Structural Containment) -->
+<nav class="flex w-full border-b-border-width border-primary bg-surface-container-low overflow-x-auto hide-scrollbar">
+<div class="flex flex-1 min-w-max">
+<!-- Inactive Steps -->
+<div class="flex-1 flex items-center justify-center px-4 py-2 border-r-border-width border-primary text-outline font-label-caps text-label-caps">Centre</div>
+<div class="flex-1 flex items-center justify-center px-4 py-2 border-r-border-width border-primary text-outline font-label-caps text-label-caps">Listen</div>
+<div class="flex-1 flex items-center justify-center px-4 py-2 border-r-border-width border-primary text-outline font-label-caps text-label-caps">Do</div>
+<div class="flex-1 flex items-center justify-center px-4 py-2 border-r-border-width border-primary text-outline font-label-caps text-label-caps">See</div>
+<!-- Active Step -->
+<div class="flex-1 flex items-center justify-center px-6 py-2 bg-primary text-on-primary font-label-caps text-label-caps tracking-widest relative">
+                Commit
+                <!-- Structural marker indicating active -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary-fixed"></div>
+</div>
+</div>
+</nav>
+<!-- Main Canvas (Workspace Feel, Card-on-Card Layering) -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-8 w-full max-w-3xl mx-auto">
+<div class="w-full flex flex-col gap-6">
+<!-- Context Tags -->
+<div class="flex items-center gap-3">
+<span class="font-label-caps text-label-caps px-2 py-1 border-hairline border-primary text-primary rounded bg-surface-container-lowest">SESSION 21</span>
+<span class="font-label-caps text-label-caps text-outline">SPRINT 4: HOLD</span>
+</div>
+<!-- Header -->
+<h1 class="font-display-lg text-display-lg text-primary">Accusation Audit.</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant">Vocalize your goal.</p>
+<!-- Primary Prompt Card (Warm Brutalist Precision) -->
+<div class="mt-4 border-border-width border-primary bg-surface-bright rounded-lg p-6 md:p-8 relative shadow-[4px_4px_0px_#7C2D12] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0px_#7C2D12]">
+<div class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+<span class="text-primary font-bold">"</span>Tomorrow I will name the elephant in the room when...<span class="text-primary font-bold">"</span>
+</div>
+</div>
+<!-- Suggested Opener Card (Nested structure, hairline borders) -->
+<div class="mt-6 border-border-width border-outline-variant bg-surface-container rounded-lg p-5">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-1">lightbulb</span>
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-2">SUGGESTED OPENER</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+                            "It might seem like I’m ignoring your previous constraints..."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Recording Action Area (Fixed Grid, Bottom Anchor) -->
+<footer class="w-full border-t-border-width border-primary bg-surface-bright px-gutter py-8 flex flex-col items-center justify-center pb-[max(2rem,env(safe-area-inset-bottom))]">
+<!-- Timer Display (Data as Hero) -->
+<div class="font-metric-hero text-metric-hero text-primary mb-6 flex items-center gap-2">
+<span id="time-display">15</span><span class="font-metric-sm text-metric-sm text-outline">s</span>
+</div>
+<!-- The Mic Button (64pt, Architectural structure) -->
+<div class="relative w-24 h-24 flex items-center justify-center">
+<!-- Timer Ring (2px depletes clockwise) -->
+<svg class="absolute inset-0 w-full h-full transform -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="46" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary transition-all duration-100 ease-linear" cx="50" cy="50" fill="transparent" id="timer-ring" r="46" stroke="currentColor" stroke-dasharray="289" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+<!-- Recording Pulse Container -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center" id="pulse-container"></div>
+<!-- Button Body -->
+<button class="w-16 h-16 rounded-full bg-primary-container border-border-width border-primary flex items-center justify-center text-surface-parchment relative z-10 transition-transform hover:bg-primary active:scale-95 shadow-[2px_2px_0px_#3a0b00]" id="mic-btn">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="mt-6 font-label-caps text-label-caps text-outline tracking-widest uppercase">
+            15-Second Limit
+        </div>
+</footer>
+<!-- Interactive Logic -->
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const timerRing = document.getElementById('timer-ring');
+        const timeDisplay = document.getElementById('time-display');
+        const pulseContainer = document.getElementById('pulse-container');
+        
+        const TOTAL_TIME = 15;
+        const CIRCUMFERENCE = 2 * Math.PI * 46; // 289.026
+        
+        let isRecording = false;
+        let timerInterval;
+        let pulseInterval;
+        let timeLeft = TOTAL_TIME;
+
+        // Initialize Ring
+        timerRing.style.strokeDasharray = CIRCUMFERENCE;
+        timerRing.style.strokeDashoffset = 0;
+
+        function createInkDot() {
+            const dot = document.createElement('div');
+            dot.className = 'w-1.5 h-1.5 bg-primary rounded-full absolute ink-dot-anim';
+            
+            // Random angle and distance for the Brutalist ink-dot pulse
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 40 + Math.random() * 30;
+            const tx = Math.cos(angle) * distance + 'px';
+            const ty = Math.sin(angle) * distance + 'px';
+            
+            dot.style.setProperty('--tx', tx);
+            dot.style.setProperty('--ty', ty);
+            
+            pulseContainer.appendChild(dot);
+            
+            // Cleanup
+            setTimeout(() => {
+                if(dot.parentNode) dot.parentNode.removeChild(dot);
+            }, 1000);
+        }
+
+        function startRecording() {
+            isRecording = true;
+            timeLeft = TOTAL_TIME;
+            micBtn.classList.add('bg-error-warning', 'border-tertiary-container');
+            micBtn.classList.remove('bg-primary-container');
+            
+            // Start ink-dot pulses simulating real-time filler word detection energy
+            pulseInterval = setInterval(createInkDot, 150);
+
+            timerInterval = setInterval(() => {
+                timeLeft -= 0.1;
+                
+                // Update text display (Data as hero)
+                timeDisplay.textContent = Math.ceil(timeLeft).toString().padStart(2, '0');
+                
+                // Deplete ring clockwise
+                const offset = CIRCUMFERENCE - ((timeLeft / TOTAL_TIME) * CIRCUMFERENCE);
+                timerRing.style.strokeDashoffset = offset;
+
+                if (timeLeft <= 0) {
+                    stopRecording();
+                }
+            }, 100);
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            clearInterval(timerInterval);
+            clearInterval(pulseInterval);
+            
+            micBtn.classList.remove('bg-error-warning', 'border-tertiary-container');
+            micBtn.classList.add('bg-primary-container');
+            
+            // Reset for demo purposes
+            setTimeout(() => {
+                timeLeft = TOTAL_TIME;
+                timeDisplay.textContent = TOTAL_TIME;
+                timerRing.style.strokeDashoffset = 0;
+            }, 1000);
+        }
+
+        micBtn.addEventListener('click', () => {
+            if (isRecording) {
+                stopRecording();
+            } else {
+                startRecording();
+            }
+        });
+    </script>
+</body></html>

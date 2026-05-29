@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f1ede9",
+                    "surface": "#fdf9f5",
+                    "error": "#ba1a1a",
+                    "primary-container": "#7c2d12",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-primary-container": "#ff9b7b",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "inverse-primary": "#ffb59e",
+                    "secondary-fixed": "#dbe6cf",
+                    "on-primary-fixed": "#3a0b00",
+                    "secondary-container": "#d8e3cc",
+                    "surface-bright": "#fdf9f5",
+                    "on-tertiary-fixed": "#410002",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#151e10",
+                    "on-background": "#1c1c19",
+                    "primary": "#5e1700",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-container-low": "#f7f3ef",
+                    "outline-variant": "#dcc1b9",
+                    "tertiary-container": "#93000b",
+                    "surface-parchment": "#FDF9F5",
+                    "on-surface": "#1c1c19",
+                    "surface-tint": "#9b4427",
+                    "surface-variant": "#e5e2de",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#680005",
+                    "on-tertiary-container": "#ff998e",
+                    "secondary": "#57624f",
+                    "error-warning": "#B91C1C",
+                    "primary-fixed": "#ffdbd0",
+                    "success-sage": "#818C78",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-container": "#5b6653",
+                    "on-surface-variant": "#55423d",
+                    "border-primary": "#7C2D12",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#89726c",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdad6",
+                    "inverse-surface": "#31302e",
+                    "surface-container-high": "#ebe7e4",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-dim": "#ddd9d6",
+                    "background": "#fdf9f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "hairline": "0.5px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ]
+            },
+            "fontSize": {
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .brutalist-card {
+            border: 2px solid #7C2D12;
+            background-color: #FDF9F5;
+            border-radius: 4px;
+        }
+        .mic-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(124, 45, 18, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 20px rgba(124, 45, 18, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(124, 45, 18, 0);
+            }
+        }
+        .timer-ring {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md h-full flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment border-b-border-width border-primary flat no shadows flex items-center justify-between px-margin-mobile py-unit w-full z-40">
+<button class="text-primary hover:bg-primary-container/10 transition-colors active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-primary">SESSION 27</span>
+<div class="flex gap-2">
+<span class="font-metric-sm text-metric-sm text-primary font-bold">05 / 05</span>
+<span class="font-metric-sm text-metric-sm text-outline">4:18</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full border-border-width border-primary overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A tightly cropped black and white studio portrait of a professional individual looking slightly off-camera with a determined expression. The lighting is harsh and high-contrast, emphasizing facial structure and texture, fitting a warm brutalist aesthetic. The background is a solid, slightly warm off-white, matching a parchment tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw1EtNnzjwaJa62QxuJkVXm6v0O8Sw1rCi9t0FjS06SQOZWMwkH3_gwM3UjxCN-cYll_9vEw5yOzChFR6YvkUdCoI3L0fSy33LshkEovtjSuJ3oL8YBShyE0G4h7ihVP5BQajZcqvpeXW4bCVWJ1Bi3tUuM5M2oPPwLcB8BZ-cj9O1u14-19ogd-LQbiQIEC-swHvBd4yWQImMcXhsYv1O06WpilyNyPhf7gQ2webUIJdauxKtnJ3UfwkDEPe0C4kLNnvGX6A0F8EW"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col p-margin-mobile md:p-margin-desktop gap-gutter max-w-4xl mx-auto w-full">
+<!-- Instruction -->
+<div class="text-center mt-8 mb-4">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">COMMIT</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">One sentence into the mic. What will you watch for tomorrow?</p>
+</div>
+<!-- Opener Card -->
+<div class="brutalist-card p-6 flex flex-col md:flex-row items-center gap-4 bg-surface-container-low shadow-[4px_4px_0px_0px_#7C2D12] transition-transform hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#7C2D12]">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-headline-md text-headline-md text-primary italic text-center md:text-left flex-1">
+                "Tomorrow I will land my most important sentence at..."
+            </p>
+</div>
+<!-- Mic Interaction Area -->
+<div class="flex-1 flex flex-col items-center justify-center mt-12 gap-8 relative">
+<!-- Timer Display -->
+<div class="font-metric-hero text-metric-hero text-primary" id="timer-display">
+                0:15
+            </div>
+<!-- Mic Button Wrapper -->
+<div class="relative flex items-center justify-center">
+<!-- SVG Ring for Timer -->
+<svg class="absolute w-32 h-32 -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="48" stroke="#e5e2de" stroke-width="2"></circle>
+<circle class="timer-ring" cx="50" cy="50" fill="none" id="timer-circle" r="48" stroke="#7C2D12" stroke-width="2"></circle>
+</svg>
+<!-- The Mic Button -->
+<button class="w-24 h-24 rounded-full bg-primary border-border-width border-primary flex items-center justify-center text-surface-parchment hover:bg-primary-container transition-colors active:scale-95 group relative z-10" id="record-btn">
+<span class="material-symbols-outlined text-4xl" id="mic-icon" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Hint -->
+<p class="font-label-caps text-label-caps text-outline text-center uppercase tracking-widest">
+                Press to commit
+            </p>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('record-btn');
+            const icon = document.getElementById('mic-icon');
+            const timerCircle = document.getElementById('timer-circle');
+            const timerDisplay = document.getElementById('timer-display');
+            let isRecording = false;
+            let timerInterval;
+            let timeLeft = 15;
+            const circumference = 2 * Math.PI * 48; // r=48 from svg
+
+            timerCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+            timerCircle.style.strokeDashoffset = '0';
+
+            function setProgress(percent) {
+                const offset = circumference - percent / 100 * circumference;
+                timerCircle.style.strokeDashoffset = offset;
+            }
+
+            btn.addEventListener('click', () => {
+                if(!isRecording) {
+                    // Start Recording
+                    isRecording = true;
+                    btn.classList.add('mic-pulse');
+                    icon.textContent = 'stop';
+                    
+                    timeLeft = 15;
+                    timerDisplay.textContent = `0:${timeLeft}`;
+                    setProgress(100);
+
+                    timerInterval = setInterval(() => {
+                        timeLeft--;
+                        if(timeLeft >= 0) {
+                            timerDisplay.textContent = `0:${timeLeft < 10 ? '0'+timeLeft : timeLeft}`;
+                            setProgress((timeLeft / 15) * 100);
+                        } else {
+                            stopRecording();
+                        }
+                    }, 1000);
+
+                } else {
+                    stopRecording();
+                }
+            });
+
+            function stopRecording() {
+                isRecording = false;
+                btn.classList.remove('mic-pulse');
+                icon.textContent = 'mic';
+                clearInterval(timerInterval);
+                timerDisplay.textContent = 'DONE';
+                setProgress(0);
+                setTimeout(() => {
+                    timerDisplay.textContent = '0:15';
+                    setProgress(100);
+                }, 2000);
+            }
+        });
+    </script>
+</body></html>

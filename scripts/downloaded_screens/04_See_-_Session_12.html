@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>04 See - Session 12</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#ff9b7b",
+                    "error-warning": "#B91C1C",
+                    "surface": "#fdf9f5",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary-fixed": "#dbe6cf",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary-container": "#ff998e",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#151e10",
+                    "surface-container-lowest": "#ffffff",
+                    "success-sage": "#818C78",
+                    "on-primary": "#ffffff",
+                    "surface-parchment": "#FDF9F5",
+                    "primary-fixed": "#ffdbd0",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#5b6653",
+                    "surface-container-highest": "#e5e2de",
+                    "background": "#fdf9f5",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed": "#3a0b00",
+                    "tertiary-container": "#93000b",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-bright": "#fdf9f5",
+                    "inverse-surface": "#31302e",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary-container": "#d8e3cc",
+                    "surface-container": "#f1ede9",
+                    "error-container": "#ffdad6",
+                    "primary": "#5e1700",
+                    "outline-variant": "#dcc1b9",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "secondary": "#57624f",
+                    "primary-fixed-dim": "#ffb59e",
+                    "tertiary-fixed": "#ffdad6",
+                    "outline": "#89726c",
+                    "inverse-on-surface": "#f4f0ec",
+                    "tertiary": "#680005",
+                    "on-surface": "#1c1c19",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "border-primary": "#7C2D12",
+                    "on-surface-variant": "#55423d",
+                    "surface-tint": "#9b4427",
+                    "surface-dim": "#ddd9d6",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-error": "#ffffff",
+                    "primary-container": "#7c2d12"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "hairline": "0.5px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "border-width": "2px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "body-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-grid {
+            background-image: 
+                linear-gradient(to right, #dcc1b9 1px, transparent 1px),
+                linear-gradient(to bottom, #dcc1b9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 fixed top-0 bg-surface dark:bg-surface-container-low border-b-border-width border-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:translate-y-px">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="h-10 w-10 rounded-full border-border-width border-primary bg-primary-fixed overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Bo68jDk_DZjWBha9mPZi2x_EifpzLdE0Tma95k9bdlNXbYs74AKXLRmwHYC7yYx6LPfPlurPTG91V6WFCLoKY6NCOmWo24p0p6Ye48_g0txNjWAwwMCG26ycRlFaU43euVh7WzgxypIKhhCwG1Efs90nCo4oTPG68Q45txEE5gVZ-YL_C018gzJqtt4mp_hLcLzm6vVapN7QxCKE-mXQpU3XHaURqcG6VdHr_zzjNnt986tN7mmEctpKBcsd4tFUBlSHS4PMy8zs"/>
+</div>
+</header>
+<main class="mt-24 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<!-- Session Progress Strip -->
+<nav class="mb-12 flex justify-between items-center max-w-2xl mx-auto overflow-x-auto pb-4 gap-2">
+<div class="flex flex-col items-center opacity-40">
+<div class="w-10 h-10 flex items-center justify-center border-border-width border-primary font-label-caps text-label-caps">01</div>
+<span class="font-label-caps text-[10px] mt-1">CENTRE</span>
+</div>
+<div class="h-hairline w-8 bg-primary opacity-20"></div>
+<div class="flex flex-col items-center opacity-40">
+<div class="w-10 h-10 flex items-center justify-center border-border-width border-primary font-label-caps text-label-caps">02</div>
+<span class="font-label-caps text-[10px] mt-1">LISTEN</span>
+</div>
+<div class="h-hairline w-8 bg-primary opacity-20"></div>
+<div class="flex flex-col items-center opacity-40">
+<div class="w-10 h-10 flex items-center justify-center border-border-width border-primary font-label-caps text-label-caps">03</div>
+<span class="font-label-caps text-[10px] mt-1">DO</span>
+</div>
+<div class="h-hairline w-12 bg-primary"></div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-surface border-border-width border-primary font-label-caps text-label-caps">04</div>
+<span class="font-label-caps text-[12px] mt-1 font-bold text-primary">SEE</span>
+</div>
+<div class="h-hairline w-8 bg-primary opacity-20"></div>
+<div class="flex flex-col items-center opacity-40">
+<div class="w-10 h-10 flex items-center justify-center border-border-width border-primary font-label-caps text-label-caps">05</div>
+<span class="font-label-caps text-[10px] mt-1">COMMIT</span>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-2">SESSION 12 // SPRINT 2 REVIEW</p>
+<h2 class="font-display-lg text-display-lg text-primary uppercase leading-none">FIRST WIN</h2>
+</div>
+<div class="border-2 border-primary p-6 bg-surface-parchment flex flex-col items-center min-w-[200px]">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">CLARITY SCORE</span>
+<div class="font-metric-hero text-metric-hero text-primary">74<span class="text-headline-md opacity-50">/100</span></div>
+<div class="flex items-center text-success-sage gap-1 font-metric-sm text-metric-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+<span>+12.4% FROM S1</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Weekly Trend Line Chart -->
+<div class="lg:col-span-8 border-border-width border-primary p-gutter bg-surface-parchment relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md text-primary uppercase">WEEKLY TRENDS</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary"></div>
+<span class="font-label-caps text-[10px]">FILLERS</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-success-sage"></div>
+<span class="font-label-caps text-[10px]">PACE</span>
+</div>
+</div>
+</div>
+<div class="h-64 w-full relative chart-grid border-l-hairline border-b-hairline border-outline-variant">
+<!-- SVG Chart Logic (Simplified representation) -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none">
+<!-- Fillers Line -->
+<path d="M 0 180 L 100 160 L 200 190 L 300 120 L 400 100 L 500 80 L 600 40 L 800 30" fill="none" stroke="#5e1700" stroke-width="3"></path>
+<!-- Pace Line -->
+<path d="M 0 100 L 100 110 L 200 95 L 300 105 L 400 100 L 500 98 L 600 102 L 800 100" fill="none" stroke="#818C78" stroke-dasharray="4 2" stroke-width="3"></path>
+<!-- Sprint Divider -->
+<line stroke="#5e1700" stroke-dasharray="8 4" stroke-width="1" x1="50%" x2="50%" y1="0" y2="100%"></line>
+</svg>
+<div class="absolute top-2 left-[51%] font-label-caps text-[10px] text-primary">SPRINT 2 START</div>
+</div>
+<div class="flex justify-between mt-4 font-label-caps text-[10px] text-on-surface-variant uppercase">
+<span>Week 01</span>
+<span>Week 02</span>
+<span>Week 03</span>
+<span>Week 04 (Current)</span>
+</div>
+</div>
+<!-- Metrics Table Card -->
+<div class="lg:col-span-4 border-border-width border-primary bg-surface-parchment flex flex-col">
+<div class="p-gutter border-b-hairline border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary uppercase">KPI DRILLDOWN</h3>
+</div>
+<div class="flex-grow">
+<div class="grid grid-cols-1 divide-y divide-outline-variant">
+<!-- Row 1 -->
+<div class="p-gutter flex justify-between items-center hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">FILLERS</p>
+<p class="font-metric-hero text-[32px] text-primary">2.4<span class="text-sm font-label-caps">/min</span></p>
+</div>
+<div class="bg-success-sage text-surface px-2 py-1 font-label-caps text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">arrow_downward</span>
+                                42%
+                            </div>
+</div>
+<!-- Row 2 -->
+<div class="p-gutter flex justify-between items-center hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">PACE</p>
+<p class="font-metric-hero text-[32px] text-primary">138<span class="text-sm font-label-caps">WPM</span></p>
+</div>
+<div class="bg-surface-container-highest text-primary px-2 py-1 font-label-caps text-[12px]">
+                                STABLE
+                            </div>
+</div>
+<!-- Row 3 -->
+<div class="p-gutter flex justify-between items-center hover:bg-surface-container-low transition-colors">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">INFLECTION</p>
+<p class="font-body-lg font-bold text-primary uppercase">High Variance</p>
+</div>
+<div class="bg-success-sage text-surface px-2 py-1 font-label-caps text-[12px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+                                18%
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Next Module Teaser -->
+<div class="lg:col-span-12 border-border-width border-primary p-gutter flex flex-col md:flex-row items-center gap-8 bg-primary text-surface-parchment group cursor-pointer overflow-hidden relative">
+<!-- Abstract BG Shape -->
+<div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[240px]">architecture</span>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-8 w-full">
+<div class="w-32 h-32 flex-shrink-0 border-border-width border-surface-parchment p-2 overflow-hidden">
+<img alt="Advanced Rhetoric Module" class="w-full h-full object-cover filter grayscale brightness-125" data-alt="A sophisticated architectural detail of a brutalist concrete structure with sharp geometric shadows. The lighting is high contrast, highlighting the raw textures and structural honesty of the building. The image evokes a sense of advanced engineering and intellectual rigor, consistent with a premium educational aesthetic in a warm, parchment-toned environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_QQAn0w31H7uIGuuvFT6h37kzXAJ0uBGpt_oF8-B2IAmfW9_DEmcDQM34H9ilmFPM2S1BL6j3UG3e_xx0pLohoQlOJaqhL7Ct0mJi07-XCfhdm5_f4-4n8judV7F3xCEg2n79zVN0bRAuiITSa2jn2uYr4FmhLPkofGnRv90kJNlDTAa-8Qcu42U-d_BlgQ8MD5v-PCmGmalIMlKQ3tz4HQYfpmkTqUFBWFBL-nezE7APCGfIhvvrrVpweuUnxP-VFpI1V7VX8kax"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<span class="font-label-caps text-label-caps opacity-70">NEXT MODULE UNLOCKED</span>
+<h4 class="font-display-lg text-headline-lg uppercase mt-1">ADVANCED RHETORIC</h4>
+<p class="font-body-md opacity-80 mt-2 max-w-xl">Master the art of persuasive pacing and the 'Strategic Silence' technique to command any room.</p>
+</div>
+<div class="flex-shrink-0 border-2 border-surface-parchment px-8 py-4 font-label-caps text-label-caps hover:bg-surface-parchment hover:text-primary transition-colors active:scale-95">
+                        BEGIN SPRINT 3
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface dark:bg-surface-container-low border-t-border-width border-primary">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] mt-1">Today</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-[10px] mt-1">Journey</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-[10px] mt-1">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-fixed text-surface dark:text-on-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-[10px] mt-1">Stats</span>
+</a>
+</nav>
+<!-- Micro-interaction script -->
+<script>
+        // Simple hover effect for chart lines
+        document.querySelectorAll('path').forEach(path => {
+            path.addEventListener('mouseover', () => {
+                path.setAttribute('stroke-width', '5');
+            });
+            path.addEventListener('mouseout', () => {
+                path.setAttribute('stroke-width', '3');
+            });
+        });
+    </script>
+</body></html>

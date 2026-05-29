@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01 Centre - Session 25</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#3a0b00",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-background": "#1c1c19",
+                    "on-primary-container": "#ff9b7b",
+                    "secondary-fixed": "#dbe6cf",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface": "#fdf9f5",
+                    "on-secondary-fixed": "#151e10",
+                    "surface-parchment": "#FDF9F5",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary-container": "#ff998e",
+                    "secondary": "#57624f",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "border-primary": "#7C2D12",
+                    "background": "#fdf9f5",
+                    "on-secondary-container": "#5b6653",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#93000b",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-fixed-dim": "#ffb59e",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "tertiary": "#680005",
+                    "surface-variant": "#e5e2de",
+                    "success-sage": "#818C78",
+                    "primary": "#5e1700",
+                    "on-error-container": "#93000a",
+                    "outline": "#89726c",
+                    "inverse-primary": "#ffb59e",
+                    "surface-container": "#f1ede9",
+                    "secondary-container": "#d8e3cc",
+                    "surface-container-low": "#f7f3ef",
+                    "surface-container-high": "#ebe7e4",
+                    "primary-container": "#7c2d12",
+                    "surface-dim": "#ddd9d6",
+                    "on-surface-variant": "#55423d",
+                    "outline-variant": "#dcc1b9",
+                    "surface-container-highest": "#e5e2de",
+                    "primary-fixed": "#ffdbd0",
+                    "on-tertiary-fixed": "#410002",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#31302e",
+                    "surface-bright": "#fdf9f5",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "error-warning": "#B91C1C",
+                    "on-surface": "#1c1c19",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "margin-mobile": "20px",
+                    "hairline": "0.5px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "label-caps": ["JetBrains Mono"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "body-lg": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Warm Brutalist Focus Transitions */
+        .breath-ring {
+            transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 4s ease-in-out;
+            will-change: transform, opacity;
+        }
+        /* Custom scrollbar to match architectural rigor */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDF9F5;
+            border-left: 0.5px solid #89726c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5e1700;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface h-screen w-screen overflow-hidden flex font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- NavigationDrawer: Specific to Session Flow (Desktop) -->
+<aside class="hidden md:flex flex-col py-margin-desktop h-full w-64 border-r-border-width border-primary bg-surface-parchment shrink-0">
+<div class="px-6 mb-8">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tighter">SESSION PROGRESS</h2>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Active Step -->
+<a class="flex items-center gap-3 py-3 px-6 font-metric-sm text-metric-sm font-bold text-primary border-l-4 border-primary pl-4 bg-primary-container/5 relative group" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+<span class="uppercase tracking-widest">Centre</span>
+<!-- Connector line to next -->
+<div class="absolute left-[26px] top-full h-4 w-[2px] bg-primary group-last:hidden"></div>
+</a>
+<!-- Inactive Steps -->
+<a class="flex items-center gap-3 py-3 px-6 font-metric-sm text-metric-sm text-outline pl-5 hover:bg-primary-container/10 transition-all duration-200 relative group opacity-60 pointer-events-none" href="#">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">hearing</span>
+<span class="uppercase tracking-widest">Listen</span>
+<div class="absolute left-[27px] top-full h-4 w-hairline bg-outline group-last:hidden"></div>
+</a>
+<a class="flex items-center gap-3 py-3 px-6 font-metric-sm text-metric-sm text-outline pl-5 hover:bg-primary-container/10 transition-all duration-200 relative group opacity-60 pointer-events-none" href="#">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">edit</span>
+<span class="uppercase tracking-widest">Do</span>
+<div class="absolute left-[27px] top-full h-4 w-hairline bg-outline group-last:hidden"></div>
+</a>
+<a class="flex items-center gap-3 py-3 px-6 font-metric-sm text-metric-sm text-outline pl-5 hover:bg-primary-container/10 transition-all duration-200 relative group opacity-60 pointer-events-none" href="#">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">visibility</span>
+<span class="uppercase tracking-widest">See</span>
+<div class="absolute left-[27px] top-full h-4 w-hairline bg-outline group-last:hidden"></div>
+</a>
+<a class="flex items-center gap-3 py-3 px-6 font-metric-sm text-metric-sm text-outline pl-5 hover:bg-primary-container/10 transition-all duration-200 relative group opacity-60 pointer-events-none" href="#">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+<span class="uppercase tracking-widest">Commit</span>
+</a>
+</nav>
+</aside>
+<!-- Main Workspace Area -->
+<main class="flex-1 flex flex-col h-full relative">
+<!-- Header (Context & Data as Hero) -->
+<header class="flex justify-between items-end p-margin-mobile md:p-margin-desktop border-b-border-width border-primary bg-surface-parchment z-10 shrink-0">
+<div>
+<span class="font-metric-hero text-metric-hero text-primary block mb-2 tracking-tighter">01 / 05</span>
+<h1 class="font-display-lg text-display-lg text-primary uppercase">Session 25</h1>
+</div>
+<div class="hidden sm:block text-right">
+<span class="font-label-caps text-label-caps text-outline block mb-1">CURRENT PHASE</span>
+<span class="font-headline-md text-headline-md text-on-surface">Centre</span>
+</div>
+</header>
+<!-- The Canvas / Exercise Area -->
+<div class="flex-1 overflow-y-auto p-gutter sm:p-margin-mobile md:p-margin-desktop flex items-center justify-center bg-surface-container-low">
+<!-- Brutalist Containment Card -->
+<div class="w-full max-w-4xl min-h-[530px] bg-surface border-border-width border-primary rounded relative flex flex-col md:flex-row shadow-[4px_4px_0px_0px_rgba(94,23,0,1)]">
+<!-- Left: The Prompt (Data Input/Context) -->
+<div class="w-full md:w-1/2 p-8 md:p-12 border-b-border-width md:border-b-0 md:border-r-border-width border-primary flex flex-col justify-between bg-surface-bright">
+<div>
+<div class="inline-flex items-center border-hairline border-outline px-2 py-1 mb-8">
+<span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase">Audience-Aware Framing</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-outline mb-4">THE PROMPT</h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed max-w-sm">
+                            'You are about to say the same thing three ways. Same truth, three frames.'
+                        </p>
+</div>
+<div class="mt-12 hidden md:block">
+<p class="font-metric-sm text-metric-sm text-outline border-t-hairline border-outline pt-4 inline-block">
+                            SYSTEM READY. PREPARE TO SHIFT PERSPECTIVE.
+                        </p>
+</div>
+</div>
+<!-- Right: The Breathing Ritual (Tactile Depth & Rigor) -->
+<div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col items-center justify-center relative overflow-hidden bg-surface-parchment">
+<div class="absolute top-4 right-4 font-metric-sm text-metric-sm text-primary" id="breath-instruction">
+                        IN
+                    </div>
+<!-- Warm Brutalist Breathing Apparatus -->
+<div class="relative w-64 h-64 flex items-center justify-center mb-8">
+<!-- Structural Rings (No glow, hard borders) -->
+<div class="breath-ring absolute inset-0 border-border-width border-outline rounded-full opacity-30 transform scale-100"></div>
+<div class="breath-ring absolute inset-8 border-hairline border-outline-variant rounded-full opacity-50 transform scale-100" style="transition-delay: 100ms;"></div>
+<div class="breath-ring absolute inset-16 border-hairline border-primary-fixed-dim rounded-full opacity-70 transform scale-100" style="transition-delay: 200ms;"></div>
+<!-- The Mic / Core Entity -->
+<div class="w-20 h-20 bg-primary border-border-width border-primary rounded-full z-10 flex items-center justify-center shadow-[inset_0px_0px_0px_2px_#FDF9F5]">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+<!-- Cardinal Data Markers -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-4 bg-primary"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1 h-4 bg-primary"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-1 bg-primary"></div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-1 bg-primary"></div>
+</div>
+<button class="bg-surface-parchment text-primary font-headline-md text-headline-md px-8 py-4 border-border-width border-primary rounded hover:bg-primary hover:text-on-primary transition-colors active:translate-y-0.5 mt-auto w-full max-w-xs text-center uppercase tracking-tight">
+                        Acknowledge
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Brutalist Breathing Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const rings = document.querySelectorAll('.breath-ring');
+            const instruction = document.getElementById('breath-instruction');
+            const states = ['IN', 'HOLD', 'OUT', 'HOLD'];
+            let currentState = 0;
+
+            const updateBreathing = () => {
+                instruction.innerText = states[currentState];
+
+                if(states[currentState] === 'IN') {
+                    rings.forEach((ring, i) => {
+                        // Expanding outward mechanically
+                        const scaleBase = 1.1;
+                        const scaleMultiplier = (rings.length - i) * 0.15;
+                        ring.style.transform = `scale(${scaleBase + scaleMultiplier})`;
+                        ring.style.opacity = '0.8';
+                        ring.style.borderColor = '#7C2D12'; // primary
+                    });
+                } else if (states[currentState] === 'OUT') {
+                    rings.forEach((ring) => {
+                        // Contracting back to tight structure
+                        ring.style.transform = 'scale(1)';
+                        ring.style.opacity = '0.3';
+                        ring.style.borderColor = '#89726c'; // outline
+                    });
+                }
+                
+                currentState = (currentState + 1) % 4;
+            };
+
+            // Initial trigger and interval
+            setTimeout(updateBreathing, 100);
+            setInterval(updateBreathing, 4000); // 4 seconds per phase perfectly matches rigorous pacing
+        });
+    </script>
+</body></html>

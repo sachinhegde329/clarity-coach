@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach | Session 7</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "background": "#fdf9f5",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#ede1d2",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ede1d2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#655d52",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9d6",
+                        "on-error": "#ba1a1a",
+                        "tertiary-container": "#004b71",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "tertiary": "#00334f",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "surface-variant": "#e5e2de",
+                        "on-background": "#1c1c19",
+                        "tertiary-fixed-dim": "#97ccf9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hover-lift:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .active-press:active {
+            transform: translate(0px, 0px);
+            box-shadow: 0px 0px 0px 0px #5e1700;
+        }
+        @keyframes pulse-dot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .dot-pulse {
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        .mic-active {
+            background-color: #5e1700 !important;
+            color: #ffffff !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">CLARITY COACH</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="bg-secondary-container px-3 py-1 border-2 border-primary">
+<span class="font-label-md text-label-md text-primary font-bold">03/05</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center px-gutter py-lg max-w-4xl mx-auto w-full">
+<!-- Session Header -->
+<div class="w-full mb-lg">
+<div class="inline-block bg-primary-container text-on-primary-container px-2 py-1 border-2 border-primary mb-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold">Session 07: Cutting Fillers</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary uppercase">The First Constraint</h1>
+</div>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full">
+<!-- Constraint Card -->
+<div class="md:col-span-5 bg-surface-container-low border-2 border-primary p-md hard-shadow flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-sm">CURRENT CONSTRAINT</span>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight mb-md">"No fillers.<br/>60 seconds."</h2>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-md" data-icon="timer">timer</span>
+<span class="font-label-md text-label-md">STRICT 1:00 LIMIT</span>
+</div>
+</div>
+<!-- Prompt Card -->
+<div class="md:col-span-7 bg-surface border-2 border-primary p-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary-container flex items-center justify-center border-l-2 border-b-2 border-primary">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="psychology">psychology</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-sm">PROMPT</span>
+<p class="font-headline-md text-headline-md text-on-surface italic leading-snug">
+                    "Describe your morning routine in vivid detail, focusing on the sequence of physical sensations."
+                </p>
+<div class="mt-lg pt-md border-t-2 border-primary-fixed">
+<span class="font-label-sm text-label-sm text-on-surface-variant">TIPS: AVOID 'UM', 'LIKE', 'SO', 'REALLY'.</span>
+</div>
+</div>
+<!-- Recording Workspace -->
+<div class="md:col-span-12 bg-secondary-container border-2 border-primary p-lg flex flex-col items-center justify-center text-center gap-md">
+<!-- Feedback Dot Indicator -->
+<div class="flex flex-col items-center gap-xs opacity-0 transition-opacity duration-300" id="status-container">
+<div class="w-4 h-4 rounded-full bg-error border-2 border-primary dot-pulse hidden" id="filler-dot"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest" id="status-text">Filler Detected</span>
+</div>
+<!-- Mic Visualizer Simulation -->
+<div class="w-full max-w-md h-24 flex items-center justify-center gap-1 mb-md">
+<div class="w-2 h-8 bg-primary rounded-full opacity-40"></div>
+<div class="w-2 h-12 bg-primary rounded-full opacity-60"></div>
+<div class="w-2 h-20 bg-primary rounded-full"></div>
+<div class="w-2 h-24 bg-primary rounded-full"></div>
+<div class="w-2 h-16 bg-primary rounded-full"></div>
+<div class="w-2 h-12 bg-primary rounded-full opacity-60"></div>
+<div class="w-2 h-8 bg-primary rounded-full opacity-40"></div>
+</div>
+<!-- Main Mic Button -->
+<button class="w-24 h-24 rounded-full border-4 border-primary bg-background text-primary flex items-center justify-center hover-lift active-press transition-all group" id="mic-btn">
+<span class="material-symbols-outlined text-5xl" data-icon="mic" id="mic-icon" style="font-variation-settings: 'FILL' 0;">mic</span>
+</button>
+<div class="mt-md">
+<span class="font-display-lg text-headline-lg md:text-display-lg text-primary tabular-nums" id="timer-display">01:00</span>
+<p class="font-label-md text-label-md text-on-secondary-container mt-xs">TAP TO START RECORDING</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<div class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-surface-container-high transition-colors active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<div class="h-24"></div> <!-- Spacer for fixed bottom nav -->
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const micIcon = document.getElementById('mic-icon');
+        const statusContainer = document.getElementById('status-container');
+        const fillerDot = document.getElementById('filler-dot');
+        const timerDisplay = document.getElementById('timer-display');
+        let isRecording = false;
+        let timeLeft = 60;
+        let timerInterval;
+
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            
+            if (isRecording) {
+                micBtn.classList.add('mic-active');
+                micIcon.style.fontVariationSettings = "'FILL' 1";
+                statusContainer.classList.remove('opacity-0');
+                startTimer();
+                simulateFillers();
+            } else {
+                micBtn.classList.remove('mic-active');
+                micIcon.style.fontVariationSettings = "'FILL' 0";
+                statusContainer.classList.add('opacity-0');
+                clearInterval(timerInterval);
+                resetTimer();
+            }
+        });
+
+        function startTimer() {
+            timeLeft = 60;
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    isRecording = false;
+                    micBtn.classList.remove('mic-active');
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function resetTimer() {
+            timeLeft = 60;
+            updateTimerDisplay();
+        }
+
+        function simulateFillers() {
+            if (!isRecording) return;
+            
+            // Randomly flash filler detection for visual feedback demo
+            setTimeout(() => {
+                if (isRecording) {
+                    fillerDot.classList.remove('hidden');
+                    setTimeout(() => {
+                        fillerDot.classList.add('hidden');
+                        simulateFillers();
+                    }, 800);
+                }
+            }, Math.random() * 5000 + 2000);
+        }
+    </script>
+</body></html>

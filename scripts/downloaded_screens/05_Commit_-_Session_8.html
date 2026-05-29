@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CLARITY COACH - Session 8: Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "background": "#fdf9f5",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ede1d2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary": "#655d52",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9d6",
+                    "on-error": "#ba1a1a",
+                    "tertiary-container": "#004b71",
+                    "surface-container-highest": "#e5e2de",
+                    "surface": "#fdf9f5",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container": "#f1ede9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .brutalist-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .active-recording {
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .progress-line {
+            background-size: 200% 100%;
+            background-image: linear-gradient(to right, #5e1700 50%, #dcc1b9 50%);
+            background-position: 100% 0;
+            transition: background-position 0.5s ease;
+        }
+        .progress-line-active {
+            background-position: 0 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="flex items-center">
+<span class="font-label-md text-label-md uppercase font-bold text-primary px-3 py-1 border-2 border-primary">01/05</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col p-gutter md:max-w-4xl md:mx-auto w-full pb-32">
+<!-- Breadcrumb / Context -->
+<div class="mb-lg">
+<span class="font-label-md text-label-md uppercase text-on-surface-variant tracking-widest border-b-2 border-outline-variant pb-1">Session 8: Finding Your Pace</span>
+</div>
+<!-- Task Focus Section -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">Commit to the Pace.</h2>
+<!-- Prompt Card -->
+<div class="bg-surface-container-low border-2 border-primary p-md relative brutalist-shadow">
+<div class="absolute -top-3 -left-2 bg-primary text-background px-3 py-1 font-label-md text-label-md uppercase">Prompt</div>
+<p class="font-body-lg text-body-lg text-on-surface mt-sm leading-relaxed">
+                    "Tomorrow I will start my hardest conversation at..."
+                </p>
+</div>
+<!-- Visualization Element -->
+<div class="my-md w-full h-64 border-2 border-primary overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale-0 group-hover:grayscale transition-all duration-700" data-alt="A cinematic, high-contrast photograph of a minimalist concrete structure against a warm terracotta sunset sky. The scene is captured with sharp, brutalist architectural angles and soft, hazy golden hour lighting. The atmosphere is quiet, contemplative, and focused, utilizing a palette of rich earthy browns, cream textures, and deep shadows to evoke a sense of grounding and internal strength." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWs4FOJ509eVDKe5nPpamb49CUSeezzH7Fwvm7_Qe3vYQpMM-D7iQAPaHgs7B_tNmrdmhKwTeXbX0zmiD6boXYpdPXOHtm2n5CFcRZZckAxO_K4k2wn9qtQC8Plmjmw1QnkIEltVWv6kf3bNNgURB-Djj2sAS1_NJu3AjBtPn5XWb3sKoSXGo3ynajes02JHjK8HVfjhZZBwcrnDsBSk-D8_PyOSzh-nna1ni-BJ7D4qvzUkT06HAlzou5sGAa5ErN8Z1hXhBKplJg"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+</div>
+<!-- Recording Interface -->
+<div class="flex flex-col items-center gap-sm mt-md">
+<div class="font-label-md text-label-md text-primary font-bold tracking-widest" id="recording-timer">00:15</div>
+<button class="w-24 h-24 rounded-none border-4 border-primary flex items-center justify-center bg-background active:translate-y-1 active:translate-x-1 transition-transform brutalist-shadow hover:bg-surface-container-high" id="mic-btn">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="mic" id="mic-icon">mic</span>
+</button>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs" id="mic-status">Hold to record your commitment</p>
+</div>
+</section>
+<!-- Instructional Micro-copy -->
+<div class="mt-xl border-t-2 border-outline-variant pt-md grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-primary font-bold uppercase">Why this matters</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Speaking your intention aloud activates different neural pathways than just thinking. It makes the abstract tangible.</p>
+</div>
+<div class="flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-primary font-bold uppercase">The Next Step</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Once confirmed, this will be added to your morning curriculum for tomorrow's check-in.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Suppressed for transactional state, but shown as per Shared Components logic for destination mapping) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const micIcon = document.getElementById('mic-icon');
+        const micStatus = document.getElementById('mic-status');
+        const timerText = document.getElementById('recording-timer');
+        let timeLeft = 15;
+        let timerInterval;
+        let isRecording = false;
+
+        function startRecording() {
+            isRecording = true;
+            micBtn.classList.add('active-recording', 'bg-primary-container');
+            micIcon.classList.add('text-on-primary-container');
+            micStatus.textContent = 'Recording commitment...';
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerText.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+                if (timeLeft <= 0) {
+                    stopRecording();
+                }
+            }, 1000);
+        }
+
+        function stopRecording() {
+            clearInterval(timerInterval);
+            isRecording = false;
+            micBtn.classList.remove('active-recording', 'bg-primary-container');
+            micIcon.classList.remove('text-on-primary-container');
+            micStatus.textContent = 'Commitment captured. Tap to redo.';
+            
+            if (timeLeft <= 0) {
+                micStatus.textContent = 'Time limit reached. Commitment captured.';
+            }
+        }
+
+        micBtn.addEventListener('mousedown', () => {
+            if (!isRecording) {
+                timeLeft = 15;
+                timerText.textContent = '00:15';
+                startRecording();
+            }
+        });
+
+        micBtn.addEventListener('mouseup', () => {
+            if (isRecording) {
+                stopRecording();
+            }
+        });
+
+        // Touch support
+        micBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (!isRecording) {
+                timeLeft = 15;
+                timerText.textContent = '00:15';
+                startRecording();
+            }
+        });
+
+        micBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            if (isRecording) {
+                stopRecording();
+            }
+        });
+    </script>
+</body></html>

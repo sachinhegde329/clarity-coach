@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 23: Label and Pause</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: JetBrains Mono & Bricolage Grotesque -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-primary-container": "#ff9b7b",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e5e2de",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#ffb59e",
+                    "surface-container-high": "#ebe7e4",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#dbe6cf",
+                    "background": "#fdf9f5",
+                    "on-surface": "#1c1c19",
+                    "secondary": "#57624f",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#93000b",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "inverse-surface": "#31302e",
+                    "error-warning": "#B91C1C",
+                    "primary-container": "#7c2d12",
+                    "primary": "#5e1700",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-dim": "#ddd9d6",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "outline-variant": "#dcc1b9",
+                    "surface": "#fdf9f5",
+                    "surface-variant": "#e5e2de",
+                    "surface-parchment": "#FDF9F5",
+                    "on-secondary-fixed": "#151e10",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fdf9f5",
+                    "on-tertiary-fixed": "#410002",
+                    "border-primary": "#7C2D12",
+                    "on-background": "#1c1c19",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-low": "#f7f3ef",
+                    "on-tertiary-container": "#ff998e",
+                    "success-sage": "#818C78",
+                    "secondary-container": "#d8e3cc",
+                    "inverse-on-surface": "#f4f0ec",
+                    "tertiary": "#680005",
+                    "primary-fixed": "#ffdbd0",
+                    "inverse-primary": "#ffb59e",
+                    "outline": "#89726c",
+                    "surface-tint": "#9b4427",
+                    "on-secondary-container": "#5b6653"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "hairline": "0.5px",
+                    "border-width": "2px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "metric-sm": ["JetBrains Mono"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .brutalist-border {
+            border-width: 2px;
+            border-color: #7C2D12; /* border-primary */
+        }
+        .hairline-border {
+            border-width: 0.5px;
+            border-color: #89726c; /* outline */
+        }
+        .ink-dot-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar Shared Component -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-surface flex justify-between items-center px-margin-mobile h-16 max-w-7xl mx-auto z-40">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 -ml-2 rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="text-primary font-bold font-metric-sm text-metric-sm">
+            03 / 05
+        </div>
+<button class="w-8 h-8 rounded-full border-width border-primary overflow-hidden hover:bg-surface-container-high transition-colors flex items-center justify-center bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full pt-6 pb-safe relative">
+<!-- Session Progress Strip (Brutalist) -->
+<div class="flex gap-1 mb-8">
+<div class="h-2 flex-1 bg-primary brutalist-border"></div>
+<div class="h-2 flex-1 bg-primary brutalist-border"></div>
+<div class="h-2 flex-1 bg-primary-fixed brutalist-border"></div>
+<div class="h-2 flex-1 bg-transparent brutalist-border"></div>
+<div class="h-2 flex-1 bg-transparent brutalist-border"></div>
+</div>
+<!-- Adversarial Challenge Context -->
+<div class="mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-error-warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-caps text-label-caps text-error-warning tracking-widest uppercase">Adversarial Protocol Active</span>
+</div>
+<!-- AI Statement Card (Warm Brutalist) -->
+<div class="brutalist-border bg-surface-container-low p-6 md:p-8 rounded-DEFAULT relative z-10 mb-8 mt-2">
+<div class="absolute -top-3 -left-3 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-1 brutalist-border z-20">
+                PARTNER STATEMENT
+            </div>
+<p class="font-display-lg text-display-lg text-primary mt-2">
+                "I don't even know why I bother trying to explain this to you anymore. You've already made up your mind."
+            </p>
+</div>
+<!-- Instruction Text -->
+<div class="text-center my-auto flex-1 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">
+                Label the emotion, then hold for <span class="text-primary underline decoration-2 underline-offset-4">3 seconds</span>.
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+                Acknowledge their frustration before responding. Silence builds authority.
+            </p>
+</div>
+<!-- Interaction Area (Bottom Fixed) -->
+<div class="flex flex-col items-center justify-end mt-auto pb-12 pt-8">
+<!-- Pause-Hold Ring Gauge -->
+<div class="relative w-32 h-32 mb-6 group cursor-pointer" id="hold-gauge">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle class="stroke-outline-variant" cx="50" cy="50" fill="none" r="46" stroke-width="2"></circle>
+<!-- Fill Track (Manipulated via JS) -->
+<circle class="stroke-primary transition-all duration-1000 ease-linear" cx="50" cy="50" fill="none" id="progress-circle" r="46" stroke-dasharray="289" stroke-dashoffset="289" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-metric-hero text-metric-hero text-primary" id="countdown-text">3</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SEC HOLD</span>
+</div>
+</div>
+<!-- Brutalist Mic Button -->
+<button class="relative w-[64px] h-[64px] rounded-full bg-primary brutalist-border flex items-center justify-center hover:scale-95 transition-transform duration-100 ease-in-out z-20 group" id="mic-btn">
+<!-- Ink-dot pulse container (active state) -->
+<div class="absolute inset-0 rounded-full border-2 border-primary ink-dot-pulse opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-surface-parchment text-[32px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<span class="font-label-caps text-label-caps text-outline mt-4">TAP TO SPEAK</span>
+</div>
+</main>
+<script>
+        // Lightweight JS for interaction demonstration
+        const gauge = document.getElementById('hold-gauge');
+        const progressCircle = document.getElementById('progress-circle');
+        const countdownText = document.getElementById('countdown-text');
+        const micBtn = document.getElementById('mic-btn');
+        let isHolding = false;
+        let holdTimer;
+        let timeLeft = 3;
+
+        // Simulate silence detection / holding
+        gauge.addEventListener('mousedown', startHold);
+        gauge.addEventListener('touchstart', startHold);
+        
+        window.addEventListener('mouseup', stopHold);
+        window.addEventListener('touchend', stopHold);
+
+        function startHold() {
+            isHolding = true;
+            timeLeft = 3;
+            countdownText.innerText = timeLeft;
+            progressCircle.style.strokeDashoffset = "289"; // Reset
+            
+            // Start animation
+            setTimeout(() => {
+                if(isHolding) progressCircle.style.strokeDashoffset = "0";
+            }, 50);
+
+            holdTimer = setInterval(() => {
+                if (!isHolding) return;
+                timeLeft--;
+                if(timeLeft > 0) {
+                    countdownText.innerText = timeLeft;
+                } else if (timeLeft === 0) {
+                    countdownText.innerText = "0";
+                    clearInterval(holdTimer);
+                    // Success state
+                    setTimeout(() => {
+                        countdownText.innerHTML = `<span class="material-symbols-outlined text-[32px]">check</span>`;
+                        gauge.querySelector('circle.stroke-primary').classList.replace('stroke-primary', 'stroke-success-sage');
+                    }, 500);
+                }
+            }, 1000);
+        }
+
+        function stopHold() {
+            if (!isHolding) return;
+            isHolding = false;
+            clearInterval(holdTimer);
+            if (timeLeft > 0) {
+                // Reset if failed to hold full 3 seconds
+                progressCircle.style.strokeDashoffset = "289";
+                countdownText.innerText = "3";
+            }
+        }
+    </script>
+</body></html>

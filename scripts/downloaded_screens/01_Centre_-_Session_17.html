@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 17: Master Answer - Step 1: Centre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;family=JetBrains+Mono:wght@400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1c1c19",
+                    "surface-tint": "#9b4427",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-bright": "#fdf9f5",
+                    "on-tertiary-fixed": "#410002",
+                    "on-secondary-fixed": "#151e10",
+                    "on-surface": "#1c1c19",
+                    "on-tertiary-container": "#ff998e",
+                    "surface-parchment": "#FDF9F5",
+                    "on-primary-container": "#ff9b7b",
+                    "surface": "#fdf9f5",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f4f0ec",
+                    "secondary": "#57624f",
+                    "outline-variant": "#dcc1b9",
+                    "success-sage": "#818C78",
+                    "on-error-container": "#93000a",
+                    "outline": "#89726c",
+                    "on-secondary-container": "#5b6653",
+                    "primary": "#5e1700",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e5e2de",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#d8e3cc",
+                    "surface-container-high": "#ebe7e4",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-dim": "#ddd9d6",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "tertiary-fixed": "#ffdad6",
+                    "tertiary": "#680005",
+                    "on-surface-variant": "#55423d",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdbd0",
+                    "inverse-surface": "#31302e",
+                    "background": "#fdf9f5",
+                    "tertiary-container": "#93000b",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "error-warning": "#B91C1C",
+                    "surface-container-low": "#f7f3ef",
+                    "border-primary": "#7C2D12",
+                    "primary-container": "#7c2d12",
+                    "primary-fixed-dim": "#ffb59e",
+                    "inverse-primary": "#ffb59e",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "secondary-fixed": "#dbe6cf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "hairline": "0.5px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .breathe-animation {
+            animation: breathe 4s infinite ease-in-out;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+        }
+        .progress-bar-fill {
+            animation: progressFill 5s linear forwards;
+        }
+        @keyframes progressFill {
+            to { width: 100%; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-primary font-body-md h-full flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Anchor -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 border-b-border-width border-primary bg-surface-parchment z-50 fixed top-0 left-0">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl font-bold cursor-pointer hover:bg-primary-container transition-colors rounded-full p-2 -ml-2" data-icon="close">close</span>
+</div>
+<div class="font-metric-hero text-metric-sm text-primary tracking-widest font-bold">
+            01 / 05
+        </div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer hover:bg-primary-container transition-colors rounded-full p-2 -mr-2" data-icon="settings">settings</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-gutter pt-24 pb-32">
+<div class="w-full max-w-md mx-auto text-center flex flex-col items-center gap-12">
+<!-- Header Section -->
+<div class="space-y-2">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tighter">Centre</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant uppercase tracking-widest text-sm font-semibold border-b-hairline border-outline-variant inline-block pb-1">Attention Tuning</p>
+</div>
+<!-- Focus Element -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Concentric Rings -->
+<div class="absolute inset-0 rounded-full border-hairline border-primary opacity-20"></div>
+<div class="absolute inset-4 rounded-full border-hairline border-primary opacity-40"></div>
+<div class="absolute inset-8 rounded-full border-hairline border-primary opacity-60"></div>
+<!-- Central Pulsing Core -->
+<div class="w-32 h-32 rounded-full bg-primary breathe-animation flex items-center justify-center relative shadow-[0_0_0_2px_#7c2d12]">
+<span class="material-symbols-outlined text-surface-parchment text-4xl" data-icon="self_improvement" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+</div>
+<!-- Instruction Text -->
+<div class="border-border-width border-primary bg-surface-bright rounded-lg p-6 relative w-full shadow-[4px_4px_0_0_#7c2d12]">
+<div class="absolute -top-3 left-4 bg-surface-parchment px-2 font-label-caps text-label-caps text-primary border-x-border-width border-primary font-bold">
+                    INSTRUCTION
+                </div>
+<p class="font-headline-md text-headline-md text-primary leading-tight">
+                    Close your eyes and listen. Primes for the imitation step.
+                </p>
+</div>
+</div>
+</main>
+<!-- Session Progress Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-parchment border-t-border-width border-primary z-50">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-14 bg-surface-variant/30">
+<div class="font-label-caps text-label-caps text-primary font-bold tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                AUTO-ADVANCE IN PROGRESS
+            </div>
+<div class="font-metric-sm text-metric-sm text-primary font-bold">
+                00:05
+            </div>
+</div>
+<!-- Progress Bar -->
+<div class="h-1 bg-surface-dim w-full relative">
+<div class="absolute top-0 left-0 h-full bg-primary progress-bar-fill w-0"></div>
+</div>
+</footer>
+</body></html>

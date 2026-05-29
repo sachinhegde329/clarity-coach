@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-warning": "#B91C1C",
+                    "outline": "#89726c",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#93000b",
+                    "on-secondary-fixed": "#151e10",
+                    "on-surface-variant": "#55423d",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-container-low": "#f7f3ef",
+                    "tertiary": "#680005",
+                    "surface": "#fdf9f5",
+                    "inverse-primary": "#ffb59e",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d8e3cc",
+                    "inverse-on-surface": "#f4f0ec",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f1ede9",
+                    "primary-container": "#7c2d12",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "primary-fixed": "#ffdbd0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fdf9f5",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-background": "#1c1c19",
+                    "primary": "#5e1700",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-secondary": "#ffffff",
+                    "background": "#fdf9f5",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "border-primary": "#7C2D12",
+                    "surface-tint": "#9b4427",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad6",
+                    "inverse-surface": "#31302e",
+                    "on-surface": "#1c1c19",
+                    "secondary": "#57624f",
+                    "success-sage": "#818C78",
+                    "on-secondary-container": "#5b6653",
+                    "secondary-fixed": "#dbe6cf",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-dim": "#ddd9d6",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-variant": "#e5e2de",
+                    "surface-parchment": "#FDF9F5",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-high": "#ebe7e4",
+                    "outline-variant": "#dcc1b9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "hairline": "0.5px",
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mic-pulse-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #5e1700;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0;
+        }
+        @keyframes pulseIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        .recording .mic-pulse-dot {
+            animation: pulseIn 1.5s infinite;
+        }
+        .timer-ring {
+            transition: stroke-dashoffset 1s linear;
+        }
+        .segment-active {
+            background-color: #5e1700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-parchment border-b-border-width border-primary flex items-center justify-between px-margin-mobile py-unit">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform p-2 hover:bg-primary-container/10">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary">
+<img alt="User Profile" data-alt="A clean, high-contrast studio portrait of a professional mentor figure in a minimalist light-mode setting. The aesthetic is sophisticated and architectural, featuring soft natural light hitting the subject from the side. The color palette is composed of warm parchment tones and deep earthy browns, maintaining the premium, elite workshop atmosphere of the Clarity Coach brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJRDGLZD4zgRugeHEirjDyMMzBebaFv1hFSZ4SMIh4zVQSexwcv2lzYRBEZDoDADxLyTDaxjBic7r_sVCIeYHbRQ43NxR4oJfwlKp7SSCbUaqQ-E46xUszmtm6sL6ktgFxkZRtbONg3xq7xPJIVXLSPB3VoZC9K4KxJgTHX6zNZtf1g4imSvoCwdH2PYYBBR0jAyg3NUd-4b8ZjSFs8TNSMRAA2sUAqHjrDVNAb_bHgMquPDN7Q7fV9n8OvUqTF0mQNL9A84eNUsmx"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="hidden md:flex h-full w-64 border-r-border-width border-primary flex-col py-margin-mobile bg-surface-parchment">
+<div class="px-margin-mobile mb-gutter">
+<h2 class="font-label-caps text-label-caps text-outline tracking-widest uppercase">SESSION PROGRESS</h2>
+</div>
+<nav class="flex-1">
+<div class="flex flex-col gap-unit">
+<div class="text-outline pl-3 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">self_improvement</span>
+<span class="font-metric-sm text-metric-sm">Centre</span>
+</div>
+<div class="text-outline pl-3 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">hearing</span>
+<span class="font-metric-sm text-metric-sm">Listen</span>
+</div>
+<div class="font-bold text-primary border-l-4 border-primary pl-2 py-2 flex items-center gap-3 bg-primary-container/5">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span class="font-metric-sm text-metric-sm">Do</span>
+</div>
+<div class="text-outline pl-3 py-2 flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="font-metric-sm text-metric-sm">See</span>
+</div>
+<div class="text-outline pl-3 py-2 flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="font-metric-sm text-metric-sm">Commit</span>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop flex flex-col items-center max-w-5xl mx-auto w-full">
+<!-- Step Indicator -->
+<div class="w-full flex justify-between items-center mb-gutter">
+<span class="font-label-caps text-label-caps text-outline">SESSION 14: RULE OF 3</span>
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-2 py-1 rounded">STEP 03 / 05</span>
+</div>
+<!-- Challenge Header -->
+<div class="w-full mb-8 text-center md:text-left">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Rule of 3 Challenge</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explain your top three priorities for the upcoming quarter. Be concise, structural, and clear.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full items-start">
+<!-- Constraints Card -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface border-border-width border-primary p-gutter rounded-lg">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h3 class="font-label-caps text-label-caps text-primary">CONSTRAINTS</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">filter_3</span>
+<div>
+<p class="font-body-md font-bold text-primary">Exactly Three Points</p>
+<p class="font-metric-sm text-metric-sm text-outline">The detector will wait for three distinct structural markers.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">timer</span>
+<div>
+<p class="font-body-md font-bold text-primary">60 Seconds Limit</p>
+<p class="font-metric-sm text-metric-sm text-outline">A hard cut-off to enforce brevity.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Point Indicator Card -->
+<div class="bg-surface-container border-hairline border-outline-variant p-gutter rounded-lg">
+<h3 class="font-label-caps text-label-caps text-outline mb-4">DETECTION PIPELINE</h3>
+<div class="flex gap-2 h-12">
+<div class="flex-1 border-2 border-primary rounded-sm segment-active flex items-center justify-center" id="segment-1">
+<span class="font-metric-sm text-on-primary">01</span>
+</div>
+<div class="flex-1 border-2 border-primary rounded-sm bg-surface-container flex items-center justify-center" id="segment-2">
+<span class="font-metric-sm text-primary">02</span>
+</div>
+<div class="flex-1 border-2 border-primary rounded-sm bg-surface-container flex items-center justify-center" id="segment-3">
+<span class="font-metric-sm text-primary">03</span>
+</div>
+</div>
+<p class="mt-4 font-metric-sm text-metric-sm text-primary text-center">Point 1 Detected: "Q4 Growth"</p>
+</div>
+</div>
+<!-- Interaction Canvas -->
+<div class="md:col-span-8 bg-surface border-border-width border-primary rounded-lg p-margin-desktop flex flex-col items-center justify-center relative min-h-[400px]">
+<!-- JetBrains Mono Timer -->
+<div class="absolute top-margin-mobile right-margin-mobile flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+<span class="font-metric-hero text-metric-hero text-primary tracking-tighter" id="timer">00:44</span>
+</div>
+<!-- Recording UI -->
+<div class="relative flex items-center justify-center group">
+<!-- Progress Ring -->
+<svg class="absolute w-72 h-72 -rotate-90">
+<circle class="text-primary/10" cx="144" cy="144" fill="transparent" r="130" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary timer-ring" cx="144" cy="144" fill="transparent" id="timer-ring" r="130" stroke="currentColor" stroke-dasharray="816" stroke-dashoffset="200" stroke-width="4"></circle>
+</svg>
+<!-- Pulse Dots -->
+<div class="absolute w-40 h-40 pointer-events-none" id="pulse-container">
+<!-- Pulses will be injected here via JS -->
+</div>
+<!-- Mic Button -->
+<button class="w-32 h-32 rounded-full bg-primary flex items-center justify-center relative z-10 active:scale-95 transition-all shadow-[0_4px_0_0_#3a0b00] hover:translate-y-[-2px] hover:shadow-[0_6px_0_0_#3a0b00]" id="mic-btn">
+<span class="material-symbols-outlined text-surface-parchment text-5xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="mt-margin-desktop text-center">
+<p class="font-label-caps text-label-caps text-primary mb-2">RECORDING IN PROGRESS</p>
+<p class="font-body-md text-outline">Keep your posture upright. Use bridge phrases.</p>
+</div>
+<!-- Finish Button -->
+<button class="absolute bottom-margin-mobile right-margin-mobile bg-primary border-border-width border-primary text-on-primary px-8 py-3 rounded-lg font-headline-md text-headline-md active:scale-95 transition-transform">
+                        FINISH SESSION
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 w-full z-50 bg-surface-parchment border-t-border-width border-primary flex justify-around items-center h-16 px-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px]">TODAY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-caps text-[10px]">JOURNEY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-caps text-[10px]">LIBRARY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-[10px]">STATS</span>
+</div>
+</footer>
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const pulseContainer = document.getElementById('pulse-container');
+        const timerText = document.getElementById('timer');
+        const timerRing = document.getElementById('timer-ring');
+        let isRecording = true;
+        let seconds = 44;
+
+        // Pulse logic
+        function createPulse() {
+            if (!isRecording) return;
+            const dot = document.createElement('div');
+            dot.className = 'mic-pulse-dot';
+            const angle = Math.random() * Math.PI * 2;
+            const radius = 64;
+            dot.style.left = `calc(50% + ${Math.cos(angle) * radius}px)`;
+            dot.style.top = `calc(50% + ${Math.sin(angle) * radius}px)`;
+            dot.style.animation = `pulseIn ${1 + Math.random()}s ease-out forwards`;
+            pulseContainer.appendChild(dot);
+            setTimeout(() => dot.remove(), 1500);
+        }
+
+        setInterval(createPulse, 200);
+
+        // Timer logic
+        setInterval(() => {
+            if (seconds > 0) {
+                seconds--;
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                timerText.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+                
+                // Ring progress
+                const offset = 816 - (seconds / 60) * 816;
+                timerRing.style.strokeDashoffset = offset;
+            }
+        }, 1000);
+
+        // Interaction
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            micBtn.classList.toggle('bg-error-warning');
+            const icon = micBtn.querySelector('.material-symbols-outlined');
+            icon.textContent = isRecording ? 'mic' : 'mic_off';
+        });
+
+        // Simulate Point Detection
+        setTimeout(() => {
+            document.getElementById('segment-2').classList.add('segment-active');
+            document.getElementById('segment-2').querySelector('span').classList.replace('text-primary', 'text-on-primary');
+        }, 5000);
+
+        setTimeout(() => {
+            document.getElementById('segment-3').classList.add('segment-active');
+            document.getElementById('segment-3').querySelector('span').classList.replace('text-primary', 'text-on-primary');
+        }, 12000);
+    </script>
+</body></html>

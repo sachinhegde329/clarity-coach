@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Ink-dot pulse simulation */
+        @keyframes ink-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+        .ink-dot {
+            width: 2px;
+            height: 2px;
+            background-color: #5e1700;
+            border-radius: 50%;
+            animation: ink-dot 2s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#5e1700",
+                    "outline-variant": "#dcc1b9",
+                    "on-background": "#1c1c19",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "primary-fixed-dim": "#ffb59e",
+                    "secondary": "#57624f",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-bright": "#fdf9f5",
+                    "inverse-surface": "#31302e",
+                    "secondary-container": "#d8e3cc",
+                    "surface-container-high": "#ebe7e4",
+                    "on-primary-fixed": "#3a0b00",
+                    "tertiary-container": "#93000b",
+                    "on-surface-variant": "#55423d",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "surface-tint": "#9b4427",
+                    "surface-dim": "#ddd9d6",
+                    "on-error": "#ffffff",
+                    "primary-container": "#7c2d12",
+                    "on-secondary": "#ffffff",
+                    "border-primary": "#7C2D12",
+                    "on-surface": "#1c1c19",
+                    "tertiary": "#680005",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f4f0ec",
+                    "tertiary-fixed": "#ffdad6",
+                    "outline": "#89726c",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary-container": "#ff998e",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-container-lowest": "#ffffff",
+                    "success-sage": "#818C78",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#151e10",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary-fixed": "#dbe6cf",
+                    "on-primary-container": "#ff9b7b",
+                    "error-warning": "#B91C1C",
+                    "surface": "#fdf9f5",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-fixed": "#ffdbd0",
+                    "on-secondary-container": "#5b6653",
+                    "error": "#ba1a1a",
+                    "background": "#fdf9f5",
+                    "surface-container-highest": "#e5e2de",
+                    "on-primary": "#ffffff",
+                    "surface-parchment": "#FDF9F5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "hairline": "0.5px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-fixed selection:text-primary min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-4 py-3 w-full border-b-2 border-primary sticky top-0 bg-surface z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">CLARITY COACH</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container border border-primary overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a confident executive against a warm parchment background. The lighting is soft and directional, typical of a high-end atelier setting. The image uses a muted palette of reddish-browns and creams to maintain brand cohesion, creating an atmosphere of elite mentorship and intellectual rigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmlvjNMm0SeWaOkdLQaE7rJTVUHRZ1rRLOnc6KGhI14vbYesm7Y-kZOXcY5FWAoM_TMz9lzOpv4AjoOAaAiqpM80AGMMuHLat8NLhphThXvFW01k0M-fRf5OM7W0PTo9UH3VOM4ZhXAcVJvzn4NrBSEmqKg0uZWYvAZEGxvw_2Q-AJOMe0cn_KK53oBMta7fku1IUM19vp0M4aZUHK_iqeXXW7tVgE7SQRrSvjbdRWX9zljRxKS5C9nWAjfG2N_0S4WiShuX9nG9K-"/>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="p-5 max-w-md mx-auto">
+<!-- Progress Header -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-1 uppercase">Step 04 / 05</p>
+<h1 class="font-headline-lg text-headline-lg text-primary">See</h1>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">SESSION 11</div>
+</div>
+<!-- Hero Metric Card -->
+<div class="bg-surface border-2 border-primary p-6 mb-4 rounded-lg">
+<p class="font-label-caps text-label-caps text-primary mb-2 uppercase">Brevity Score</p>
+<div class="flex items-baseline gap-4">
+<span class="font-metric-hero text-metric-hero text-primary">72%</span>
+<div class="flex items-center text-success-sage font-metric-sm text-metric-sm">
+<span class="material-symbols-outlined mr-1" style="font-variation-settings: 'FILL' 1;">arrow_drop_up</span>
+<span>12% vs last session</span>
+</div>
+</div>
+</div>
+<!-- Secondary Metrics Grid -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface border-2 border-primary p-4 rounded-lg">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase">Speaking Pace</p>
+<p class="font-metric-hero text-[24px] text-primary">138 <span class="text-[12px] font-label-caps">WPM</span></p>
+</div>
+<div class="bg-surface border-2 border-primary p-4 rounded-lg">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase">Time Used</p>
+<p class="font-metric-hero text-[24px] text-primary">28 <span class="text-[12px] font-label-caps">Seconds</span></p>
+<p class="text-[10px] font-label-caps text-success-sage">Target &lt; 30s</p>
+</div>
+</div>
+<!-- Structural Analysis Section -->
+<div class="mb-8">
+<h2 class="font-label-caps text-label-caps text-on-surface mb-4 border-b border-outline-variant pb-2 uppercase">Structural Analysis</h2>
+<div class="space-y-3">
+<!-- Card 1 -->
+<div class="flex gap-4 p-4 bg-surface border-2 border-primary rounded-lg">
+<div class="flex-shrink-0">
+<div class="w-2 h-2 rounded-full bg-success-sage mt-2"></div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-1 uppercase">Strong Opening</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Your first 5 seconds established immediate clarity.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex gap-4 p-4 bg-surface border-2 border-primary rounded-lg">
+<div class="flex-shrink-0">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-1 uppercase">Eliminated Fillers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Zero usage of "like" or "actually" detected.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex gap-4 p-4 bg-surface border-2 border-primary rounded-lg opacity-80">
+<div class="flex-shrink-0">
+<div class="w-2 h-2 rounded-full bg-outline-variant mt-2"></div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase">Closing Loop</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Consider a punchier final call to action next time.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Session Transcript -->
+<div class="mb-8">
+<h2 class="font-label-caps text-label-caps text-on-surface mb-4 border-b border-outline-variant pb-2 uppercase">Transcript Insight</h2>
+<div class="bg-surface-container p-6 rounded-lg border-hairline border-primary relative overflow-hidden">
+<!-- Ink dots scattered subtly -->
+<div class="absolute top-4 right-4 ink-dot"></div>
+<div class="absolute bottom-8 left-12 ink-dot" style="animation-delay: 0.5s"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    "The current project roadmap <span class="bg-secondary-container px-1 text-primary font-bold">is clear</span>. By prioritizing the Q4 objectives, we ensure <span class="bg-secondary-container px-1 text-primary font-bold">direct stakeholder alignment</span> without resource dilution."
+                </p>
+<div class="mt-4 flex justify-end">
+<span class="material-symbols-outlined text-primary-fixed-dim scale-75">graphic_eq</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary text-on-primary py-4 px-6 rounded-lg font-headline-md text-headline-md border-2 border-primary active:translate-x-1 active:translate-y-1 transition-all duration-75 uppercase tracking-wide">
+            Commit to Journey
+        </button>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full h-16 z-50 flex justify-around items-stretch bg-surface border-t-2 border-primary">
+<!-- TODAY - Active -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary h-full w-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-md text-label-md">TODAY</span>
+</a>
+<!-- JOURNEY -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-colors duration-75" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">JOURNEY</span>
+</a>
+<!-- LIBRARY -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-colors duration-75" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">LIBRARY</span>
+</a>
+<!-- STATS -->
+<a class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-secondary-container transition-colors duration-75" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">STATS</span>
+</a>
+</nav>
+<!-- Micro-interaction script -->
+<script>
+        document.querySelectorAll('nav a').forEach(item => {
+            item.addEventListener('click', function() {
+                // Simplified toggle for demonstration
+                document.querySelectorAll('nav a').forEach(nav => {
+                    nav.classList.remove('bg-primary', 'text-on-primary');
+                    nav.classList.add('text-primary');
+                });
+                this.classList.add('bg-primary', 'text-on-primary');
+                this.classList.remove('text-primary');
+            });
+        });
+    </script>
+</body></html>

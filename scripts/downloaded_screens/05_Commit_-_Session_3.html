@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>05 Commit - Session 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#85bbe6",
+                    "surface-bright": "#fdf9f5",
+                    "on-surface": "#1c1c19",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-background": "#1c1c19",
+                    "tertiary": "#00334f",
+                    "inverse-primary": "#ffb59e",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f1ede9",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "on-secondary-container": "#6b6357",
+                    "primary-container": "#7c2d12",
+                    "surface-tint": "#9b4427",
+                    "surface-dim": "#ddd9d6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "on-primary-fixed": "#3a0b00",
+                    "inverse-surface": "#31302e",
+                    "outline": "#89726c",
+                    "on-secondary-fixed": "#201b12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-tertiary-fixed": "#001e30",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e5e2de",
+                    "tertiary-container": "#004b71",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "background": "#fdf9f5",
+                    "secondary-container": "#ede1d2",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary": "#655d52",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#fdf9f5",
+                    "surface-container-highest": "#e5e2de",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-primary": "#ffffff",
+                    "primary": "#5e1700",
+                    "surface-container-high": "#ebe7e4",
+                    "primary-fixed-dim": "#ffb59e",
+                    "outline-variant": "#dcc1b9",
+                    "inverse-on-surface": "#f4f0ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "md": "24px",
+                    "margin": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "body-lg": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #5e1700;
+        }
+        .mic-active {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0px rgba(94, 23, 0, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(94, 23, 0, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(94, 23, 0, 0); }
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="flex justify-between items-center px-margin py-4 w-full z-50 border-b-2 border-primary sticky top-0 bg-surface">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary scale-95 transition-transform duration-100 cursor-pointer" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</span>
+</div>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRnm6lVIO3BUvxmD0Nm5HX5bGcVOOlon4Q3Ry8JBFTiUZWlNjOGF1E2aUjugSUqNKCEXjjJhpa88RPUjasxQojlt8_VX8KclIv6A4eLIk16vlg0B7naQLVglQIuhNJGkRLQ-TrFMdpRYr8SGtvkVvLMCKAFtKuvCvEkY4eFKa0eZfH-4p2gTCGWkzymGP0nH12K_PTLHmVsE4g3zR2H2THvyvh2_oNkkdjAGLSqu3FsWZhFBlMHmi_Wbexwt5qSViUICwKCYtprtz8"/>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 px-margin flex flex-col pb-48">
+<!-- Header Section -->
+<header class="pt-lg pb-xl">
+<div class="flex justify-between items-end mb-xs border-b-2 border-primary pb-base">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Step 05/05</span>
+<span class="font-label-sm text-label-sm text-secondary">FINAL COMMITMENT</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none uppercase mt-sm">
+                05 Commit - Session 3
+            </h1>
+</header>
+<!-- Prompt Section -->
+<section class="flex-1 flex flex-col items-center">
+<div class="w-full mb-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">
+                    "This week, I commit to..."
+                </h2>
+<div class="border-l-4 border-primary pl-md py-xs">
+<p class="font-body-lg text-body-lg text-secondary">
+                        Speak your commitment clearly. Stating your intention aloud creates a psychological anchor for your new habits.
+                    </p>
+</div>
+</div>
+<!-- Central Voice Input -->
+<div class="w-full flex flex-col items-center justify-center py-xl">
+<div class="relative">
+<button class="group relative w-40 h-40 bg-primary flex items-center justify-center border-2 border-primary transition-all duration-200" id="mic-button">
+<span class="material-symbols-outlined text-surface-bright !text-6xl" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<!-- Offset Border for Brutalist Look -->
+<div class="absolute inset-0 border-2 border-primary -z-10 translate-x-2 translate-y-2 group-active:translate-x-0 group-active:translate-y-0 transition-transform"></div>
+</button>
+</div>
+<p class="font-label-md text-label-md text-primary uppercase tracking-tighter mt-xl" id="mic-status">Tap to speak</p>
+</div>
+</section>
+<!-- Editorial Spacer -->
+<aside class="w-full h-px bg-primary my-xl opacity-20"></aside>
+</main>
+<!-- Fixed Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface border-t-2 border-primary p-margin z-40">
+<div class="flex flex-col gap-sm max-w-md mx-auto">
+<!-- Primary Action -->
+<button class="w-full bg-primary text-surface-bright py-sm px-md border-2 border-primary font-label-md text-label-md uppercase tracking-widest transition-all hard-shadow">
+                Finish Session
+            </button>
+<!-- Secondary Actions -->
+<div class="flex gap-sm">
+<button class="flex-1 border-2 border-primary py-sm px-md font-label-md text-label-md uppercase tracking-widest transition-all hard-shadow bg-surface-container-low">
+                    Back
+                </button>
+<button class="flex-1 border-2 border-primary py-sm px-md font-label-md text-label-md uppercase tracking-widest transition-all hover:bg-secondary-fixed">
+                    Skip Step
+                </button>
+</div>
+</div>
+</footer>
+<script>
+        const micBtn = document.getElementById('mic-button');
+        const micStatus = document.getElementById('mic-status');
+        let isRecording = false;
+
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            if (isRecording) {
+                micBtn.classList.add('mic-active');
+                micBtn.style.backgroundColor = '#7c2d12'; // primary-container
+                micStatus.textContent = 'Recording...';
+                micStatus.classList.add('animate-pulse');
+            } else {
+                micBtn.classList.remove('mic-active');
+                micBtn.style.backgroundColor = '';
+                micStatus.textContent = 'Recording Captured';
+                micStatus.classList.remove('animate-pulse');
+                setTimeout(() => {
+                    micStatus.textContent = 'Tap to speak again';
+                }, 2000);
+            }
+        });
+    </script>
+</body></html>

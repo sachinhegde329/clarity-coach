@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400&amp;family=Space+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-low": "#f7f3ef",
+                  "on-primary-container": "#ff9b7b",
+                  "tertiary-fixed": "#cbe6ff",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed": "#3a0b00",
+                  "background": "#fdf9f5",
+                  "primary-fixed": "#ffdbd0",
+                  "on-surface-variant": "#55423d",
+                  "secondary-fixed": "#ede1d2",
+                  "inverse-surface": "#31302e",
+                  "inverse-on-surface": "#f4f0ec",
+                  "primary-fixed-dim": "#ffb59e",
+                  "on-secondary-fixed": "#201b12",
+                  "on-tertiary-container": "#85bbe6",
+                  "on-secondary-fixed-variant": "#4d463b",
+                  "surface-tint": "#9b4427",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#ffb59e",
+                  "on-primary-fixed-variant": "#7c2d12",
+                  "on-surface": "#1c1c19",
+                  "on-primary": "#ffffff",
+                  "secondary-container": "#ede1d2",
+                  "error-container": "#ffdad6",
+                  "on-tertiary-fixed-variant": "#004b71",
+                  "on-error": "#ffffff",
+                  "surface-container-high": "#ebe7e4",
+                  "secondary": "#655d52",
+                  "on-error-container": "#93000a",
+                  "surface-dim": "#ddd9d6",
+                  "on-secondary-container": "#6b6357",
+                  "on-tertiary-fixed": "#001e30",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#004b71",
+                  "surface-container-highest": "#e5e2de",
+                  "surface": "#fdf9f5",
+                  "outline-variant": "#dcc1b9",
+                  "primary-container": "#7c2d12",
+                  "secondary-fixed-dim": "#d0c5b7",
+                  "tertiary": "#00334f",
+                  "surface-bright": "#fdf9f5",
+                  "surface-container-lowest": "#ffffff",
+                  "primary": "#5e1700",
+                  "outline": "#89726c",
+                  "surface-variant": "#e5e2de",
+                  "on-background": "#1c1c19",
+                  "tertiary-fixed-dim": "#97ccf9",
+                  "surface-container": "#f1ede9"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "sm": "16px",
+                  "gutter": "24px",
+                  "base": "4px",
+                  "margin": "32px",
+                  "xs": "8px",
+                  "lg": "48px",
+                  "xl": "80px",
+                  "md": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Bricolage Grotesque"],
+                  "body-lg": ["Space Grotesk"],
+                  "label-sm": ["Space Mono"],
+                  "display-lg": ["Bricolage Grotesque"],
+                  "label-md": ["Space Mono"],
+                  "headline-lg": ["Bricolage Grotesque"],
+                  "body-md": ["Space Grotesk"],
+                  "headline-md": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                  "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                  "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                  "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .hard-shadow {
+      box-shadow: 4px 4px 0px 0px #5e1700;
+    }
+    .interactive-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 8px 8px 0px 0px #5e1700;
+    }
+    .active-scale:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #5e1700;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background border-b-2 border-primary flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</h1>
+<div class="font-label-md text-label-md font-bold text-primary">04/05</div>
+</header>
+<main class="max-w-4xl mx-auto px-gutter py-lg">
+<!-- Session Header -->
+<section class="mb-xl border-2 border-primary p-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-xs bg-primary text-background font-label-sm">STEP 04</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-xs">Session 9: Power Pauses</p>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase mb-md">See the Silence</h2>
+<p class="font-body-lg text-body-lg text-on-surface max-w-2xl">
+        Three pauses hit. Notice how the silence created room for your next point to land. Your rhythm is becoming an instrument of clarity.
+      </p>
+</section>
+<!-- Bento Grid Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<!-- Metric: Pause Count -->
+<div class="md:col-span-4 border-2 border-primary bg-surface-container-low p-md flex flex-col justify-between transition-all interactive-card">
+<div class="flex justify-between items-start mb-lg">
+<span class="font-label-md text-label-md text-primary uppercase font-bold">Pause Count</span>
+<span class="material-symbols-outlined text-primary">timer_3</span>
+</div>
+<div>
+<span class="font-display-lg text-display-lg text-primary">03</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Intentional Stops</p>
+</div>
+</div>
+<!-- Metric: Average Pause Length -->
+<div class="md:col-span-8 border-2 border-primary bg-secondary-container p-md flex flex-col justify-between transition-all interactive-card">
+<div class="flex justify-between items-start mb-lg">
+<span class="font-label-md text-label-md text-primary uppercase font-bold">Avg. Pause Length</span>
+<span class="material-symbols-outlined text-primary">hourglass_empty</span>
+</div>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-primary">2.4</span>
+<span class="font-headline-md text-headline-md text-primary">SEC</span>
+</div>
+<div class="mt-md w-full h-4 bg-background border-2 border-primary overflow-hidden">
+<div class="h-full bg-primary" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Metric: Pace (WPM) -->
+<div class="md:col-span-12 border-2 border-primary p-md bg-surface flex flex-col md:flex-row items-center gap-lg transition-all interactive-card">
+<div class="md:w-1/3">
+<span class="font-label-md text-label-md text-primary uppercase font-bold block mb-sm">Current Pace</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-display-lg text-display-lg text-primary">132</span>
+<span class="font-headline-md text-headline-md text-primary">WPM</span>
+</div>
+</div>
+<div class="md:w-2/3 h-32 w-full flex items-end gap-1">
+<!-- Visual representation of pace over time -->
+<div class="flex-1 bg-primary-container h-1/2 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-2/3 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-3/4 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary h-full border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-4/5 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-2/3 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-1/2 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-1/3 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-1/2 border-t-2 border-primary"></div>
+<div class="flex-1 bg-primary-container h-2/3 border-t-2 border-primary"></div>
+</div>
+</div>
+</div>
+<!-- Visual Analysis Card -->
+<section class="mb-xl border-2 border-primary bg-background overflow-hidden">
+<div class="bg-primary p-xs">
+<p class="font-label-md text-label-md text-background uppercase text-center font-bold tracking-widest">Speech Waveform Analysis</p>
+</div>
+<div class="p-gutter h-64 flex items-center justify-center relative bg-surface-container-high">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale mix-blend-multiply" data-alt="A high-contrast digital visualization of an audio waveform displayed on a textured paper-like background. The waveform spikes are deep terracotta and dark mahogany colors, set against a warm cream and beige canvas. The aesthetic is reminiscent of architectural drafting or high-end brutalist print design, emphasizing structural clarity and rhythmic geometry in a light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLEC83q6P-cpkTKkWwLdfFq77vSGowWT864twZtGc3CpUGYQeVJHZn4IuVoDtWjMqe69g5UyH2cB7FV3lVB66lAQeosXcQqRCqQAku800w-KnfjneA_1gePqcRkjzd9iFmXfqeXpF55dFH5-2EFC4peiCG6xr9VDgKT9hfus7IfJuBIE40bgr3kMx0A60Pywhy79PEeBm0isJz6AriMBjVrlVsnvFaEuDocKeTf0mzXplOyiHta1sfHSLpmtIruoSOYpOmI-NRWDO8"/>
+<div class="z-10 w-full flex flex-col gap-gutter">
+<!-- Mock pause markers -->
+<div class="flex justify-around items-center w-full">
+<div class="text-center">
+<div class="w-1 h-12 bg-primary mx-auto mb-xs"></div>
+<span class="font-label-sm text-label-sm text-primary">PAUSE A</span>
+</div>
+<div class="text-center">
+<div class="w-1 h-12 bg-primary mx-auto mb-xs"></div>
+<span class="font-label-sm text-label-sm text-primary">PAUSE B</span>
+</div>
+<div class="text-center">
+<div class="w-1 h-12 bg-primary mx-auto mb-xs"></div>
+<span class="font-label-sm text-label-sm text-primary">PAUSE C</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t-2 border-primary p-md flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Notice the clean break at 0:14. This is where your message resonance peaked."</p>
+<button class="bg-primary text-background px-lg py-sm font-label-md text-label-md uppercase font-bold border-2 border-primary hard-shadow active-scale">REPLAY CLIP</button>
+</div>
+</section>
+<!-- Action Bar -->
+<div class="flex flex-col md:flex-row gap-gutter">
+<button class="flex-1 border-2 border-primary bg-background py-md px-lg font-label-md text-label-md uppercase font-bold transition-all interactive-card">
+        Previous Step
+      </button>
+<button class="flex-1 border-2 border-primary bg-primary text-background py-md px-lg font-label-md text-label-md uppercase font-bold transition-all interactive-card">
+        Next: Final Refinement
+      </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+    // Micro-interactions for hard shadows on click
+    document.querySelectorAll('.active-scale').forEach(button => {
+      button.addEventListener('mousedown', () => {
+        button.style.transform = 'translate(4px, 4px)';
+        button.style.boxShadow = '0px 0px 0px 0px #5e1700';
+      });
+      button.addEventListener('mouseup', () => {
+        button.style.transform = 'translate(0px, 0px)';
+        button.style.boxShadow = '4px 4px 0px 0px #5e1700';
+      });
+    });
+  </script>
+</body></html>

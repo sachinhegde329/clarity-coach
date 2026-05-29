@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Step 4: See</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-primary-container": "#ff9b7b",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2de",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ffb59e",
+                        "surface-container-high": "#ebe7e4",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#dbe6cf",
+                        "background": "#fdf9f5",
+                        "on-surface": "#1c1c19",
+                        "secondary": "#57624f",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "inverse-surface": "#31302e",
+                        "error-warning": "#B91C1C",
+                        "primary-container": "#7c2d12",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container": "#f1ede9",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "outline-variant": "#dcc1b9",
+                        "surface": "#fdf9f5",
+                        "surface-variant": "#e5e2de",
+                        "surface-parchment": "#FDF9F5",
+                        "on-secondary-fixed": "#151e10",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "border-primary": "#7C2D12",
+                        "on-background": "#1c1c19",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-container": "#ff998e",
+                        "success-sage": "#818C78",
+                        "secondary-container": "#d8e3cc",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "inverse-primary": "#ffb59e",
+                        "outline": "#89726c",
+                        "surface-tint": "#9b4427",
+                        "on-secondary-container": "#5b6653"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fdf9f5; }
+        .brutalist-border { border-width: 2px; border-color: #7C2D12; border-style: solid; }
+        .brutalist-hairline { border-width: 0.5px; border-color: #7C2D12; border-style: solid; }
+        
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar Shared Component -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-surface flex justify-between items-center px-margin-mobile h-16 max-w-7xl mx-auto z-40">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded flex items-center justify-center active:scale-95 duration-100 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold uppercase tracking-widest">
+            04 / 05
+        </div>
+<div class="h-8 w-8 rounded-full border-2 border-primary overflow-hidden hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 duration-100 ease-in-out bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+</div>
+</header>
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin-mobile py-8 flex flex-col gap-6">
+<!-- Progress Flow Strip -->
+<div class="flex justify-between items-center brutalist-border bg-surface-bright rounded-lg overflow-hidden h-10 w-full mb-2">
+<div class="flex-1 flex items-center justify-center border-r-2 border-primary bg-surface-variant text-on-surface-variant font-label-caps text-label-caps opacity-50">CENTRE</div>
+<div class="flex-1 flex items-center justify-center border-r-2 border-primary bg-surface-variant text-on-surface-variant font-label-caps text-label-caps opacity-50">LISTEN</div>
+<div class="flex-1 flex items-center justify-center border-r-2 border-primary bg-surface-variant text-on-surface-variant font-label-caps text-label-caps opacity-50">DO</div>
+<div class="flex-1 flex items-center justify-center border-r-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps font-bold">SEE</div>
+<div class="flex-1 flex items-center justify-center bg-surface-bright text-on-surface font-label-caps text-label-caps">COMMIT</div>
+</div>
+<!-- Session Header -->
+<div class="flex flex-col gap-1">
+<h1 class="font-display-lg text-display-lg text-primary">Label &amp; Pause</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Session 23: Forensic Feedback</p>
+</div>
+<!-- Primary Metric Hero Card -->
+<section class="brutalist-border bg-surface-parchment rounded-lg p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[240px]">
+<div class="absolute top-4 left-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Pause Hold Time</div>
+<div class="flex flex-col md:flex-row items-center gap-8 z-10 mt-6">
+<!-- Visual Ring -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<!-- Background track (3s target) -->
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="46" stroke-width="4"></circle>
+<!-- Actual hold (over-achieved, 3.2s) -->
+<circle class="progress-ring__circle text-primary stroke-current" cx="50" cy="50" fill="transparent" r="46" stroke-dasharray="289.026" stroke-dashoffset="-20" stroke-linecap="butt" stroke-width="8"></circle>
+<!-- Target marker at 3s -->
+<line stroke="#7C2D12" stroke-width="2" transform="rotate(340 50 50)" x1="50" x2="50" y1="0" y2="10"></line>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-1">timer</span>
+<span class="font-metric-sm text-metric-sm text-on-surface-variant">Target: 3s</span>
+</div>
+</div>
+<!-- Number Data -->
+<div class="flex flex-col items-center md:items-start">
+<div class="flex items-baseline gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">3.2</span>
+<span class="font-metric-sm text-metric-sm text-primary">sec</span>
+<span class="material-symbols-outlined text-success-sage" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-center md:text-left max-w-[200px]">Optimal tension held before engaging.</p>
+</div>
+</div>
+</section>
+<!-- Secondary Metrics Row -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Label Appropriateness -->
+<div class="brutalist-border bg-surface-parchment rounded-lg p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Label Accuracy</span>
+<div class="flex justify-between items-end mt-4">
+<span class="font-metric-hero text-metric-hero text-primary">A-</span>
+<span class="material-symbols-outlined text-success-sage text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Composure -->
+<div class="brutalist-border bg-surface-parchment rounded-lg p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Composure</span>
+<div class="flex justify-between items-end mt-4">
+<span class="font-metric-hero text-metric-hero text-primary">94<span class="text-xl">%</span></span>
+<span class="material-symbols-outlined text-primary text-2xl">vital_signs</span>
+</div>
+</div>
+</div>
+<!-- Coach's Assessment Card -->
+<section class="brutalist-border bg-surface-bright rounded-lg p-6 flex flex-col gap-4 mt-2">
+<div class="flex items-center gap-2 border-b-[0.5px] border-outline pb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+<h3 class="font-headline-md text-headline-md text-primary">Coach's Assessment</h3>
+</div>
+<div class="font-body-md text-body-md text-on-surface leading-relaxed">
+<p>Your pause duration was surgically precise. By holding silence for 3.2 seconds, you forced the simulated counterpart to fill the void, demonstrating high emotional control. The label used ("It seems like you're under pressure") was highly effective, though slightly generic.</p>
+</div>
+<div class="brutalist-hairline bg-surface p-4 rounded mt-2">
+<span class="font-label-caps text-label-caps text-primary uppercase block mb-2">Key Takeaway</span>
+<p class="font-metric-sm text-metric-sm text-on-surface-variant">Maintain current pause discipline. Next session: focus on granular label specificity.</p>
+</div>
+</section>
+<!-- Action Area -->
+<div class="mt-8 mb-12 flex justify-end">
+<button class="bg-primary text-on-primary font-headline-md text-headline-md border-2 border-primary rounded px-8 py-4 w-full md:w-auto hover:bg-surface-tint transition-colors flex items-center justify-center gap-2">
+<span>Commit &amp; Continue</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

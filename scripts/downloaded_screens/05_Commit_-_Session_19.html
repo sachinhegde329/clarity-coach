@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Commit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5b6653",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "primary-container": "#7c2d12",
+                        "on-error": "#ffffff",
+                        "error-warning": "#B91C1C",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#ffdbd0",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-container-high": "#ebe7e4",
+                        "surface-container": "#f1ede9",
+                        "inverse-primary": "#ffb59e",
+                        "surface-variant": "#e5e2de",
+                        "secondary-fixed": "#dbe6cf",
+                        "border-primary": "#7C2D12",
+                        "primary": "#5e1700",
+                        "secondary-container": "#d8e3cc",
+                        "on-surface": "#1c1c19",
+                        "tertiary": "#680005",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "outline": "#89726c",
+                        "on-secondary-fixed": "#151e10",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary": "#57624f",
+                        "primary-fixed-dim": "#ffb59e",
+                        "tertiary-container": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "inverse-surface": "#31302e",
+                        "on-tertiary-fixed": "#410002",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "success-sage": "#818C78",
+                        "surface-tint": "#9b4427",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-dim": "#ddd9d6",
+                        "surface": "#fdf9f5",
+                        "on-primary-container": "#ff9b7b",
+                        "surface-container-highest": "#e5e2de",
+                        "on-surface-variant": "#55423d",
+                        "on-background": "#1c1c19",
+                        "outline-variant": "#dcc1b9",
+                        "background": "#fdf9f5",
+                        "inverse-on-surface": "#f4f0ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "hairline": "0.5px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "border-width": "2px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .timer-deplete {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 40; /* Simulate partially depleted */
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface fixed top-0 w-full z-50 border-b-2 border-primary dark:border-primary-fixed-dim flex justify-between items-center px-margin-mobile h-16 w-full transition-colors duration-200">
+<button class="hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 p-2 rounded-full transition-colors duration-200 text-primary dark:text-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grid_view</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">CLARITY COACH</span>
+<button class="hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 p-2 rounded-full transition-colors duration-200 text-primary dark:text-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-28 px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
+<!-- Session Progress Strip (Warm Brutalist Precision) -->
+<div class="w-full flex gap-2 mb-8 items-center h-12">
+<div class="flex-1 h-full border-hairline border-outline bg-surface-container flex items-center justify-center rounded-lg opacity-60">
+<span class="font-label-caps text-label-caps text-on-surface-variant">CENTRE</span>
+</div>
+<div class="flex-1 h-full border-hairline border-outline bg-surface-container flex items-center justify-center rounded-lg opacity-60 hidden md:flex">
+<span class="font-label-caps text-label-caps text-on-surface-variant">LISTEN</span>
+</div>
+<div class="flex-1 h-full border-hairline border-outline bg-surface-container flex items-center justify-center rounded-lg opacity-60 hidden sm:flex">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DO</span>
+</div>
+<div class="flex-1 h-full border-hairline border-outline bg-surface-container flex items-center justify-center rounded-lg opacity-60">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SEE</span>
+</div>
+<div class="flex-1 h-full border-border-width border-primary bg-primary flex items-center justify-center rounded-lg">
+<span class="font-label-caps text-label-caps text-on-primary">COMMIT</span>
+</div>
+</div>
+<!-- The Hero Card (Architectural Containment) -->
+<article class="w-full bg-surface-parchment border-border-width border-primary rounded-lg p-6 md:p-12 flex flex-col gap-8 relative overflow-hidden">
+<!-- Header Section (Data as Hero) -->
+<header class="flex flex-col md:flex-row items-baseline gap-4 md:gap-8 border-b-hairline border-outline pb-6">
+<div class="font-metric-hero text-metric-hero text-primary">05 / 05</div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Commit</h1>
+</header>
+<!-- Prompt & Context -->
+<section class="flex flex-col gap-6">
+<p class="font-body-lg text-body-lg text-on-surface max-w-2xl">
+                    One sentence into the mic. What will you watch for tomorrow?
+                </p>
+<!-- Nested Opener Card (Physical Layering) -->
+<div class="border-hairline border-outline bg-surface-container-low rounded-lg p-6 max-w-xl self-start">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        "Tomorrow I will ask a calibrated question when..."
+                    </p>
+</div>
+</section>
+<!-- Interactive Mic Section -->
+<section class="flex flex-col items-center justify-center gap-6 mt-8 md:mt-12 w-full">
+<!-- Monospace Timer -->
+<div class="font-metric-hero text-metric-hero text-primary font-bold">04:30</div>
+<!-- The Mic Button & Timer Ring -->
+<div class="relative flex items-center justify-center w-24 h-24">
+<!-- Depleting Timer Ring Background -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 72 72">
+<circle class="stroke-surface-container fill-none" cx="36" cy="36" r="32" stroke-width="2"></circle>
+<circle class="stroke-primary fill-none timer-deplete" cx="36" cy="36" r="32" stroke-linecap="round" stroke-width="2"></circle>
+</svg>
+<!-- Pulse Effect (Simulated Recording) -->
+<div class="absolute inset-0 w-full h-full bg-primary/20 rounded-full pulse-ring pointer-events-none"></div>
+<!-- Core Mic Button -->
+<button class="w-16 h-16 bg-primary border-border-width border-primary rounded-full flex items-center justify-center z-10 transition-transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-4 focus:ring-offset-surface">
+<span class="material-symbols-outlined text-surface-parchment text-3xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<!-- Functional Limit Label -->
+<div class="font-label-caps text-label-caps text-on-surface-variant tracking-widest mt-2">
+                    15 SECOND LIMIT
+                </div>
+</section>
+</article>
+</main>
+<!-- BottomNavBar (Mobile only context, but rendered as per instructions) -->
+<nav class="bg-surface dark:bg-surface fixed bottom-0 w-full z-50 border-t-2 border-primary dark:border-primary-fixed-dim flex justify-around items-center h-20 w-full px-2 pb-safe md:hidden">
+<button class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed bg-primary dark:bg-primary-fixed-dim rounded-xl px-4 py-1 hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-1 text-surface-parchment">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim opacity-60 hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform duration-150 p-2 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-caps text-label-caps mt-1">JOURNEY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim opacity-60 hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform duration-150 p-2 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-label-caps text-label-caps mt-1">LIBRARY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim opacity-60 hover:bg-primary-container dark:hover:bg-on-primary-fixed-variant transition-all scale-95 active:scale-90 transition-transform duration-150 p-2 rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bar_chart</span>
+<span class="font-label-caps text-label-caps mt-1">STATS</span>
+</button>
+</nav>
+<!-- Desktop Sidebar Mapping (hidden md:flex to replace BottomNavBar on larger screens) -->
+<nav class="hidden md:flex fixed left-0 top-16 bottom-0 w-24 bg-surface border-r-2 border-primary flex-col items-center py-8 gap-8 z-40">
+<button class="flex flex-col items-center justify-center text-on-primary-container bg-primary rounded-xl p-3 w-16 transition-all hover:bg-primary-container">
+<span class="material-symbols-outlined text-surface-parchment" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-caps text-label-caps mt-2 text-surface-parchment">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:opacity-100 p-3 w-16 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-caps text-label-caps mt-2">JOURNEY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:opacity-100 p-3 w-16 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-label-caps text-label-caps mt-2">LIBRARY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary opacity-60 hover:opacity-100 p-3 w-16 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bar_chart</span>
+<span class="font-label-caps text-label-caps mt-2">STATS</span>
+</button>
+</nav>
+</body></html>

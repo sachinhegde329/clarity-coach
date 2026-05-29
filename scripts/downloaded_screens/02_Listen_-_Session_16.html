@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 16</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d8e3cc",
+                        "primary": "#5e1700",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container": "#f1ede9",
+                        "surface-container-highest": "#e5e2de",
+                        "on-error": "#ffffff",
+                        "success-sage": "#818C78",
+                        "background": "#fdf9f5",
+                        "inverse-primary": "#ffb59e",
+                        "error-warning": "#B91C1C",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary-fixed": "#410002",
+                        "secondary": "#57624f",
+                        "border-primary": "#7C2D12",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-container": "#5b6653",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-container": "#ff9b7b",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#ff998e",
+                        "outline-variant": "#dcc1b9",
+                        "surface-dim": "#ddd9d6",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface-variant": "#55423d",
+                        "surface": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 flex flex-col font-body-md antialiased selection:bg-secondary-container selection:text-primary">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter h-16 w-full z-50 bg-surface border-b-[2px] border-border-primary top-0 sticky">
+<button class="cursor-pointer active:translate-y-px text-primary hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary">
+            CLARITY COACH
+        </div>
+<button class="cursor-pointer active:translate-y-px text-primary hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<!-- Main Workspace -->
+<main class="flex-grow flex flex-col items-center px-gutter py-8 max-w-3xl mx-auto w-full">
+<!-- Progress Strip (Session Flow) -->
+<div class="w-full flex items-center justify-between gap-unit mb-8">
+<div class="h-2 flex-grow bg-surface-variant border-[2px] border-border-primary rounded-DEFAULT"></div>
+<div class="h-2 flex-grow bg-primary border-[2px] border-border-primary rounded-DEFAULT"></div>
+<div class="h-2 flex-grow bg-surface border-[2px] border-border-primary rounded-DEFAULT"></div>
+<div class="h-2 flex-grow bg-surface border-[2px] border-border-primary rounded-DEFAULT"></div>
+<div class="h-2 flex-grow bg-surface border-[2px] border-border-primary rounded-DEFAULT"></div>
+</div>
+<div class="w-full flex justify-between font-label-caps text-label-caps text-on-surface-variant mb-6 px-1">
+<span>CENTRE</span>
+<span class="text-primary font-bold">LISTEN</span>
+<span>DO</span>
+<span>SEE</span>
+<span>COMMIT</span>
+</div>
+<!-- The Hero Card -->
+<article class="w-full border-[2px] border-border-primary rounded-lg bg-surface-parchment flex flex-col relative overflow-hidden">
+<!-- Card Header -->
+<div class="p-6 border-b-[0.5px] border-border-primary bg-surface-container-lowest">
+<div class="font-metric-sm text-metric-sm text-primary mb-2 uppercase">SESSION 16</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background uppercase">COMBINING CLARITY TOOLS</h1>
+</div>
+<!-- Audio Player Section -->
+<div class="p-6 flex flex-col gap-6">
+<!-- Visualizer & Controls -->
+<div class="flex items-center gap-6">
+<!-- Play Button (Brutalist style) -->
+<button class="w-16 h-16 shrink-0 bg-primary border-[2px] border-border-primary rounded-full flex items-center justify-center text-on-primary hover:bg-primary-container transition-colors active:scale-95 shadow-none">
+<span class="material-symbols-outlined text-[32px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Waveform (Architectural bars) -->
+<div class="flex-grow flex items-center h-16 gap-[2px] opacity-80">
+<div class="w-1.5 h-1/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-2/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-[80%] bg-primary rounded-t-sm"></div>
+<div class="w-1.5 h-full bg-primary rounded-t-sm"></div>
+<div class="w-1.5 h-3/4 bg-primary rounded-t-sm"></div>
+<div class="w-1.5 h-2/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-1/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-1/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-[60%] bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-[90%] bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-2/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-1/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-[30%] bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-[70%] bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-full bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-3/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-2/4 bg-border-primary rounded-t-sm"></div>
+<div class="w-1.5 h-1/4 bg-border-primary rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Transcript Section (Nested structural containment) -->
+<div class="flex-grow border-t-[2px] border-border-primary bg-surface-container-low p-6">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="notes">notes</span>
+                    TRANSCRIPT
+                </div>
+<div class="h-48 overflow-y-auto font-body-lg text-body-lg text-on-surface-variant pr-4 border-l-[2px] border-border-primary pl-4 py-2 bg-surface rounded-r-DEFAULT space-y-4">
+<p>When you begin to apply multiple constraints simultaneously, the cognitive load increases exponentially. This is intentional.</p>
+<p class="text-on-background font-semibold bg-secondary-container p-2 border-l-[2px] border-primary -ml-4 pl-4 rounded-r-DEFAULT">
+                        The difficulty of stacking is real. The tactical tip: structure mentally before speaking.
+                    </p>
+<p>If you try to improvise while holding three different rules in your mind, your pacing will collapse. Pause. Build the architecture of your sentence, then deliver it cleanly.</p>
+</div>
+</div>
+<!-- Progress Bar Bottom -->
+<div class="w-full h-3 bg-surface-variant border-t-[2px] border-border-primary flex">
+<div class="h-full bg-primary w-[40%] border-r-[2px] border-border-primary"></div>
+</div>
+</article>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-[2px] border-border-primary">
+<!-- Today (Inactive) -->
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</button>
+<!-- Journey (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary text-surface h-full w-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined mb-1" data-icon="architecture" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-label-caps text-label-caps">Journey</span>
+</button>
+<!-- Library (Inactive) -->
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-caps text-label-caps">Library</span>
+</button>
+<!-- Stats (Inactive) -->
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined mb-1" data-icon="query_stats">query_stats</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</button>
+</nav>
+</body></html>

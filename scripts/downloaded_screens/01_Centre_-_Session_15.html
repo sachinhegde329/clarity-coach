@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 15: Signposting</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..500..700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#31302e",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-container": "#93000b",
+                        "inverse-primary": "#ffb59e",
+                        "primary-fixed": "#ffdbd0",
+                        "border-primary": "#7C2D12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface-variant": "#55423d",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "success-sage": "#818C78",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "surface-bright": "#fdf9f5",
+                        "background": "#fdf9f5",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-parchment": "#FDF9F5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Warm Brutalist Pattern */
+        .bg-dot-pattern {
+            background-color: theme('colors.surface');
+            background-image: radial-gradient(theme('colors.border-primary') 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Breathing Animation for Centre Step */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+        }
+        .animate-breathe {
+            animation: breathe 8s ease-in-out infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.9); opacity: 0.5; border-width: 2px; }
+            50% { transform: scale(1.05); opacity: 0.1; border-width: 1px; }
+            100% { transform: scale(0.9); opacity: 0.5; border-width: 2px; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 8s ease-in-out infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-dot-pattern min-h-screen text-on-surface antialiased flex flex-col font-body-md text-body-md">
+<!-- TopAppBar from JSON -->
+<header class="bg-surface border-b-[2px] border-primary flex justify-between items-center px-4 md:px-margin-desktop h-16 w-full z-50 sticky top-0">
+<button class="text-primary hover:bg-surface-container-highest transition-colors duration-150 p-2 rounded-DEFAULT cursor-pointer active:translate-y-px flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary uppercase text-center flex-1">
+            CLARITY COACH
+        </div>
+<button class="w-10 h-10 rounded-full border-[2px] border-primary overflow-hidden hover:bg-surface-container-highest transition-colors duration-150 cursor-pointer active:translate-y-px">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBc3plmzKg3Iu6k97V_IrSTTKD8Vk5KM15unXwO-FP36uBLQmwmhGFxJ7_bjDeLuqpFniWOoosQAQhSJMoU90Cd0vrhsJJTCKDvlnrEVnQyovgYSrBM9BMWzw4hMh7BMcgTJy-2tAevKlAS4PJvlqG_yGMXEZpRE3cBG0-JTvjceEAxyJ2tvLOOZbghXw8pcRAYkVQILNwI5PDbWbgB5ShGI_my9SxwRfyiW0IZ_j3ZxWiqZoae3QEuU3m2bqBaEQ3TeZ2R9tFYVgq"/>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-5xl mx-auto p-4 md:p-margin-desktop flex flex-col gap-8">
+<!-- Session Progress Ribbon -->
+<nav aria-label="Session Progress" class="w-full flex border-[2px] border-primary rounded-DEFAULT overflow-hidden bg-surface">
+<!-- Step 01: Active -->
+<div class="flex-1 flex flex-col items-center justify-center p-3 border-r-[2px] border-primary bg-primary text-on-primary">
+<span class="font-metric-sm text-metric-sm opacity-80">01</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest mt-1">Centre</span>
+</div>
+<!-- Step 02: Inactive -->
+<div class="flex-1 flex flex-col items-center justify-center p-3 border-r-[2px] border-primary bg-surface text-primary opacity-60">
+<span class="font-metric-sm text-metric-sm">02</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest mt-1 hidden md:block">Listen</span>
+</div>
+<!-- Step 03: Inactive -->
+<div class="flex-1 flex flex-col items-center justify-center p-3 border-r-[2px] border-primary bg-surface text-primary opacity-60">
+<span class="font-metric-sm text-metric-sm">03</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest mt-1 hidden md:block">Do</span>
+</div>
+<!-- Step 04: Inactive -->
+<div class="flex-1 flex flex-col items-center justify-center p-3 border-r-[2px] border-primary bg-surface text-primary opacity-60">
+<span class="font-metric-sm text-metric-sm">04</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest mt-1 hidden md:block">See</span>
+</div>
+<!-- Step 05: Inactive -->
+<div class="flex-1 flex flex-col items-center justify-center p-3 bg-surface text-primary opacity-60">
+<span class="font-metric-sm text-metric-sm">05</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest mt-1 hidden md:block">Commit</span>
+</div>
+</nav>
+<!-- Hero Card (Bento Style Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch flex-1">
+<!-- Left Column: Context & Prompt -->
+<div class="col-span-1 lg:col-span-7 flex flex-col gap-6">
+<!-- Metadata Layer -->
+<div class="bg-surface border-[2px] border-primary rounded-DEFAULT p-6 md:p-8 flex flex-col gap-2 relative overflow-hidden shadow-[4px_4px_0px_#7C2D12]">
+<div class="font-metric-sm text-metric-sm text-primary uppercase tracking-wider mb-2">Session 15</div>
+<h1 class="font-display-lg text-display-lg text-primary leading-none mb-4">Signposting</h1>
+<div class="inline-flex border border-primary px-3 py-1 rounded-full text-primary font-label-caps text-label-caps self-start bg-primary-fixed-dim/20">
+                        Theme: Lead
+                    </div>
+</div>
+<!-- Reflective Prompt Layer -->
+<div class="bg-surface border-[0.5px] border-primary rounded-DEFAULT p-6 md:p-8 flex-1 flex flex-col justify-center relative shadow-[2px_2px_0px_#7C2D12]">
+<span class="material-symbols-outlined text-primary mb-4 opacity-50 text-4xl" style="font-variation-settings: 'FILL' 0;">psychology</span>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed max-w-lg">
+                        Think of the last conversation where you were lost.<br/><br/>
+<strong class="text-primary font-bold">Did the speaker signpost?</strong>
+</p>
+</div>
+</div>
+<!-- Right Column: Breathing Visualizer -->
+<div class="col-span-1 lg:col-span-5 bg-surface border-[2px] border-primary rounded-DEFAULT p-8 flex flex-col items-center justify-center relative min-h-[400px] shadow-[4px_4px_0px_#7C2D12]">
+<div class="font-label-caps text-label-caps text-primary uppercase tracking-widest absolute top-6 left-6 opacity-70">
+                    Pre-Session Calibration
+                </div>
+<!-- Calming Architectural Rings -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Outer Ring -->
+<div class="absolute inset-0 border-primary rounded-full animate-pulse-ring"></div>
+<!-- Middle Ring -->
+<div class="absolute inset-6 border border-primary rounded-full animate-breathe" style="animation-delay: 1s;"></div>
+<!-- Inner Core -->
+<div class="absolute inset-16 bg-surface border-[2px] border-primary rounded-full flex items-center justify-center z-10">
+<div class="font-metric-sm text-metric-sm text-primary text-center">
+                            Breathe<br/>In
+                        </div>
+</div>
+<!-- Structural Crosshairs (Brutalist touch) -->
+<div class="absolute w-full h-[0.5px] bg-primary opacity-20"></div>
+<div class="absolute h-full w-[0.5px] bg-primary opacity-20"></div>
+</div>
+<div class="font-metric-sm text-metric-sm text-primary mt-12 text-center opacity-60">
+                    Focus on the rhythm.<br/>Clear your mental cache.
+                </div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex justify-end mt-4">
+<button class="bg-primary text-on-primary border-[2px] border-primary rounded-DEFAULT px-8 py-4 font-headline-md text-headline-md hover:bg-surface-tint transition-colors active:translate-y-1 flex items-center gap-3">
+                Begin Reflection
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

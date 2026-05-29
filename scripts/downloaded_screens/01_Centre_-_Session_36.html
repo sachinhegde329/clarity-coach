@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 36 Player - Step 1: Centre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-background": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f1ede9",
+                        "tertiary": "#680005",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fdf9f5",
+                        "tertiary-container": "#93000b",
+                        "surface": "#fdf9f5",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5b6653",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-primary-container": "#ff9b7b",
+                        "primary": "#5e1700",
+                        "background": "#fdf9f5",
+                        "primary-container": "#7c2d12",
+                        "secondary": "#57624f",
+                        "inverse-primary": "#ffb59e",
+                        "surface-parchment": "#FDF9F5",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "inverse-surface": "#31302e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface-variant": "#55423d",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-dim": "#ddd9d6",
+                        "on-surface": "#1c1c19",
+                        "surface-container-highest": "#e5e2de",
+                        "outline-variant": "#dcc1b9",
+                        "border-primary": "#7C2D12",
+                        "primary-fixed": "#ffdbd0",
+                        "outline": "#89726c",
+                        "on-tertiary-container": "#ff998e",
+                        "success-sage": "#818C78",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "error-container": "#ffdad6",
+                        "error-warning": "#B91C1C",
+                        "surface-variant": "#e5e2de"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "hairline": "0.5px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    },
+                    animation: {
+                        'breathe': 'breathe 8s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
+                            '50%': { transform: 'scale(1.15)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f1ede9; /* surface-container */
+        }
+        .breathe-circle {
+            transition: all 4s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col font-body-md pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary-fixed-dim w-full top-0 sticky border-b-2 border-primary dark:border-primary-container flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 z-40">
+<button class="hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 p-2 rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">36 / 36</h1>
+<button class="hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-100 p-2 rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-on-surface-variant">account_circle</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-gutter md:p-margin-desktop relative overflow-hidden">
+<!-- Architectural Containment Card -->
+<div class="relative w-full max-w-2xl bg-surface-bright border-border-width border-primary rounded flex flex-col items-center justify-center p-8 md:p-16 min-h-[530px] z-10">
+<!-- Progress Strip / Session Player Nav -->
+<div class="absolute top-0 left-0 w-full flex justify-between px-8 py-4 border-b border-primary/20">
+<span class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1">CENTRE</span>
+<span class="font-label-caps text-label-caps text-outline">LISTEN</span>
+<span class="font-label-caps text-label-caps text-outline">DO</span>
+<span class="font-label-caps text-label-caps text-outline">SEE</span>
+<span class="font-label-caps text-label-caps text-outline">COMMIT</span>
+</div>
+<!-- Ritual Content -->
+<div class="text-center mt-12 mb-16 z-20 relative">
+<p class="font-display-lg text-display-lg text-primary max-w-lg mx-auto leading-tight mb-8">
+                    Today you perform.<br/>You have done the work.<br/>There is no instruction left.
+                </p>
+</div>
+<!-- Breathing Visual (Capstone Variant) -->
+<div class="relative w-64 h-64 flex items-center justify-center mt-8">
+<!-- Base rings -->
+<div class="absolute inset-0 border-border-width border-primary/10 rounded-full"></div>
+<div class="absolute inset-4 border-border-width border-primary/20 rounded-full border-dashed animate-spin-slow"></div>
+<!-- Capstone Breathing Circle -->
+<div class="breathe-circle absolute inset-8 rounded-full border-border-width border-success-sage/80 bg-success-sage/10 backdrop-blur-sm animate-breathe flex items-center justify-center">
+<div class="w-full h-full rounded-full border border-success-sage/40 flex items-center justify-center">
+<div class="w-1/2 h-1/2 rounded-full bg-success-sage/20"></div>
+</div>
+</div>
+<!-- Center Anchor -->
+<div class="absolute w-4 h-4 bg-primary rounded-full z-10"></div>
+</div>
+<!-- Action Area -->
+<div class="mt-20 z-20 w-full flex justify-center">
+<button class="bg-primary border-border-width border-primary rounded text-on-primary font-body-lg text-body-lg px-8 py-3 hover:bg-primary-container transition-colors active:scale-95 flex items-center gap-2">
+<span>Begin Capstone</span>
+<span class="material-symbols-outlined text-on-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Decorative background elements (Blueprint feel) -->
+<div class="absolute inset-0 pointer-events-none opacity-5" style="background-image: radial-gradient(#7c2d12 1px, transparent 1px); background-size: 24px 24px;"></div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface dark:bg-surface py-2 px-gutter border-t-2 border-primary dark:border-primary-container">
+<!-- TODAY (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-xl px-4 py-1 active:translate-y-0.5 duration-75" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">today</span>
+<span class="font-label-caps text-label-caps mt-1">TODAY</span>
+</a>
+<!-- JOURNEY -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:translate-y-0.5 duration-75" href="#">
+<span class="material-symbols-outlined">route</span>
+<span class="font-label-caps text-label-caps mt-1">JOURNEY</span>
+</a>
+<!-- LIBRARY -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:translate-y-0.5 duration-75" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-caps text-label-caps mt-1">LIBRARY</span>
+</a>
+<!-- STATS -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:translate-y-0.5 duration-75" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps mt-1">STATS</span>
+</a>
+</nav>
+<script>
+        // Simple breathing text effect to accompany the visual
+        const textElement = document.querySelector('.font-display-lg');
+        if(textElement) {
+            setInterval(() => {
+                textElement.style.transition = 'opacity 4s ease-in-out';
+                textElement.style.opacity = textElement.style.opacity === '0.7' ? '1' : '0.7';
+            }, 4000);
+        }
+    </script>
+</body></html>

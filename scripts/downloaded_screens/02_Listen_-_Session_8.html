@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CLARITY COACH - Session 8: Finding Your Pace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "background": "#fdf9f5",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#ede1d2",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ede1d2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#655d52",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-container": "#6b6357",
+                        "on-tertiary-fixed": "#001e30",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#004b71",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "tertiary": "#00334f",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "surface-variant": "#e5e2de",
+                        "on-background": "#1c1c19",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "surface-container": "#f1ede9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .waveform-bar {
+            transition: height 0.2s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b-2 border-primary z-50 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">CLARITY COACH</span>
+</div>
+<div class="font-headline-md text-headline-md uppercase tracking-tight text-primary">01/05</div>
+</header>
+<main class="max-w-6xl mx-auto px-gutter py-xl pb-32">
+<!-- Hero Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<div class="md:col-span-8">
+<div class="mb-sm inline-flex items-center px-xs py-1 border-2 border-primary font-label-md text-label-md text-primary uppercase">
+                    Session 8: Finding Your Pace
+                </div>
+<h1 class="font-headline-lg text-headline-lg mb-md leading-tight">
+                    The Credibility Zone:<br/>
+<span class="bg-primary text-background px-2">130-150 WPM</span>
+</h1>
+<p class="font-body-lg text-body-lg max-w-2xl text-on-surface-variant">
+                    Your pace isn't just about speed; it's about authority. In this step, we analyze the specific cadence that triggers trust in professional listeners.
+                </p>
+</div>
+<div class="md:col-span-4 flex items-end justify-end">
+<div class="border-2 border-primary p-md bg-secondary-container relative w-full aspect-square md:aspect-auto flex flex-col justify-center">
+<div class="absolute -top-4 -right-4 bg-primary text-background font-label-md p-2">TIDBIT</div>
+<p class="font-label-md text-label-md text-on-secondary-container leading-relaxed">
+                        "The 130-150 WPM band is where the brain processes vocal nuance most effectively without losing focus."
+                    </p>
+</div>
+</div>
+</div>
+<!-- Audio Interactive Section -->
+<section class="border-2 border-primary p-md md:p-lg mb-xl bg-surface-container-low relative">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<!-- Playback Controls -->
+<div class="flex flex-col items-center gap-sm">
+<button class="w-20 h-20 border-2 border-primary bg-background flex items-center justify-center hover:bg-surface-container-high transition-colors active:translate-y-1 active:translate-x-1 hover:shadow-[4px_4px_0px_0px_#5e1700] transition-all" id="playBtn">
+<span class="material-symbols-outlined text-4xl text-primary">play_arrow</span>
+</button>
+<span class="font-label-md text-primary uppercase">Listen</span>
+</div>
+<!-- Waveform Visualization -->
+<div class="flex-grow w-full">
+<div class="flex items-end justify-between h-32 gap-1 mb-xs" id="waveform">
+<!-- Bars generated via JS or looping -->
+<div class="waveform-bar w-full bg-outline-variant h-1/4"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-3/4"></div>
+<div class="waveform-bar w-full bg-primary h-2/3"></div>
+<div class="waveform-bar w-full bg-primary h-4/5"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/3"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-3/4"></div>
+<div class="waveform-bar w-full bg-primary h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-5/6"></div>
+<div class="waveform-bar w-full bg-primary h-2/3"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/4"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-3/4"></div>
+<div class="waveform-bar w-full bg-primary h-2/3"></div>
+<div class="waveform-bar w-full bg-primary h-4/5"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/3"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-3/4"></div>
+<div class="waveform-bar w-full bg-primary h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-5/6"></div>
+<div class="waveform-bar w-full bg-primary h-2/3"></div>
+<div class="waveform-bar w-full bg-outline-variant h-1/2"></div>
+<div class="waveform-bar w-full bg-primary h-3/4"></div>
+<div class="waveform-bar w-full bg-primary h-1/2"></div>
+</div>
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>0:00</span>
+<span>2:45</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Transcript Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Annotation Column -->
+<div class="md:col-span-4 space-y-md">
+<div class="border-2 border-primary p-sm bg-background">
+<h4 class="font-label-md text-label-md text-primary uppercase mb-xs font-bold">Analysis</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Notice the deliberate pauses between the 15-20 second mark. This creates "cognitive space" for the audience.
+                    </p>
+</div>
+<div class="relative overflow-hidden border-2 border-primary aspect-video">
+<img class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" data-alt="A professional recording studio setting with a high-end condenser microphone and soundproofing foam on the walls. The scene is bathed in warm, earthy terracotta and cream light, evoking a sense of focused intellectual rigor and Brutalist architectural precision. Minimalist lighting creates sharp, clean shadows across the equipment, emphasizing a modern yet tactile analog atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyvS0FNTwhf59EnmsPxRqLtad0cbSa8zHtofL-6J58_fVWj5n5CpvOmnivP8hkEUDVQttHAiEdDsc3J-46xpARgMJRKE_Xv9MX_OamBHscR23SM1wg2wP5fH3vCAHTGU8lAIuYJhrSk-NnMRkakYH9CjJd5K_MuhcA2nAzFArvTmKeRAPs8TnLTGBzqUL-j-OOwfbhkZNgZH6L6W0k_HzDpHlwT8jKppBCBH8NtXoLyFhMncUVU2f6aRJ29Mp_qHcg0gbCYB3OxRiw"/>
+</div>
+</div>
+<!-- Transcript Content -->
+<div class="md:col-span-8 border-2 border-primary p-md md:p-lg bg-surface">
+<div class="flex justify-between items-center mb-md border-b-2 border-primary-container pb-xs">
+<h3 class="font-headline-md text-headline-md uppercase tracking-tighter">Transcript</h3>
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div class="space-y-md font-body-lg text-body-lg text-on-surface leading-relaxed">
+<p><span class="text-primary font-bold">0:00</span> When we talk about finding your pace, we aren't just looking for a comfortable rhythm. We are looking for the <span class="border-b-2 border-primary">credibility zone</span>.</p>
+<p><span class="text-primary font-bold">0:12</span> Academic studies show that the average listener perceives speakers between 130 and 150 words per minute as more competent, reliable, and persuasive.</p>
+<p class="bg-secondary-fixed p-sm border-l-4 border-primary italic">
+                        "If you speak faster, you risk sounding anxious. If you speak slower, you risk sounding condescending or unprepared."
+                    </p>
+<p><span class="text-primary font-bold">0:45</span> Throughout this session, use the waveform monitor to see where you naturally fall. We will practice compressing and expanding your sentences to hit that sweet spot consistently.</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-xl flex justify-center">
+<button class="px-xl py-md bg-primary text-background font-headline-md uppercase tracking-tight hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0px_0px_#ff9b7b] transition-all flex items-center gap-sm">
+                Mark as Heard
+                <span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full transition-all active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-all active:translate-x-1 active:translate-y-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for the play button
+        const playBtn = document.getElementById('playBtn');
+        const waveformBars = document.querySelectorAll('.waveform-bar');
+        let isPlaying = false;
+        let animationInterval;
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = playBtn.querySelector('.material-symbols-outlined');
+            
+            if (isPlaying) {
+                icon.textContent = 'pause';
+                playBtn.classList.add('bg-primary-fixed');
+                startWaveform();
+            } else {
+                icon.textContent = 'play_arrow';
+                playBtn.classList.remove('bg-primary-fixed');
+                stopWaveform();
+            }
+        });
+
+        function startWaveform() {
+            animationInterval = setInterval(() => {
+                waveformBars.forEach(bar => {
+                    const randomHeight = Math.floor(Math.random() * 80) + 10;
+                    bar.style.height = randomHeight + '%';
+                });
+            }, 150);
+        }
+
+        function stopWaveform() {
+            clearInterval(animationInterval);
+            waveformBars.forEach((bar, index) => {
+                // Return to some static heights
+                const heights = ['25%', '50%', '75%', '66%', '80%', '33%', '50%', '75%', '50%', '83%', '66%', '25%'];
+                bar.style.height = heights[index % heights.length];
+            });
+        }
+    </script>
+</body></html>

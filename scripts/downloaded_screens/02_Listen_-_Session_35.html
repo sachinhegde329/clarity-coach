@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Listen - Your communication signature</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#57624f",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-bright": "#fdf9f5",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-container-high": "#ebe7e4",
+                        "surface-dim": "#ddd9d6",
+                        "inverse-surface": "#31302e",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary-container": "#5b6653",
+                        "background": "#fdf9f5",
+                        "surface-tint": "#9b4427",
+                        "surface-variant": "#e5e2de",
+                        "on-primary-container": "#ff9b7b",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#dcc1b9",
+                        "on-surface-variant": "#55423d",
+                        "surface-container": "#f1ede9",
+                        "error": "#ba1a1a",
+                        "border-primary": "#7C2D12",
+                        "on-tertiary-container": "#ff998e",
+                        "surface-container-low": "#f7f3ef",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface": "#fdf9f5",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "on-tertiary-fixed": "#410002",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-container": "#d8e3cc",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-background": "#1c1c19",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "outline": "#89726c",
+                        "on-surface": "#1c1c19",
+                        "inverse-on-surface": "#f4f0ec",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "secondary-fixed": "#dbe6cf",
+                        "tertiary-fixed": "#ffdad6",
+                        "primary": "#5e1700",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#680005",
+                        "success-sage": "#818C78",
+                        "on-primary": "#ffffff",
+                        "error-warning": "#B91C1C",
+                        "primary-container": "#7c2d12",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdbd0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "hairline": "0.5px",
+                        "unit": "4px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "border-width": "2px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .brutalist-border {
+            border: 2px solid theme('colors.primary-container');
+        }
+        .brutalist-border-thin {
+            border: 0.5px solid theme('colors.primary-container');
+        }
+        .brutalist-card {
+            background-color: theme('colors.surface-parchment');
+            border: 2px solid theme('colors.primary-container');
+            border-radius: theme('borderRadius.DEFAULT');
+        }
+        /* Hide scrollbar for transcript but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md antialiased pt-16 md:pt-24 pb-24 md:pb-8 px-4 md:px-margin-desktop">
+<!-- Top Navigation (Task-Focused Context -> Minimal Nav logic usually, but fulfilling requirement if TopAppBar applies. The prompt says this is a session flow, so TopAppBar is suppressed to prioritize canvas. We will use a custom session header instead.) -->
+<header class="w-full flex justify-between items-center mb-8 border-b-2 border-primary pb-4">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors brutalist-border-thin">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Session 35</span>
+<h1 class="font-headline-md text-headline-md text-primary-container m-0">Your communication signature</h1>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="font-metric-hero text-headline-lg text-primary-container">
+                 02 / 05
+             </div>
+</div>
+</header>
+<main class="flex-grow flex flex-col md:flex-row gap-6 h-full max-w-7xl mx-auto w-full">
+<!-- Left Column: Audio Player & Visualization -->
+<section class="flex-1 flex flex-col gap-6 w-full md:w-1/2">
+<!-- Hero Audio Player Card -->
+<div class="brutalist-card p-6 flex flex-col gap-8 relative overflow-hidden bg-surface-bright flex-grow min-h-[400px] justify-between shadow-[4px_4px_0px_0px_rgba(124,45,18,1)]">
+<!-- Session Metadata -->
+<div class="flex justify-between items-start w-full">
+<div class="flex flex-col gap-1 font-label-caps text-label-caps text-on-surface-variant">
+<span>MODULE: VOCAL IDENTITY</span>
+<span>DURATION: 12:45</span>
+<span>INSTRUCTOR: M. VANCE</span>
+</div>
+<div class="brutalist-border-thin px-3 py-1 rounded bg-secondary-container text-on-secondary-container font-label-caps text-label-caps">
+                        STEP 2: LISTEN
+                    </div>
+</div>
+<!-- Abstract Visualization Area (Placeholder for audio waves) -->
+<div class="flex-grow flex items-center justify-center relative w-full py-8 border-y brutalist-border-thin my-4">
+<!-- Simulated Waveform -->
+<div class="flex items-center gap-1 h-32 w-full px-4" id="waveform-container">
+<!-- Bars generated by JS -->
+</div>
+</div>
+<!-- Player Controls -->
+<div class="flex flex-col gap-4 w-full">
+<!-- Progress Bar -->
+<div class="flex items-center gap-3 font-metric-sm text-metric-sm text-primary-container">
+<span>04:12</span>
+<div class="flex-grow h-2 brutalist-border-thin bg-surface-variant rounded-full relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary-container w-[33%] rounded-full"></div>
+</div>
+<span>12:45</span>
+</div>
+<!-- Buttons -->
+<div class="flex justify-center items-center gap-6 pt-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors brutalist-border-thin text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">replay_10</span>
+</button>
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-primary-container text-on-primary hover:bg-on-primary-fixed-variant transition-colors brutalist-border shadow-[2px_2px_0px_0px_rgba(85,66,61,1)]">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors brutalist-border-thin text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">forward_10</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Action Card (Next Step Preview) -->
+<div class="brutalist-card p-4 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">UP NEXT (03/05)</span>
+<span class="font-headline-md text-[18px] text-primary-container">Record your baseline</span>
+</div>
+<span class="material-symbols-outlined text-primary-container">arrow_forward</span>
+</div>
+</section>
+<!-- Right Column: Scrolling Transcript -->
+<section class="flex-1 brutalist-card flex flex-col h-[600px] md:h-auto overflow-hidden bg-surface-container-low shadow-[4px_4px_0px_0px_rgba(124,45,18,1)] w-full md:w-1/2">
+<!-- Transcript Header -->
+<div class="border-b brutalist-border-thin p-4 flex justify-between items-center bg-surface-parchment z-10">
+<h2 class="font-label-caps text-label-caps text-primary-container tracking-widest">LIVE TRANSCRIPT</h2>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+</span>
+<span class="font-label-caps text-[10px] text-primary-container">SYNCED</span>
+</div>
+</div>
+<!-- Transcript Content (Scrollable) -->
+<div class="flex-grow overflow-y-auto p-6 flex flex-col gap-6 no-scrollbar relative font-body-lg text-body-lg text-on-surface" id="transcript-container">
+<p class="opacity-40 transition-opacity duration-300">
+                    Welcome to session 35. In our previous module, we dismantled the crutches—the filler words that dilute your presence. Today, we begin building something entirely new.
+                </p>
+<p class="opacity-40 transition-opacity duration-300">
+                    We're talking about your communication signature. What is it? It's not just the words you choose. It's the architecture of how you deliver them.
+                </p>
+<!-- Active Transcript Line -->
+<div class="relative p-4 brutalist-border-thin bg-surface-bright rounded transform -translate-x-2 border-l-4 border-l-primary-container shadow-[2px_2px_0px_0px_rgba(124,45,18,0.2)]">
+<p class="font-medium text-primary-container">
+                        Your vocal brand voice is the consistent character running through every technique. It is the steady baseline that tells your audience exactly who you are, before you even finish your first sentence.
+                    </p>
+</div>
+<p class="opacity-40 transition-opacity duration-300">
+                    Think of a seasoned broadcaster or a commanding CEO. They don't invent a new persona for every meeting. They have honed a recognizable, authoritative rhythm. 
+                </p>
+<p class="opacity-40 transition-opacity duration-300">
+                    This consistency breeds trust. When your cadence, your pitch variation, and your deliberate pauses align seamlessly, you stop sounding like someone trying to give a presentation, and start sounding like a leader sharing a vision.
+                </p>
+<p class="opacity-40 transition-opacity duration-300">
+                    Over the next few minutes, we will identify the core components of your natural resting tone, and explore how to amplify it without sounding contrived.
+                </p>
+<!-- Gradient overlay for fading effect at bottom -->
+<div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-surface-container-low to-transparent pointer-events-none"></div>
+</div>
+</section>
+</main>
+<script>
+        // Simple JS to generate a static waveform that looks slightly dynamic
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById('waveform-container');
+            const numberOfBars = 60;
+            
+            for (let i = 0; i < numberOfBars; i++) {
+                const bar = document.createElement('div');
+                // Random height between 10% and 100%
+                const height = Math.floor(Math.random() * 90) + 10;
+                
+                // Style the bar
+                bar.className = 'w-1 bg-primary-container rounded-full opacity-80';
+                bar.style.height = `${height}%`;
+                
+                // Make the middle bars generally taller (simulate active audio)
+                if (i > 15 && i < 45) {
+                     bar.style.height = `${Math.floor(Math.random() * 60) + 40}%`;
+                }
+
+                // Emphasize current playhead position
+                if (i === 20) {
+                     bar.className = 'w-1.5 bg-tertiary rounded-full opacity-100 shadow-[0_0_8px_rgba(147,0,11,0.5)]';
+                     bar.style.height = '90%';
+                }
+                
+                container.appendChild(bar);
+            }
+        });
+    </script>
+</body></html>

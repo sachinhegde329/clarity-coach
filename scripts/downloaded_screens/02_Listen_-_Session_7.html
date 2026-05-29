@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary-container": "#ff9b7b",
+                    "tertiary-fixed": "#cbe6ff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#3a0b00",
+                    "background": "#fdf9f5",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "secondary-fixed": "#ede1d2",
+                    "inverse-surface": "#31302e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-secondary-fixed": "#201b12",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "surface-tint": "#9b4427",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "on-surface": "#1c1c19",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ede1d2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e4",
+                    "secondary": "#655d52",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ddd9d6",
+                    "on-secondary-container": "#6b6357",
+                    "on-tertiary-fixed": "#001e30",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#004b71",
+                    "surface-container-highest": "#e5e2de",
+                    "surface": "#fdf9f5",
+                    "outline-variant": "#dcc1b9",
+                    "primary-container": "#7c2d12",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-variant": "#e5e2de",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "surface-container": "#f1ede9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "label-md": ["Space Mono"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "headline-md": ["Bricolage Grotesque"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .interactive-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px 0px #5e1700;
+        }
+        .transcript-line.active {
+            background-color: #7c2d12;
+            color: #ff9b7b;
+        }
+        .waveform-bar {
+            transition: height 0.2s ease;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .scrolling-content {
+            display: flex;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background border-b-2 border-primary flex justify-between items-center h-16 px-gutter">
+<div class="flex items-center gap-base active:translate-y-1 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary">menu</span>
+</div>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter uppercase">
+            CLARITY COACH
+        </div>
+<div class="bg-primary text-background px-3 py-1 font-label-md text-label-md font-bold border-2 border-primary">
+            01/05
+        </div>
+</header>
+<main class="flex-grow pb-32">
+<!-- Hero Section -->
+<section class="p-gutter lg:p-xl flex flex-col gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Session 7: Cutting Fillers</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary max-w-2xl">
+                    Step 02/05: Listen
+                </h1>
+</div>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mt-md">
+<!-- Audio Player Bento Card -->
+<div class="md:col-span-8 border-2 border-primary p-gutter bg-surface flex flex-col gap-lg relative overflow-hidden">
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-xs">
+<span class="w-3 h-3 bg-error rounded-full animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary">LIVE ANALYSIS</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">02:44 / 05:00</span>
+</div>
+<!-- Audio Waveform Visualization -->
+<div class="h-32 flex items-end gap-1 w-full overflow-hidden" id="waveform">
+<!-- Bars generated by JS -->
+</div>
+<!-- Playback Controls -->
+<div class="flex items-center justify-center gap-lg">
+<button class="w-12 h-12 flex items-center justify-center border-2 border-primary hover:bg-surface-container-high transition-colors active:translate-y-1">
+<span class="material-symbols-outlined text-primary">replay_10</span>
+</button>
+<button class="w-20 h-20 bg-primary text-background flex items-center justify-center border-2 border-primary hard-shadow hover:-translate-y-1 hover:-translate-x-1 transition-all active:translate-y-0 active:translate-x-0" id="playBtn">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center border-2 border-primary hover:bg-surface-container-high transition-colors active:translate-y-1">
+<span class="material-symbols-outlined text-primary">forward_10</span>
+</button>
+</div>
+</div>
+<!-- Tidbit Bento Card -->
+<div class="md:col-span-4 border-2 border-primary p-gutter bg-primary-container flex flex-col gap-sm relative">
+<span class="material-symbols-outlined text-on-primary-container text-4xl">lightbulb</span>
+<h3 class="font-headline-md text-headline-md text-on-primary-container uppercase">Tidbit</h3>
+<p class="font-body-md text-on-primary-container italic border-l-4 border-on-primary-container pl-4">
+                        "Filler reduction in practice."
+                    </p>
+<div class="mt-auto pt-md border-t-2 border-on-primary-container/20">
+<p class="font-label-sm text-label-sm text-on-primary-container opacity-80 uppercase font-bold">Concept</p>
+<p class="font-body-md text-on-primary-container">Auditory awareness is the first step toward verbal precision.</p>
+</div>
+</div>
+<!-- Transcript Bento Card -->
+<div class="md:col-span-12 border-2 border-primary bg-surface-container-low overflow-hidden">
+<div class="p-xs bg-primary text-background font-label-md text-label-md uppercase font-bold px-gutter">Scrolling Transcript</div>
+<div class="p-gutter h-64 overflow-y-auto flex flex-col gap-md" id="transcript-container">
+<p class="font-headline-md text-headline-md text-on-surface-variant opacity-30 transition-all transcript-line">The key to authority isn't speaking more.</p>
+<p class="font-headline-md text-headline-md text-on-surface-variant opacity-30 transition-all transcript-line">It is knowing when to stop.</p>
+<p class="font-headline-md text-headline-md active transcript-line px-2">When you would have said <span class="text-error font-bold">um</span>, close your mouth and pause.</p>
+<p class="font-headline-md text-headline-md text-on-surface-variant opacity-30 transition-all transcript-line">Silence is a punctuation mark, not a vacuum.</p>
+<p class="font-headline-md text-headline-md text-on-surface-variant opacity-30 transition-all transcript-line">Let your last sentence land before the next begins.</p>
+</div>
+</div>
+<!-- Interactive Exercise Card -->
+<div class="md:col-span-12 border-2 border-primary p-gutter bg-surface flex flex-col md:flex-row items-center gap-gutter interactive-card transition-all cursor-pointer">
+<div class="w-full md:w-1/3">
+<img alt="Audio Practice" class="w-full aspect-video md:aspect-square object-cover border-2 border-primary grayscale hover:grayscale-0 transition-all" data-alt="A macro photograph of a professional silver microphone in a minimalist studio setting. The lighting is warm and cinematic, casting sharp shadows on a cream-colored acoustic foam background. The overall aesthetic is brutalist and editorial, focusing on high-quality textures and an atmosphere of focused, intellectual silence. Deep terracotta and rich cream tones dominate the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCABJYhpVhjN3D0x3OJhnM-4a8ALPuF9XdAtQGgteFdteUUsKwJctlMA8KaDGxeYWH6RH8G-DxtwBZxKGsfWA2S7UVpLdA_SRZZ_s7qninrMaLepDTa9Y3EIVT79tb49-299BIuetxt3aHQ8d-MB2tibM0r9-WTcPCuPXaZYxbbILKhXa4BcUR54Or_LCC6QeQhr9Fd6V4dVlqcHQQIe1mmo8catw0kVFuEm7Vsr35psMpUlhV8bJxHUmrjzss2ebj6B6OVant-5iUT"/>
+</div>
+<div class="flex flex-col gap-sm flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary">Next Action: Mirror Practice</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Record a 30-second introduction. Highlight every 'um' and 'like' you hear. Don't judge, just identify.</p>
+<div class="flex gap-sm mt-md">
+<button class="px-gutter py-xs border-2 border-primary font-label-md text-label-md uppercase font-bold hover:bg-primary hover:text-background transition-all">Start Recording</button>
+<button class="px-gutter py-xs border-2 border-primary font-label-md text-label-md uppercase font-bold bg-secondary-container">Skip</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-primary-container bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Generate random waveform bars
+        const waveform = document.getElementById('waveform');
+        const barCount = 60;
+        for (let i = 0; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'waveform-bar bg-primary w-1 opacity-60';
+            const height = Math.floor(Math.random() * 80) + 10;
+            bar.style.height = `${height}%`;
+            waveform.appendChild(bar);
+        }
+
+        // Simple Play/Pause Toggle Simulation
+        const playBtn = document.getElementById('playBtn');
+        let isPlaying = false;
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = playBtn.querySelector('span');
+            icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+            
+            // Animate bars if playing
+            if (isPlaying) {
+                const bars = document.querySelectorAll('.waveform-bar');
+                const interval = setInterval(() => {
+                    if (!isPlaying) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    bars.forEach(bar => {
+                        const newHeight = Math.floor(Math.random() * 80) + 10;
+                        bar.style.height = `${newHeight}%`;
+                    });
+                }, 200);
+            }
+        });
+
+        // Auto-scroll transcript simulator
+        const lines = document.querySelectorAll('.transcript-line');
+        let currentLine = 2; // Starting at the third line as highlighted in prompt
+
+        // Optional: Add logic to shift active class on transcript lines
+        const container = document.getElementById('transcript-container');
+        container.addEventListener('scroll', () => {
+            // Future interaction logic
+        });
+    </script>
+</body></html>

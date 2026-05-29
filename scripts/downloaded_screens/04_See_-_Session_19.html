@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Step 4: See</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#5b6653",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-container": "#7c2d12",
+                    "on-error": "#ffffff",
+                    "error-warning": "#B91C1C",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdbd0",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-container-high": "#ebe7e4",
+                    "surface-container": "#f1ede9",
+                    "inverse-primary": "#ffb59e",
+                    "surface-variant": "#e5e2de",
+                    "secondary-fixed": "#dbe6cf",
+                    "border-primary": "#7C2D12",
+                    "primary": "#5e1700",
+                    "secondary-container": "#d8e3cc",
+                    "on-surface": "#1c1c19",
+                    "tertiary": "#680005",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "outline": "#89726c",
+                    "on-secondary-fixed": "#151e10",
+                    "on-primary-fixed": "#3a0b00",
+                    "secondary": "#57624f",
+                    "primary-fixed-dim": "#ffb59e",
+                    "tertiary-container": "#93000b",
+                    "surface-parchment": "#FDF9F5",
+                    "inverse-surface": "#31302e",
+                    "on-tertiary-fixed": "#410002",
+                    "on-tertiary-container": "#ff998e",
+                    "error": "#ba1a1a",
+                    "success-sage": "#818C78",
+                    "surface-tint": "#9b4427",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-dim": "#ddd9d6",
+                    "surface": "#fdf9f5",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-container-highest": "#e5e2de",
+                    "on-surface-variant": "#55423d",
+                    "on-background": "#1c1c19",
+                    "outline-variant": "#dcc1b9",
+                    "background": "#fdf9f5",
+                    "inverse-on-surface": "#f4f0ec"
+            },
+            borderRadius: {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            spacing: {
+                    "hairline": "0.5px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "gutter": "16px",
+                    "border-width": "2px",
+                    "unit": "4px"
+            },
+            fontFamily: {
+                    "label-caps": ["JetBrains Mono", "monospace"],
+                    "metric-hero": ["JetBrains Mono", "monospace"],
+                    "body-md": ["Bricolage Grotesque", "sans-serif"],
+                    "metric-sm": ["JetBrains Mono", "monospace"],
+                    "headline-lg": ["Bricolage Grotesque", "sans-serif"],
+                    "display-lg": ["Bricolage Grotesque", "sans-serif"],
+                    "body-lg": ["Bricolage Grotesque", "sans-serif"],
+                    "headline-md": ["Bricolage Grotesque", "sans-serif"]
+            },
+            fontSize: {
+                    "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                    "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                    "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                    "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }],
+                    "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                    "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                    "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Base typography setup to ensure fallbacks if fonts don't load immediately */
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface border-b-2 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 w-full flat no shadows transition-colors duration-200">
+<button class="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CLARITY COACH</h1>
+<button class="text-primary hover:bg-primary-container/10 p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</header>
+<!-- Note: BottomNavBar is suppressed due to active linear session flow -->
+<!-- Main Canvas -->
+<main class="flex-grow pt-24 pb-8 px-margin-mobile md:px-margin-desktop flex flex-col items-center">
+<div class="w-full max-w-4xl w-full flex flex-col gap-6 md:gap-10">
+<!-- Session Context & Progress -->
+<div class="flex flex-col gap-4 w-full">
+<div class="flex justify-between items-end border-b-[0.5px] border-outline pb-2">
+<div class="font-label-caps text-label-caps text-primary tracking-widest">SESSION 19</div>
+<div class="font-metric-sm text-metric-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+                        03:00
+                    </div>
+</div>
+<!-- 5-Step Progress Strip -->
+<div class="flex w-full gap-2 md:gap-4 h-2">
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div> <!-- Step 4: Active -->
+<div class="flex-1 bg-surface-variant border border-outline-variant"></div>
+</div>
+</div>
+<!-- Architectural Main Card -->
+<article class="bg-surface border-2 border-primary rounded-lg p-6 md:p-8 flex flex-col gap-8 w-full mt-4">
+<!-- Headline -->
+<header class="flex items-baseline gap-4 border-b-2 border-primary pb-4">
+<span class="font-metric-hero text-metric-hero text-primary">04<span class="text-outline">/05</span></span>
+<h2 class="font-display-lg text-display-lg text-primary uppercase tracking-tight">See</h2>
+</header>
+<!-- Data Display Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
+<!-- Metric 1 -->
+<div class="bg-surface-bright border-[0.5px] border-primary p-4 rounded-DEFAULT flex flex-col gap-2 relative overflow-hidden group">
+<div class="font-label-caps text-label-caps text-on-surface-variant">Q-QUALITY</div>
+<div class="flex items-baseline gap-2">
+<div class="font-metric-hero text-metric-hero text-primary">92</div>
+<div class="text-success-sage flex items-center font-metric-sm text-metric-sm">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+<span>8</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-bright border-[0.5px] border-primary p-4 rounded-DEFAULT flex flex-col gap-2 relative overflow-hidden group">
+<div class="font-label-caps text-label-caps text-on-surface-variant">R-LATENCY</div>
+<div class="flex items-baseline gap-2">
+<div class="font-metric-hero text-metric-hero text-primary">1.2<span class="text-headline-md font-headline-md">s</span></div>
+<div class="text-success-sage flex items-center font-metric-sm text-metric-sm">
+<span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+<span>0.4s</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-bright border-[0.5px] border-primary p-4 rounded-DEFAULT flex flex-col gap-2 relative overflow-hidden group">
+<div class="font-label-caps text-label-caps text-on-surface-variant">COMPOSURE</div>
+<div class="flex items-baseline gap-2">
+<div class="font-metric-hero text-metric-hero text-primary">98</div>
+<div class="text-primary flex items-center font-metric-sm text-metric-sm opacity-60">
+<span class="material-symbols-outlined text-[18px]">horizontal_rule</span>
+<span>--</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+</div>
+</div>
+</section>
+<!-- Commentary Block -->
+<section class="bg-surface-container-low border-[0.5px] border-outline p-6 rounded-DEFAULT flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                        Excellent use of a <strong class="font-semibold text-primary">"How"</strong> question to deflect the pushback. Your response time was <span class="font-metric-sm text-metric-sm bg-surface-variant px-1 rounded-sm border-[0.5px] border-outline-variant">1.2s</span> - crisp and controlled.
+                    </p>
+</section>
+<!-- Actions -->
+<footer class="flex flex-col sm:flex-row gap-4 pt-4 border-t-[0.5px] border-outline w-full justify-end mt-4">
+<button class="px-6 py-3 border-2 border-primary rounded-lg font-headline-md text-[18px] text-primary hover:bg-primary-container/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">replay</span>
+                        Replay Session
+                    </button>
+<button class="px-8 py-3 bg-primary border-2 border-primary rounded-lg font-headline-md text-[18px] text-on-primary hover:bg-tertiary transition-colors flex items-center justify-center gap-2">
+                        Continue
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</article>
+</div>
+</main>
+</body></html>

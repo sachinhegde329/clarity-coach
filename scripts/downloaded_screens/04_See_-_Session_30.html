@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>04 / 05 - Performance Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-container": "#7c2d12",
+                        "surface": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#ff9b7b",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-primary": "#ffb59e",
+                        "secondary": "#57624f",
+                        "primary": "#5e1700",
+                        "on-primary-fixed": "#3a0b00",
+                        "tertiary-container": "#93000b",
+                        "surface-dim": "#ddd9d6",
+                        "success-sage": "#818C78",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-background": "#1c1c19",
+                        "on-secondary-container": "#5b6653",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "surface-tint": "#9b4427",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#410002",
+                        "inverse-surface": "#31302e",
+                        "border-primary": "#7C2D12",
+                        "outline-variant": "#dcc1b9",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "surface-variant": "#e5e2de",
+                        "on-surface": "#1c1c19",
+                        "tertiary": "#680005",
+                        "surface-container-highest": "#e5e2de",
+                        "on-secondary-fixed": "#151e10",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "error-warning": "#B91C1C",
+                        "surface-container": "#f1ede9",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#dbe6cf",
+                        "secondary-container": "#d8e3cc",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "surface-container-low": "#f7f3ef",
+                        "outline": "#89726c",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "display-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fdf9f5; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased pt-16 pb-20 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface border-b-2 border-primary">
+<button class="text-primary hover:bg-primary-container hover:text-on-primary-container p-2 rounded-full transition-transform duration-100 active:scale-95">
+<span class="material-symbols-outlined font-label-caps text-label-caps">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">04 / 05</h1>
+<button class="text-primary hover:bg-primary-container hover:text-on-primary-container p-2 rounded-full transition-transform duration-100 active:scale-95">
+<span class="material-symbols-outlined font-label-caps text-label-caps">help_outline</span>
+</button>
+</header>
+<main class="flex-grow container mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-4xl flex flex-col gap-8">
+<header class="mb-4">
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight">Performance Review</h2>
+</header>
+<!-- Metric Displays -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Clarity -->
+<div class="bg-surface-parchment border-border-width border-primary p-6 rounded relative card-on-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">CLARITY</p>
+<div class="flex items-baseline gap-2">
+<p class="font-metric-hero text-metric-hero text-primary">92%</p>
+<span class="material-symbols-outlined text-success-sage font-bold" style="font-variation-settings: 'FILL' 1;">arrow_upward</span>
+</div>
+</div>
+<!-- Brevity -->
+<div class="bg-surface-parchment border-border-width border-primary p-6 rounded relative card-on-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">BREVITY</p>
+<div class="flex items-baseline gap-2">
+<p class="font-metric-hero text-metric-hero text-primary">HIGH</p>
+</div>
+</div>
+<!-- Pace -->
+<div class="bg-surface-parchment border-border-width border-primary p-6 rounded relative card-on-card">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2">PACE</p>
+<div class="flex items-baseline gap-2">
+<p class="font-metric-hero text-metric-hero text-primary">142 WPM</p>
+<span class="material-symbols-outlined text-success-sage font-bold" style="font-variation-settings: 'FILL' 1;">arrow_downward</span>
+</div>
+</div>
+</section>
+<!-- Commentary Card -->
+<section class="bg-surface-container border-hairline border-outline p-6 md:p-8 rounded-lg relative mt-4 shadow-none">
+<div class="bg-surface-parchment border-border-width border-primary p-6 md:p-8 rounded-lg shadow-none absolute -top-4 -left-4 w-full h-full flex flex-col justify-center">
+<p class="font-body-lg text-body-lg text-on-surface">Excellent growth. Your hypothesis-led delivery is now a reliable tool. You are ready for the final Sprint.</p>
+</div>
+<!-- Spacer to maintain layout due to absolute positioned card above -->
+<div class="h-24 md:h-16"></div>
+</section>
+<div class="mt-12 flex justify-end">
+<button class="bg-primary text-on-primary border-border-width border-primary px-8 py-3 rounded hover:bg-primary-container hover:text-on-primary-container transition-colors font-headline-md text-headline-md text-base">Continue</button>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on MD+, visible on mobile for task flows where appropriate, though instructions suggest suppressing for linear flows. Keeping as requested per context rules if this was considered a main flow, but given 'Continue' it acts like a linear flow. Will omit nav shell based on "Linear/Transactional" rule to prioritize canvas). -->
+</body></html>

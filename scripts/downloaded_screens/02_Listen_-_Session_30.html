@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Session 30 - Step 2</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f4f0ec",
+                    "primary-container": "#7c2d12",
+                    "surface": "#fdf9f5",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-high": "#ebe7e4",
+                    "inverse-primary": "#ffb59e",
+                    "secondary": "#57624f",
+                    "primary": "#5e1700",
+                    "on-primary-fixed": "#3a0b00",
+                    "tertiary-container": "#93000b",
+                    "surface-dim": "#ddd9d6",
+                    "success-sage": "#818C78",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-background": "#1c1c19",
+                    "on-secondary-container": "#5b6653",
+                    "primary-fixed": "#ffdbd0",
+                    "on-surface-variant": "#55423d",
+                    "surface-tint": "#9b4427",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#410002",
+                    "inverse-surface": "#31302e",
+                    "border-primary": "#7C2D12",
+                    "outline-variant": "#dcc1b9",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "on-primary": "#ffffff",
+                    "background": "#fdf9f5",
+                    "surface-variant": "#e5e2de",
+                    "on-surface": "#1c1c19",
+                    "tertiary": "#680005",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary-fixed": "#151e10",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "error-warning": "#B91C1C",
+                    "surface-container": "#f1ede9",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdad6",
+                    "secondary-fixed": "#dbe6cf",
+                    "secondary-container": "#d8e3cc",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-low": "#f7f3ef",
+                    "outline": "#89726c",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-parchment": "#FDF9F5",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "hairline": "0.5px",
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ]
+            },
+            "fontSize": {
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Specific Brutalist utilities not covered by base Tailwind */
+        .brutalist-border { border-width: 2px; }
+        .brutalist-hairline { border-width: 0.5px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-sans selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- 
+      TopAppBar
+      Suppressed standard BottomNavBar as this is a linear "Step 2" session flow.
+      Using TopAppBar strictly as a structural anchor and progress indicator.
+    -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface border-b-2 border-primary">
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container rounded-DEFAULT transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps font-bold text-primary tracking-widest">
+                02 / 05
+            </span>
+<div class="flex gap-1 mt-1">
+<div class="w-6 h-[2px] bg-outline-variant"></div>
+<div class="w-6 h-[2px] bg-primary"></div>
+<div class="w-6 h-[2px] bg-outline-variant"></div>
+<div class="w-6 h-[2px] bg-outline-variant"></div>
+<div class="w-6 h-[2px] bg-outline-variant"></div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container rounded-DEFAULT transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-12 px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto flex flex-col">
+<!-- Header Section -->
+<div class="mb-12 md:mb-16 max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-4">
+                Review Recommendations
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Based on your recent sessions, we suggest focusing on these areas:
+            </p>
+</div>
+<!-- Recommendations Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter lg:gap-8 flex-grow content-start">
+<!-- Card 1: Revisit Pace -->
+<div class="group bg-surface-parchment brutalist-border border-primary rounded-lg p-6 flex flex-col relative transition-transform duration-200 hover:-translate-y-1 hover:bg-surface-container-low">
+<!-- Marker -->
+<div class="absolute -top-3 -left-3 w-8 h-8 bg-surface brutalist-border border-primary rounded-full flex items-center justify-center text-primary">
+<span class="font-label-caps text-label-caps">1</span>
+</div>
+<div class="flex items-start justify-between mb-4 mt-2">
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="speed">speed</span>
+<span class="font-metric-sm text-metric-sm text-outline px-2 py-1 brutalist-hairline border-outline rounded-DEFAULT">DATA POINT</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Revisit Pace</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                    Week 2 trend shows a slight increase.
+                </p>
+<button class="w-full flex items-center justify-center gap-2 py-3 brutalist-border border-primary text-primary font-label-caps text-label-caps rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors group-hover:bg-primary-container group-hover:text-on-primary-container group-hover:border-primary-container">
+<span>Select</span>
+<span class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2: Hypothesis Clarity -->
+<div class="group bg-surface-parchment brutalist-border border-primary rounded-lg p-6 flex flex-col relative transition-transform duration-200 hover:-translate-y-1 hover:bg-surface-container-low">
+<div class="absolute -top-3 -left-3 w-8 h-8 bg-surface brutalist-border border-primary rounded-full flex items-center justify-center text-primary">
+<span class="font-label-caps text-label-caps">2</span>
+</div>
+<div class="flex items-start justify-between mb-4 mt-2">
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="psychology">psychology</span>
+<span class="font-metric-sm text-metric-sm text-outline px-2 py-1 brutalist-hairline border-outline rounded-DEFAULT">STRENGTH</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Hypothesis Clarity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                    Stretch your strongest skill.
+                </p>
+<button class="w-full flex items-center justify-center gap-2 py-3 brutalist-border border-primary text-primary font-label-caps text-label-caps rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors group-hover:bg-primary-container group-hover:text-on-primary-container group-hover:border-primary-container">
+<span>Select</span>
+<span class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3: Mimic a Master -->
+<div class="group bg-surface-parchment brutalist-border border-primary rounded-lg p-6 flex flex-col relative transition-transform duration-200 hover:-translate-y-1 hover:bg-surface-container-low">
+<div class="absolute -top-3 -left-3 w-8 h-8 bg-surface brutalist-border border-primary rounded-full flex items-center justify-center text-primary">
+<span class="font-label-caps text-label-caps">3</span>
+</div>
+<div class="flex items-start justify-between mb-4 mt-2">
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="record_voice_over">record_voice_over</span>
+<span class="font-metric-sm text-metric-sm text-outline px-2 py-1 brutalist-hairline border-outline rounded-DEFAULT">EXERCISE</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Mimic a Master</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-8">
+                    It has been a while since your last comparative.
+                </p>
+<button class="w-full flex items-center justify-center gap-2 py-3 brutalist-border border-primary text-primary font-label-caps text-label-caps rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors group-hover:bg-primary-container group-hover:text-on-primary-container group-hover:border-primary-container">
+<span>Select</span>
+<span class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

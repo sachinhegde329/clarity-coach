@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2de",
+                        "on-secondary-fixed": "#201b12",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#001e30",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary": "#655d52",
+                        "inverse-surface": "#31302e",
+                        "surface-dim": "#ddd9d6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "on-secondary-container": "#6b6357",
+                        "inverse-on-surface": "#f4f0ec",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container-low": "#f7f3ef",
+                        "primary-fixed": "#ffdbd0",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "primary-container": "#7c2d12",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2de",
+                        "primary": "#5e1700",
+                        "on-surface": "#1c1c19",
+                        "tertiary-container": "#004b71",
+                        "primary-fixed-dim": "#ffb59e",
+                        "tertiary-fixed": "#cbe6ff",
+                        "inverse-primary": "#ffb59e",
+                        "outline": "#89726c",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "tertiary": "#00334f",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-fixed": "#ede1d2",
+                        "on-background": "#1c1c19",
+                        "on-surface-variant": "#55423d",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ede1d2",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "margin": "32px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"],
+                        "mono-alt": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .btn-interact:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .breathing-circle {
+            animation: breathe 8s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.4); opacity: 0.7; }
+        }
+        .session-counter {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Top AppBar (from Shared Components JSON) -->
+<header class="flex justify-between items-center px-margin py-4 w-full z-50 bg-surface border-b-2 border-primary fixed top-0">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 border-2 border-primary overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio headshot of a person with a serene expression, set against a warm parchment-colored background. The lighting is soft and directional, emphasizing the clean, minimalist aesthetic of the brand. The photo has a slightly desaturated, high-end editorial feel that aligns with Brutalist precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAigbPifGjmQUcZUwSUZB0rWBc5ItDLE3Og-8evq5XyBtiGyKYol8ydhSVln4hSr-_zp0X3XCxxwcFiad0oxanxojQ8omPvPonzyh5jFD0K1Iu5p_LAXOMY7C6AvXwI-_w8vaC5EwCK1hYIjE1F5MsE8OCu6Watz54fbyj5CzyDyNyZP2OhLRtUUYAYiJ8Tj2G32An53aCNp6RAUMb3B5PEVUq9I-EY80-sRPrptU2uRkCSzWo-HgA9YCnGuaxgnODgR_AB8ur6XF_"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-xl px-margin max-w-4xl mx-auto w-full flex flex-col items-center justify-center">
+<!-- Header Section -->
+<div class="w-full text-center mb-lg">
+<span class="session-counter text-primary font-bold text-label-md tracking-widest mb-base block">01/05</span>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary uppercase mb-base">01 Centre</h2>
+<div class="inline-block border-b-2 border-primary pb-1">
+<p class="font-headline-md text-headline-md text-on-surface-variant">Session 6: Review</p>
+</div>
+</div>
+<!-- Grounding Section: Bento Grid Hybrid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter w-full mb-xl">
+<!-- Reflection Card -->
+<div class="border-2 border-primary p-md flex flex-col justify-between bg-surface-container">
+<div class="mb-lg">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">The Observation</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        "You have built something measurable. Today you see it."
+                    </p>
+</div>
+<div class="text-label-sm font-mono text-outline uppercase tracking-tighter">
+                    Sprint 1 • Final Phase
+                </div>
+</div>
+<!-- Breathing/Visual Card -->
+<div class="border-2 border-primary bg-secondary-container p-md flex items-center justify-center relative overflow-hidden h-[300px] md:h-auto">
+<!-- Abstract Breathing Visual -->
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<div class="w-64 h-64 border-2 border-primary rounded-full breathing-circle"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<div class="w-80 h-80 border-2 border-primary rounded-full breathing-circle" style="animation-delay: -2s;"></div>
+</div>
+<div class="relative z-10 text-center">
+<div class="font-label-md text-label-md text-primary tracking-widest uppercase transition-opacity duration-1000" id="breathing-prompt">Inhale</div>
+<div class="w-24 h-2 px-margin border-2 border-primary mt-sm flex items-center justify-start overflow-hidden">
+<div class="h-full bg-primary w-0 transition-all duration-[4000ms] ease-in-out" id="progress-bar"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Task / Content Section -->
+<div class="w-full border-2 border-primary mb-xl p-md bg-surface">
+<h4 class="font-label-md text-label-md text-primary mb-md uppercase tracking-widest border-b-2 border-primary-fixed pb-base inline-block">Preparation</h4>
+<div class="space-y-sm mt-sm">
+<div class="flex items-start gap-sm">
+<span class="font-mono text-primary font-bold">01.</span>
+<p class="text-body-md text-on-surface">Find a seat that allows your spine to be vertical without effort.</p>
+</div>
+<div class="flex items-start gap-sm border-t border-surface-variant pt-sm">
+<span class="font-mono text-primary font-bold">02.</span>
+<p class="text-body-md text-on-surface">Clear your visual field. Let your gaze rest on the grounding text above.</p>
+</div>
+<div class="flex items-start gap-sm border-t border-surface-variant pt-sm">
+<span class="font-mono text-primary font-bold">03.</span>
+<p class="text-body-md text-on-surface">Acknowledge the metrics you've tracked. They are the scaffolding of your progress.</p>
+</div>
+</div>
+</div>
+<!-- CTA Action -->
+<div class="w-full flex justify-center pb-xl">
+<button class="bg-primary text-on-primary px-xl py-md font-label-md text-label-md uppercase tracking-widest border-2 border-primary transition-all duration-150 btn-interact relative">
+                Begin
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (from Shared Components JSON) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile bg-surface border-t-2 border-primary py-2 md:hidden">
+<button class="flex flex-col items-center justify-center text-secondary pt-2">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm mt-1 uppercase">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary pt-2">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm mt-1 uppercase">JOURNAL</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary border-t-4 border-primary pt-2">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-label-sm mt-1 uppercase">CURRICULUM</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary pt-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm mt-1 uppercase">PROFILE</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for breathing prompt
+        const prompt = document.getElementById('breathing-prompt');
+        const progress = document.getElementById('progress-bar');
+        let state = 'inhale';
+
+        function cycleBreathing() {
+            if (state === 'inhale') {
+                prompt.textContent = 'Inhale';
+                progress.style.width = '100%';
+                state = 'exhale';
+            } else {
+                prompt.textContent = 'Exhale';
+                progress.style.width = '0%';
+                state = 'inhale';
+            }
+        }
+
+        setInterval(cycleBreathing, 4000);
+    </script>
+</body></html>

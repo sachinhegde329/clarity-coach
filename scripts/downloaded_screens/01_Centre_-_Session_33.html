@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01 Centre - Influence Without Authority</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Warm Brutalist Precision - Custom Animations & Overrides */
+        body {
+            background-color: theme('colors.surface-parchment');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Architectural Containment Helpers */
+        .brutalist-border {
+            border: 2px solid theme('colors.border-primary');
+        }
+        
+        .brutalist-border-thin {
+            border: 0.5px solid theme('colors.outline');
+        }
+
+        /* Slow Breathing Circle Animation */
+        @keyframes breath {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.4); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+        
+        .breathe-circle-1 {
+            animation: breath 8s infinite ease-in-out;
+        }
+        .breathe-circle-2 {
+            animation: breath 8s infinite ease-in-out;
+            animation-delay: -2.6s;
+        }
+        .breathe-circle-3 {
+            animation: breath 8s infinite ease-in-out;
+            animation-delay: -5.2s;
+        }
+
+        /* Sequence Text Fade */
+        @keyframes text-cycle {
+            0%, 20% { opacity: 1; transform: translateY(0); }
+            30%, 100% { opacity: 0; transform: translateY(-10px); }
+        }
+        .cycle-text-1 { animation: text-cycle 12s infinite; }
+        .cycle-text-2 { animation: text-cycle 12s infinite; animation-delay: 4s; opacity: 0; }
+        .cycle-text-3 { animation: text-cycle 12s infinite; animation-delay: 8s; opacity: 0; }
+
+        /* Typography overrides to ensure font loading */
+        .font-display-lg { font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; line-height: 56px; letter-spacing: -0.02em; font-weight: 800; }
+        .font-headline-lg { font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px; line-height: 40px; font-weight: 700; }
+        .font-headline-md { font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; }
+        .font-body-lg { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; line-height: 28px; font-weight: 400; }
+        .font-body-md { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; line-height: 24px; font-weight: 400; }
+        .font-metric-hero { font-family: 'JetBrains Mono', monospace; font-size: 40px; line-height: 40px; letter-spacing: -0.04em; font-weight: 700; }
+        .font-metric-sm { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 16px; font-weight: 500; }
+        .font-label-caps { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 700; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbd0",
+                        "success-sage": "#818C78",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#5b6653",
+                        "on-surface-variant": "#55423d",
+                        "tertiary": "#680005",
+                        "secondary": "#57624f",
+                        "on-tertiary-container": "#ff998e",
+                        "error-warning": "#B91C1C",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-dim": "#ddd9d6",
+                        "background": "#fdf9f5",
+                        "border-primary": "#7C2D12",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#89726c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdad6",
+                        "inverse-surface": "#31302e",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "secondary-fixed": "#dbe6cf",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-container": "#d8e3cc",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "surface-container": "#f1ede9",
+                        "surface": "#fdf9f5",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-container": "#ff9b7b",
+                        "surface-tint": "#9b4427",
+                        "surface-variant": "#e5e2de",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-background": "#1c1c19",
+                        "on-secondary-fixed": "#151e10",
+                        "primary": "#5e1700",
+                        "surface-container-low": "#f7f3ef",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-highest": "#e5e2de",
+                        "tertiary-container": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "on-surface": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "hairline": "0.5px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment min-h-screen flex flex-col font-body-md text-on-surface pb-[80px]">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment dark:bg-surface border-b-border-width border-primary-container dark:border-primary-fixed z-40 transition-colors">
+<div class="flex items-center justify-between px-margin-mobile py-4 w-full h-16">
+<button class="text-outline dark:text-outline-variant hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<div class="font-headline-md text-primary-container font-bold tracking-widest text-center">
+                01/05
+            </div>
+<button class="text-outline dark:text-outline-variant hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-100 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-margin-desktop w-full max-w-[480px] mx-auto">
+<!-- Context & Instruction Header -->
+<div class="w-full text-center mb-12 space-y-4">
+<div class="inline-block brutalist-border-thin rounded-full px-4 py-1 bg-surface-container-low text-primary-container font-label-caps uppercase tracking-wider mb-2">
+                Session 33 · Influence Without Authority
+            </div>
+<h1 class="font-display-lg text-primary-container">01 Centre</h1>
+<p class="font-body-lg text-on-surface-variant max-w-sm mx-auto">
+                Identify what the other person cares about.
+            </p>
+</div>
+<!-- The Breathing Visual Anchor -->
+<div class="relative w-[320px] h-[320px] flex items-center justify-center my-8">
+<!-- Concentric rings representing architectural structure and breath -->
+<div class="absolute inset-0 brutalist-border rounded-full opacity-10"></div>
+<div class="absolute w-[240px] h-[240px] rounded-full border border-primary-container/30 breathe-circle-3"></div>
+<div class="absolute w-[180px] h-[180px] rounded-full border border-primary-container/50 breathe-circle-2"></div>
+<div class="absolute w-[120px] h-[120px] rounded-full brutalist-border breathe-circle-1 bg-surface-container/20 backdrop-blur-sm"></div>
+<!-- Central Focus Text Container -->
+<div class="relative z-10 w-[120px] h-[120px] flex items-center justify-center brutalist-border rounded-full bg-surface-parchment shadow-[inset_0_0_20px_rgba(124,45,18,0.05)]">
+<div class="absolute font-headline-md text-primary-container cycle-text-1">Listen...</div>
+<div class="absolute font-headline-md text-primary-container cycle-text-2">Settle...</div>
+<div class="absolute font-headline-md text-primary-container cycle-text-3">Focus.</div>
+</div>
+</div>
+<!-- Bottom Actions (Session Control) -->
+<div class="w-full mt-auto pt-8 flex justify-center">
+<!-- Swipe / Continue Hint -->
+<button class="brutalist-border rounded-lg bg-surface-parchment hover:bg-primary-container hover:text-surface-parchment text-primary-container transition-all duration-300 px-8 py-4 flex items-center space-x-3 group">
+<span class="font-label-caps uppercase tracking-widest group-hover:text-surface-parchment">Ready to Listen</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 h-20 bg-surface-parchment dark:bg-surface-dim border-t-border-width border-primary-container dark:border-primary-fixed md:hidden">
+<div class="flex justify-around items-center px-2 w-full h-full">
+<!-- Active: Centre -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-primary-fixed-dim rounded-full px-4 py-1 transition-all duration-200 ease-in-out w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+<span class="font-label-caps text-[10px]">Centre</span>
+</a>
+<!-- Inactive: Listen -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 dark:text-on-surface-variant hover:bg-primary-container/5 rounded-lg transition-all duration-200 ease-in-out w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">hearing</span>
+<span class="font-label-caps text-[10px]">Listen</span>
+</a>
+<!-- Inactive: Do -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 dark:text-on-surface-variant hover:bg-primary-container/5 rounded-lg transition-all duration-200 ease-in-out w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">edit_note</span>
+<span class="font-label-caps text-[10px]">Do</span>
+</a>
+<!-- Inactive: See -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 dark:text-on-surface-variant hover:bg-primary-container/5 rounded-lg transition-all duration-200 ease-in-out w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">visibility</span>
+<span class="font-label-caps text-[10px]">See</span>
+</a>
+<!-- Inactive: Commit -->
+<a class="flex flex-col items-center justify-center text-primary-container/60 dark:text-on-surface-variant hover:bg-primary-container/5 rounded-lg transition-all duration-200 ease-in-out w-16 h-14" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">check_circle</span>
+<span class="font-label-caps text-[10px]">Commit</span>
+</a>
+</div>
+</nav>
+</body></html>

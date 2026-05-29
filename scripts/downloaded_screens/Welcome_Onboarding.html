@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach | Onboarding</title>
+<!-- Font Imports -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-surface": "#1c1c19",
+                  "inverse-surface": "#31302e",
+                  "secondary-fixed-dim": "#d0c5b7",
+                  "on-secondary-container": "#6b6357",
+                  "inverse-on-surface": "#f4f0ec",
+                  "background": "#fdf9f5",
+                  "tertiary-fixed-dim": "#97ccf9",
+                  "surface-container-high": "#ebe7e4",
+                  "on-secondary-fixed": "#201b12",
+                  "outline": "#89726c",
+                  "surface-dim": "#ddd9d6",
+                  "primary-fixed-dim": "#ffb59e",
+                  "surface-bright": "#fdf9f5",
+                  "on-secondary": "#ffffff",
+                  "on-background": "#1c1c19",
+                  "on-tertiary-fixed": "#001e30",
+                  "on-primary-fixed-variant": "#7c2d12",
+                  "on-primary-fixed": "#3a0b00",
+                  "tertiary-container": "#004b71",
+                  "secondary": "#655d52",
+                  "secondary-container": "#ede1d2",
+                  "primary-container": "#7c2d12",
+                  "surface-container-lowest": "#ffffff",
+                  "primary-fixed": "#ffdbd0",
+                  "on-error-container": "#93000a",
+                  "surface-container-highest": "#e5e2de",
+                  "inverse-primary": "#ffb59e",
+                  "error": "#ba1a1a",
+                  "on-tertiary": "#ffffff",
+                  "tertiary": "#00334f",
+                  "surface": "#fdf9f5",
+                  "on-primary": "#ffffff",
+                  "on-tertiary-container": "#85bbe6",
+                  "surface-container-low": "#f7f3ef",
+                  "on-tertiary-fixed-variant": "#004b71",
+                  "primary": "#5e1700",
+                  "tertiary-fixed": "#cbe6ff",
+                  "on-surface-variant": "#55423d",
+                  "surface-container": "#f1ede9",
+                  "surface-variant": "#e5e2de",
+                  "surface-tint": "#9b4427",
+                  "error-container": "#ffdad6",
+                  "secondary-fixed": "#ede1d2",
+                  "outline-variant": "#dcc1b9",
+                  "on-primary-container": "#ff9b7b",
+                  "on-secondary-fixed-variant": "#4d463b",
+                  "on-error": "#ffffff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin": "32px",
+                  "md": "24px",
+                  "lg": "48px",
+                  "xs": "8px",
+                  "xl": "80px",
+                  "sm": "16px",
+                  "base": "4px",
+                  "gutter": "24px"
+          },
+          "fontFamily": {
+                  "headline-lg-mobile": ["Bricolage Grotesque"],
+                  "label-sm": ["Space Mono"],
+                  "body-md": ["Space Grotesk"],
+                  "label-md": ["Space Mono"],
+                  "headline-lg": ["Bricolage Grotesque"],
+                  "body-lg": ["Space Grotesk"],
+                  "display-lg": ["Bricolage Grotesque"],
+                  "headline-md": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+                  "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                  "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                  "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                  "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                  "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    .brutal-shadow {
+      box-shadow: 4px 4px 0px 0px #5e1700;
+    }
+    
+    .brutal-shadow-hover:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 8px 8px 0px 0px #5e1700;
+    }
+
+    .brutal-active:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #5e1700;
+    }
+
+    body {
+      background-color: #fdf9f5;
+      color: #5e1700;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col selection:bg-primary selection:text-white">
+<!-- Top Navigation (Manual implementation of TopAppBar style for Onboarding) -->
+<header class="w-full sticky top-0 bg-background z-50 flex justify-between items-center px-margin py-xs border-b-2 border-primary">
+<div class="font-headline-md text-headline-md-mobile md:text-headline-md tracking-tighter text-primary">
+      CLARITY COACH
+    </div>
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="font-label-md text-label-md uppercase text-primary">EN</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin py-xl relative overflow-hidden">
+<!-- Background Texture/Visual Detail -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#5e1700 1px, transparent 1px); background-size: 24px 24px;"></div>
+<!-- Content Container -->
+<div class="w-full max-w-2xl text-center space-y-xl z-10">
+<!-- Center Graphic / Abstract Branding -->
+<div class="inline-block p-lg border-2 border-primary brutal-shadow bg-surface-container mb-lg">
+<div class="w-24 h-24 flex items-center justify-center">
+<span class="material-symbols-outlined text-[64px] text-primary" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+</div>
+<!-- Product Promise -->
+<div class="space-y-sm">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight">
+          Five minutes a day.<br/>
+          Thirty-six sessions.<br/>
+          You will hear the difference.
+        </h1>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col items-center space-y-md pt-lg">
+<!-- Primary Action -->
+<button class="group relative px-xl py-md bg-primary border-2 border-primary text-on-primary transition-all brutal-shadow brutal-shadow-hover brutal-active">
+<span class="font-label-md text-label-md uppercase tracking-widest flex items-center gap-sm">
+            Let's begin
+            <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</button>
+<!-- Secondary Action -->
+<a class="font-label-md text-label-md text-primary uppercase border-b-2 border-transparent hover:border-primary transition-all pb-base active:opacity-70" href="#">
+          Already have an account? Sign in
+        </a>
+</div>
+</div>
+<!-- Asymmetric Decorative Elements -->
+<div class="hidden lg:block absolute bottom-xl left-xl max-w-[200px] text-left opacity-60">
+<div class="border-t-2 border-primary pt-xs">
+<p class="font-label-sm text-label-sm uppercase">Curated Training</p>
+<p class="font-body-md text-body-md">Vocal resonance, articulation clarity, and presence engineering.</p>
+</div>
+</div>
+<div class="hidden lg:block absolute top-xl right-xl max-w-[200px] text-right opacity-60">
+<div class="border-t-2 border-primary pt-xs">
+<p class="font-label-sm text-label-sm uppercase">Version 2.0.4</p>
+<p class="font-body-md text-body-md">Designed for clarity. Built for performance.</p>
+</div>
+</div>
+</main>
+<!-- Visual Grid Overlays -->
+<footer class="p-margin flex flex-col md:flex-row justify-between items-end gap-md">
+<div class="flex gap-md">
+<div class="h-12 w-12 border-2 border-primary-fixed-dim bg-primary-fixed-dim"></div>
+<div class="h-12 w-12 border-2 border-secondary-fixed bg-secondary-fixed"></div>
+<div class="h-12 w-12 border-2 border-tertiary-fixed bg-tertiary-fixed"></div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm uppercase text-primary opacity-50">© Clarity Coach Systems MMXXIV</p>
+</div>
+</footer>
+<script>
+    // Micro-interaction for the central graphic pulsing
+    document.addEventListener('DOMContentLoaded', () => {
+      const icon = document.querySelector('.material-symbols-outlined[style*="64px"]');
+      let scale = 1;
+      let growing = true;
+
+      function pulse() {
+        if (growing) {
+          scale += 0.005;
+          if (scale >= 1.05) growing = false;
+        } else {
+          scale -= 0.005;
+          if (scale <= 0.95) growing = true;
+        }
+        icon.style.transform = `scale(${scale})`;
+        requestAnimationFrame(pulse);
+      }
+      
+      // Gentle pulse effect
+      // pulse();
+    });
+  </script>
+</body></html>

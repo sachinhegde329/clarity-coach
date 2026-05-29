@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 31</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "success-sage": "#818C78",
+                    "primary": "#5e1700",
+                    "on-error-container": "#93000a",
+                    "secondary": "#57624f",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#d8e3cc",
+                    "inverse-on-surface": "#f4f0ec",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "surface-bright": "#fdf9f5",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#ddd9d6",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb59e",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-container-high": "#ebe7e4",
+                    "error-warning": "#B91C1C",
+                    "surface-container-highest": "#e5e2de",
+                    "primary-fixed-dim": "#ffb59e",
+                    "surface-tint": "#9b4427",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1c1c19",
+                    "inverse-surface": "#31302e",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "outline-variant": "#dcc1b9",
+                    "on-secondary-container": "#5b6653",
+                    "outline": "#89726c",
+                    "surface-variant": "#e5e2de",
+                    "primary-container": "#7c2d12",
+                    "border-primary": "#7C2D12",
+                    "surface-parchment": "#FDF9F5",
+                    "secondary-fixed": "#dbe6cf",
+                    "surface": "#fdf9f5",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-surface-variant": "#55423d",
+                    "tertiary-container": "#93000b",
+                    "surface-container": "#f1ede9",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "background": "#fdf9f5",
+                    "on-secondary-fixed": "#151e10",
+                    "on-tertiary-container": "#ff998e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "tertiary": "#680005",
+                    "primary-fixed": "#ffdbd0",
+                    "on-primary-container": "#ff9b7b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "border-width": "2px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "gutter": "16px",
+                    "hairline": "0.5px"
+            },
+            "fontFamily": {
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface-container');
+        }
+        .waveform-bar {
+            width: 4px;
+            background-color: theme('colors.primary');
+            margin: 0 2px;
+            border-radius: 2px;
+            animation: pulse-wave 1.5s infinite ease-in-out alternate;
+        }
+        @keyframes pulse-wave {
+            0% { transform: scaleY(0.3); }
+            100% { transform: scaleY(1); }
+        }
+        .waveform-bar:nth-child(even) { animation-delay: 0.2s; }
+        .waveform-bar:nth-child(3n) { animation-delay: 0.5s; }
+        .waveform-bar:nth-child(5n) { animation-delay: 0.8s; }
+        
+        .active-word {
+            background-color: theme('colors.primary-fixed');
+            color: theme('colors.primary');
+            font-weight: 600;
+        }
+        
+        /* Custom Scrollbar for Transcript */
+        .transcript-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .transcript-scroll::-webkit-scrollbar-track {
+            background: transparent;
+            border-left: 0.5px solid theme('colors.outline-variant');
+        }
+        .transcript-scroll::-webkit-scrollbar-thumb {
+            background: theme('colors.primary');
+            border: 2px solid theme('colors.surface-parchment');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface flex flex-col h-screen overflow-hidden">
+<!-- NavigationDrawer (Hidden on Mobile, SideNav on Desktop) -->
+<nav class="hidden md:flex flex-col p-margin-mobile space-y-gutter bg-surface-parchment h-full w-80 border-r-2 border-primary fixed left-0 top-0 z-40">
+<div class="flex items-center space-x-4 mb-8 pt-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary bg-primary-fixed flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="person">person</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary font-bold">Master Architect</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Session Streak: 12 Days</p>
+</div>
+</div>
+<ul class="space-y-2 flex-grow mt-4">
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-all text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>Session History</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-all text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Coach Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary-container transition-all text-body-md font-body-md shadow-[4px_4px_0_0_#dcc1b9]" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Technique Library</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-container/10 transition-all text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<div class="flex-grow flex flex-col md:ml-80 relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 md:left-80 right-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface border-b-2 border-primary">
+<div class="flex items-center space-x-4">
+<button class="md:hidden p-2 text-primary hover:bg-primary-container transition-colors duration-150 rounded">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">Clarity Coach</h1>
+</div>
+<div class="text-metric-sm font-metric-sm text-primary font-bold bg-primary-fixed px-3 py-1 border-2 border-primary">
+                02 / 05
+            </div>
+</header>
+<!-- Scrollable Content Area -->
+<main class="flex-grow overflow-y-auto pt-24 pb-32 px-margin-mobile md:px-margin-desktop bg-surface-container">
+<div class="max-w-4xl mx-auto space-y-8">
+<!-- Hero Section: Session Info -->
+<div class="border-2 border-primary bg-surface-parchment p-8 relative shadow-[8px_8px_0_0_#dcc1b9]">
+<div class="absolute -top-3 left-8 bg-surface-parchment px-2 border-x-2 border-primary">
+<span class="text-label-caps font-label-caps text-primary tracking-widest uppercase">Session 31</span>
+</div>
+<h2 class="text-display-lg font-display-lg text-primary mb-2">Hero's Journey</h2>
+<p class="text-headline-md font-headline-md text-on-surface-variant">Step 2: Listen</p>
+</div>
+<!-- Main Interactive Area: Audio & Transcript -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Player Panel -->
+<div class="lg:col-span-5 flex flex-col space-y-gutter">
+<div class="border-2 border-primary bg-surface-parchment p-6 flex flex-col items-center justify-center min-h-[300px] relative">
+<h3 class="text-body-lg font-body-lg text-on-surface mb-6 absolute top-6 left-6 font-bold">Story arcs in business</h3>
+<!-- Timer -->
+<div class="text-metric-hero font-metric-hero text-primary mb-8 tracking-tighter">
+                                01:14
+                            </div>
+<!-- Play Controls & Waveform -->
+<div class="w-full flex flex-col items-center space-y-6">
+<div class="h-16 flex items-center justify-center w-full px-4 overflow-hidden">
+<!-- Simulated Waveform -->
+<div class="waveform-bar h-full"></div>
+<div class="waveform-bar h-3/4"></div>
+<div class="waveform-bar h-1/2"></div>
+<div class="waveform-bar h-full"></div>
+<div class="waveform-bar h-1/4"></div>
+<div class="waveform-bar h-2/3"></div>
+<div class="waveform-bar h-full"></div>
+<div class="waveform-bar h-1/2"></div>
+<div class="waveform-bar h-3/4"></div>
+<div class="waveform-bar h-1/4"></div>
+<div class="waveform-bar h-full"></div>
+<div class="waveform-bar h-1/2"></div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="replay_10">replay_10</span>
+</button>
+<button class="w-16 h-16 rounded-full bg-primary flex items-center justify-center border-2 border-primary hover:bg-surface-tint transition-colors relative group">
+<div class="absolute inset-0 rounded-full border-2 border-primary opacity-0 group-hover:animate-ping"></div>
+<span class="material-symbols-outlined text-surface-parchment text-4xl" data-icon="pause" data-weight="fill">pause</span>
+</button>
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="forward_10">forward_10</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Transcript Panel -->
+<div class="lg:col-span-7">
+<div class="border-2 border-primary bg-surface-parchment h-full flex flex-col relative">
+<div class="absolute -top-3 right-8 bg-surface-parchment px-2 border-x-2 border-primary z-10">
+<span class="text-label-caps font-label-caps text-secondary tracking-widest uppercase">Transcript</span>
+</div>
+<div class="p-6 flex-grow overflow-y-auto transcript-scroll h-[400px]">
+<div class="space-y-6 text-body-lg font-body-lg leading-relaxed text-on-surface-variant">
+<div class="flex space-x-4 border-l-2 border-transparent pl-4 hover:border-outline-variant transition-colors">
+<div class="text-metric-sm font-metric-sm text-secondary pt-1 w-12 flex-shrink-0">00:00</div>
+<div>
+<p>Every effective business narrative follows a four-beat structure. We call this the <span class="font-bold text-primary">Setup</span>, the <span class="font-bold text-primary">Complication</span>, the <span class="font-bold text-primary">Resolution</span>, and the <span class="font-bold text-primary">Lesson</span>.</p>
+</div>
+</div>
+<div class="flex space-x-4 border-l-2 border-primary pl-4 bg-primary-fixed/30 -ml-4 p-4 pr-0">
+<div class="text-metric-sm font-metric-sm text-primary font-bold pt-1 w-12 flex-shrink-0">00:45</div>
+<div>
+<p>Let's focus on the <span class="active-word px-1 rounded">Setup</span>. You need to establish the baseline normal before the disruption hits. Without a clear picture of 'before', the 'after' has no impact.</p>
+</div>
+</div>
+<div class="flex space-x-4 border-l-2 border-transparent pl-4 hover:border-outline-variant transition-colors opacity-50">
+<div class="text-metric-sm font-metric-sm text-secondary pt-1 w-12 flex-shrink-0">01:15</div>
+<div>
+<p>Then comes the Complication. The inciting incident that forces change. This is where your customer realizes their current solution is broken...</p>
+</div>
+</div>
+<div class="flex space-x-4 border-l-2 border-transparent pl-4 hover:border-outline-variant transition-colors opacity-30">
+<div class="text-metric-sm font-metric-sm text-secondary pt-1 w-12 flex-shrink-0">01:40</div>
+<div>
+<p>The Resolution is how your product or service navigated them out of the complication. It's the journey back to stability.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="border-t-2 border-outline-variant p-4 bg-surface flex justify-between items-center">
+<button class="flex items-center space-x-2 text-label-caps font-label-caps text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark_add">bookmark_add</span>
+<span>SAVE SNIPPET</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 border-2 border-primary font-body-lg font-bold hover:bg-surface-tint transition-colors flex items-center space-x-2">
+<span>Next Step</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-2 border-primary px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="self_improvement">self_improvement</span>
+<span class="text-label-caps font-label-caps text-[10px]">Centre</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 scale-90 transition-transform shadow-[2px_2px_0_0_#dcc1b9]" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="hearing">hearing</span>
+<span class="text-label-caps font-label-caps font-bold">Listen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="mic">mic</span>
+<span class="text-label-caps font-label-caps text-[10px]">Do</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="visibility">visibility</span>
+<span class="text-label-caps font-label-caps text-[10px]">See</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary opacity-70 hover:opacity-100 transition-opacity w-16" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-label-caps font-label-caps text-[10px]">Commit</span>
+</a>
+</nav>
+</body></html>

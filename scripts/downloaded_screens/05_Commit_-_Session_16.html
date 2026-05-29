@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>05 Commit - Clarity Coach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d8e3cc",
+                        "primary": "#5e1700",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container": "#f1ede9",
+                        "surface-container-highest": "#e5e2de",
+                        "on-error": "#ffffff",
+                        "success-sage": "#818C78",
+                        "background": "#fdf9f5",
+                        "inverse-primary": "#ffb59e",
+                        "error-warning": "#B91C1C",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary-fixed": "#410002",
+                        "secondary": "#57624f",
+                        "border-primary": "#7C2D12",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-container": "#5b6653",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-container": "#ff9b7b",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#ff998e",
+                        "outline-variant": "#dcc1b9",
+                        "surface-dim": "#ddd9d6",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface-variant": "#55423d",
+                        "surface": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Pulse Animation for Mic */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+        .mic-active-pulse::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            display: block;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid #5e1700;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        /* Timer Ring Depletion */
+        .timer-ring {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container-low text-primary dark:text-primary-fixed font-headline-md text-headline-md font-bold tracking-tight border-b-border-width-thick border-primary dark:border-primary-fixed flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full z-50 sticky top-0 cursor-pointer active:translate-y-px hover:bg-surface-container-highest transition-colors duration-150">
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span>CLARITY COACH</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-caps text-label-caps border border-primary">
+            U
+        </div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop pt-8 pb-32 max-w-4xl mx-auto w-full">
+<!-- Session Progress Strip -->
+<nav aria-label="Session Progress" class="w-full flex justify-between items-center mb-12 border-b-border-width border-surface-variant pb-4">
+<div class="flex items-center flex-1 justify-center relative">
+<div class="absolute w-full h-[2px] bg-surface-variant top-1/2 -translate-y-1/2 -z-10"></div>
+<div class="flex justify-between w-full">
+<div class="w-8 h-8 rounded-full bg-surface-variant border-border-width border-primary flex items-center justify-center font-label-caps text-label-caps text-primary bg-background">1</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant border-border-width border-primary flex items-center justify-center font-label-caps text-label-caps text-primary bg-background">2</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant border-border-width border-primary flex items-center justify-center font-label-caps text-label-caps text-primary bg-background">3</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant border-border-width border-primary flex items-center justify-center font-label-caps text-label-caps text-primary bg-background">4</div>
+<div class="w-8 h-8 rounded-full bg-primary border-border-width border-primary flex items-center justify-center font-label-caps text-label-caps text-surface">5</div>
+</div>
+</div>
+<div class="w-full text-center mt-2 font-label-caps text-label-caps text-primary tracking-widest uppercase">
+                Commit
+            </div>
+</nav>
+<!-- Header -->
+<div class="text-center w-full mb-8">
+<h1 class="font-display-lg text-display-lg text-primary uppercase mb-2">SESSION 16: THE FINAL COMMIT</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant">ONE SENTENCE INTO THE MIC</p>
+</div>
+<!-- Sugested Opener Card -->
+<div class="w-full max-w-2xl bg-surface-parchment border-border-width border-primary rounded-lg p-6 mb-12 shadow-[4px_4px_0px_0px_#5e1700]">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface italic">
+                    Tomorrow I will deliver a complete argument in...
+                </p>
+</div>
+</div>
+<!-- Recording Section -->
+<div class="flex flex-col items-center justify-center gap-8 w-full">
+<!-- Mono Timer -->
+<div class="font-metric-hero text-metric-hero text-primary tracking-tighter">
+                15.00
+            </div>
+<!-- Mic Button Structure -->
+<button aria-label="Start Recording" class="relative w-24 h-24 rounded-full bg-surface-parchment border-[4px] border-primary flex items-center justify-center hover:bg-surface-variant transition-colors group focus:outline-none">
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="46" stroke="#e5e2de" stroke-width="4"></circle>
+<circle class="timer-ring" cx="50" cy="50" fill="none" r="46" stroke="#5e1700" stroke-dasharray="289" stroke-dashoffset="0" stroke-width="4"></circle>
+</svg>
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-surface group-active:scale-95 transition-transform z-10 relative">
+<span class="material-symbols-outlined text-3xl filled">mic</span>
+</div>
+</button>
+<!-- Caption -->
+<p class="font-body-md text-body-md text-on-surface-variant text-center max-w-md mt-4">
+                State your commitment clearly. This will be stored as your primary goal for tomorrow.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface dark:bg-surface-container-low border-t-border-width-thick border-primary dark:border-primary-fixed md:hidden">
+<!-- Active Tab: Today -->
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-fixed text-surface dark:text-on-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1 filled">calendar_today</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</a>
+<!-- Inactive Tab: Journey -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">architecture</span>
+<span class="font-label-caps text-label-caps">Journey</span>
+</a>
+<!-- Inactive Tab: Library -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-caps text-label-caps">Library</span>
+</a>
+<!-- Inactive Tab: Stats -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed h-full w-full hover:bg-surface-container-high transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">query_stats</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</a>
+</nav>
+<!-- Desktop SideNav Placeholder (Hidden on Mobile, showing active state concept if expanded to desktop) -->
+<nav class="hidden md:flex fixed left-0 top-16 bottom-0 w-64 bg-surface border-r-border-width border-primary flex-col z-40">
+<div class="p-4">
+<a class="flex items-center gap-3 p-3 bg-primary text-surface rounded-sm mb-2 transition-colors" href="#">
+<span class="material-symbols-outlined filled">calendar_today</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary hover:bg-surface-variant rounded-sm mb-2 transition-colors" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-label-caps">Journey</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary hover:bg-surface-variant rounded-sm mb-2 transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-label-caps">Library</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary hover:bg-surface-variant rounded-sm transition-colors" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</a>
+</div>
+</nav>
+<!-- Adjust main content margin for desktop to accommodate side nav -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                margin-left: 16rem;
+                max-width: calc(100% - 16rem);
+            }
+        }
+    </style>
+</body></html>

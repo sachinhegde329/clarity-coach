@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - See</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#dbe6cf",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-surface": "#1c1c19",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container": "#f1ede9",
+                        "error-warning": "#B91C1C",
+                        "surface-parchment": "#FDF9F5",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fdf9f5",
+                        "background": "#fdf9f5",
+                        "on-secondary-container": "#5b6653",
+                        "tertiary": "#680005",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "success-sage": "#818C78",
+                        "secondary": "#57624f",
+                        "surface-variant": "#e5e2de",
+                        "primary-fixed": "#ffdbd0",
+                        "tertiary-container": "#93000b",
+                        "inverse-primary": "#ffb59e",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-on-surface": "#f4f0ec",
+                        "inverse-surface": "#31302e",
+                        "primary": "#5e1700",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "outline-variant": "#dcc1b9",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ff998e",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ddd9d6",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#ff9b7b",
+                        "surface": "#fdf9f5",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface-variant": "#55423d",
+                        "border-primary": "#7C2D12",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "hairline": "0.5px",
+                        "border-width": "2px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment text-on-surface font-body-md antialiased min-h-screen flex flex-col md:flex-row">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col py-margin-mobile h-full w-64 border-r-border-width border-primary bg-surface-parchment dark:bg-surface-dim shrink-0 fixed left-0 top-0 bottom-0 z-40">
+<div class="px-gutter mb-8">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tighter">CLARITY COACH</h2>
+<div class="mt-4 font-label-caps text-label-caps text-outline tracking-wider">SESSION PROGRESS</div>
+</div>
+<nav class="flex flex-col gap-2 px-gutter">
+<!-- Inactive -->
+<a class="flex items-center gap-3 text-outline pl-3 py-2 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">self_improvement</span>
+<span class="font-metric-sm text-metric-sm">Centre</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 text-outline pl-3 py-2 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">hearing</span>
+<span class="font-metric-sm text-metric-sm">Listen</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 text-outline pl-3 py-2 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-metric-sm text-metric-sm">Do</span>
+</a>
+<!-- Active -->
+<a class="flex items-center gap-3 font-bold text-primary border-l-4 border-primary pl-2 py-2 hover:bg-primary-container/10 transition-all duration-200 bg-primary-container/5" href="#">
+<span class="material-symbols-outlined fill">visibility</span>
+<span class="font-metric-sm text-metric-sm">See</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 text-outline pl-3 py-2 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="font-metric-sm text-metric-sm">Commit</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar (Mobile & Desktop) -->
+<header class="flex items-center justify-between px-margin-mobile py-unit w-full top-0 sticky bg-surface-parchment dark:bg-surface-dim border-b-border-width border-primary dark:border-primary-fixed z-30">
+<div class="flex items-center gap-3">
+<button class="md:hidden text-primary dark:text-primary-fixed hover:bg-primary-container/10 transition-colors active:scale-95 p-2 rounded-DEFAULT">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4 text-primary dark:text-primary-fixed">
+<div class="font-metric-hero text-metric-hero tracking-tighter">04<span class="text-outline text-headline-md">/05</span></div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-gutter md:p-margin-desktop max-w-6xl mx-auto w-full space-y-8">
+<!-- Context Header -->
+<div class="border-b-hairline border-outline pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="font-label-caps text-label-caps text-outline mb-1 uppercase tracking-widest">Session 21 · Sprint 4: Hold</div>
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight">Accusation Audit</h2>
+</div>
+<div class="bg-primary text-on-primary px-4 py-2 rounded-DEFAULT border-border-width border-primary flex items-center gap-2 shadow-[2px_2px_0px_0px_#5e1700]">
+<span class="material-symbols-outlined text-sm">psychology</span>
+<span class="font-label-caps text-label-caps">This is an AI-graded session.</span>
+</div>
+</div>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Metric Card -->
+<div class="md:col-span-8 bg-surface-parchment border-border-width border-primary rounded-DEFAULT p-6 shadow-[4px_4px_0px_0px_#5e1700] flex flex-col relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110 duration-700 ease-out"></div>
+<div class="font-label-caps text-label-caps text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined fill text-sm">record_voice_over</span>
+                        AUDIT FLUENCY
+                    </div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-baseline gap-2 mb-2">
+<div class="font-metric-hero text-[72px] leading-none text-primary tracking-tighter">8.4</div>
+<div class="font-metric-sm text-metric-sm text-outline">/ 10</div>
+</div>
+<div class="h-2 w-full bg-surface-variant rounded-full mt-4 overflow-hidden border-hairline border-outline">
+<div class="h-full bg-primary w-[84%]"></div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6 border-t-hairline border-outline pt-4">
+                        Your delivery of disarming statements was structurally sound, though micro-hesitations before labeling reduced raw impact.
+                    </p>
+</div>
+<!-- Secondary Metrics -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Metric 1 -->
+<div class="bg-surface-parchment border-border-width border-primary rounded-DEFAULT p-5 shadow-[2px_2px_0px_0px_#5e1700] flex-1 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(124,45,18,0.03)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
+<div class="font-label-caps text-label-caps text-primary mb-2 flex items-center justify-between relative z-10">
+                            PRE-EMPTION CREDIBILITY
+                            <span class="material-symbols-outlined text-success-sage">trending_up</span>
+</div>
+<div class="relative z-10">
+<div class="font-metric-hero text-metric-hero text-primary">92%</div>
+<div class="font-metric-sm text-metric-sm text-success-sage flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +4% vs prior
+                            </div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-parchment border-border-width border-primary rounded-DEFAULT p-5 shadow-[2px_2px_0px_0px_#5e1700] flex-1 flex flex-col justify-between">
+<div class="font-label-caps text-label-caps text-primary mb-2 flex items-center justify-between">
+                            STRUCTURAL QUALITY
+                            <span class="material-symbols-outlined text-outline">horizontal_rule</span>
+</div>
+<div>
+<div class="font-metric-hero text-metric-hero text-primary">7.8</div>
+<div class="font-metric-sm text-metric-sm text-outline flex items-center gap-1 mt-1">
+                                Base Threshold Met
+                            </div>
+</div>
+</div>
+</div>
+<!-- Forensic Feedback Narrative -->
+<div class="md:col-span-12 bg-surface-container-lowest border-border-width border-primary rounded-DEFAULT p-6 md:p-8 mt-4 shadow-[4px_4px_0px_0px_#5e1700] relative">
+<!-- Architectural accent -->
+<div class="absolute top-0 left-0 w-2 h-full bg-primary rounded-l-DEFAULT"></div>
+<div class="flex items-center gap-3 mb-6 pl-4">
+<span class="material-symbols-outlined text-primary text-[32px] fill">plagiarism</span>
+<h3 class="font-headline-md text-headline-md text-primary">Forensic Analysis: Disarming Objections</h3>
+</div>
+<div class="pl-4 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+<div class="md:col-span-3 font-metric-sm text-metric-sm text-outline border-l-border-width border-surface-variant pl-4 py-1">
+                                [00:42 - 01:15]<br/>
+                                Primary Attempt
+                            </div>
+<div class="md:col-span-9 space-y-4">
+<p class="font-body-lg text-body-lg">
+                                    You successfully deployed the <span class="font-bold">"You probably think..."</span> structure, anchoring the objection early. However, the tone leaned slightly defensive rather than purely observational.
+                                </p>
+<div class="bg-surface-container p-4 rounded-DEFAULT border-hairline border-outline font-metric-sm text-metric-sm">
+<div class="text-outline mb-2">TRANSCRIPT EXCERPT:</div>
+<div class="text-on-surface">"Look, you probably think we're just trying to push this through quickly..."</div>
+</div>
+<div class="flex items-start gap-3 mt-4 bg-primary-container/10 p-4 rounded-DEFAULT border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary mt-0.5">lightbulb</span>
+<div>
+<div class="font-label-caps text-label-caps text-primary mb-1">COACH'S NOTE</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                            Drop the "Look," preamble. It signals justification. Deliver the accusation audit as a flat, unbothered statement of fact to force the counterpart to disagree and reassure you.
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 flex justify-end">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-DEFAULT font-body-lg text-body-lg font-bold border-border-width border-primary hover:bg-primary/90 transition-colors shadow-[2px_2px_0px_0px_#1c1c19] active:translate-y-[2px] active:translate-x-[2px] active:shadow-none flex items-center gap-2">
+                            PROCEED TO COMMIT
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center h-16 px-2 pb-safe w-full fixed bottom-0 z-50 bg-surface-parchment dark:bg-surface-dim border-t-border-width border-primary dark:border-primary-fixed">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 p-2 rounded-DEFAULT w-16" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 hover:bg-primary-container/20 transition-all active:translate-y-0.5 shadow-[2px_2px_0px_0px_#5e1700]" href="#">
+<span class="material-symbols-outlined fill">map</span>
+<span class="font-label-caps text-[10px] mt-1">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 p-2 rounded-DEFAULT w-16" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-caps text-[10px] mt-1">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-primary-container/20 transition-all active:translate-y-0.5 p-2 rounded-DEFAULT w-16" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-[10px] mt-1">STATS</span>
+</a>
+</nav>
+</body></html>

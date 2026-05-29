@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - See</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f1ede9",
+                        "surface": "#fdf9f5",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-primary-container": "#ff9b7b",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-fixed": "#dbe6cf",
+                        "on-primary-fixed": "#3a0b00",
+                        "secondary-container": "#d8e3cc",
+                        "surface-bright": "#fdf9f5",
+                        "on-tertiary-fixed": "#410002",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#151e10",
+                        "on-background": "#1c1c19",
+                        "primary": "#5e1700",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-container-low": "#f7f3ef",
+                        "outline-variant": "#dcc1b9",
+                        "tertiary-container": "#93000b",
+                        "surface-parchment": "#FDF9F5",
+                        "on-surface": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "surface-variant": "#e5e2de",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#680005",
+                        "on-tertiary-container": "#ff998e",
+                        "secondary": "#57624f",
+                        "error-warning": "#B91C1C",
+                        "primary-fixed": "#ffdbd0",
+                        "success-sage": "#818C78",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-container": "#5b6653",
+                        "on-surface-variant": "#55423d",
+                        "border-primary": "#7C2D12",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#89726c",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdad6",
+                        "inverse-surface": "#31302e",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "surface-dim": "#ddd9d6",
+                        "background": "#fdf9f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "hairline": "0.5px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface-parchment text-primary font-headline-md text-headline-md w-full top-0 sticky border-b-border-width border-primary flex items-center justify-between px-margin-mobile py-unit w-full z-50">
+<div class="flex items-center gap-4">
+<button class="hover:bg-primary-container/10 transition-colors active:scale-95 transition-transform p-2 rounded-full">
+<span class="material-symbols-outlined text-outline">menu</span>
+</button>
+<span class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 font-metric-sm text-metric-sm text-outline">
+<span>04 / 05</span>
+<span class="material-symbols-outlined text-outline" style="font-size: 16px;">schedule</span>
+<span>3:12</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border-border-width border-primary overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- NavigationDrawer -->
+<nav class="hidden md:flex flex-col py-margin-mobile h-full h-full w-64 border-r-border-width border-primary bg-surface-parchment flex-shrink-0">
+<div class="px-margin-mobile mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">SESSION PROGRESS</h2>
+</div>
+<ul class="flex flex-col gap-2 font-metric-sm text-metric-sm">
+<li>
+<a class="flex items-center gap-3 py-3 px-margin-mobile text-outline pl-3 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">self_improvement</span>
+<span>Centre</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 px-margin-mobile text-outline pl-3 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">hearing</span>
+<span>Listen</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 px-margin-mobile text-outline pl-3 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">edit</span>
+<span>Do</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 px-margin-mobile font-bold text-primary border-l-4 border-primary pl-2 hover:bg-primary-container/10 transition-all duration-200 bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+<span>See</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 py-3 px-margin-mobile text-outline pl-3 hover:bg-primary-container/10 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span>Commit</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-4xl mx-auto space-y-gutter">
+<!-- Header -->
+<div class="mb-8 border-b-hairline border-outline pb-4 flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">SESSION 27</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Reviewing your cadence and energetic output.</p>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Energy Variance Card -->
+<div class="bg-surface border-border-width border-primary rounded p-6 flex flex-col justify-between row-span-2 relative shadow-[4px_4px_0px_0px_rgba(124,45,18,1)]">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-caps text-label-caps text-outline">ENERGY VARIANCE</h3>
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="font-metric-hero text-metric-hero text-primary">74%</span>
+<span class="material-symbols-outlined text-success-sage">arrow_upward</span>
+</div>
+</div>
+<!-- Simple CSS Line Chart Representation -->
+<div class="mt-4 border-t-hairline border-outline pt-4">
+<div class="h-24 w-full flex items-end justify-between gap-1 relative">
+<!-- Background grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-b-hairline border-primary w-full"></div>
+<div class="border-b-hairline border-primary w-full"></div>
+<div class="border-b-hairline border-primary w-full"></div>
+</div>
+<!-- Bars representing line chart data points -->
+<div class="w-full bg-primary/20 h-[30%] rounded-t-sm transition-all hover:bg-primary/40 relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-hairline border-primary px-2 py-1 text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity">30%</div>
+</div>
+<div class="w-full bg-primary/40 h-[45%] rounded-t-sm transition-all hover:bg-primary/60 relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-hairline border-primary px-2 py-1 text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity">45%</div>
+</div>
+<div class="w-full bg-primary/60 h-[60%] rounded-t-sm transition-all hover:bg-primary/80 relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-hairline border-primary px-2 py-1 text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity">60%</div>
+</div>
+<div class="w-full bg-primary border-hairline border-surface h-[82%] rounded-t-sm transition-all relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-border-width border-primary px-2 py-1 text-label-caps text-primary font-bold opacity-0 group-hover:opacity-100 transition-opacity z-10">82%</div>
+</div>
+<div class="w-full bg-primary/70 h-[70%] rounded-t-sm transition-all hover:bg-primary/90 relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-hairline border-primary px-2 py-1 text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity">70%</div>
+</div>
+<div class="w-full bg-primary/50 h-[55%] rounded-t-sm transition-all hover:bg-primary/70 relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-surface border-hairline border-primary px-2 py-1 text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity">55%</div>
+</div>
+</div>
+<div class="flex justify-between mt-2 font-metric-sm text-metric-sm text-outline-variant text-[10px]">
+<span>START</span>
+<span>PEAK</span>
+<span>END</span>
+</div>
+</div>
+</div>
+<!-- Intentionality Card -->
+<div class="bg-surface border-border-width border-primary rounded p-6 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-label-caps text-label-caps text-outline">INTENTIONALITY</h3>
+<span class="material-symbols-outlined text-outline">target</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">High</span>
+</div>
+</div>
+<!-- Pace Card -->
+<div class="bg-surface border-border-width border-primary rounded p-6 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-label-caps text-label-caps text-outline">PACE</h3>
+<span class="material-symbols-outlined text-outline">speed</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">142</span>
+<span class="font-metric-sm text-metric-sm text-outline">WPM</span>
+</div>
+</div>
+<!-- Commentary Card -->
+<div class="bg-surface-container-low border-border-width border-primary rounded p-6 md:col-span-2 shadow-[4px_4px_0px_0px_rgba(124,45,18,0.2)]">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-primary-container/10 rounded-full shrink-0">
+<span class="material-symbols-outlined text-primary">chat</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-primary mb-2">COACH COMMENTARY</h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                                    "Clear shifts detected between segments. Your emphatic section hit a strong <span class="font-metric-sm text-metric-sm font-bold border-b-hairline border-primary">82%</span> peak."
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-12 flex justify-end border-t-hairline border-outline pt-6">
+<button class="bg-primary text-on-primary border-border-width border-primary rounded px-8 py-4 font-headline-md text-headline-md flex items-center gap-2 hover:bg-primary/90 transition-colors active:translate-y-0.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                        Continue
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

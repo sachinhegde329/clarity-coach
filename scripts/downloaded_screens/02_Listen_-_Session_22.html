@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - The Aikido Pivot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fdf9f5",
+                        "tertiary-fixed": "#ffdad6",
+                        "success-sage": "#818C78",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "inverse-primary": "#ffb59e",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#ddd9d6",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#57624f",
+                        "tertiary-container": "#93000b",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "surface-parchment": "#FDF9F5",
+                        "border-primary": "#7C2D12",
+                        "error-warning": "#B91C1C",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "secondary-fixed": "#dbe6cf",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "on-tertiary-container": "#ff998e",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#151e10",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#410002",
+                        "on-secondary-container": "#5b6653",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#5e1700",
+                        "outline": "#89726c",
+                        "tertiary": "#680005",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-variant": "#e5e2de",
+                        "on-background": "#1c1c19",
+                        "surface-container": "#f1ede9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "border-width": "2px",
+                        "hairline": "0.5px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "metric-hero": ["40px", { "lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "metric-sm": ["14px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for brutalist feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf9f5; 
+            border-left: 0.5px solid #dcc1b9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7C2D12; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container text-on-surface min-h-screen flex flex-col font-body-md selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-parchment flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 border-b-2 border-border-primary z-40 shadow-none">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-primary-fixed-dim/10 active:scale-95 transition-colors duration-150 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Clarity Coach</h1>
+</div>
+<div class="flex items-center">
+<span class="font-metric-sm text-metric-sm text-primary tracking-widest uppercase bg-surface border-[0.5px] border-border-primary px-3 py-1 rounded-DEFAULT">
+                Step 02 / 05
+            </span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-margin-mobile md:px-margin-desktop py-8 md:py-12 max-w-5xl mx-auto w-full gap-8">
+<!-- Session Header -->
+<div class="flex flex-col gap-2">
+<div class="font-label-caps text-label-caps text-outline-variant uppercase tracking-widest flex items-center gap-2">
+<span class="w-2 h-2 bg-success-sage rounded-full"></span>
+                Session 22
+            </div>
+<h2 class="font-display-lg text-display-lg text-primary">The Aikido Pivot</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-2">
+                Step 2: Listen. Acknowledge and redirect. Learn to absorb conversational momentum rather than blocking it.
+            </p>
+</div>
+<!-- The Workspace / Playback Area -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter flex-grow">
+<!-- Left Column: Audio Player (Hero) -->
+<div class="md:col-span-5 flex flex-col gap-gutter h-full">
+<!-- Main Player Card -->
+<div class="bg-surface-parchment border-[2px] border-border-primary rounded-DEFAULT p-6 flex flex-col items-center justify-center min-h-[300px] relative">
+<!-- Decorative background element simulating sound waves -->
+<div class="absolute inset-0 opacity-5 flex items-center justify-center overflow-hidden pointer-events-none">
+<div class="w-full h-full border-[0.5px] border-primary rounded-full scale-150 animate-[spin_60s_linear_infinite]"></div>
+</div>
+<!-- Playback Controls -->
+<div class="z-10 flex flex-col items-center gap-8 w-full">
+<!-- Main Button -->
+<button class="w-24 h-24 rounded-full bg-primary border-[2px] border-primary flex items-center justify-center text-surface-parchment active:scale-95 transition-transform group relative" id="playPauseBtn">
+<span class="material-symbols-outlined text-[48px] symbol-filled" id="playIcon">play_arrow</span>
+<!-- Pulse ring for playing state -->
+<div class="absolute inset-[-4px] border-[2px] border-primary rounded-full opacity-0 scale-90 group-hover:opacity-30 group-hover:scale-100 transition-all duration-500"></div>
+</button>
+<!-- Waveform Mockup -->
+<div class="flex items-end gap-1 h-12 w-full justify-center px-4">
+<!-- JS will populate bars -->
+<div class="w-1 bg-outline-variant h-[20%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[40%] transition-all"></div>
+<div class="w-1 bg-primary h-[80%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[60%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[30%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[50%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[90%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[70%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[40%] transition-all"></div>
+<div class="w-1 bg-outline-variant h-[20%] transition-all"></div>
+</div>
+<!-- Time -->
+<div class="flex justify-between w-full font-metric-sm text-metric-sm text-outline px-4">
+<span>0:14</span>
+<span>1:22</span>
+</div>
+</div>
+</div>
+<!-- Tidbit Card -->
+<div class="bg-surface border-[0.5px] border-outline-variant p-4 rounded-DEFAULT flex gap-4 items-start relative">
+<!-- Layering effect -->
+<div class="absolute top-1 left-1 w-full h-full bg-surface-dim -z-10 border-[0.5px] border-outline-variant rounded-DEFAULT"></div>
+<div class="text-primary bg-primary-fixed-dim/20 p-2 rounded-DEFAULT shrink-0">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Tidbit</h4>
+<p class="font-body-md text-body-md text-on-surface">
+                            Instead of saying "No, but...", try "I see your point, and...". This is the core of the Aikido pivot.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Transcript -->
+<div class="md:col-span-7 h-[500px] md:h-auto border-[2px] border-border-primary bg-surface-parchment rounded-DEFAULT flex flex-col relative">
+<div class="p-4 border-b-[0.5px] border-border-primary bg-surface flex justify-between items-center z-10 sticky top-0">
+<span class="font-headline-md text-headline-md text-primary">Transcript</span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto p-6 space-y-6 scroll-smooth" id="transcriptContainer">
+<!-- Past text -->
+<p class="font-body-lg text-body-lg text-outline transition-colors duration-300">
+                        When you're in a high-stakes meeting, interruptions are inevitable. The instinct is to either fold or fight back aggressively.
+                    </p>
+<p class="font-body-lg text-body-lg text-outline transition-colors duration-300">
+                        Both approaches kill your momentum. What we want to employ here is something I call the Aikido pivot.
+                    </p>
+<!-- Active Text -->
+<div class="relative pl-4 border-l-[4px] border-primary py-2 my-4 bg-primary-fixed-dim/10 -ml-4 pr-4 transition-all duration-300" id="activeTranscript">
+<p class="font-body-lg text-body-lg text-on-surface font-semibold leading-relaxed">
+                            First, you must <span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-1 rounded-sm">acknowledge the interruption</span>. Don't ignore it. Validate their input briefly, then immediately <span class="border-b-2 border-primary pb-0.5">redirect to your point</span> using a transitional conjunction.
+                        </p>
+</div>
+<!-- Future text -->
+<p class="font-body-lg text-body-lg text-surface-dim transition-colors duration-300">
+                        For example, "That's a valid concern regarding the Q3 numbers, and looking at our overall strategy..."
+                    </p>
+<p class="font-body-lg text-body-lg text-surface-dim transition-colors duration-300">
+                        You've absorbed their energy without letting it knock you off balance. Now, let's practice this timing.
+                    </p>
+</div>
+<!-- Gradient mask for scrolling -->
+<div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-surface-parchment to-transparent pointer-events-none rounded-b-DEFAULT"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Progress/Navigation Shell -->
+<div class="w-full bg-surface-parchment border-t-[2px] border-border-primary pb-safe">
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-container-highest flex">
+<div class="h-full bg-success-sage w-1/5 transition-all"></div>
+<div class="h-full bg-primary w-1/5 relative transition-all">
+<!-- Indicator dot -->
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-2 border-surface-parchment translate-x-1/2"></div>
+</div>
+<div class="h-full bg-transparent w-1/5"></div>
+<div class="h-full bg-transparent w-1/5"></div>
+<div class="h-full bg-transparent w-1/5"></div>
+</div>
+<!-- Step Navigation -->
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
+<button class="font-label-caps text-label-caps text-outline hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                PREV: CENTRE
+            </button>
+<div class="hidden md:flex gap-8 font-label-caps text-label-caps">
+<span class="text-outline">01. CENTRE</span>
+<span class="text-primary font-bold border-b-2 border-primary pb-1">02. LISTEN</span>
+<span class="text-surface-dim">03. DO</span>
+<span class="text-surface-dim">04. SEE</span>
+<span class="text-surface-dim">05. COMMIT</span>
+</div>
+<button class="font-label-caps text-label-caps text-primary bg-primary-fixed-dim/20 hover:bg-primary-fixed-dim/40 px-4 py-2 rounded-DEFAULT transition-colors flex items-center gap-2 border-[0.5px] border-primary">
+                NEXT: DO
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+        // Simple play/pause interaction
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playIcon.textContent = 'pause';
+                playPauseBtn.classList.add('animate-pulse');
+            } else {
+                playIcon.textContent = 'play_arrow';
+                playPauseBtn.classList.remove('animate-pulse');
+            }
+        });
+    </script>
+</body></html>

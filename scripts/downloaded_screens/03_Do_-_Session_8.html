@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3ef",
+                        "on-primary-container": "#ff9b7b",
+                        "tertiary-fixed": "#cbe6ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "background": "#fdf9f5",
+                        "primary-fixed": "#ffdbd0",
+                        "on-surface-variant": "#55423d",
+                        "secondary-fixed": "#ede1d2",
+                        "inverse-surface": "#31302e",
+                        "inverse-on-surface": "#f4f0ec",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-fixed": "#201b12",
+                        "on-tertiary-container": "#85bbe6",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "surface-tint": "#9b4427",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "on-surface": "#1c1c19",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ede1d2",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "secondary": "#655d52",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#ddd9d6",
+                        "on-secondary-container": "#6b6357",
+                        "on-tertiary-fixed": "#001e30",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#004b71",
+                        "surface-container-highest": "#e5e2de",
+                        "surface": "#fdf9f5",
+                        "outline-variant": "#dcc1b9",
+                        "primary-container": "#7c2d12",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "tertiary": "#00334f",
+                        "surface-bright": "#fdf9f5",
+                        "surface-container": "#f1ede9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "label-sm": ["Space Mono"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .hard-shadow-active {
+            box-shadow: 2px 2px 0px 0px #5e1700;
+            transform: translate(2px, 2px);
+        }
+        .btn-brutal:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .btn-brutal:active {
+            transform: translate(0px, 0px);
+            box-shadow: 0px 0px 0px 0px #5e1700;
+        }
+        .pace-zone {
+            background: linear-gradient(90deg, transparent 0%, transparent 60%, #ffdbd0 60%, #ffdbd0 75%, transparent 75%, transparent 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b-2 border-primary z-40 flex justify-between items-center px-gutter h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md uppercase tracking-tight font-bold text-primary tracking-tighter">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-primary font-bold px-sm py-xs border-2 border-primary">03/05</span>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-gutter mt-lg">
+<!-- Session Header -->
+<section class="mb-xl">
+<div class="flex flex-col gap-xs mb-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Session 8: Finding Your Pace</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">The "Do" Phase</h2>
+</div>
+<div class="p-md bg-surface-container-low border-2 border-primary relative">
+<div class="absolute -top-3 -right-3 bg-primary text-background px-xs py-1 font-label-sm uppercase">Active Step</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    For the next 60 seconds, your goal is to maintain a steady tempo. Aim for the 130-150 WPM sweet spot.
+                </p>
+</div>
+</section>
+<!-- Recording Interface (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md items-stretch">
+<!-- Left: Prompt Card -->
+<div class="md:col-span-8 border-2 border-primary bg-background p-md flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase mb-xs block">Current Prompt</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">"Tell me about your favorite book or movie."</h3>
+</div>
+<div class="flex gap-sm border-t-2 border-primary pt-md mt-md">
+<div class="flex-1">
+<span class="font-label-sm text-label-sm block mb-1">TIMER</span>
+<div class="font-display-lg text-display-lg text-primary leading-none">00:54</div>
+</div>
+<div class="flex-1 text-right">
+<span class="font-label-sm text-label-sm block mb-1">PACE LOCK</span>
+<div class="font-headline-md text-headline-md text-primary">140 WPM</div>
+</div>
+</div>
+</div>
+<!-- Right: Status / Constraints -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<div class="bg-secondary-container border-2 border-primary p-md flex-1">
+<span class="font-label-sm text-label-sm text-on-secondary-container block mb-sm">CONSTRAINTS</span>
+<ul class="flex flex-col gap-xs">
+<li class="flex items-center gap-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">check_circle</span> 60 SECONDS
+                        </li>
+<li class="flex items-center gap-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">check_circle</span> 130-150 WPM
+                        </li>
+<li class="flex items-center gap-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">check_circle</span> NO FILLER WORDS
+                        </li>
+</ul>
+</div>
+</div>
+<!-- Full Width: Pace Indicator & Mic -->
+<div class="md:col-span-12 border-2 border-primary bg-surface-container p-lg flex flex-col items-center gap-lg">
+<div class="w-full flex items-center gap-md">
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>0 WPM</span>
+<span class="text-primary font-bold">140 WPM TARGET</span>
+<span>250 WPM</span>
+</div>
+<div class="h-12 w-full bg-background border-2 border-primary relative pace-zone overflow-hidden">
+<!-- Target Zone Indicator -->
+<div class="absolute left-[52%] top-0 bottom-0 w-px bg-primary z-10"></div>
+<!-- Current Pace Bar -->
+<div class="absolute left-0 top-0 bottom-0 bg-primary-container transition-all duration-300" style="width: 56%;"></div>
+<!-- Current Pointer -->
+<div class="absolute top-0 bottom-0 transition-all duration-300 flex flex-col items-center justify-center" style="left: 56%;">
+<div class="w-1 h-full bg-primary"></div>
+</div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline mt-1">
+<span>RELAXED</span>
+<span class="bg-primary-fixed px-1 text-on-primary-fixed">OPTIMAL ZONE (130-150)</span>
+<span>FAST</span>
+</div>
+</div>
+<!-- Mic Action -->
+<button class="w-24 h-24 bg-primary text-background border-2 border-primary flex items-center justify-center transition-all btn-brutal">
+<span class="material-symbols-outlined !text-5xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<div class="flex gap-md w-full overflow-hidden items-end justify-center h-16">
+<!-- Audio Waveform Visualization -->
+<div class="w-2 bg-primary h-4 animate-[bounce_1s_infinite_0ms]"></div>
+<div class="w-2 bg-primary h-12 animate-[bounce_1.2s_infinite_100ms]"></div>
+<div class="w-2 bg-primary h-8 animate-[bounce_0.8s_infinite_200ms]"></div>
+<div class="w-2 bg-primary h-14 animate-[bounce_1.1s_infinite_300ms]"></div>
+<div class="w-2 bg-primary h-6 animate-[bounce_0.9s_infinite_400ms]"></div>
+<div class="w-2 bg-primary h-10 animate-[bounce_1.3s_infinite_500ms]"></div>
+<div class="w-2 bg-primary h-16 animate-[bounce_0.7s_infinite_600ms]"></div>
+<div class="w-2 bg-primary h-8 animate-[bounce_1.0s_infinite_700ms]"></div>
+<div class="w-2 bg-primary h-12 animate-[bounce_1.1s_infinite_800ms]"></div>
+<div class="w-2 bg-primary h-4 animate-[bounce_0.9s_infinite_900ms]"></div>
+</div>
+</div>
+</div>
+<!-- Instructional Image Section -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+<div class="order-2 md:order-1">
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Why 140 WPM?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                    Research suggests that 140 words per minute is the "Golden Ratio" for clarity. It's fast enough to maintain engagement but slow enough for listeners to process complex ideas without fatigue.
+                </p>
+<div class="p-sm bg-tertiary-fixed border-2 border-tertiary">
+<p class="font-label-md text-label-md text-on-tertiary-fixed">
+<strong>Pro Tip:</strong> Breathe at punctuation marks. This naturally anchors your pace to the 140 target.
+                    </p>
+</div>
+</div>
+<div class="order-1 md:order-2 border-2 border-primary overflow-hidden hard-shadow">
+<img alt="Speaker training" class="w-full h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A professional speaker practicing in a high-end minimalist recording studio. The room features architectural Brutalist concrete walls and warm wood accents, bathed in soft, amber atmospheric lighting. A vintage-style silver microphone stands prominently on a heavy desk. The scene is calm and focused, reflecting a high-end educational brand with a terracotta and cream color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb3VJxTXkiYGl1wRINpDeTdI6kQ9Qdelnjo8VP3Ul3ccMdRv7cn-0ITK8EfNVHZFczrHVwISpis_BPMUxTxFNM5yXY9GTJUJzarnzL7h2UO3XuX88AAHSuQ3OK4YXANv6M6C-fJSEU2mrlbElghA-WnwMugKwdM61OZl62qudJwN6GdCz9baeDlYSHDJBlEJ5AgBWTy6BiNA_cdZqU1VZLTG1QqMzA7luSfYiQg7wCo9O1yH0nxRuJxjOBczik171lIDRZp3RGMuMC"/>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-20 bg-background border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-colors active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-label-md text-label-md uppercase font-bold">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-colors active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md uppercase font-bold">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-container bg-primary-container dark:bg-primary-container py-2 w-full h-full active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-md text-label-md uppercase font-bold">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-2 w-full h-full hover:bg-secondary-container transition-colors active:translate-x-1 active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md uppercase font-bold">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the pace indicator
+        let currentWpm = 140;
+        const paceBar = document.querySelector('.pace-zone div:nth-child(2)');
+        const pacePointer = document.querySelector('.pace-zone div:nth-child(3)');
+
+        setInterval(() => {
+            // Simulate realistic WPM fluctuations
+            currentWpm += (Math.random() - 0.5) * 10;
+            currentWpm = Math.max(100, Math.min(180, currentWpm));
+            
+            const percentage = (currentWpm / 250) * 100;
+            paceBar.style.width = `${percentage}%`;
+            pacePointer.style.left = `${percentage}%`;
+        }, 1500);
+
+        // Recording pulse effect
+        const micBtn = document.querySelector('.btn-brutal');
+        micBtn.addEventListener('click', () => {
+            micBtn.classList.toggle('bg-error');
+            micBtn.classList.toggle('text-white');
+        });
+    </script>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Public+Sans:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pitch-line-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .waveform-bar {
+            transition: height 0.1s ease-in-out;
+        }
+        .shadow-hard {
+            box-shadow: 4px 4px 0px 0px rgba(24, 21, 18, 1);
+        }
+        .active-shadow-none {
+            box-shadow: 0px 0px 0px 0px rgba(24, 21, 18, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fdf8f7",
+                        "on-tertiary-fixed-variant": "#693b10",
+                        "on-surface-variant": "#4d4540",
+                        "secondary-fixed-dim": "#c9c6c2",
+                        "surface-tint": "#635d5a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "on-secondary-fixed": "#1c1c19",
+                        "inverse-surface": "#313030",
+                        "tertiary": "#261000",
+                        "surface-bright": "#fdf8f7",
+                        "surface-container-high": "#ece7e6",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#cfc4bd",
+                        "outline": "#7e756f",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0ee",
+                        "tertiary-container": "#442100",
+                        "surface-container-highest": "#e6e1e0",
+                        "on-primary-container": "#96908b",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-low": "#f7f3f1",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#cdc5c0",
+                        "secondary-fixed": "#e5e2dd",
+                        "primary": "#181512",
+                        "secondary-container": "#e5e2dd",
+                        "on-secondary-fixed-variant": "#474743",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f1edec",
+                        "primary-fixed": "#e9e1dc",
+                        "primary-container": "#2d2926",
+                        "tertiary-fixed-dim": "#fcb882",
+                        "secondary": "#5f5e5b",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#656461",
+                        "on-primary-fixed-variant": "#4b4642",
+                        "on-primary-fixed": "#1e1b18",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-tertiary-container": "#c08453",
+                        "primary-fixed-dim": "#cdc5c0",
+                        "background": "#fdf8f7",
+                        "surface-variant": "#e6e1e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "border-width-thin": "1px",
+                        "border-width-thick": "2px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "data-sm": ["JetBrains Mono"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-sm": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-lg": ["16px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar (COMPONENTS_107) -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b-2 border-primary flex items-center justify-between px-margin py-4 transition-colors duration-150">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md text-primary uppercase">CLARITY COACH</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="px-3 py-1 border-2 border-primary font-data-lg text-primary font-bold">
+            03/05
+        </div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border-2 border-primary overflow-hidden">
+<img alt="Professional profile portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxqQMiwXIDOvcUeViY-h4mrggumm2ulbCboedWCvT16zRPhxFlEFXb53emt_YI1NPJslXlqXeZYtF4mGzfHcqlre903qMxifzkrduhGq35glkYwzo5MtWKcs_5xw_pnoDBpON6C9HVCbs5pMmAnkv3d_zauRa4f-1yF1Oyhe5yOu0-FaJ1shJksMIP7lHSQernFE1BIsCokrzHBUGX2i29Xyn5_t0riwlyyg87Agf1QXmdrOyaMqfLZswIo5uA50dLKVI3vxW9r7Jm"/>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col px-margin py-24 max-w-5xl mx-auto w-full">
+<!-- Session Status & Constraint Card -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-12">
+<div class="md:col-span-8 flex flex-col gap-4">
+<div class="bg-secondary-container p-6 border-2 border-primary shadow-hard">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="assignment">assignment</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">Current Prompt</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary leading-tight">Describe a project you are passionate about.</h1>
+</div>
+<div class="bg-surface-container border-2 border-primary p-6 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b-2 border-primary pb-2">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Constraint Active</span>
+<span class="font-data-lg text-primary font-bold">60.00s</span>
+</div>
+<p class="font-body-lg text-body-lg italic text-on-surface-variant">
+                    "End every sentence with downward inflection."
+                </p>
+</div>
+</div>
+<!-- Metrics Sidebar -->
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="border-2 border-primary bg-surface p-4 flex flex-col items-center justify-center text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-2">Pitch Variance</span>
+<span class="font-data-lg text-headline-md text-primary">-4.2 ST</span>
+<div class="w-full h-1 bg-surface-container-high mt-4 relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 bg-primary w-2/3"></div>
+</div>
+</div>
+<div class="border-2 border-primary bg-surface p-4 flex flex-col items-center justify-center text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-2">Tone Score</span>
+<span class="font-data-lg text-headline-md text-primary">88%</span>
+</div>
+</div>
+</div>
+<!-- Transcription Canvas -->
+<div class="flex-grow border-2 border-primary p-6 bg-surface-container-low mb-12 relative">
+<div class="absolute top-0 right-0 px-3 py-1 bg-primary text-on-primary font-label-caps text-label-caps uppercase">
+            Real-time Analysis
+        </div>
+<div class="font-body-lg text-body-lg leading-relaxed flex flex-wrap gap-x-3 gap-y-4 pt-4" id="transcription-wall">
+<span class="bg-[#e8f5e9] border border-primary px-2 text-on-surface">I am currently building a sustainable housing prototype in the desert.</span>
+<span class="bg-primary/5 border border-primary px-2 text-on-surface">It uses recycled earthen materials and passive cooling.</span>
+<span class="bg-[#e8f5e9] border border-primary px-2 text-on-surface">The goal is to reduce energy consumption by eighty percent.</span>
+<span class="bg-primary-fixed border border-primary px-2 text-on-surface">Would you like to hear more about the insulation properties?</span>
+<span class="text-on-surface-variant animate-pulse">Processing your next sentence...</span>
+</div>
+</div>
+<!-- Recording Interface -->
+<div class="flex flex-col md:flex-row items-center gap-8 mt-auto pb-12">
+<!-- Large Mic Button - Architectural Card Style -->
+<button class="w-32 h-32 md:w-40 md:h-40 bg-primary text-on-primary border-2 border-primary shadow-hard active:translate-x-1 active:translate-y-1 active:shadow-none transition-all flex items-center justify-center group" id="mic-btn">
+<span class="material-symbols-outlined text-6xl md:text-7xl group-hover:scale-110 transition-transform" data-icon="mic" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<!-- Real-time Pitch Visualizer - Architectural Card Style -->
+<div class="flex-grow h-32 md:h-40 border-2 border-primary bg-surface shadow-hard relative overflow-hidden flex items-center pitch-line-container">
+<div class="flex items-end justify-center gap-1.5 w-full h-full px-4 pb-2" id="visualizer-bars">
+<!-- Dynamic bars inserted here -->
+</div>
+<!-- Pitch Contour Line (Mockup Overlay) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" preserveaspectratio="none">
+<path d="M0,80 Q50,40 100,90 T200,60 T300,100 T400,30 T500,110 T600,70" fill="none" stroke="#181512" stroke-width="3"></path>
+</svg>
+<div class="absolute bottom-2 right-4">
+<span class="font-data-sm text-data-sm text-primary uppercase opacity-60">Pitch Tracking Live</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (COMPONENTS_107) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface border-t-2 border-primary flex justify-around items-stretch h-16">
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="font-data-sm text-data-sm uppercase">TODAY</span>
+</a>
+<a class="bg-primary text-on-primary flex flex-col items-center justify-center p-2 w-full h-full transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="auto_graph" style="font-variation-settings: 'FILL' 1;">auto_graph</span>
+<span class="font-data-sm text-data-sm uppercase">JOURNEY</span>
+</a>
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="local_library">local_library</span>
+<span class="font-data-sm text-data-sm uppercase">LIBRARY</span>
+</a>
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-data-sm text-data-sm uppercase">STATS</span>
+</a>
+</nav>
+<script>
+    // Microphone interaction simulation
+    const micBtn = document.getElementById('mic-btn');
+    let isRecording = false;
+
+    micBtn.addEventListener('click', () => {
+        isRecording = !isRecording;
+        if (isRecording) {
+            micBtn.classList.remove('bg-primary');
+            micBtn.classList.add('bg-error');
+            micBtn.innerHTML = '<span class="material-symbols-outlined text-6xl md:text-7xl" data-icon="stop" style="font-variation-settings: \'FILL\' 1;">stop</span>';
+        } else {
+            micBtn.classList.remove('bg-error');
+            micBtn.classList.add('bg-primary');
+            micBtn.innerHTML = '<span class="material-symbols-outlined text-6xl md:text-7xl" data-icon="mic" style="font-variation-settings: \'FILL\' 1;">mic</span>';
+        }
+    });
+
+    // Populate visualizer
+    const visualizer = document.getElementById('visualizer-bars');
+    for (let i = 0; i < 45; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'waveform-bar w-1.5 md:w-2 bg-primary/20 border-t-2 border-primary';
+        const height = Math.random() * 70 + 15;
+        bar.style.height = `${height}%`;
+        visualizer.appendChild(bar);
+    }
+
+    // Animate visualizer
+    setInterval(() => {
+        if (isRecording) {
+            const bars = document.querySelectorAll('.waveform-bar');
+            bars.forEach(bar => {
+                const height = Math.random() * 80 + 10;
+                bar.style.height = `${height}%`;
+                bar.classList.replace('bg-primary/20', 'bg-primary');
+            });
+        } else {
+            const bars = document.querySelectorAll('.waveform-bar');
+            bars.forEach(bar => {
+                bar.style.height = '20%';
+                bar.classList.replace('bg-primary', 'bg-primary/20');
+            });
+        }
+    }, 150);
+</script>
+</body></html>

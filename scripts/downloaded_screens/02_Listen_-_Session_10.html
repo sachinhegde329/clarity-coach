@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Public+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fdf8f7",
+                        "on-tertiary-fixed-variant": "#693b10",
+                        "on-surface-variant": "#4d4540",
+                        "secondary-fixed-dim": "#c9c6c2",
+                        "surface-tint": "#635d5a",
+                        "tertiary-fixed": "#ffdcc3",
+                        "on-secondary-fixed": "#1c1c19",
+                        "inverse-surface": "#313030",
+                        "tertiary": "#261000",
+                        "surface-bright": "#fdf8f7",
+                        "surface-container-high": "#ece7e6",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#cfc4bd",
+                        "outline": "#7e756f",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1c1b1b",
+                        "inverse-on-surface": "#f4f0ee",
+                        "tertiary-container": "#442100",
+                        "surface-container-highest": "#e6e1e0",
+                        "on-primary-container": "#96908b",
+                        "surface-dim": "#ddd9d8",
+                        "surface-container-low": "#f7f3f1",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#cdc5c0",
+                        "secondary-fixed": "#e5e2dd",
+                        "primary": "#181512",
+                        "secondary-container": "#e5e2dd",
+                        "on-secondary-fixed-variant": "#474743",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container": "#f1edec",
+                        "primary-fixed": "#e9e1dc",
+                        "primary-container": "#2d2926",
+                        "tertiary-fixed-dim": "#fcb882",
+                        "secondary": "#5f5e5b",
+                        "on-surface": "#1c1b1b",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#656461",
+                        "on-primary-fixed-variant": "#4b4642",
+                        "on-primary-fixed": "#1e1b18",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-tertiary-container": "#c08453",
+                        "primary-fixed-dim": "#cdc5c0",
+                        "background": "#fdf8f7",
+                        "surface-variant": "#e6e1e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "border-width-thin": "1px",
+                        "border-width-thick": "2px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "data-sm": ["JetBrains Mono"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-sm": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-lg": ["16px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .waveform-bar {
+            transition: height 0.2s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1edec;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #181512;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-margin py-4 bg-surface border-b-2 border-primary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md text-primary uppercase">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC52AZcKSpEF21m-9LHlcoOZu4EG8sgalb4elE7tjaT769scRqI5hVH3EzhD0anw29KoQHmWhnfeEFiYvJ3FuR_WEdBt9ARn0ncWrtDc3MitRBuyfIvzLevo73qX-ATR1st7IFHPSh4rbGBCm2HPm0diU_2Cq-0PqKw1U6OhW-L5z3-ri3YR71kO88BiW0agADtDrV7wZohBwyqE0EdeWjnI1W2RgXDZehU2jaJZGBWdRn1pqifTxuk3S5M9FgqazykydGjwohji_6S"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin pt-24 pb-24 max-w-4xl mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-gutter">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-4">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">The Certainty Sound</h2>
+<span class="font-data-sm text-data-sm text-on-surface-variant uppercase bg-secondary-fixed px-2 py-1 mt-2 md:mt-0">Duration: 60s</span>
+</div>
+<div class="bg-surface-container-low border-border-width-thick border-primary p-gutter relative">
+<div class="absolute top-0 right-0 px-2 py-1 border-l-border-width-thick border-b-border-width-thick border-primary bg-primary-fixed text-on-primary-fixed font-data-sm">
+                SESSION 10
+            </div>
+<p class="font-body-lg text-body-lg max-w-2xl text-on-surface">
+                Discover how the final two words of your sentence carry the structural weight of authority. It's not just what you say, but where your pitch lands.
+            </p>
+</div>
+</section>
+<!-- Audio Player Visualizer -->
+<section class="mb-gutter">
+<div class="bg-surface border-border-width-thick border-primary p-4 mb-4 h-48 flex items-center justify-between gap-1 overflow-hidden">
+<!-- Simple Audio Visualizer Mock -->
+<div class="flex items-end gap-1 w-full h-full" id="waveform">
+<!-- Bars -->
+<div class="waveform-bar bg-primary-fixed-dim w-full h-1/4"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/4"></div>
+<div class="waveform-bar bg-primary w-full h-3/4"></div>
+<div class="waveform-bar bg-primary w-full h-full"></div>
+<div class="waveform-bar bg-primary w-full h-4/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-1/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-3/5"></div>
+<div class="waveform-bar bg-primary w-full h-4/5"></div>
+<div class="waveform-bar bg-primary w-full h-full"></div>
+<div class="waveform-bar bg-primary w-full h-3/4"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/4"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-1/4"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/4"></div>
+<div class="waveform-bar bg-primary w-full h-3/4"></div>
+<div class="waveform-bar bg-primary w-full h-full"></div>
+<div class="waveform-bar bg-primary w-full h-4/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-1/5"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-3/5"></div>
+<div class="waveform-bar bg-primary w-full h-4/5"></div>
+<div class="waveform-bar bg-primary w-full h-full"></div>
+<div class="waveform-bar bg-primary w-full h-3/4"></div>
+<div class="waveform-bar bg-primary-fixed-dim w-full h-2/4"></div>
+</div>
+</div>
+<!-- Controls -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Playback Control -->
+<div class="flex items-center justify-center gap-6 border-border-width-thick border-primary p-4 bg-surface-container-high">
+<button class="material-symbols-outlined text-primary text-3xl hover:bg-primary-fixed-dim/20 p-2 transition-colors">replay_10</button>
+<button class="bg-primary text-on-primary w-16 h-16 flex items-center justify-center border-border-width-thick border-primary shadow-[4px_4px_0px_0px_#2d2926] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all" id="playBtn">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-primary text-3xl hover:bg-primary-fixed-dim/20 p-2 transition-colors">forward_10</button>
+</div>
+<!-- Speed Control -->
+<div class="flex flex-col border-border-width-thick border-primary p-4 bg-surface-container">
+<span class="font-label-caps text-label-caps uppercase mb-2">Playback Speed</span>
+<div class="flex justify-between items-center h-full gap-2">
+<button class="font-data-sm text-data-sm flex-1 py-1 border border-primary hover:bg-primary hover:text-on-primary transition-colors">0.75x</button>
+<button class="font-data-sm text-data-sm flex-1 py-1 border border-primary bg-primary text-on-primary">1.0x</button>
+<button class="font-data-sm text-data-sm flex-1 py-1 border border-primary hover:bg-primary hover:text-on-primary transition-colors">1.5x</button>
+</div>
+</div>
+<!-- Progress -->
+<div class="flex flex-col border-border-width-thick border-primary p-4 bg-surface-container">
+<span class="font-label-caps text-label-caps uppercase mb-2">Progress</span>
+<div class="flex items-center gap-4 h-full">
+<div class="flex-grow h-4 border border-primary bg-background relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary w-1/3"></div>
+</div>
+<span class="font-data-sm text-data-sm">0:20 / 1:00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Transcript Section -->
+<section class="border-border-width-thick border-primary overflow-hidden">
+<div class="bg-primary text-on-primary p-3 flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps uppercase px-2">Scrolling Transcript</h3>
+<span class="material-symbols-outlined px-2">keyboard_arrow_down</span>
+</div>
+<div class="h-64 overflow-y-auto p-gutter space-y-gutter bg-background" id="transcript">
+<p class="text-on-surface-variant font-data-sm opacity-60">00:00 — Welcome back to Clarity Coach.</p>
+<p class="text-on-surface font-body-md">00:05 — Today we examine structural authority in speech. Most speakers let their voice drift upward at the end of a thought, suggesting a question or seeking validation.</p>
+<div class="bg-tertiary-container text-on-tertiary-container border-l-4 border-tertiary p-4 my-2">
+<p class="font-body-md mb-1"><span class="font-data-sm opacity-80">00:15</span> — But notice the shift when we drop the pitch.</p>
+<p class="font-headline-md italic tracking-tight">"Ending down is what authority sounds like."</p>
+<p class="font-body-md mt-1">It signals that the matter is settled.</p>
+</div>
+<p class="text-on-surface font-body-md">00:25 — Focus on the final two words of every sentence. Treat them like an anchor. If those two words drop, the entire statement becomes immovable fact.</p>
+<p class="text-on-surface font-body-md">00:40 — Try this: "I am ready." Upward pitch sounds nervous. Downward pitch sounds like a promise. The final weight rests on 'ready'.</p>
+<p class="text-on-surface font-body-md">00:55 — Authority is not volume. Authority is gravity. End down.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-stretch bg-surface border-t-2 border-primary h-16">
+<a class="bg-primary text-on-primary flex flex-col items-center justify-center p-2 w-full h-full transition-all duration-75" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">today</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Today</span>
+</a>
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Journey</span>
+</a>
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined">local_library</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Library</span>
+</a>
+<a class="text-primary flex flex-col items-center justify-center p-2 w-full h-full hover:bg-secondary-container transition-all duration-75" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-data-sm text-data-sm uppercase mt-1">Stats</span>
+</a>
+</nav>
+<script>
+    const playBtn = document.getElementById('playBtn');
+    let isPlaying = false;
+    
+    playBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = playBtn.querySelector('.material-symbols-outlined');
+        icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+        
+        if (isPlaying) {
+            playBtn.classList.remove('shadow-[4px_4px_0px_0px_#2d2926]');
+            playBtn.classList.add('translate-x-1', 'translate-y-1');
+        } else {
+            playBtn.classList.add('shadow-[4px_4px_0px_0px_#2d2926]');
+            playBtn.classList.remove('translate-x-1', 'translate-y-1');
+        }
+    });
+
+    const bars = document.querySelectorAll('.waveform-bar');
+    setInterval(() => {
+        if (isPlaying) {
+            bars.forEach(bar => {
+                const height = Math.floor(Math.random() * 85) + 15;
+                bar.style.height = `${height}%`;
+                // Color change logic for dynamic visual effect
+                if (height > 70) {
+                    bar.style.backgroundColor = '#181512';
+                } else {
+                    bar.style.backgroundColor = '#cdc5c0';
+                }
+            });
+        }
+    }, 150);
+
+    const transcript = document.getElementById('transcript');
+</script>
+</body></html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 13: BLUF</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Public+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px #7c2d12;
+        }
+        .hard-shadow-sm {
+            box-shadow: 2px 2px 0px 0px #7c2d12;
+        }
+        .waveform-bar { 
+            transition: height 0.2s ease-in-out; 
+            width: 2px;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface": "#fdf9f5",
+                "on-surface": "#261008",
+                "primary": "#7c2d12",
+                "on-primary": "#ffffff",
+                "primary-container": "#ffdbcf",
+                "on-primary-container": "#3d0e00",
+                "secondary": "#77574e",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#ffdbcf",
+                "on-secondary-container": "#2c150f",
+                "tertiary": "#6c5d2f",
+                "on-tertiary": "#ffffff",
+                "tertiary-container": "#f6e1a7",
+                "on-tertiary-container": "#231b00",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "surface-variant": "#f5ded7",
+                "on-surface-variant": "#53433f",
+                "outline": "#85736e",
+                "background": "#fdf9f5",
+                "on-background": "#261008"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin": "32px",
+                "unit": "4px",
+                "gutter": "24px",
+                "border-width-thin": "1px",
+                "border-width-thick": "2px"
+              },
+              "fontFamily": {
+                "headline-md": ["Bricolage Grotesque"],
+                "display-lg": ["Bricolage Grotesque"],
+                "data-sm": ["JetBrains Mono"],
+                "body-md": ["Public Sans"],
+                "body-lg": ["Public Sans"],
+                "data-lg": ["JetBrains Mono"],
+                "headline-lg": ["Bricolage Grotesque"],
+                "label-caps": ["Bricolage Grotesque"]
+              },
+              "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "data-sm": ["13px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "data-lg": ["16px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b-2 border-primary flex justify-between items-center px-margin h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer">menu</span>
+<h1 class="font-headline-md text-primary tracking-tighter uppercase font-extrabold">CLARITY COACH</h1>
+</div>
+<div class="h-10 w-10 border-2 border-primary overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsi4WLzu-X03w--vOtqd4Fscm90IAhMBLyN7upB4MXvpjzlpqFDijr4pqTHk7_3YTNfWcW6EPAcpzaqnOMKHVuVssRasimUorRNyKFJMD36YLtn79f5zUyIaNXVHmA715PjT6_jPGQsPp4e5Mtc1KcD0mzLOdVGj17eLZHB_PUiPrnfoj5CiOOIwTXj8mdOtYW4mqGwVYzwDMrtogqtu5SYuzjHjTX5kk6wlzSliTpcl9ir0x5rtHqlfo2nmkma4df5Zdq_WWSPLEq"/>
+</div>
+</header>
+<main class="flex-grow px-margin py-8 max-w-4xl mx-auto w-full pb-32">
+<!-- Progress Strip (Segmented) -->
+<div class="mb-10">
+<div class="flex gap-1.5 h-1.5 mb-2">
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-primary"></div>
+<div class="flex-1 bg-surface-variant"></div>
+<div class="flex-1 bg-surface-variant"></div>
+<div class="flex-1 bg-surface-variant"></div>
+</div>
+<div class="flex justify-between">
+<span class="font-data-sm text-[10px] text-primary font-bold">02 LISTEN</span>
+<span class="font-data-sm text-[10px] text-on-surface-variant">40% SESSION PROGRESS</span>
+</div>
+</div>
+<!-- Session Header -->
+<section class="mb-10">
+<span class="font-data-sm text-primary uppercase tracking-widest block mb-2">SESSION 13</span>
+<h2 class="font-display-lg text-primary uppercase leading-[1.05]">Bottom line<br/>up front</h2>
+</section>
+<!-- Audio Player Card -->
+<div class="bg-surface border-2 border-primary p-8 mb-6 hard-shadow">
+<div class="flex items-center justify-between mb-8">
+<span class="font-label-caps text-primary text-[10px] uppercase tracking-[0.2em]">AUDIO TIDBIT</span>
+<span class="font-data-sm text-on-surface-variant">2:45 / 4:12</span>
+</div>
+<!-- High-Density Waveform -->
+<div class="h-28 flex items-end justify-between gap-[2px] overflow-hidden mb-10" id="waveform">
+<!-- Populated via script -->
+</div>
+<!-- Controls -->
+<div class="flex items-center justify-center gap-10">
+<button class="material-symbols-outlined text-primary text-3xl hover:opacity-70">replay_10</button>
+<button class="w-16 h-16 bg-primary flex items-center justify-center text-surface hover:opacity-90 active:scale-95 transition-all hard-shadow-sm" id="playBtn">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-primary text-3xl hover:opacity-70">forward_30</button>
+</div>
+</div>
+<!-- Transcript Card -->
+<div class="bg-surface-variant p-8 border-2 border-primary mb-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">notes</span>
+<h3 class="font-label-caps text-primary text-[11px] uppercase tracking-wider">LIVE TRANSCRIPT</h3>
+</div>
+<div class="font-headline-md font-medium text-on-surface-variant leading-relaxed space-y-6">
+<p class="opacity-50">"In professional communication, your most valuable asset is your listener's attention."</p>
+<!-- Principle Highlight Card -->
+<div class="bg-surface p-6 border-2 border-primary hard-shadow-sm">
+<p class="text-primary font-bold">
+                    "State your conclusion first. This is the BLUF principle—Bottom Line Up Front. It ensures clarity even if the conversation is cut short."
+                </p>
+</div>
+<p class="opacity-50">"Data supports the claim, but the conclusion drives the action. Do not make them search for it."</p>
+</div>
+</div>
+<!-- Metrics & Next Step Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="border-2 border-primary p-6 bg-surface hard-shadow-sm">
+<h4 class="font-label-caps text-on-surface-variant text-[10px] mb-4 uppercase">KEY METRIC</h4>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-data-lg text-[40px] text-primary font-bold leading-none">15s</span>
+<span class="font-body-md text-on-surface-variant">Time to clarity</span>
+</div>
+<p class="font-data-sm text-[11px] opacity-70">Avg. reduction in prep time via BLUF.</p>
+</div>
+<div class="border-2 border-primary p-6 bg-surface hard-shadow-sm flex items-center justify-between">
+<div>
+<h4 class="font-label-caps text-on-surface-variant text-[10px] mb-1 uppercase">NEXT STEP</h4>
+<span class="font-headline-md text-primary uppercase text-[20px]">Active Drill</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl">psychology</span>
+</div>
+</div>
+<!-- Start Drill Button -->
+<div class="mt-12">
+<button class="w-full bg-[#5E1700] py-6 border-2 border-primary text-surface font-headline-lg font-extrabold text-[24px] uppercase hard-shadow hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[6px_6px_0px_0px_#7c2d12] active:translate-y-0 active:translate-x-0 active:shadow-none transition-all flex justify-center items-center gap-4">
+            START DRILL
+            <span class="material-symbols-outlined text-3xl">bolt</span>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-stretch h-16 bg-surface border-t-2 border-primary z-50">
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">today</span>
+<span class="font-label-caps text-[9px] mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary bg-primary h-full px-4 flex-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-label-caps text-[9px] mt-1">JOURNEY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-[9px] mt-1">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary opacity-70 hover:bg-surface-variant transition-colors flex-1" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-[9px] mt-1">STATS</span>
+</a>
+</nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('waveform');
+        // High density vertical bars
+        for(let i=0; i<120; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bg-primary waveform-bar';
+            const h = Math.floor(Math.random() * 85) + 10;
+            bar.style.height = h + '%';
+            container.appendChild(bar);
+        }
+
+        const playBtn = document.getElementById('playBtn');
+        let isPlaying = false;
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            const icon = playBtn.querySelector('span');
+            icon.textContent = isPlaying ? 'pause' : 'play_arrow';
+            
+            const bars = document.querySelectorAll('.waveform-bar');
+            if (isPlaying) {
+                const interval = setInterval(() => {
+                    if (!isPlaying) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    bars.forEach(bar => {
+                        if (Math.random() > 0.8) {
+                            bar.style.height = (Math.random() * 80 + 10) + '%';
+                        }
+                    });
+                }, 100);
+            }
+        });
+    });
+</script>
+</body></html>

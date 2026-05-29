@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 4 Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400&amp;family=Space+Mono:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#00334f",
+                    "surface-bright": "#fdf9f5",
+                    "tertiary-container": "#004b71",
+                    "on-secondary-container": "#6b6357",
+                    "surface": "#fdf9f5",
+                    "on-tertiary-fixed": "#001e30",
+                    "secondary-container": "#ede1d2",
+                    "primary": "#5e1700",
+                    "outline": "#89726c",
+                    "surface-dim": "#ddd9d6",
+                    "surface-container": "#f1ede9",
+                    "on-tertiary-container": "#85bbe6",
+                    "on-primary-container": "#ff9b7b",
+                    "inverse-surface": "#31302e",
+                    "error": "#ba1a1a",
+                    "on-background": "#1c1c19",
+                    "primary-fixed-dim": "#ffb59e",
+                    "inverse-on-surface": "#f4f0ec",
+                    "on-tertiary-fixed-variant": "#004b71",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e5e2de",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "primary-container": "#7c2d12",
+                    "on-secondary-fixed": "#201b12",
+                    "surface-container-high": "#ebe7e4",
+                    "on-surface-variant": "#55423d",
+                    "background": "#fdf9f5",
+                    "surface-container-highest": "#e5e2de",
+                    "on-secondary-fixed-variant": "#4d463b",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-fixed-dim": "#97ccf9",
+                    "tertiary-fixed": "#cbe6ff",
+                    "secondary-fixed-dim": "#d0c5b7",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#655d52",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f7f3ef",
+                    "secondary-fixed": "#ede1d2",
+                    "outline-variant": "#dcc1b9",
+                    "inverse-primary": "#ffb59e",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#9b4427",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "xs": "8px",
+                    "gutter": "24px",
+                    "lg": "48px",
+                    "sm": "16px",
+                    "margin": "32px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Space Mono"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "body-lg": ["Space Grotesk"],
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-md": ["Space Grotesk"],
+                    "label-md": ["Space Mono"],
+                    "jetbrains": ["JetBrains Mono", "monospace"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .brutalist-card {
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .step-active {
+            background-color: #5e1700;
+            color: #ffffff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary border-b-2 border-primary fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter uppercase">CLARITY COACH</h1>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary bg-secondary-container overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi3p2yhqLyDYLFi97DeoI5IyKl6nYusSsqME8aBc5JrP8e3VWgIV2FCkV17mRFQlVkWvv0XElMRNWKImi_QDE5y0PzJ3teeP4-ZdHfrAj61a1axQxUBIxy3QzlyK2EPxgFb7nuuRRIet-fRLKUXsYdbYNXyNZsS_c3PTeb5wRld1POmgvNA1Jn2aRtlq61dR_rKVfjcbeMmRhci2YI63BDGQBe9RV5iU-fOexggENaVDEUbypbQ40tArIfsgtUnfbdi3L5PfGcaFEV"/>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-lg border-b-2 border-primary pb-sm flex justify-between items-end">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Step 04/05</span>
+<h2 class="font-headline-lg text-headline-lg mt-xs uppercase">Session 4 Analysis</h2>
+</div>
+<div class="hidden md:flex gap-base">
+<div class="w-3 h-3 border-2 border-primary bg-primary"></div>
+<div class="w-3 h-3 border-2 border-primary bg-primary"></div>
+<div class="w-3 h-3 border-2 border-primary bg-primary"></div>
+<div class="w-3 h-3 border-2 border-primary bg-primary"></div>
+<div class="w-3 h-3 border-2 border-primary"></div>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-lg">
+<!-- Energy Score -->
+<div class="brutalist-card border-2 border-primary p-md bg-surface-container">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md uppercase text-secondary">Energy Score</span>
+<span class="font-jetbrains text-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +12
+                    </span>
+</div>
+<div class="flex items-baseline gap-2 mb-md">
+<span class="font-jetbrains text-6xl font-bold text-primary">84</span>
+<span class="font-jetbrains text-xl text-secondary">/100</span>
+</div>
+<!-- 5-point scale visual -->
+<div class="flex justify-between items-center gap-1 h-8">
+<div class="flex-1 h-full bg-primary"></div>
+<div class="flex-1 h-full bg-primary"></div>
+<div class="flex-1 h-full bg-primary"></div>
+<div class="flex-1 h-full bg-primary"></div>
+<div class="flex-1 h-full border-2 border-primary"></div>
+</div>
+<p class="mt-md font-label-sm text-label-sm text-secondary border-t border-outline-variant pt-xs leading-tight">
+                    Vocal resonance indicates high engagement. Sustained projection maintained across 92% of duration.
+                </p>
+</div>
+<!-- Pace -->
+<div class="brutalist-card border-2 border-primary p-md bg-surface-container">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md uppercase text-secondary">Pace (WPM)</span>
+<span class="font-jetbrains text-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_down</span> -4
+                    </span>
+</div>
+<div class="flex items-baseline gap-2 mb-md">
+<span class="font-jetbrains text-6xl font-bold text-primary">142</span>
+<span class="font-jetbrains text-xl text-secondary">avg</span>
+</div>
+<div class="relative h-8 border-2 border-primary bg-secondary-container overflow-hidden">
+<div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary z-10"></div>
+<div class="absolute left-[40%] top-0 bottom-0 w-[20%] bg-primary opacity-20"></div>
+<div class="absolute left-[45%] top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rotate-45"></div>
+</div>
+<p class="mt-md font-label-sm text-label-sm text-secondary border-t border-outline-variant pt-xs leading-tight">
+                    Rhythm remains within professional variance. Significant stabilization in concluding segments noted.
+                </p>
+</div>
+<!-- Fillers -->
+<div class="brutalist-card border-2 border-primary p-md bg-surface-container">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md uppercase text-secondary">Filler Count</span>
+<span class="font-jetbrains text-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_down</span> -3
+                    </span>
+</div>
+<div class="flex items-baseline gap-2 mb-md">
+<span class="font-jetbrains text-6xl font-bold text-primary">02</span>
+<span class="font-jetbrains text-xl text-secondary">total</span>
+</div>
+<div class="flex gap-2">
+<div class="flex-1 py-1 px-2 border-2 border-primary text-center font-jetbrains text-xs">UM</div>
+<div class="flex-1 py-1 px-2 border-2 border-primary text-center font-jetbrains text-xs">LIKE</div>
+<div class="flex-1 py-1 px-2 border-2 border-outline opacity-30 text-center font-jetbrains text-xs">SO</div>
+</div>
+<p class="mt-md font-label-sm text-label-sm text-secondary border-t border-outline-variant pt-xs leading-tight">
+                    Frequency reduction indicates increased cognitive clarity. Residual fillers appear during complex transitions.
+                </p>
+</div>
+</div>
+<!-- Replay Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-8 relative aspect-video border-2 border-primary bg-on-background group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="A high-contrast cinematic shot of a person speaking in a minimalist modern studio with dark wood accents and soft terracotta lighting. The subject is framed from the chest up, displaying confident body language and a focused expression. The background features clean geometric lines and architectural shadows that align with a brutalist aesthetic. The atmosphere is professional and intellectually rigorous." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHQHI7OYMSnpnUX_lOkC-b31B2XPAcwV1lABga8oyMgYhsNp-EUCZxaUX3SKAnAVo67LlfzV_mLtTR2RUgZjrAJzFXoDqCpIcegkNnaxcBTFo12DkHYL0UclYOo1RvWHrUZz0j6lLfGUCAVfbRxQ_G0mSLUdT-EZuzGkX_RCduLMvg14uk9HP6L3iZtc81_P3px7ZlT_AznVQUW_z_kWsYLfoPVCaXBsFBtfVnP1QlU_BT2Pg-sTGW83Qrzg7WbtRJvUE3QEM9y6B4"/>
+<!-- Overlay Button -->
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-primary/20 backdrop-blur-[2px] transition-all group-hover:bg-primary/30">
+<button class="bg-surface border-2 border-primary p-sm flex items-center gap-4 hover:translate-x-[-4px] hover:translate-y-[-4px] transition-transform shadow-[4px_4px_0px_0px_#5e1700]">
+<span class="material-symbols-outlined text-primary scale-150" data-weight="fill">play_arrow</span>
+<span class="font-label-md text-label-md uppercase font-bold text-primary tracking-widest">Replay with Overlay</span>
+</button>
+<div class="absolute bottom-md left-md right-md flex justify-between items-center bg-surface/90 border-2 border-primary p-xs font-jetbrains text-xs text-primary">
+<span>METRIC_OVERLAY_ACTIVE: TRUE</span>
+<span>SESSION_4_TIMESTAMP: 08:24</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-gutter">
+<div class="border-2 border-primary p-md">
+<h3 class="font-label-md text-label-md uppercase mb-sm border-b-2 border-primary pb-xs">Clinical Commentary</h3>
+<ul class="space-y-sm font-body-md text-sm text-on-surface-variant">
+<li class="flex gap-2">
+<span class="font-bold text-primary">01</span>
+<span>Articulation of terminal consonants shows 15% improvement from Session 3.</span>
+</li>
+<li class="flex gap-2">
+<span class="font-bold text-primary">02</span>
+<span>Sentence length distribution is normalizing toward academic standards.</span>
+</li>
+<li class="flex gap-2">
+<span class="font-bold text-primary">03</span>
+<span>Breath management during prolonged phrasing remains a primary objective.</span>
+</li>
+</ul>
+</div>
+<button class="w-full border-2 border-primary py-sm bg-primary text-surface font-label-md text-label-md uppercase tracking-widest hover:translate-x-[-4px] hover:translate-y-[-4px] transition-transform shadow-[4px_4px_0px_0px_#5e1700] flex items-center justify-center gap-2">
+                    PROCEED TO STEP 05
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile bg-surface border-t-2 border-primary h-20">
+<a class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md mt-1">TODAY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md mt-1">JOURNAL</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary border-t-4 border-primary pt-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md mt-1">CURRICULUM</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary pt-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Simple interaction for the Replay button
+        document.querySelector('.group button').addEventListener('click', () => {
+            const overlayText = document.querySelector('.group .absolute.bottom-md');
+            overlayText.classList.toggle('bg-primary');
+            overlayText.classList.toggle('text-surface');
+            overlayText.innerHTML = overlayText.classList.contains('bg-primary') 
+                ? '<span>OVERLAY_STREAMING: LIVE</span><span>SYMBOLS_MAPPED: 100%</span>' 
+                : '<span>METRIC_OVERLAY_ACTIVE: TRUE</span><span>SESSION_4_TIMESTAMP: 08:24</span>';
+        });
+    </script>
+</body></html>

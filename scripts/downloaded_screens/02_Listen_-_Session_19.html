@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#5b6653",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "primary-container": "#7c2d12",
+                    "on-error": "#ffffff",
+                    "error-warning": "#B91C1C",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdbd0",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "surface-container-high": "#ebe7e4",
+                    "surface-container": "#f1ede9",
+                    "inverse-primary": "#ffb59e",
+                    "surface-variant": "#e5e2de",
+                    "secondary-fixed": "#dbe6cf",
+                    "border-primary": "#7C2D12",
+                    "primary": "#5e1700",
+                    "secondary-container": "#d8e3cc",
+                    "on-surface": "#1c1c19",
+                    "tertiary": "#680005",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "outline": "#89726c",
+                    "on-secondary-fixed": "#151e10",
+                    "on-primary-fixed": "#3a0b00",
+                    "secondary": "#57624f",
+                    "primary-fixed-dim": "#ffb59e",
+                    "tertiary-container": "#93000b",
+                    "surface-parchment": "#FDF9F5",
+                    "inverse-surface": "#31302e",
+                    "on-tertiary-fixed": "#410002",
+                    "on-tertiary-container": "#ff998e",
+                    "error": "#ba1a1a",
+                    "success-sage": "#818C78",
+                    "surface-tint": "#9b4427",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "surface-bright": "#fdf9f5",
+                    "surface-container-low": "#f7f3ef",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-dim": "#ddd9d6",
+                    "surface": "#fdf9f5",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-container-highest": "#e5e2de",
+                    "on-surface-variant": "#55423d",
+                    "on-background": "#1c1c19",
+                    "outline-variant": "#dcc1b9",
+                    "background": "#fdf9f5",
+                    "inverse-on-surface": "#f4f0ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "hairline": "0.5px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "40px",
+                    "gutter": "16px",
+                    "border-width": "2px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "label-caps": [
+                            "JetBrains Mono"
+                    ],
+                    "metric-hero": [
+                            "JetBrains Mono"
+                    ],
+                    "body-md": [
+                            "Bricolage Grotesque"
+                    ],
+                    "metric-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "display-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "body-lg": [
+                            "Bricolage Grotesque"
+                    ],
+                    "headline-md": [
+                            "Bricolage Grotesque"
+                    ]
+            },
+            "fontSize": {
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "metric-hero": [
+                            "40px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "metric-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Minimal waveform animation */
+        @keyframes waveform {
+            0% { height: 4px; }
+            50% { height: 24px; }
+            100% { height: 4px; }
+        }
+        .bar {
+            animation: waveform 1.2s ease-in-out infinite;
+        }
+        .bar:nth-child(even) { animation-delay: 0.2s; }
+        .bar:nth-child(3n) { animation-delay: 0.4s; }
+        .bar:nth-child(4n) { animation-delay: 0.1s; }
+        .bar:nth-child(5n) { animation-delay: 0.5s; }
+        
+        /* Hide scrollbar for transcript but allow scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface fixed top-0 w-full z-50 border-b-2 border-primary dark:border-primary-fixed-dim transition-colors duration-200">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full">
+<button aria-label="Close Session" class="text-primary dark:text-primary-fixed-dim hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 p-2 rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined block">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">CLARITY COACH</h1>
+<button aria-label="Account" class="text-primary dark:text-primary-fixed-dim hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 p-2 rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined block">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area: Linear Session Flow so BottomNav is Suppressed -->
+<main class="pt-24 pb-12 px-gutter md:px-margin-desktop max-w-3xl mx-auto flex flex-col gap-8 min-h-[calc(100vh-64px)]">
+<!-- Brutalist Progress Strip -->
+<div class="flex items-center w-full gap-2 mt-4">
+<div class="h-2 flex-1 bg-surface-variant border border-border-primary/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+<div class="h-2 flex-1 bg-surface-variant border border-border-primary/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div> <!-- Active partial progress -->
+</div>
+<div class="h-2 flex-1 bg-surface-variant border border-border-primary/30 rounded-full"></div>
+<div class="h-2 flex-1 bg-surface-variant border border-border-primary/30 rounded-full"></div>
+<div class="h-2 flex-1 bg-surface-variant border border-border-primary/30 rounded-full"></div>
+</div>
+<!-- Session Header -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-primary/70">02 / 05</span>
+<h2 class="font-display-lg text-display-lg text-primary tracking-tight leading-none uppercase">Listen - Calibrated Questions</h2>
+</div>
+<!-- Audio Player Card (Warm Brutalist Precision) -->
+<div class="relative bg-surface-parchment border-border-width border-border-primary rounded-xl p-6 flex flex-col gap-8 shadow-[4px_4px_0px_0px_rgba(124,45,18,1)]">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-primary/70">AUDIO TIDBIT</span>
+<h3 class="font-headline-md text-headline-md text-primary">How and what, not why</h3>
+</div>
+<!-- Monospace Timer -->
+<div class="font-metric-hero text-metric-hero text-primary tabular-nums tracking-tighter">
+                    0:30
+                </div>
+</div>
+<!-- Waveform Visualizer -->
+<div class="h-24 w-full flex items-center justify-between gap-1 px-4 border-y border-border-primary/20 py-4 bg-surface-container-low rounded-lg">
+<!-- Generate multiple bars for structural waveform effect -->
+<script>
+                    for(let i=0; i<40; i++) {
+                        let h = Math.max(4, Math.random() * 32);
+                        // Make middle section taller conceptually
+                        if (i > 10 && i < 30) h += Math.random() * 24; 
+                        document.write(`<div class="w-1 bg-primary rounded-full bar" style="height: ${h}px; opacity: ${0.4 + Math.random()*0.6}; animation-delay: ${Math.random()}s"></div>`);
+                    }
+                </script>
+</div>
+<!-- Playback Controls -->
+<div class="flex items-center justify-between">
+<button class="flex items-center justify-center w-12 h-12 border-border-width border-border-primary text-primary rounded-lg hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined">replay_10</span>
+</button>
+<button class="flex items-center justify-center w-20 h-20 bg-primary border-border-width border-border-primary text-on-primary rounded-full shadow-[2px_2px_0px_0px_rgba(124,45,18,0.5)] hover:bg-surface-tint transition-colors active:translate-y-[2px] active:translate-x-[2px] active:shadow-none">
+<span class="material-symbols-outlined fill text-4xl">play_arrow</span>
+</button>
+<button class="flex items-center justify-center w-12 h-12 border-border-width border-border-primary text-primary rounded-lg font-label-caps text-label-caps hover:bg-primary-container/10 transition-colors">
+                    1.0x
+                </button>
+</div>
+</div>
+<!-- Scrolling Transcript Card -->
+<div class="flex-1 flex flex-col gap-3 min-h-[160px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/70 text-sm">subtitles</span>
+<span class="font-label-caps text-label-caps text-primary/70">TRANSCRIPT</span>
+</div>
+<div class="flex-1 bg-surface-container-low border-[0.5px] border-border-primary rounded-lg p-5 overflow-y-auto no-scrollbar relative">
+<!-- Fading edge for scroll indication -->
+<div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-surface-container-low to-transparent pointer-events-none"></div>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    "Audio teaches the negotiation principle of open questions that transfer cognitive load without confrontation."
+                </p>
+<!-- Extra padding to ensure content can scroll past the fade if it were longer -->
+<div class="h-8"></div>
+</div>
+</div>
+<!-- Next Step Action (Floating or fixed bottom in desktop) -->
+<div class="mt-auto pt-6 border-t-[0.5px] border-border-primary/50 flex justify-end">
+<button class="bg-primary text-on-primary font-body-md font-bold px-8 py-4 border-border-width border-border-primary rounded-lg flex items-center gap-2 hover:bg-surface-tint transition-colors">
+                PROCEED TO DO
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

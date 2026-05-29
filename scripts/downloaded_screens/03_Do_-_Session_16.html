@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 16: Do</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#d8e3cc",
+                        "primary": "#5e1700",
+                        "error": "#ba1a1a",
+                        "primary-container": "#7c2d12",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface-container": "#f1ede9",
+                        "surface-container-highest": "#e5e2de",
+                        "on-error": "#ffffff",
+                        "success-sage": "#818C78",
+                        "background": "#fdf9f5",
+                        "inverse-primary": "#ffb59e",
+                        "error-warning": "#B91C1C",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-tertiary-fixed": "#410002",
+                        "secondary": "#57624f",
+                        "border-primary": "#7C2D12",
+                        "on-secondary-fixed": "#151e10",
+                        "surface-parchment": "#FDF9F5",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-high": "#ebe7e4",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-secondary-container": "#5b6653",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "on-primary-container": "#ff9b7b",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "on-tertiary-container": "#ff998e",
+                        "outline-variant": "#dcc1b9",
+                        "surface-dim": "#ddd9d6",
+                        "outline": "#89726c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#93000b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "on-surface-variant": "#55423d",
+                        "surface": "#fdf9f5",
+                        "inverse-surface": "#31302e",
+                        "on-background": "#1c1c19",
+                        "surface-container-low": "#f7f3ef",
+                        "surface-bright": "#fdf9f5",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "surface-tint": "#9b4427",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "border-width": "2px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    fontFamily: {
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"]
+                    },
+                    fontSize: {
+                        "metric-sm": ["14px", { lineHeight: "16px", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "metric-hero": ["40px", { lineHeight: "40px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean brutalist look */
+        ::-webkit-scrollbar { display: none; }
+        * { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .waveform-bar {
+            width: 4px;
+            background-color: theme('colors.primary');
+            border-radius: 2px;
+            transition: height 0.1s ease;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        .is-recording .timer-ring {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+        
+        .ink-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: theme('colors.error-warning');
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-primary-fixed selection:text-primary">
+<!-- Session Progress Header (Structural Flow) -->
+<nav class="flex border-b-border-width border-primary w-full bg-surface-container-low sticky top-0 z-50">
+<div class="flex-1 border-r-border-width border-primary py-3 flex items-center justify-center font-label-caps text-label-caps text-on-surface-variant opacity-50">CENTRE</div>
+<div class="flex-1 border-r-border-width border-primary py-3 flex items-center justify-center font-label-caps text-label-caps text-on-surface-variant opacity-50">LISTEN</div>
+<div class="flex-1 border-r-border-width border-primary py-3 flex items-center justify-center font-label-caps text-label-caps text-surface bg-primary shadow-[inset_0_0_0_2px_#3a0b00]">DO</div>
+<div class="flex-1 border-r-border-width border-primary py-3 flex items-center justify-center font-label-caps text-label-caps text-on-surface-variant">SEE</div>
+<div class="flex-1 py-3 flex items-center justify-center font-label-caps text-label-caps text-on-surface-variant">COMMIT</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col px-margin-mobile md:px-margin-desktop py-8 gap-8 w-full max-w-[1440px] mx-auto">
+<!-- Top Section: Prompt & Constraints Grid -->
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<!-- Prompt Display -->
+<div class="col-span-4 md:col-span-8 border-border-width border-primary bg-surface-container-lowest p-6 md:p-8 rounded-lg flex flex-col justify-center h-full shadow-[2px_2px_0_0_#7C2D12]">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">MASTER CHALLENGE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background leading-tight">
+                    "Explain your strategy for the upcoming board review."
+                </h1>
+</div>
+<!-- Constraint Card (Physical Layering) -->
+<div class="col-span-4 border-border-width border-primary bg-surface rounded-lg flex flex-col overflow-hidden shadow-[2px_2px_0_0_#7C2D12]">
+<div class="bg-primary text-surface font-label-caps text-label-caps py-3 px-4 border-b-border-width border-primary flex justify-between items-center">
+<span>STACKED CHALLENGE</span>
+<span class="material-symbols-outlined text-[16px]">layers</span>
+</div>
+<div class="flex flex-col p-4 gap-3 bg-surface-parchment h-full justify-center">
+<!-- Constraint 1 -->
+<div class="border-border-width border-primary p-3 flex justify-between items-center bg-surface-container">
+<span class="font-metric-sm text-metric-sm text-primary uppercase">1. BLUF in 8s</span>
+<span class="material-symbols-outlined text-error-warning text-[18px]">timer</span>
+</div>
+<!-- Constraint 2 -->
+<div class="border-border-width border-primary p-3 flex justify-between items-center bg-surface-container">
+<span class="font-metric-sm text-metric-sm text-primary uppercase">2. Three Points</span>
+<span class="material-symbols-outlined text-primary text-[18px]">format_list_numbered</span>
+</div>
+<!-- Constraint 3 -->
+<div class="border-border-width border-primary p-3 flex justify-between items-center bg-surface-container">
+<span class="font-metric-sm text-metric-sm text-primary uppercase">3. Under 50s</span>
+<span class="material-symbols-outlined text-primary text-[18px]">speed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Section: Recording Core -->
+<div class="flex-1 flex flex-col items-center justify-center py-12 relative min-h-[300px]">
+<!-- Mic Wrapper -->
+<div class="relative flex items-center justify-center group cursor-pointer" id="mic-container" onclick="toggleRecording()">
+<!-- Timer Ring Background -->
+<svg class="absolute inset-0 w-32 h-32 -ml-8 -mt-8 -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="48" stroke-width="2"></circle>
+<!-- Depleting Ring (JS controlled dashoffset) -->
+<circle class="stroke-primary transition-all duration-1000 linear" cx="50" cy="50" fill="none" id="timer-progress" r="48" stroke-dasharray="301.59" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+<!-- Pulse Ring (Active State) -->
+<div class="timer-ring absolute inset-0 w-32 h-32 -ml-8 -mt-8 rounded-full border-border-width border-primary opacity-0 pointer-events-none"></div>
+<!-- Mic Button -->
+<button class="w-16 h-16 bg-primary rounded-full flex items-center justify-center border-border-width border-primary text-surface-parchment shadow-[0_0_0_4px_#FDF9F5,0_0_0_6px_#7c2d12] transition-transform active:scale-95 z-10" id="mic-btn">
+<span class="material-symbols-outlined text-[32px]" id="mic-icon" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<!-- Ink Dots Container for filler word detection -->
+<div class="absolute inset-0 w-32 h-32 -ml-8 -mt-8 pointer-events-none rounded-full" id="ink-dots"></div>
+</div>
+<div class="mt-12 font-label-caps text-label-caps text-primary tracking-[0.2em] animate-pulse" id="ritual-text">
+                TAP TO BEGIN RITUAL
+            </div>
+</div>
+<!-- Bottom Section: Metrics & Waveform Grid -->
+<div class="flex flex-col gap-0 border-border-width border-primary bg-surface shadow-[2px_2px_0_0_#7C2D12] mt-auto">
+<!-- 3 Column Metrics (Numbers as Hero) -->
+<div class="grid grid-cols-3 border-b-border-width border-primary divide-x-[2px] divide-primary bg-surface-parchment">
+<!-- Metric 1 -->
+<div class="flex flex-col p-4 md:p-6 justify-center items-center text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">TIME REMAINING</span>
+<div class="flex items-center gap-2">
+<span class="font-metric-hero text-metric-hero text-primary" id="time-val">50.0</span>
+<span class="font-metric-sm text-metric-sm text-primary mt-2">s</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="flex flex-col p-4 md:p-6 justify-center items-center text-center bg-surface-container-low">
+<span class="font-label-caps text-label-caps text-error-warning mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> BLUF WINDOW
+                    </span>
+<div class="flex items-center gap-2">
+<span class="font-metric-hero text-metric-hero text-error-warning" id="bluf-val">08.0</span>
+<span class="font-metric-sm text-metric-sm text-error-warning mt-2">s</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="flex flex-col p-4 md:p-6 justify-center items-center text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-1">POINT COUNTER</span>
+<div class="flex items-center gap-2">
+<span class="font-metric-hero text-metric-hero text-primary">0</span>
+<span class="font-metric-hero text-metric-hero text-on-surface-variant opacity-30">/3</span>
+</div>
+</div>
+</div>
+<!-- Structural Live Waveform -->
+<div class="h-20 w-full bg-surface-container-highest p-2 flex items-end justify-center gap-[2px] overflow-hidden" id="waveform-container">
+<!-- Bars generated by JS -->
+</div>
+</div>
+</main>
+<script>
+        // State
+        let isRecording = false;
+        let timeRemaining = 50.0;
+        let blufWindow = 8.0;
+        let timerInterval;
+        let waveInterval;
+
+        // Elements
+        const container = document.getElementById('mic-container');
+        const icon = document.getElementById('mic-icon');
+        const ritualText = document.getElementById('ritual-text');
+        const timeDisplay = document.getElementById('time-val');
+        const blufDisplay = document.getElementById('bluf-val');
+        const waveformContainer = document.getElementById('waveform-container');
+        const timerProgress = document.getElementById('timer-progress');
+        const inkDotsContainer = document.getElementById('ink-dots');
+
+        // Initialize Waveform
+        const numBars = 100;
+        for (let i = 0; i < numBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'waveform-bar';
+            bar.style.height = '4px';
+            bar.style.opacity = '0.3';
+            waveformContainer.appendChild(bar);
+        }
+        const bars = document.querySelectorAll('.waveform-bar');
+
+        function animateWaveform() {
+            bars.forEach(bar => {
+                if (isRecording) {
+                    const height = Math.random() * 60 + 4; // 4px to 64px
+                    bar.style.height = `${height}px`;
+                    bar.style.opacity = '1';
+                } else {
+                    bar.style.height = '4px';
+                    bar.style.opacity = '0.3';
+                }
+            });
+        }
+
+        // Simulate filler word detection (Ink Dots)
+        function popInkDot() {
+            if (!isRecording) return;
+            const dot = document.createElement('div');
+            dot.className = 'ink-dot';
+            
+            // Random position around the circle
+            const angle = Math.random() * Math.PI * 2;
+            const radius = 60; // Just outside the mic button
+            const x = 64 + radius * Math.cos(angle) - 2; // center 64, offset half dot width
+            const y = 64 + radius * Math.sin(angle) - 2;
+            
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+            inkDotsContainer.appendChild(dot);
+            
+            // Animate
+            requestAnimationFrame(() => {
+                dot.style.opacity = '1';
+                setTimeout(() => {
+                    dot.style.opacity = '0';
+                    setTimeout(() => dot.remove(), 200);
+                }, 500);
+            });
+        }
+
+        function toggleRecording() {
+            isRecording = !isRecording;
+            
+            if (isRecording) {
+                // UI Changes
+                container.classList.add('is-recording');
+                icon.innerText = 'stop';
+                ritualText.innerText = 'RECORDING... SPEAK NOW';
+                ritualText.classList.remove('animate-pulse');
+                ritualText.classList.add('text-error-warning');
+                
+                // Start Timer
+                timerInterval = setInterval(() => {
+                    if (timeRemaining > 0) {
+                        timeRemaining -= 0.1;
+                        timeDisplay.innerText = timeRemaining.toFixed(1);
+                        
+                        // Update SVG Ring (301.59 is full circumference)
+                        const offset = 301.59 - (timeRemaining / 50.0) * 301.59;
+                        timerProgress.style.strokeDashoffset = offset;
+                    }
+                    
+                    if (blufWindow > 0) {
+                        blufWindow -= 0.1;
+                        blufDisplay.innerText = Math.max(0, blufWindow).toFixed(1);
+                        if (blufWindow <= 0) {
+                            blufDisplay.parentElement.parentElement.classList.remove('bg-surface-container-low');
+                            blufDisplay.parentElement.parentElement.classList.add('bg-error-container');
+                        }
+                    }
+
+                    if (timeRemaining <= 0) toggleRecording(); // Auto stop
+                }, 100);
+
+                // Start Waveform
+                waveInterval = setInterval(animateWaveform, 100);
+                
+                // Random ink dots simulating filler words
+                setInterval(() => {
+                    if (Math.random() > 0.8) popInkDot();
+                }, 800);
+
+            } else {
+                // UI Changes
+                container.classList.remove('is-recording');
+                icon.innerText = 'mic';
+                ritualText.innerText = 'ANALYZING...';
+                ritualText.classList.remove('text-error-warning');
+                ritualText.classList.add('animate-pulse');
+                
+                clearInterval(timerInterval);
+                clearInterval(waveInterval);
+                animateWaveform(); // Reset to flat
+            }
+        }
+    </script>
+</body></html>

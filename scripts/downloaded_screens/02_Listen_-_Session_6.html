@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>02 Listen - The Notice Sprint</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Space+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#55423d",
+                        "on-primary-fixed": "#3a0b00",
+                        "primary-container": "#7c2d12",
+                        "surface-tint": "#9b4427",
+                        "surface-container-high": "#ebe7e4",
+                        "on-tertiary-fixed-variant": "#004b71",
+                        "surface-container-highest": "#e5e2de",
+                        "surface-bright": "#fdf9f5",
+                        "tertiary-container": "#004b71",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#85bbe6",
+                        "outline-variant": "#dcc1b9",
+                        "on-secondary-fixed": "#201b12",
+                        "secondary-fixed": "#ede1d2",
+                        "on-secondary-container": "#6b6357",
+                        "secondary-container": "#ede1d2",
+                        "tertiary-fixed": "#cbe6ff",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#31302e",
+                        "tertiary": "#00334f",
+                        "on-surface": "#1c1c19",
+                        "outline": "#89726c",
+                        "inverse-primary": "#ffb59e",
+                        "on-secondary-fixed-variant": "#4d463b",
+                        "surface-container": "#f1ede9",
+                        "secondary": "#655d52",
+                        "surface-container-low": "#f7f3ef",
+                        "surface": "#fdf9f5",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#5e1700",
+                        "on-primary-container": "#ff9b7b",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#d0c5b7",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "tertiary-fixed-dim": "#97ccf9",
+                        "background": "#fdf9f5",
+                        "on-background": "#1c1c19",
+                        "surface-dim": "#ddd9d6",
+                        "surface-variant": "#e5e2de",
+                        "on-tertiary-fixed": "#001e30",
+                        "primary-fixed": "#ffdbd0",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "margin": "32px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Space Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Space Grotesk"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-card {
+            border: 2px solid #5e1700;
+            transition: all 0.2s ease;
+        }
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .brutalist-button {
+            border: 2px solid #5e1700;
+            background: #fdf9f5;
+            transition: all 0.1s ease;
+        }
+        .brutalist-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #5e1700;
+        }
+        .brutalist-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px 0px #5e1700;
+        }
+        .waveform-bar {
+            width: 3px;
+            background-color: #5e1700;
+            margin-right: 2px;
+            border-radius: 0px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center p-gutter">
+<!-- Back Button Header -->
+<header class="w-full max-w-4xl mb-lg">
+<button class="flex items-center gap-xs text-primary font-label-md hover:underline">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>BACK TO SESSIONS</span>
+</button>
+</header>
+<main class="w-full max-w-4xl">
+<!-- Headline Section -->
+<section class="mb-xl">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-xs block">Module 02</span>
+<h1 class="font-display-lg text-primary mb-md">02 Listen</h1>
+<div class="border-t-4 border-primary w-24 mb-md"></div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-sm">The Notice Sprint</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+                Today is different. You will hear your Session 1 baseline alongside your Session 5. 
+                Focus your attention on the nuance of the delivery. <span class="font-bold text-primary">Listen for what changed.</span>
+</p>
+</section>
+<!-- Session Comparison Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md mb-xl">
+<!-- Session 1 Card -->
+<div class="brutalist-card p-md bg-surface-container flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-primary mb-1">RECORDING A</p>
+<h3 class="font-headline-md">Session 1</h3>
+<p class="font-label-sm text-on-surface-variant italic">The Baseline</p>
+</div>
+<span class="font-label-sm bg-outline-variant text-on-surface px-2 py-1">ORIGINAL</span>
+</div>
+<!-- Waveform Visualization -->
+<div class="h-32 flex items-center justify-center bg-surface-container-low border border-outline-variant overflow-hidden px-sm">
+<div class="flex items-center h-full w-full gap-[2px]">
+<!-- Simulated Waveform -->
+<div class="waveform-bar h-[20%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[60%]"></div><div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[70%]"></div><div class="waveform-bar h-[50%]"></div><div class="waveform-bar h-[90%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[20%]"></div><div class="waveform-bar h-[50%]"></div><div class="waveform-bar h-[80%]"></div><div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[60%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[20%]"></div><div class="waveform-bar h-[70%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[50%]"></div><div class="waveform-bar h-[80%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[60%]"></div><div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[20%]"></div><div class="waveform-bar h-[10%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[70%]"></div><div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[50%]"></div><div class="waveform-bar h-[20%]"></div>
+</div>
+</div>
+<button class="brutalist-button w-full py-sm flex items-center justify-center gap-xs font-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    PLAY BASELINE
+                </button>
+</div>
+<!-- Session 5 Card -->
+<div class="brutalist-card p-md bg-surface-container flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-primary mb-1">RECORDING B</p>
+<h3 class="font-headline-md">Session 5</h3>
+<p class="font-label-sm text-on-surface-variant italic">Recent Progress</p>
+</div>
+<span class="font-label-sm bg-primary text-on-primary px-2 py-1">LATEST</span>
+</div>
+<!-- Waveform Visualization -->
+<div class="h-32 flex items-center justify-center bg-surface-container-low border border-outline-variant overflow-hidden px-sm">
+<div class="flex items-center h-full w-full gap-[2px]">
+<!-- Simulated Waveform - More Dynamic -->
+<div class="waveform-bar h-[30%]"></div><div class="waveform-bar h-[50%]"></div><div class="waveform-bar h-[20%]"></div><div class="waveform-bar h-[80%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[90%]"></div><div class="waveform-bar h-[60%]"></div><div class="waveform-bar h-[100%]"></div><div class="waveform-bar h-[70%]"></div><div class="waveform-bar h-[40%]"></div><div class="waveform-bar h-[85%]"></div><div class="waveform-bar h-[55%]"></div><div class="waveform-bar h-[35%]"></div><div class="waveform-bar h-[65%]"></div><div class="waveform-bar h-[95%]"></div><div class="waveform-bar h-[75%]"></div><div class="waveform-bar h-[45%]"></div><div class="waveform-bar h-[25%]"></div><div class="waveform-bar h-[55%]"></div><div class="waveform-bar h-[85%]"></div><div class="waveform-bar h-[65%]"></div><div class="waveform-bar h-[45%]"></div><div class="waveform-bar h-[75%]"></div><div class="waveform-bar h-[35%]"></div><div class="waveform-bar h-[15%]"></div><div class="waveform-bar h-[45%]"></div><div class="waveform-bar h-[85%]"></div><div class="waveform-bar h-[55%]"></div><div class="waveform-bar h-[25%]"></div><div class="waveform-bar h-[10%]"></div>
+</div>
+</div>
+<button class="brutalist-button w-full py-sm flex items-center justify-center gap-xs font-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    PLAY RECENT
+                </button>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="border-4 border-primary bg-primary text-on-primary p-lg flex flex-col md:flex-row items-center justify-between gap-md">
+<div class="max-w-md">
+<h4 class="font-headline-md mb-xs">Ready to see the data?</h4>
+<p class="font-body-md opacity-90">After listening to both sessions, click below to reveal the specific trends and metrics analyzed from your vocal evolution.</p>
+</div>
+<button class="bg-surface text-primary border-2 border-surface font-label-md px-lg py-md hover:bg-transparent hover:text-white transition-colors duration-200">
+                REVEAL TRENDS
+            </button>
+</section>
+<!-- Decorative Image Section -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="aspect-video bg-surface-container-highest border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="A macro photograph of an antique microphone head, focusing on the intricate metallic mesh and structured geometry. The lighting is warm and directional, casting long shadows across a rich terracotta and cream-toned background. The aesthetic is strictly Brutalist and editorial, emphasizing the physical, analog nature of sound recording. High contrast textures create a sense of intellectual rigor and tactile quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgPPlDIciGYlVxJxNKerVZnJp8kV2IQPd0H1LK8ORQPCZ3YIQ5jTrvVklbB8t2yAIW4ywvZZ5kqGrImlak7TpwHAuiq4XWWlslB7P3TcpkmEvbKCyhAaltVSOWqRwV56mHyhioENY0rtH7dCC8LaLk_83apl06lEi4Y6JlGjZAX7d56s0yZ3EU8yC4-ANe7VnTWK2JqJ6WSapBmPPhlJPI8zNnLA9DB-uwDHJ56R0qzTjUFKOTaBrxzCN3zBJRpF9dU1ImDTgXBJZ7"/>
+</div>
+<div class="p-md">
+<h5 class="font-label-md text-primary mb-sm underline decoration-2 underline-offset-4">INSTRUCTOR NOTE</h5>
+<p class="font-body-md text-on-surface-variant italic">
+                    "The shift between Session 1 and Session 5 isn't just about volume; it's about the spatial awareness of your own voice. Notice the resonance in the lower frequencies—that's where the growth lives."
+                </p>
+</div>
+</section>
+</main>
+<footer class="mt-xl pb-lg w-full max-w-4xl border-t-2 border-outline-variant pt-md flex justify-between items-center opacity-60">
+<span class="font-label-sm">© 2024 VOCAL ARCHITECTS</span>
+<span class="font-label-sm">INTERNAL USE ONLY // S6-REV</span>
+</footer>
+<script>
+        // Micro-interaction for waveforms
+        document.querySelectorAll('.brutalist-button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                const bars = button.closest('.brutalist-card').querySelectorAll('.waveform-bar');
+                bars.forEach(bar => {
+                    const randomHeight = Math.floor(Math.random() * 80) + 20;
+                    bar.style.height = randomHeight + '%';
+                    bar.style.transition = 'height 0.4s ease-in-out';
+                });
+            });
+            button.addEventListener('mouseleave', () => {
+                const bars = button.closest('.brutalist-card').querySelectorAll('.waveform-bar');
+                bars.forEach(bar => {
+                    bar.style.transition = 'height 0.4s ease-in-out';
+                });
+            });
+        });
+    </script>
+</body></html>

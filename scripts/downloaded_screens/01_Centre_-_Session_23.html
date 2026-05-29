@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Label and Pause</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#bfcab4",
+                      "on-secondary-fixed-variant": "#404a39",
+                      "on-primary-container": "#ff9b7b",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e5e2de",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#ffb59e",
+                      "surface-container-high": "#ebe7e4",
+                      "on-surface-variant": "#55423d",
+                      "secondary-fixed": "#dbe6cf",
+                      "background": "#fdf9f5",
+                      "on-surface": "#1c1c19",
+                      "secondary": "#57624f",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#93000b",
+                      "tertiary-fixed": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb4ab",
+                      "inverse-surface": "#31302e",
+                      "error-warning": "#B91C1C",
+                      "primary-container": "#7c2d12",
+                      "primary": "#5e1700",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed": "#3a0b00",
+                      "surface-dim": "#ddd9d6",
+                      "surface-container": "#f1ede9",
+                      "on-tertiary-fixed-variant": "#93000b",
+                      "outline-variant": "#dcc1b9",
+                      "surface": "#fdf9f5",
+                      "surface-variant": "#e5e2de",
+                      "surface-parchment": "#FDF9F5",
+                      "on-secondary-fixed": "#151e10",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#fdf9f5",
+                      "on-tertiary-fixed": "#410002",
+                      "border-primary": "#7C2D12",
+                      "on-background": "#1c1c19",
+                      "on-primary-fixed-variant": "#7c2d12",
+                      "surface-container-low": "#f7f3ef",
+                      "on-tertiary-container": "#ff998e",
+                      "success-sage": "#818C78",
+                      "secondary-container": "#d8e3cc",
+                      "inverse-on-surface": "#f4f0ec",
+                      "tertiary": "#680005",
+                      "primary-fixed": "#ffdbd0",
+                      "inverse-primary": "#ffb59e",
+                      "outline": "#89726c",
+                      "surface-tint": "#9b4427",
+                      "on-secondary-container": "#5b6653"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "hairline": "0.5px",
+                      "border-width": "2px",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "40px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "metric-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "metric-hero": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "display-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "body-lg": [
+                              "Bricolage Grotesque"
+                      ],
+                      "headline-md": [
+                              "Bricolage Grotesque"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "metric-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "metric-hero": [
+                              "40px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .pulse-ring {
+            animation: pulse-ring 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.8; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface h-full flex flex-col text-on-surface antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky border-b-2 border-primary bg-surface flex justify-between items-center px-margin-mobile h-16 max-w-7xl mx-auto z-10 flat no shadows">
+<button aria-label="Menu" class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded flex items-center justify-center scale-95 duration-100 ease-in-out">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-widest uppercase text-center flex-1">
+            01 / 05
+        </div>
+<button aria-label="Profile" class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded flex items-center justify-center scale-95 duration-100 ease-in-out">
+<div class="w-8 h-8 rounded-full border-border-width border-primary bg-surface-container-highest overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a thoughtful person in a bright, minimalist setting. Warm, high-key lighting creates a soft, premium aesthetic. The color palette emphasizes natural tones with deep, stark contrasts, fitting a sophisticated, demanding environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRZkQXvW7YC0UV6j0nJyi8fgHgj6sXJN2EXSDz1MNsBeOoG6YKCuOr-YvkZrJMYp_-srVBzh27HvSt-IWPsKwD32D0uSntjb1XFbKnU6Yo1_lidMCm0l46VYt2SW627hY3YXJcD6zvNexvVMEeNdHyzvoBzuQ9N2XyMLBEzEaNx9FVU-YC1WhgvxOlqBpErA_10gN3IDtqfAsm7aTC_0vyFuDhMfrjdmH3d2pXPeegkS3MeuPwP_oXWt83wuIdHOEXM1SaPYsUZ5G0"/>
+</div>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center justify-center px-margin-mobile py-margin-desktop max-w-3xl mx-auto w-full relative">
+<!-- Architectural Containment Card -->
+<div class="w-full bg-surface-parchment border-2 border-border-primary rounded flex flex-col items-center p-8 md:p-12 relative overflow-hidden">
+<!-- Progress Strip Placeholder -->
+<div class="absolute top-0 left-0 w-full h-2 flex border-b-2 border-border-primary bg-surface-container-low">
+<div class="h-full bg-primary" style="width: 20%;"></div>
+</div>
+<!-- Title -->
+<div class="mt-8 text-center mb-12">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Label and Pause</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest border-b border-outline-variant pb-2 inline-block">A calm-under-tension grounding exercise</p>
+</div>
+<!-- Central Pulsing Element -->
+<div class="relative w-48 h-48 flex items-center justify-center mb-16 mt-8">
+<!-- Pulse Rings -->
+<div class="absolute inset-0 border-2 border-primary rounded-full pulse-ring opacity-50"></div>
+<div class="absolute inset-4 border hairline border-primary rounded-full pulse-ring" style="animation-delay: -2s;"></div>
+<!-- Core Anchor -->
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-[0_0_0_4px_rgba(94,23,0,0.1)] relative z-10">
+<span class="material-symbols-outlined text-surface text-3xl" data-icon="self_improvement">self_improvement</span>
+</div>
+</div>
+<!-- Instructional Text -->
+<div class="text-center max-w-md mx-auto relative">
+<!-- Decorative Quotes (Brutalist style) -->
+<span class="absolute -top-8 -left-6 font-display-lg text-display-lg text-outline-variant opacity-30 select-none">"</span>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    You are about to acknowledge someone's emotion.<br/><br/>
+<span class="font-headline-md text-headline-md font-bold text-primary block mt-4">Then you will stop talking for three seconds.</span>
+</p>
+<span class="absolute -bottom-10 -right-6 font-display-lg text-display-lg text-outline-variant opacity-30 select-none">"</span>
+</div>
+<!-- Action Button -->
+<div class="mt-16 w-full flex justify-center">
+<button class="bg-primary text-on-primary border-2 border-primary rounded font-body-md text-body-md font-bold px-8 py-3 hover:bg-surface hover:text-primary transition-colors flex items-center gap-2 group">
+<span>Begin Exercise</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Suppressed as per instructions (Transactional/Task-Focused flow step) -->
+<script>
+        // Simple JS to handle subtle interactions if needed later
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Session initialized: Label and Pause');
+        });
+    </script>
+</body></html>

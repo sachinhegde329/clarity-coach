@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach | Session 14: Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-warning": "#B91C1C",
+                    "outline": "#89726c",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#93000b",
+                    "on-secondary-fixed": "#151e10",
+                    "on-surface-variant": "#55423d",
+                    "on-tertiary-fixed": "#410002",
+                    "surface-container-low": "#f7f3ef",
+                    "tertiary": "#680005",
+                    "surface": "#fdf9f5",
+                    "inverse-primary": "#ffb59e",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#d8e3cc",
+                    "inverse-on-surface": "#f4f0ec",
+                    "error": "#ba1a1a",
+                    "surface-container": "#f1ede9",
+                    "primary-container": "#7c2d12",
+                    "on-secondary-fixed-variant": "#404a39",
+                    "primary-fixed": "#ffdbd0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fdf9f5",
+                    "primary-fixed-dim": "#ffb59e",
+                    "on-background": "#1c1c19",
+                    "primary": "#5e1700",
+                    "on-tertiary-fixed-variant": "#93000b",
+                    "on-secondary": "#ffffff",
+                    "background": "#fdf9f5",
+                    "tertiary-fixed-dim": "#ffb4ab",
+                    "border-primary": "#7C2D12",
+                    "surface-tint": "#9b4427",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad6",
+                    "inverse-surface": "#31302e",
+                    "on-surface": "#1c1c19",
+                    "secondary": "#57624f",
+                    "success-sage": "#818C78",
+                    "on-secondary-container": "#5b6653",
+                    "secondary-fixed": "#dbe6cf",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ff998e",
+                    "on-primary-fixed-variant": "#7c2d12",
+                    "surface-container-highest": "#e5e2de",
+                    "surface-dim": "#ddd9d6",
+                    "secondary-fixed-dim": "#bfcab4",
+                    "on-primary-container": "#ff9b7b",
+                    "surface-variant": "#e5e2de",
+                    "surface-parchment": "#FDF9F5",
+                    "on-primary-fixed": "#3a0b00",
+                    "surface-container-high": "#ebe7e4",
+                    "outline-variant": "#dcc1b9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "hairline": "0.5px",
+                    "margin-desktop": "40px",
+                    "border-width": "2px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Bricolage Grotesque"],
+                    "display-lg": ["Bricolage Grotesque"],
+                    "headline-md": ["Bricolage Grotesque"],
+                    "body-lg": ["Bricolage Grotesque"],
+                    "metric-hero": ["JetBrains Mono"],
+                    "body-md": ["Bricolage Grotesque"],
+                    "metric-sm": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FDF9F5;
+            color: #1C1C19;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .card-layer {
+            border: 2px solid #7C2D12;
+            background-color: #FDF9F5;
+            box-shadow: 4px 4px 0px 0px #7C2D12;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-parchment min-h-screen flex flex-col md:flex-row">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex flex-col h-full w-64 border-r-2 border-primary bg-surface-parchment sticky top-0 py-10 px-5 shrink-0">
+<h2 class="font-headline-md text-headline-md text-primary mb-10 tracking-tight">SESSION PROGRESS</h2>
+<nav class="flex flex-col space-y-6">
+<div class="flex items-center space-x-3 text-outline pl-3">
+<span class="material-symbols-outlined" data-icon="self_improvement">self_improvement</span>
+<span class="font-metric-sm text-metric-sm">Centre</span>
+</div>
+<div class="flex items-center space-x-3 text-outline pl-3">
+<span class="material-symbols-outlined" data-icon="hearing">hearing</span>
+<span class="font-metric-sm text-metric-sm">Listen</span>
+</div>
+<div class="flex items-center space-x-3 text-outline pl-3">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+<span class="font-metric-sm text-metric-sm">Do</span>
+</div>
+<!-- Active State: See (Analysis) -->
+<div class="flex items-center space-x-3 font-bold text-primary border-l-4 border-primary pl-2 bg-primary-container/5 py-2">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="font-metric-sm text-metric-sm">See</span>
+</div>
+<div class="flex items-center space-x-3 text-outline pl-3">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="font-metric-sm text-metric-sm">Commit</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-6">
+<div class="bg-surface-container rounded-lg p-4 border border-primary/20">
+<p class="font-label-caps text-label-caps text-outline mb-1 uppercase">Current Goal</p>
+<p class="font-body-md text-body-md font-bold">Rule of 3</p>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface-parchment border-b-2 border-primary flex items-center justify-between px-6 py-4">
+<div class="flex items-center space-x-4">
+<button class="md:hidden text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center space-x-4">
+<span class="hidden md:block font-label-caps text-label-caps text-primary/60">SESSION 14 / ANALYZE</span>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-primary" data-alt="A professional, high-resolution portrait of a young male mentor in a minimalist studio environment. The lighting is soft and warm, reflecting a premium parchment and wood aesthetic. He has a focused, calm expression, perfectly aligning with an elite coaching brand. The overall image has a sharp, data-driven look with warm brutalist undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxG8UdPuGsUj2fXmrg7_3h66-Lv2mm4IrPJXrAsLTaItssMOeIREcqPR4BulynzKLGgNN8omiv5q-dpf_CLbD8Sc42_d0NjYfX7H7Tq7cx2jNv02v1ye3KMFEOXUcoPF93oz8ThbfjNhkKWq5xAaTdLwQFUD4oRrjT2LxxjlSQNGCp1ZRcv_AJ6mLWxPT6UZYbzY1c5hPoOFEYHhDzqew71INzO35BFC3T93Rhf-NZpmeB1ZO4NVRCzWdo-xJEWH1xzDJHiwFGcpgn"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 md:p-10 max-w-5xl mx-auto w-full">
+<!-- Step Progress Indicator (Mobile) -->
+<div class="md:hidden flex justify-between mb-8 overflow-x-auto pb-2 border-b border-primary/10">
+<span class="text-outline font-label-caps text-[10px]">01 CENTRE</span>
+<span class="text-outline font-label-caps text-[10px]">02 LISTEN</span>
+<span class="text-outline font-label-caps text-[10px]">03 DO</span>
+<span class="text-primary font-bold font-label-caps text-[10px] border-b-2 border-primary">04 SEE</span>
+<span class="text-outline font-label-caps text-[10px]">05 COMMIT</span>
+</div>
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-center space-x-2 mb-2">
+<span class="font-metric-sm text-metric-sm text-primary-container bg-primary-fixed px-2 py-0.5 rounded uppercase tracking-widest">Step 04 / 05</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary uppercase tracking-tight">Analysis</h2>
+<div class="w-16 h-1 bg-primary mt-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Hero Metric Card -->
+<section class="md:col-span-8">
+<div class="card-layer p-8 relative overflow-hidden h-full">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary/10 text-9xl select-none" data-icon="architecture" style="font-variation-settings: 'wght' 200;">architecture</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-label-caps text-label-caps text-outline mb-6">HERO METRIC</h3>
+<div class="flex items-baseline space-x-4 mb-2">
+<span class="font-metric-hero text-metric-hero text-primary">88</span>
+<span class="font-metric-sm text-metric-sm text-outline">/ 100</span>
+<div class="flex items-center text-success-sage">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_upward">arrow_upward</span>
+<span class="font-metric-sm text-metric-sm">+12%</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary-container mb-6">Structure Score</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-outline-variant/30">
+<div>
+<p class="font-label-caps text-[10px] text-outline mb-2">BREVITY SCORE</p>
+<div class="flex items-baseline space-x-2">
+<span class="font-metric-hero text-2xl text-primary">74</span>
+<div class="flex items-center text-error-warning">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_downward">arrow_downward</span>
+<span class="font-metric-sm text-[10px]">-3%</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-outline mb-2">PACE (WPM)</p>
+<div class="flex items-baseline space-x-2">
+<span class="font-metric-hero text-2xl text-primary">142</span>
+<div class="flex items-center text-success-sage">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span class="font-metric-sm text-[10px]">Optimal</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-outline mb-2">REPETITION</p>
+<div class="flex items-baseline space-x-2">
+<span class="font-metric-hero text-2xl text-primary">02</span>
+<span class="font-metric-sm text-[10px] text-outline">Instances</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feedback Text Card -->
+<aside class="md:col-span-4 flex flex-col gap-8">
+<div class="card-layer p-6 bg-surface-container-low border-primary/40 flex-1">
+<h3 class="font-label-caps text-label-caps text-outline mb-4">OBSERVATIONS</h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                            "You identified three distinct points, but the transition between the second and third was <span class="bg-error-container text-error px-1 font-bold">rushed</span>. Your structure held firm."
+                        </p>
+<div class="mt-8 flex items-center space-x-2 text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-caps text-label-caps">PRO TIP: Use pauses for emphasis</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-headline-md text-headline-md py-6 rounded-lg active:translate-y-0.5 transition-transform flex items-center justify-center space-x-3 group">
+<span>CONTINUE TO COMMIT</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="trending_flat">trending_flat</span>
+</button>
+</aside>
+</div>
+<!-- Visualization Grid Section -->
+<section class="mt-12">
+<h3 class="font-label-caps text-label-caps text-outline mb-6">VISUAL ANALYSIS: RULE OF 3</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="border-2 border-primary/10 p-4 rounded-lg bg-surface-container-lowest">
+<div class="w-full h-32 bg-primary/5 mb-4 flex items-center justify-center">
+<div class="w-12 h-16 border-2 border-primary bg-primary/20"></div>
+</div>
+<p class="font-metric-sm text-metric-sm text-center">POINT 1: INTRODUCTION</p>
+<p class="font-label-caps text-[10px] text-success-sage text-center mt-1">STRONG SIGNAL</p>
+</div>
+<div class="border-2 border-primary/10 p-4 rounded-lg bg-surface-container-lowest">
+<div class="w-full h-32 bg-primary/5 mb-4 flex items-center justify-center">
+<div class="w-12 h-16 border-2 border-primary bg-primary/20"></div>
+</div>
+<p class="font-metric-sm text-metric-sm text-center">POINT 2: EVIDENCE</p>
+<p class="font-label-caps text-[10px] text-success-sage text-center mt-1">WELL ARTICULATED</p>
+</div>
+<div class="border-2 border-primary p-4 rounded-lg bg-primary-container/10">
+<div class="w-full h-32 bg-primary/5 mb-4 flex items-center justify-center relative">
+<div class="w-12 h-16 border-2 border-error border-dashed bg-error-container/20"></div>
+<span class="material-symbols-outlined absolute text-error" data-icon="bolt">bolt</span>
+</div>
+<p class="font-metric-sm text-metric-sm text-center text-primary font-bold">POINT 3: IMPACT</p>
+<p class="font-label-caps text-[10px] text-error text-center mt-1">RUSHED TRANSITION</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 w-full z-50 bg-surface-parchment border-t-2 border-primary flex justify-around items-center h-16 px-2 pb-safe">
+<button class="flex flex-col items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-[10px]">TODAY</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-caps text-[10px]">JOURNEY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="font-label-caps text-[10px]">LIBRARY</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-caps text-[10px]">STATS</span>
+</button>
+</footer>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simple entry animation for metric numbers
+            const metrics = document.querySelectorAll('.font-metric-hero');
+            metrics.forEach(metric => {
+                const target = parseInt(metric.innerText);
+                if (!isNaN(target)) {
+                    let current = 0;
+                    const duration = 1000;
+                    const step = target / (duration / 16);
+                    
+                    const update = () => {
+                        current += step;
+                        if (current < target) {
+                            metric.innerText = Math.floor(current).toString().padStart(2, '0');
+                            requestAnimationFrame(update);
+                        } else {
+                            metric.innerText = target.toString().padStart(2, '0');
+                        }
+                    };
+                    update();
+                }
+            });
+        });
+    </script>
+</body></html>

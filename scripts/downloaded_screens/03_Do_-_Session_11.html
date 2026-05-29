@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mic-pulse {
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0; }
+        }
+        .timer-ring {
+            transition: stroke-dashoffset 0.1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#ff9b7b",
+                        "on-surface-variant": "#55423d",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb59e",
+                        "outline-variant": "#dcc1b9",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "outline": "#89726c",
+                        "on-tertiary-container": "#ff998e",
+                        "success-sage": "#818C78",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "surface-tint": "#9b4427",
+                        "surface-dim": "#ddd9d6",
+                        "surface-parchment": "#FDF9F5",
+                        "primary": "#5e1700",
+                        "background": "#fdf9f5",
+                        "surface-container": "#f1ede9",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "tertiary": "#680005",
+                        "surface-container-high": "#ebe7e4",
+                        "tertiary-fixed": "#ffdad6",
+                        "border-primary": "#7C2D12",
+                        "inverse-surface": "#31302e",
+                        "tertiary-container": "#93000b",
+                        "surface-container-highest": "#e5e2de",
+                        "primary-container": "#7c2d12",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "error-warning": "#B91C1C",
+                        "on-secondary-fixed": "#151e10",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e5e2de",
+                        "surface-container-low": "#f7f3ef",
+                        "on-secondary-container": "#5b6653",
+                        "on-background": "#1c1c19",
+                        "secondary-fixed": "#dbe6cf",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#57624f",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1c1c19",
+                        "surface-bright": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "surface": "#fdf9f5",
+                        "secondary-container": "#d8e3cc",
+                        "on-tertiary-fixed": "#410002",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-primary-fixed-variant": "#7c2d12"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "hairline": "0.5px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "border-width": "2px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-hero": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"],
+                        "body-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 h-16 bg-surface border-b-2 border-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:translate-y-px">menu</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">CLARITY COACH</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SESSION 11</span>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="User avatar" data-alt="A professional headshot of a focused individual in a modern atelier setting. The lighting is soft and warm, reflecting a premium parchment-toned environment. The person wears a minimalist dark shirt, and the background is a clean, architectural workspace with subtle wood textures and reddish-brown accents, maintaining a sophisticated, data-driven mentor aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzKsckQ1r3kc5qW5u1WoNu0wE2MsG5A8xUsKXfsWC3XkTLwPfi8jUQx1N7ZDL4qeSa9FPvcPNwo1lgRR3p4AdYJ9J6mGLtJyqbR1gURvJ9dbLzehQrV3dpijrZSyjfwC6KrwpU4qq8HdGdwPVitDkoID31pg7fqyoTf0DFlcF0ljBY-PBtNu0jnAzvO9MwP3NmSS1OVoPi9zVjd9ohzPRq_ggiLNmPuBYA5mJdkyPDylO6XF7wREkKupCSVFNPGQbspgFXv2xqoD4o"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 px-10 max-w-7xl mx-auto w-full grid grid-cols-12 gap-gutter">
+<!-- Progress Strip -->
+<nav class="col-span-12 mb-8">
+<div class="flex items-center justify-between w-full h-12 bg-surface-container border-2 border-primary px-2">
+<div class="flex-1 flex items-center justify-center gap-2 text-on-surface-variant opacity-50">
+<span class="font-label-caps text-label-caps">01 CENTRE</span>
+</div>
+<div class="w-hairline h-6 bg-outline opacity-20"></div>
+<div class="flex-1 flex items-center justify-center gap-2 text-on-surface-variant opacity-50">
+<span class="font-label-caps text-label-caps">02 LISTEN</span>
+</div>
+<div class="w-hairline h-6 bg-outline opacity-20"></div>
+<div class="flex-1 flex items-center justify-center gap-2 bg-primary text-surface h-full">
+<span class="font-label-caps text-label-caps">03 DO</span>
+</div>
+<div class="w-hairline h-6 bg-outline opacity-20"></div>
+<div class="flex-1 flex items-center justify-center gap-2 text-on-surface-variant opacity-50">
+<span class="font-label-caps text-label-caps">04 SEE</span>
+</div>
+<div class="w-hairline h-6 bg-outline opacity-20"></div>
+<div class="flex-1 flex items-center justify-center gap-2 text-on-surface-variant opacity-50">
+<span class="font-label-caps text-label-caps">05 COMMIT</span>
+</div>
+</div>
+</nav>
+<!-- Constraint Card -->
+<section class="col-span-12 md:col-span-4 space-y-gutter">
+<div class="bg-surface-parchment border-2 border-primary p-6 rounded-lg">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+                    THE CONSTRAINT
+                </h2>
+<div class="bg-surface-container p-4 border-hairline border-primary mb-4">
+<p class="font-headline-md text-headline-md text-primary leading-tight">
+                        30-second answer to a complex question. No going over.
+                    </p>
+</div>
+<p class="font-body-md text-on-surface-variant">
+                    Clarity is the byproduct of discipline. You have exactly 30 seconds to justify a massive strategic shift. Every syllable must serve the goal.
+                </p>
+</div>
+<div class="bg-surface-parchment border-2 border-primary p-6 rounded-lg">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-4">REAL-TIME DATA</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<span class="font-label-caps text-[10px] text-on-surface-variant">WORDS / MIN</span>
+<div class="font-metric-hero text-metric-hero text-primary">142</div>
+</div>
+<div class="space-y-1">
+<span class="font-label-caps text-[10px] text-on-surface-variant">FILLERS</span>
+<div class="font-metric-hero text-metric-hero text-error">02</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Prompt & Interaction -->
+<section class="col-span-12 md:col-span-8 flex flex-col gap-gutter">
+<div class="bg-surface-parchment border-2 border-primary p-8 rounded-lg flex-grow flex flex-col justify-between relative overflow-hidden">
+<!-- Architectural Grid Background -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle, #5e1700 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<span class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 inline-block mb-8">PROMPT</span>
+<h3 class="font-display-lg text-display-lg text-primary max-w-2xl">
+                        "Explain why we should adopt the new terraforming protocol."
+                    </h3>
+</div>
+<!-- Waveform Visualization -->
+<div class="h-32 flex items-center justify-center gap-1 my-12" id="waveform">
+<!-- JS will populate bars -->
+</div>
+<!-- Hard Cap Timer & Mic -->
+<div class="flex flex-col items-center gap-6 pb-4">
+<div class="relative flex items-center justify-center">
+<!-- Depleting Ring -->
+<svg class="absolute w-32 h-32" viewbox="0 0 100 100">
+<circle class="text-surface-container" cx="50" cy="50" fill="none" r="48" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary timer-ring" cx="50" cy="50" fill="none" id="timer-progress" r="48" stroke="currentColor" stroke-dasharray="301.6" stroke-dashoffset="0" stroke-width="4"></circle>
+</svg>
+<!-- Pulse Dots (JS Managed) -->
+<div class="absolute inset-0 pointer-events-none" id="pulse-container"></div>
+<!-- Mic Button -->
+<button class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-surface-parchment z-20 active:scale-95 transition-transform" id="mic-btn">
+<span class="material-symbols-outlined text-[32px]" id="mic-icon">mic</span>
+</button>
+</div>
+<div class="font-metric-hero text-metric-hero text-primary" id="timer-display">
+                        00:30
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface border-t-2 border-primary">
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps">Today</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-surface h-full w-full active:scale-95">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-label-caps">Journey</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-label-caps">Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary h-full w-full hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-label-caps text-label-caps">Stats</span>
+</button>
+</nav>
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const micIcon = document.getElementById('mic-icon');
+        const timerDisplay = document.getElementById('timer-display');
+        const timerProgress = document.getElementById('timer-progress');
+        const pulseContainer = document.getElementById('pulse-container');
+        const waveform = document.getElementById('waveform');
+
+        let timeLeft = 3000; // 30.00 seconds
+        let isRecording = false;
+        let timerInterval;
+        const totalDash = 301.6;
+
+        // Create waveform bars
+        for (let i = 0; i < 40; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'w-1 bg-primary-fixed-dim transition-all duration-75';
+            bar.style.height = '8px';
+            waveform.appendChild(bar);
+        }
+
+        function updateWaveform() {
+            if (!isRecording) return;
+            const bars = waveform.children;
+            for (let bar of bars) {
+                const height = Math.random() * 80 + 10;
+                bar.style.height = `${height}%`;
+                bar.style.backgroundColor = height > 60 ? '#9b4427' : '#ffb59e';
+            }
+        }
+
+        function triggerPulse() {
+            if (!isRecording) return;
+            const dot = document.createElement('div');
+            dot.className = 'absolute mic-pulse bg-primary rounded-full w-2 h-2';
+            
+            // Random position on perimeter
+            const angle = Math.random() * Math.PI * 2;
+            const x = 50 + 55 * Math.cos(angle);
+            const y = 50 + 55 * Math.sin(angle);
+            
+            dot.style.left = `${x}%`;
+            dot.style.top = `${y}%`;
+            
+            pulseContainer.appendChild(dot);
+            setTimeout(() => dot.remove(), 1500);
+        }
+
+        function startSession() {
+            isRecording = true;
+            micIcon.innerText = 'stop';
+            micBtn.classList.remove('bg-primary');
+            micBtn.classList.add('bg-tertiary-container');
+            
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                
+                // Update text
+                const sec = Math.floor(timeLeft / 100);
+                const ms = timeLeft % 100;
+                timerDisplay.innerText = `${sec.toString().padStart(2, '0')}:${ms.toString().padStart(2, '0')}`;
+                
+                // Update SVG ring
+                const offset = totalDash - (timeLeft / 3000) * totalDash;
+                timerProgress.style.strokeDashoffset = offset;
+
+                updateWaveform();
+                if (Math.random() > 0.8) triggerPulse();
+
+                if (timeLeft <= 0) {
+                    stopSession();
+                }
+            }, 10);
+        }
+
+        function stopSession() {
+            isRecording = false;
+            clearInterval(timerInterval);
+            micIcon.innerText = 'mic';
+            micBtn.classList.add('bg-primary');
+            micBtn.classList.remove('bg-tertiary-container');
+            
+            const bars = waveform.children;
+            for (let bar of bars) bar.style.height = '8px';
+        }
+
+        micBtn.addEventListener('click', () => {
+            if (!isRecording) {
+                timeLeft = 3000;
+                startSession();
+            } else {
+                stopSession();
+            }
+        });
+    </script>
+</body></html>

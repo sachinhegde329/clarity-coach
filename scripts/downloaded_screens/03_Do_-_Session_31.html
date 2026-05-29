@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clarity Coach - Session 31</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=JetBrains+Mono:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "success-sage": "#818C78",
+                        "primary": "#5e1700",
+                        "on-error-container": "#93000a",
+                        "secondary": "#57624f",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d8e3cc",
+                        "inverse-on-surface": "#f4f0ec",
+                        "tertiary-fixed-dim": "#ffb4ab",
+                        "surface-bright": "#fdf9f5",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-surface": "#1c1c19",
+                        "surface-dim": "#ddd9d6",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f7f3ef",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#410002",
+                        "surface-container-high": "#ebe7e4",
+                        "error-warning": "#B91C1C",
+                        "surface-container-highest": "#e5e2de",
+                        "primary-fixed-dim": "#ffb59e",
+                        "surface-tint": "#9b4427",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "inverse-surface": "#31302e",
+                        "on-secondary-fixed-variant": "#404a39",
+                        "outline-variant": "#dcc1b9",
+                        "on-secondary-container": "#5b6653",
+                        "outline": "#89726c",
+                        "surface-variant": "#e5e2de",
+                        "primary-container": "#7c2d12",
+                        "border-primary": "#7C2D12",
+                        "surface-parchment": "#FDF9F5",
+                        "secondary-fixed": "#dbe6cf",
+                        "surface": "#fdf9f5",
+                        "secondary-fixed-dim": "#bfcab4",
+                        "on-surface-variant": "#55423d",
+                        "tertiary-container": "#93000b",
+                        "surface-container": "#f1ede9",
+                        "on-primary-fixed": "#3a0b00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#93000b",
+                        "background": "#fdf9f5",
+                        "on-secondary-fixed": "#151e10",
+                        "on-tertiary-container": "#ff998e",
+                        "on-primary-fixed-variant": "#7c2d12",
+                        "tertiary": "#680005",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary-container": "#ff9b7b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "border-width": "2px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "hairline": "0.5px"
+                    },
+                    "fontFamily": {
+                        "metric-hero": ["JetBrains Mono"],
+                        "body-lg": ["Bricolage Grotesque"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "body-md": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "metric-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "metric-hero": ["40px", {"lineHeight": "40px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "metric-sm": ["14px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .mic-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-outline-variant flat no shadows">
+<div class="flex items-center gap-4">
+<button class="hover:bg-primary-container dark:hover:bg-secondary-container transition-colors duration-150 p-2 rounded-lg flex items-center justify-center transform active:scale-95 duration-75">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">Clarity Coach</h1>
+</div>
+<div class="flex items-center">
+<span class="text-metric-sm font-metric-sm px-3 py-1 border-2 border-primary rounded-DEFAULT">03 / 05</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto w-full flex flex-col items-center justify-center relative">
+<!-- Scenario Card -->
+<div class="w-full max-w-2xl bg-surface-parchment border-2 border-primary rounded-DEFAULT p-6 mb-12 shadow-[4px_4px_0px_0px_rgba(94,23,0,1)] relative">
+<div class="absolute -top-3 -left-3 bg-primary text-on-primary text-label-caps font-label-caps px-2 py-1 border-2 border-primary">SCENARIO</div>
+<h2 class="text-headline-md font-headline-md text-primary mb-2 mt-2">Adversarial Challenge</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Tell a project recovery story.</p>
+</div>
+<!-- Mic & Timer Core -->
+<div class="relative flex flex-col items-center justify-center mb-16">
+<!-- Timer Display -->
+<div class="absolute -top-16 text-metric-hero font-metric-hero text-primary tracking-tighter">
+                00:00
+            </div>
+<!-- Mic Button Container -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- Pulse Effect (Active State) -->
+<div class="absolute inset-0 rounded-full border-2 border-primary mic-pulse pointer-events-none hidden" id="micPulse"></div>
+<!-- Main Button -->
+<button class="w-24 h-24 bg-primary rounded-full flex items-center justify-center text-on-primary hover:bg-surface-tint transition-colors duration-200 border-4 border-surface-parchment shadow-[0_0_0_2px_rgba(94,23,0,1)] z-10 group" id="micBtn">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+<!-- Four-Beat Arc Visualization -->
+<div class="w-full max-w-3xl border-t-2 border-primary pt-8 relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface px-4 text-label-caps font-label-caps text-primary">NARRATIVE ARC</div>
+<div class="flex justify-between items-start relative">
+<!-- Connecting Line (Background) -->
+<div class="absolute top-4 left-6 right-6 h-0.5 bg-outline-variant -z-10"></div>
+<!-- Connecting Line (Progress) -->
+<div class="absolute top-4 left-6 h-0.5 bg-primary -z-10 transition-all duration-1000 ease-out w-[10%]" id="arcProgress"></div>
+<!-- Node 1: Setup -->
+<div class="flex flex-col items-center gap-3 w-1/4">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-primary text-on-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="flag">flag</span>
+</div>
+<span class="text-label-caps font-label-caps text-primary text-center">Setup</span>
+</div>
+<!-- Node 2: Complication -->
+<div class="flex flex-col items-center gap-3 w-1/4">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-surface-parchment text-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+</div>
+<span class="text-label-caps font-label-caps text-on-surface-variant text-center">Complication</span>
+</div>
+<!-- Node 3: Resolution -->
+<div class="flex flex-col items-center gap-3 w-1/4">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-surface-parchment text-outline-variant flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="build">build</span>
+</div>
+<span class="text-label-caps font-label-caps text-outline-variant text-center">Resolution</span>
+</div>
+<!-- Node 4: Lesson -->
+<div class="flex flex-col items-center gap-3 w-1/4">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-surface-parchment text-outline-variant flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="school">school</span>
+</div>
+<span class="text-label-caps font-label-caps text-outline-variant text-center">Lesson</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-surface dark:bg-surface-dim px-2 pb-safe border-t-2 border-primary dark:border-outline-variant flat no shadows md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="self_improvement">self_improvement</span>
+<span class="text-label-caps font-label-caps">Centre</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="hearing">hearing</span>
+<span class="text-label-caps font-label-caps">Listen</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container rounded-full px-4 py-1 scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="text-label-caps font-label-caps">Do</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="visibility">visibility</span>
+<span class="text-label-caps font-label-caps">See</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-label-caps font-label-caps">Commit</span>
+</a>
+</nav>
+<!-- TopNav for Desktop (Translating BottomNav logic to a TopNav cluster if md:flex) -->
+<!-- Not strictly required by prompt to build the full desktop cluster if we focus on the canvas, but adding the indicator for completeness -->
+<div class="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-40 bg-surface-parchment border-2 border-primary px-6 py-3 rounded-full shadow-[4px_4px_0px_0px_rgba(94,23,0,1)] gap-8">
+<div class="flex items-center gap-2 text-secondary opacity-70"><span class="material-symbols-outlined text-sm">self_improvement</span><span class="text-label-caps font-label-caps">Centre</span></div>
+<div class="flex items-center gap-2 text-secondary opacity-70"><span class="material-symbols-outlined text-sm">hearing</span><span class="text-label-caps font-label-caps">Listen</span></div>
+<div class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span><span class="text-label-caps font-label-caps">Do</span></div>
+<div class="flex items-center gap-2 text-secondary opacity-70"><span class="material-symbols-outlined text-sm">visibility</span><span class="text-label-caps font-label-caps">See</span></div>
+<div class="flex items-center gap-2 text-secondary opacity-70"><span class="material-symbols-outlined text-sm">assignment_turned_in</span><span class="text-label-caps font-label-caps">Commit</span></div>
+</div>
+<script>
+        // Simple Interaction Script
+        const micBtn = document.getElementById('micBtn');
+        const micPulse = document.getElementById('micPulse');
+        let isRecording = false;
+
+        micBtn.addEventListener('click', () => {
+            isRecording = !isRecording;
+            if (isRecording) {
+                micPulse.classList.remove('hidden');
+                micBtn.classList.replace('bg-primary', 'bg-tertiary-container');
+                micBtn.classList.replace('hover:bg-surface-tint', 'hover:bg-tertiary');
+            } else {
+                micPulse.classList.add('hidden');
+                micBtn.classList.replace('bg-tertiary-container', 'bg-primary');
+                micBtn.classList.replace('hover:bg-tertiary', 'hover:bg-surface-tint');
+            }
+        });
+    </script>
+</body></html>
