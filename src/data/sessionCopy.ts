@@ -1,10 +1,10 @@
 /* Auto-generated from ClarityCoach Session Copy.docx */
 export type SessionCopyStage = {
-  centre?: { stepName?: string; stepLabel?: string; onScreenLines?: string[]; subLine?: string };
-  listen?: { stepName?: string; tidbitTitle?: string; transcript?: string; pullQuote?: string };
-  do?: { stepName?: string; constraint?: string; prompt?: string; time?: string; doMetaLine?: string; challengeType?: string; closingLine?: string };
-  see?: { stepName?: string; metricsShown?: string; headlineLine?: string; seeSubLine?: string; commentaryTemplates?: Record<string, string>; premiumUpsell?: { headline?: string; body?: string; primaryCta?: string; secondary?: string } };
-  commit?: { stepName?: string; opener?: string; commitMetaLine?: string; freeResponsePrompt?: string };
+  centre?: { stepLabel?: string; onScreenLines?: string[]; subLine?: string };
+  listen?: { tidbitTitle?: string; transcript?: string; pullQuote?: string };
+  do?: { constraint?: string; prompt?: string; time?: string; doMetaLine?: string; challengeType?: string; closingLine?: string };
+  see?: { metricsShown?: string; headlineLine?: string; seeSubLine?: string; commentaryTemplates?: Record<string, string>; premiumUpsell?: { headline?: string; body?: string; primaryCta?: string; secondary?: string } };
+  commit?: { opener?: string; commitMetaLine?: string; freeResponsePrompt?: string };
 };
 export type SessionCopyEntry = { sessionNumber: number; name: string; concept: string; sprintMeta: string; sprintNumber: string; sprintName: string; stages: SessionCopyStage };
 export const sessionCopyEntries: SessionCopyEntry[] = [
@@ -15,7 +15,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Hearing yourself",
     "stages": {
       "centre": {
-        "stepName": "Open the Airway",
         "stepLabel": "A short warm-up before you speak.",
         "onScreenLines": [
           "Stand or sit upright. Jaw loose.",
@@ -25,13 +24,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "A relaxed jaw and a long exhale make the first sentence easier."
       },
       "listen": {
-        "stepName": "What Fillers Are",
         "tidbitTitle": "What fillers are, and why counting them helps.",
         "transcript": "One thing before you start. Fillers — um, like, so-yeah — happen because the brain needs a moment to find the next word, and the filler holds the floor while it looks. Most people speaking off the cuff use eight to fifteen per minute. That is the normal range, not a flaw to fix today. Today you will speak for ninety seconds and the app will count. You will see your number. That is all we are doing this session: getting an honest reading. The work on what to do about it starts later, once you can hear them as they happen.",
         "pullQuote": "Once you can hear a filler as it leaves your mouth, you have three options: silence, a breath, or the next word."
       },
       "do": {
-        "stepName": "Speak Unconstrained",
         "constraint": "No constraints this session. Speak the way you usually do.",
         "prompt": "Tell me about something you did last weekend.",
         "time": "90 seconds",
@@ -39,7 +36,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open prompt"
       },
       "see": {
-        "stepName": "Your Honest Number",
         "metricsShown": "Filler count  ·  Pace (WPM)  ·  Uptalk rate",
         "headlineLine": "These numbers describe this ninety seconds, not a trend.",
         "commentaryTemplates": {
@@ -55,7 +51,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Notice, Don't Fix",
         "opener": "Tomorrow I will notice…",
         "commitMetaLine": "The first sprint is about noticing, nothing more."
       }
@@ -70,20 +65,17 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Pace as social signal",
     "stages": {
       "centre": {
-        "stepName": "Four In, Six Out",
         "stepLabel": "Inhale four. Exhale six.",
         "onScreenLines": [
           "A longer exhale than inhale. Four in, six out."
         ],
       },
       "listen": {
-        "stepName": "The First Three Seconds",
         "tidbitTitle": "Why pace matters",
         "transcript": "Listeners read pace before they read content. Research on first impressions puts the judgment in the first three to five seconds. Faster than 160 words per minute tends to read as rushed or anxious. Slower than 120 tends to read as hesitant or condescending. The 130–150 band is where attention shifts from how you are speaking to what you are saying. Most people don't choose their pace — they inherit it from the room they grew up speaking in. This session just measures where yours sits right now. No target.",
         "pullQuote": "Pace is the first thing a listener decides about you."
       },
       "do": {
-        "stepName": "No Target",
         "constraint": "Open prompt. No target.",
         "prompt": "What was the best part of your weekend?",
         "time": "60 seconds",
@@ -91,7 +83,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open prompt"
       },
       "see": {
-        "stepName": "The 130–150 Band",
         "metricsShown": "Pace (WPM)  ·  Filler count  ·  Time to finish",
         "headlineLine": "130–150 WPM is the range most listeners read as measured.",
         "commentaryTemplates": {
@@ -103,7 +94,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Notice the Drift",
         "opener": "Tomorrow I will notice my pace when…",
         "commitMetaLine": "Awareness is the prerequisite. The change comes in Sprint 2."
       }
@@ -118,7 +108,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Silence as presence",
     "stages": {
       "centre": {
-        "stepName": "Box Breath",
         "stepLabel": "Inhale four. Hold four. Exhale four.",
         "onScreenLines": [
           "A box-breath cycle. Four seconds in, four held, four out."
@@ -126,13 +115,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Three cycles. The breath-hold is the unfamiliar part — it builds tolerance for silence in speech."
       },
       "listen": {
-        "stepName": "Two Seconds of Falling",
         "tidbitTitle": "The pause you don't take",
         "transcript": "There is an asymmetry in how speakers and listeners experience silence. To the speaker mid-sentence, a two-second pause feels like falling — long, exposed, wrong. To the listener, the same two seconds reads as composure, because the speaker is visibly thinking rather than scrambling. Studies of perceived expertise find that listeners rate composed pauses as more credible than filled ones at almost any ratio. Today's session does not ask you to pause. It asks you to notice where pauses wanted to happen and were filled instead. That noticing is what makes the swap possible later.",
         "pullQuote": "To the speaker, a two-second pause feels like falling. To the listener, it reads as composure."
       },
       "do": {
-        "stepName": "Explain Your Job",
         "constraint": "Open prompt. No rule.",
         "prompt": "Explain your job to someone who does not know what you do.",
         "time": "60 seconds",
@@ -140,7 +127,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open prompt"
       },
       "see": {
-        "stepName": "Where Pauses Wanted to Happen",
         "metricsShown": "Pause frequency  ·  Pace (WPM)  ·  Filler count",
         "headlineLine": "Pauses give listeners time to process what you just said.",
         "commentaryTemplates": {
@@ -152,7 +138,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "One Deliberate Pause",
         "opener": "Tomorrow I will pause when…",
         "commitMetaLine": "One deliberate pause is shorter than the apology that replaces it."
       }
@@ -167,7 +152,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Energy as variation, not volume",
     "stages": {
       "centre": {
-        "stepName": "Three Volumes of Your Name",
         "stepLabel": "Say your own name. Three times. Quiet, then normal, then loud.",
         "onScreenLines": [
           "Three volumes of your name: quiet, normal, loud."
@@ -175,13 +159,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Most people under-produce the loudest level. Push past the volume that feels normal."
       },
       "listen": {
-        "stepName": "Same Words, Three Sentences",
         "tidbitTitle": "Vocal energy basics",
         "transcript": "Listen to one sentence, said three ways. This is the most important thing I will tell you today. This is the most important thing I will tell you today. This is the most important thing I will tell you today. Same words. Three different sentences. The difference is not volume — it is variation. Listeners track changes in pitch and stress to figure out which words matter; a monotone flattens that signal. The brain encodes varied speech into memory more reliably than uniform speech, which is one reason recorded monotone lectures are harder to recall the next day. Today the app measures your range. Most first attempts come back flat — that is the median, not a verdict.",
         "pullQuote": "Energy is not volume. It is variation."
       },
       "do": {
-        "stepName": "Three Words, One Story",
         "constraint": "Improvise. Three random words. One coherent story.",
         "prompt": "Tell a sixty-second story using all three of these words.",
         "time": "60 seconds",
@@ -189,7 +171,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open prompt"
       },
       "see": {
-        "stepName": "Energy as Variation",
         "metricsShown": "Energy score  ·  Pace (WPM)  ·  Filler count",
         "headlineLine": "Listeners recall varied speech more reliably than flat speech.",
         "commentaryTemplates": {
@@ -200,7 +181,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Match Energy to Weight",
         "opener": "Tomorrow I will match my energy to…",
         "commitMetaLine": "Change the energy and you change which words the listener remembers."
       }
@@ -215,7 +195,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Sentence endings as authority",
     "stages": {
       "centre": {
-        "stepName": "Pick the Win First",
         "stepLabel": "Think of one recent win.",
         "onScreenLines": [
           "Something small is fine."
@@ -223,13 +202,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Picking the moment now keeps it from being picked for you mid-recording."
       },
       "listen": {
-        "stepName": "The Last Two Words",
         "tidbitTitle": "Why sentence endings matter",
         "transcript": "The last two or three words of a sentence carry the most weight. This is a memory effect — listeners weight the most recent input heavily, which is why endings disproportionately shape the impression of the whole sentence. The mechanical detail: a rising pitch on the final syllable reads as a question, a falling pitch reads as a statement. Studies of professional speakers find rising endings on 30 to 60 per cent of statements, almost always unconsciously. Today the app counts yours. The number is the diagnostic. Session 10 is where the inflection work begins.",
         "pullQuote": "The end of your sentence is what your listener remembers."
       },
       "do": {
-        "stepName": "Tell the Win You Picked",
         "constraint": "The win you already chose.",
         "prompt": "Tell me about a recent win. Something at work or in life.",
         "time": "60 seconds",
@@ -237,7 +214,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open prompt"
       },
       "see": {
-        "stepName": "Statements That Sound Like Questions",
         "metricsShown": "Inflection rate  ·  Pace (WPM)  ·  Filler count",
         "headlineLine": "A rising pitch on the final syllable reads as a question, even when the sentence is a statement.",
         "seeSubLine": "Inflection is the Sprint 1 metric most predictive of how listeners weigh authority.",
@@ -248,7 +224,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Land One Sentence",
         "opener": "Tomorrow I will end one sentence with…",
         "commitMetaLine": "A statement ends on a pitch drop. That drop is what your listener hears as full-stop."
       }
@@ -263,7 +238,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 01 Notice   ·   Sitting with evidence",
     "stages": {
       "centre": {
-        "stepName": "You Are the Audience",
         "stepLabel": "Today, you are the audience.",
         "onScreenLines": [
           "Today, no recording. Just listening.",
@@ -272,13 +246,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "No speaking from you in this Centre. Sustained attention to one's own voice is the skill being trained."
       },
       "listen": {
-        "stepName": "Five Sessions Apart",
         "tidbitTitle": "(Replaced — instruction screen)",
         "transcript": "Today is a review. You will hear the baseline from Session 1 alongside Session 5. No new concept this session. Two recordings of you, five sessions apart. Listen for what changed, and for what did not. Stable patterns matter as much as the moving ones — they tell you what is structural and will need a specific intervention later.",
         "pullQuote": "What did not change matters as much as what did — stable patterns are the structural ones."
       },
       "do": {
-        "stepName": "Listen, Don't Record",
         "constraint": "Listen. Do not record.",
         "prompt": "Baseline plays. Then five seconds of silence. Then session five plays.",
         "time": "≈3 minutes",
@@ -287,7 +259,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "closingLine": "That was you, five sessions apart. The differences are the data."
       },
       "see": {
-        "stepName": "Direction, Not Trajectory",
         "metricsShown": "Filler trajectory  ·  Pace stability  ·  Inflection trend",
         "headlineLine": "Five data points. Enough to see direction, not enough to predict trajectory.",
         "commentaryTemplates": {
@@ -297,7 +268,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "The Habit to Break",
         "opener": "(Free response — 30 seconds)",
         "freeResponsePrompt": "What is the one habit I most want to break?",
         "commitMetaLine": "Six sessions of noticing is the prerequisite the rest of the programme builds on."
@@ -313,7 +283,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   The replacement move",
     "stages": {
       "centre": {
-        "stepName": "Settle In for the Hard Part",
         "stepLabel": "You are about to try something hard. Settle in.",
         "onScreenLines": [
           "You are about to try something hard.",
@@ -322,13 +291,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Constraints feel like restraint. They are training."
       },
       "listen": {
-        "stepName": "The Half-Second Window",
         "tidbitTitle": "Filler reduction in practice",
         "transcript": "Fillers have a tell. About half a second before the um or the so forms, the jaw drops and the breath shifts forward. That window is where the move lives. When you feel it, close your mouth. Do not search for a replacement word. The substitution is silence, not vocabulary. Three things follow. The filler does not get said. The listener gets a half-second pause, which prosodic research consistently shows raises perceived confidence. And the next word, when it arrives, is usually the word you actually wanted — because the mouth had time to catch up with the brain. Inhibition is harder than substitution; closing the mouth gives the inhibition something to do. Sixty seconds. The dot beside the mic logs each filler for later. Do not watch it. Watch the feeling instead.",
         "pullQuote": "The half-second before the filler is the window.  The silence handles the rest."
       },
       "do": {
-        "stepName": "No Fillers",
         "constraint": "No fillers. 60 seconds.",
         "prompt": "Tell me about something you are looking forward to this week.",
         "time": "60 seconds",
@@ -336,7 +303,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Where the Move Held",
         "metricsShown": "Filler count  ·  Pace (WPM)  ·  Time on target",
         "headlineLine": "Filler count on first attempt sets your baseline for the move. The drop is across sessions, not within one.",
         "commentaryTemplates": {
@@ -349,7 +315,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Catch It Earlier",
         "opener": "Tomorrow I will catch one filler before…",
         "commitMetaLine": "Each session, the catch arrives earlier in the half-second window. That is where the count drops."
       }
@@ -364,7 +329,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   The credibility band",
     "stages": {
       "centre": {
-        "stepName": "Breath Sets Tempo",
         "stepLabel": "Three breaths at the tempo you want to speak.",
         "onScreenLines": [
           "Breath cadence sets speech cadence. Slow the first; the second follows."
@@ -372,13 +336,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Three slow cycles before the recording. The diaphragmatic pattern carries into the first thirty seconds of speech."
       },
       "listen": {
-        "stepName": "What 140 Feels Like",
         "tidbitTitle": "The 130 to 150 band",
         "transcript": "One hundred and thirty to one hundred and fifty words per minute is the band most listeners read as measured. Above one sixty, perceived urgency and anxiety climb. Below one twenty, perceived uncertainty climbs, and listener comprehension actually drops because the prosodic phrasing fragments. The middle of the band — around one forty — is a defensible target for any high-stakes answer. Today the indicator beside the mic shows your running pace. The aim is not to track it. The aim is interoceptive: to learn what one forty feels like at the jaw, the chest, the breath. The indicator becomes scaffolding the longer you use it, and the body learns the rate without it.",
         "pullQuote": "130 to 150 is the band most listeners read as measured. The middle is the safe target."
       },
       "do": {
-        "stepName": "Lock at 140",
         "constraint": "Pace lock at 140 WPM. 60 seconds.",
         "prompt": "Walk me through a process you do well. Anything — your morning routine, how you onboard a client, how you make coffee.",
         "time": "60 seconds",
@@ -386,7 +348,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Twenty WPM of Headroom",
         "metricsShown": "Mean WPM  ·  Time in zone  ·  Pace variance",
         "headlineLine": "Twenty WPM of headroom. Drift inside it is invisible to the listener; drift across the edges is not.",
         "commentaryTemplates": {
@@ -398,7 +359,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Start the Hard One Slow",
         "opener": "Tomorrow I will start my hardest conversation at…",
         "commitMetaLine": "Pace resets every time the breath does. The first sentence of the next hard conversation is where to place it."
       }
@@ -413,7 +373,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   Three deliberate silences",
     "stages": {
       "centre": {
-        "stepName": "Train the Held State",
         "stepLabel": "Box breathing. Four in, four hold, four out, four hold.",
         "onScreenLines": [
           "The hold trains tolerance for silence — the same physiology as a mid-sentence pause."
@@ -421,13 +380,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Two cycles. The held breath produces the same nervous-system state as a deliberate pause."
       },
       "listen": {
-        "stepName": "Deliberate or Searching",
         "tidbitTitle": "Strategic silence",
         "transcript": "Silence in speech reads two ways, and listeners decide which within about a second. A silence that follows a completed clause, where the speaker's posture stays open and the breath finishes, reads as deliberate — it amplifies whatever came before. A silence that follows a fragment, where the eyes search and the jaw tightens, reads as searching. The acoustic gap is identical. The physical envelope is what differentiates them. Three signals carry most of the read: where in the sentence the silence falls, what the breath does during it, and whether the eyes hold or move. Today the constraint is three pauses across ninety seconds. The count is the scaffold. What you do during each pause is the actual training — and the sentence that follows a held pause almost always lands harder than the sentence that filled the gap.",
         "pullQuote": "Same acoustic gap. Different breath, eyes, and placement decide what listeners read."
       },
       "do": {
-        "stepName": "Three Pauses, Placed",
         "constraint": "Three pauses required. 90 seconds.",
         "prompt": "Explain a recent decision you made and what informed it.",
         "time": "90 seconds",
@@ -435,11 +392,10 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Above the Half-Second Line",
         "metricsShown": "Pause count  ·  Average pause length  ·  Pace (WPM)",
         "headlineLine": "A well-placed pause amplifies the sentence it follows. A filler removal merely cleans a sentence. Different magnitudes.",
         "commentaryTemplates": {
-          "pauses_hit": "Three pauses, each above the half-second threshold the app counts as deliberate.",
+          "pauses_hit": "\"Three pauses, each above the half-second threshold the app counts as deliberate.",
           "pauses_short": "Three pauses, but the average ran under half a second — breath-gap territory rather than the held silence the listener reads as deliberate. Half a second is the rough perceptual threshold; below it, the gap registers as hesitation, above it, as intent.",
           "pauses_missed": "{n} pauses in ninety seconds. Under the target — the default reflex is to bridge gaps with sound. The half-second tolerance is what these sessions train.",
           "quality_strong": "The longest pause fell after the sentence carrying the most content. That placement is what produces the amplification — the silence inherits the weight of what just landed.",
@@ -447,7 +403,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Pause Before You Answer",
         "opener": "Tomorrow I will pause before answering…",
         "commitMetaLine": "The first deliberate pause in a real conversation costs the most attention. The ones after run on the pattern the first one sets."
       }
@@ -462,7 +417,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   The certainty sound",
     "stages": {
       "centre": {
-        "stepName": "Hum Down Two Octaves",
         "stepLabel": "Hum a downward note. Repeat.",
         "onScreenLines": [
           "Hum down through two octaves. The lower register is where today's sentences will end."
@@ -470,13 +424,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Descending hums prime the laryngeal muscles for the same trajectory the sentences require."
       },
       "listen": {
-        "stepName": "Two Semitones Down",
         "tidbitTitle": "The certainty sound",
         "transcript": "The last two words of a sentence carry disproportionate weight in how listeners judge certainty. Speech perception research is consistent on this: the terminal pitch contour is the cue listeners use to classify a sentence as statement, question, or hedge — often more strongly than the words themselves. A two-semitone drop on the final syllable reads as resolved. A flat or rising terminal reads as open, uncertain, or — at higher rises — as a question. The effect is acoustic, not personal; it operates below the level of conscious attention for the listener. Today the constraint is downward inflection on every sentence across sixty seconds. The visualiser will mark each landed terminal in green and each lifted one in parchment. Watch the feeling of the drop more than the line. The line is the receipt; the feeling is the rehearsal.",
         "pullQuote": "A two-semitone drop on the final syllable. Acoustic, not personal — listeners process it before they hear the words."
       },
       "do": {
-        "stepName": "Land Every Ending",
         "constraint": "End every sentence with downward inflection. 60 seconds.",
         "prompt": "Make a recommendation. Anything — a book, a tool, a way of working.",
         "time": "60 seconds",
@@ -484,7 +436,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Green for Landed",
         "metricsShown": "Inflection rate  ·  Pitch variance  ·  Pace (WPM)",
         "headlineLine": "Two semitones. Smaller than most speakers expect — the listener's ear is more sensitive to terminal pitch than to mid-sentence pitch.",
         "commentaryTemplates": {
@@ -496,7 +447,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Land the Recommendation",
         "opener": "Tomorrow I will land my recommendation with…",
         "commitMetaLine": "Two semitones on the last syllable. The sentence in front of it inherits the certainty."
       }
@@ -511,7 +461,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   The twenty per cent cut",
     "stages": {
       "centre": {
-        "stepName": "Recall a Real Sentence",
         "stepLabel": "Recall the most important sentence you said today.",
         "onScreenLines": [
           "Recall a sentence from today. Strip it to its core in your head."
@@ -519,13 +468,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "If nothing comes to mind, use one you will say later today. The priming effect carries forward by a few hours."
       },
       "listen": {
-        "stepName": "Throat-Clearers, Hedges, Padding",
         "tidbitTitle": "Cutting unnecessary words",
         "transcript": "A large share of professional speech carries words that can be removed without losing content. Three categories cover most of them. Throat-clearers — basically, essentially, sort of, kind of. Hedges — I think maybe, it might be that. Padding — at the end of the day, at this point in time. Each one signals to the speaker's own brain that the next word is coming, but to the listener they read as filler-with-better-vocabulary. Today the constraint is thirty seconds, hard cap, no warning. The cut-off is doing two things. It forces prioritisation under load, which exposes which words you were treating as essential and which were habit. And it shortens the gap between thought and delivery, which tends to surface the version of the answer your brain had reached before you started talking. That version is usually the one worth keeping.",
         "pullQuote": "Throat-clearers, hedges, padding. The three categories that carry most of the cuttable weight."
       },
       "do": {
-        "stepName": "Hard Cap at 30",
         "constraint": "30-second answer. Hard cap. No warning.",
         "prompt": "What is the single most important thing you have learned in your career?",
         "time": "30 seconds",
@@ -533,7 +480,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Content vs Setup",
         "metricsShown": "Brevity score  ·  Pace (WPM)  ·  Time used",
         "headlineLine": "Brevity rises when time is rationed. The first thirty seconds carry the version your brain had before fluency added to it.",
         "commentaryTemplates": {
@@ -544,7 +490,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "The Cut That Lands",
         "opener": "Tomorrow I will answer one question in…",
         "commitMetaLine": "The cut that feels too aggressive is usually the one that lands. The listener's working memory has less room than the speaker thinks."
       }
@@ -559,7 +504,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 02 Steady   ·   Trend lines and the first share moment",
     "stages": {
       "centre": {
-        "stepName": "The Numbers Speak",
         "stepLabel": "The numbers are about to speak for you.",
         "onScreenLines": [
           "The numbers are about to speak for you."
@@ -567,13 +511,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Eleven recordings of data. The shape of the trend is the signal; any one session is noise."
       },
       "listen": {
-        "stepName": "Eleven Recordings In",
         "tidbitTitle": "(Replaced — instruction screen)",
         "transcript": "This is the first review screen. Four metrics across eleven recordings — fillers, pace, inflection, brevity — and a single Clarity Score that combines them. The shape of each line is the signal. Lines that drop are skills the practice generalised; lines that stayed flat are skills that need a different angle, which is what the next sprint provides. Both readings are useful — the flat lines, in particular, tell you where Sprint 3 will do the most work.",
         "pullQuote": "Eleven recordings. Trends are signal; single sessions are noise."
       },
       "do": {
-        "stepName": "Replay Your Best",
         "constraint": "Replay your strongest recent session.",
         "prompt": "Listen to your best session from the past week. 30 seconds.",
         "time": "30 seconds",
@@ -581,7 +523,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Replay"
       },
       "see": {
-        "stepName": "Four Lines and a Score",
         "metricsShown": "Filler trend  ·  Pace trend  ·  Inflection trend  ·  Brevity trend  ·  Clarity Score",
         "headlineLine": "Twelve sessions. The Clarity Score is now stable enough to compare against — the next twelve sessions will move it more than the first twelve did.",
         "commentaryTemplates": {
@@ -591,7 +532,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Proved I Can Change",
         "opener": "(Free response)",
         "freeResponsePrompt": "I have proved I can change. What is next?",
         "commitMetaLine": "Sprint 1 built awareness. Sprint 2 built three core motor skills. Sprint 3 — starting tomorrow — adds the structural moves that make those skills visible to listeners."
@@ -607,7 +547,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Bottom line up front",
     "stages": {
       "centre": {
-        "stepName": "Pick the One Sentence",
         "stepLabel": "What is the single most important thing you want them to remember?",
         "onScreenLines": [
           "One sentence. The conclusion."
@@ -615,13 +554,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The rest of the answer is supporting the one you pick."
       },
       "listen": {
-        "stepName": "Eight Seconds to the Conclusion",
         "tidbitTitle": "Bottom line up front",
         "transcript": "Most professionals build answers the way they think them — context, complication, reasoning, conclusion. That order works on the page. In a meeting it costs you the room: by the time the conclusion arrives, the listener has been holding loose threads for forty seconds and has started filling in their own. The fix is structural. State the conclusion first. Eight seconds in, the listener should know where you stand. The reasoning lives in the next forty-five seconds, where it can do its job — supporting a verdict the listener already heard. This is the inverted pyramid; journalists use it because the most important information has the highest chance of being read. Spoken delivery has the same property: front-loaded conclusions get remembered. Today, thirty seconds. The conclusion goes in the first eight. A small notch on the timer marks the eight-second line. Cross it without a conclusion and the notch glows. Once.",
         "pullQuote": "Eight seconds to the conclusion. Forty-five seconds for the rest."
       },
       "do": {
-        "stepName": "Conclusion in the First Eight",
         "constraint": "BLUF only. 30 seconds. Conclusion in the first 8.",
         "prompt": "Should your company invest more in remote work, in-office work, or hybrid? Your view, with reasoning.",
         "time": "30 seconds",
@@ -629,7 +566,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Where the Conclusion Landed",
         "metricsShown": "Time to conclusion  ·  Brevity score  ·  Pace (WPM)",
         "headlineLine": "Eight seconds for the conclusion. The remainder is the supporting case.",
         "commentaryTemplates": {
@@ -640,7 +576,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Lead with the Conclusion",
         "opener": "Tomorrow I will lead with my conclusion when…",
         "commitMetaLine": "Notice where the conclusion lands in tomorrow's first answer."
       }
@@ -655,7 +590,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Three points, no more",
     "stages": {
       "centre": {
-        "stepName": "Pick Three Now",
         "stepLabel": "Three things you want to say today. Pick now.",
         "onScreenLines": [
           "Three. No more."
@@ -663,13 +597,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Three discrete items sit in working memory. The fourth displaces the first."
       },
       "listen": {
-        "stepName": "Three Fit, Four Compete",
         "tidbitTitle": "Three points, no more",
         "transcript": "The rule of three is older than rhetoric and survives because of working memory. Listeners hold three discrete items without effort. The fourth displaces the first. The fifth and sixth turn the list into noise. This is the cognitive ceiling Miller named in 1956, refined to three for spoken delivery where the listener cannot re-read. Today, exactly three points on a topic. Not two. Not four. Three. The app will count them — heuristically, leaning on transition words and pause shape, close enough to keep you honest. The count is not the lesson. Choosing which three is.",
         "pullQuote": "Three points fit. Four points compete."
       },
       "do": {
-        "stepName": "Exactly Three",
         "constraint": "Exactly three points. 60 seconds.",
         "prompt": "What makes a good manager? Three things.",
         "time": "60 seconds",
@@ -677,7 +609,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "The Choice Was the Skill",
         "metricsShown": "Structure score  ·  Brevity score  ·  Pace (WPM)",
         "headlineLine": "Three was the constraint. Choice was the skill.",
         "commentaryTemplates": {
@@ -690,7 +621,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Cut the Fourth in Planning",
         "opener": "Tomorrow I will make three points, no more, when…",
         "commitMetaLine": "Choose three before you start. Cut the fourth in the planning, not in the recording."
       }
@@ -705,7 +635,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Verbal headings",
     "stages": {
       "centre": {
-        "stepName": "Recall the Listener's Cost",
         "stepLabel": "When did you last lose the thread of a meeting?",
         "onScreenLines": [
           "Most speakers do not signpost. Most listeners feel the cost."
@@ -713,13 +642,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Signposts are written for the listener, not the speaker."
       },
       "listen": {
-        "stepName": "Verbal Headings",
         "tidbitTitle": "First, second, finally",
         "transcript": "Imagine a long document with no headings, no section breaks, no bold. A wall of text. You would lose your place inside a paragraph. Unstructured professional speech does the same thing to a listener, who cannot re-read. Signposts are the verbal headings. First. Second. To begin with. Moving on. In contrast. To bring this together. They are cheap to say and they reduce the listener's working-memory load measurably. Three of them across a ninety-second response. The app will detect them — heuristically, on common patterns, forgiving variation. The count is not the work. The placement is.",
         "pullQuote": "Verbal headings. Cheap to say. Measurable cognitive savings."
       },
       "do": {
-        "stepName": "Three Signposts",
         "constraint": "Three signposts required. 90 seconds.",
         "prompt": "Compare two things you have used recently — two tools, two approaches, two anything. Tell me which is better and why.",
         "time": "90 seconds",
@@ -727,7 +654,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "A Map for the Listener",
         "metricsShown": "Signpost count  ·  Structure score  ·  Pace (WPM)",
         "headlineLine": "Headings for the listener.",
         "commentaryTemplates": {
@@ -738,7 +664,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Say the Heading First",
         "opener": "Tomorrow I will signal my structure before…",
         "commitMetaLine": "Say the heading. Then the section."
       }
@@ -753,7 +678,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Three rules at once",
     "stages": {
       "centre": {
-        "stepName": "All Three at Once",
         "stepLabel": "BLUF in 8. Three points. Under 50 seconds. Together.",
         "onScreenLines": [
           "Three constraints. One minute. Together."
@@ -761,13 +685,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Each constraint is earned. The combination is the new load."
       },
       "listen": {
-        "stepName": "Plan Beats Warm-Up",
         "tidbitTitle": "Combining clarity tools",
         "transcript": "Skills are easy in isolation and harder in combination. This is dual-task load: each constraint takes attention, and attention is finite. Practised separately, BLUF and rule-of-three and brevity each cost you something; practised together, they cost more than the sum. That is normal, not a sign you have lost them. Today is the combination. BLUF in the first eight seconds. Three points. Under fifty seconds. The first attempt usually shows one constraint holding and the other two slipping. That is information about which of the three is most automatic for you. The most useful move in the next sixty seconds is to plan before you speak. Five seconds of silent structure beats ten seconds of warm-up filler.",
         "pullQuote": "Five seconds of silent planning beats ten of warm-up filler."
       },
       "do": {
-        "stepName": "Three Constraints, Stacked",
         "constraint": "BLUF in 8 + Three points + Under 50 seconds.",
         "prompt": "What is the most important change your industry will see in the next five years?",
         "time": "50 seconds",
@@ -775,7 +697,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Which One Slipped First",
         "metricsShown": "Composite score  ·  Time to conclusion  ·  Structure score  ·  Brevity score  ·  Pace (WPM)",
         "headlineLine": "Composite score is the headline. The four below are the parts.",
         "commentaryTemplates": {
@@ -785,7 +706,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Plan Five, Speak Fifty",
         "opener": "Tomorrow I will deliver a complete argument in…",
         "commitMetaLine": "Plan five seconds. Speak the structure you planned."
       }
@@ -800,7 +720,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Imitation as practice",
     "stages": {
       "centre": {
-        "stepName": "Listen for Shape",
         "stepLabel": "Close your eyes. Listen first.",
         "onScreenLines": [
           "Listen to the shape, not the words."
@@ -808,13 +727,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "What you are about to mimic is a structure, not a script."
       },
       "listen": {
-        "stepName": "Apprenticeship, Not Theft",
         "tidbitTitle": "Mimic and refine",
         "transcript": "Imitation is how skilled communicators learn shape. Comedians borrow each other's rhythms; trial lawyers reuse opening structures; the pattern is older than rhetoric. The cognitive basis is observational learning — mirror systems are particularly active when watching skilled motor or vocal performance, and the same systems prime production. Today you will hear a ninety-second master answer. Listen for shape — where the conclusion lands, how the supports are spaced, where the pauses fall. Then record your own ninety-second answer to the same prompt. The app measures structural similarity, not content overlap. The point is not to copy the words. It is to feel the shape of a strong answer in your own mouth.",
         "pullQuote": "Imitation is apprenticeship, not theft."
       },
       "do": {
-        "stepName": "Borrow the Shape",
         "constraint": "Listen once. Then answer the same prompt.",
         "prompt": "(Master answer plays first.) How would you describe what you do to someone outside your field?",
         "time": "90 seconds",
@@ -822,7 +739,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Comparative"
       },
       "see": {
-        "stepName": "Same Shape, Different Words",
         "metricsShown": "Structural similarity  ·  Brevity score  ·  Structure score",
         "headlineLine": "Same shape. Different words. That is the lesson.",
         "commentaryTemplates": {
@@ -833,7 +749,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "One Speaker, One Shape",
         "opener": "Tomorrow I will mimic one phrase from…",
         "commitMetaLine": "Pick one speaker this week. Borrow one shape."
       }
@@ -848,7 +763,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 03 Lead   ·   Composure under pushback",
     "stages": {
       "centre": {
-        "stepName": "Eighteen Sessions In",
         "stepLabel": "First Hot Seat. An AI partner pushes back three times.",
         "onScreenLines": [
           "Eighteen sessions of practice precede this one.",
@@ -857,13 +771,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Four minutes. Adversarial. The first time the metrics will show pressure response."
       },
       "listen": {
-        "stepName": "Your Pressure Signature",
         "tidbitTitle": "(Replaced — instruction screen)",
         "transcript": "This is the first Hot Seat. An AI partner pushes back three times, each follow-up harder than the last. There is no right answer to defend — the pushback is about composure, not correctness. Under adversarial load, fillers typically climb, pace spikes, and structure wobbles. That is the sympathetic response, not a failure of the work. The exercise is to notice the climb and steady the next sentence. The metrics will tell you which lever moved first; that is your individual pressure signature.",
         "pullQuote": "Adversarial load exposes which lever moves first. That is your pressure signature."
       },
       "do": {
-        "stepName": "Three Follow-Ups",
         "constraint": "60-second opener. Three AI follow-ups.",
         "prompt": "What is one decision you have made in the past year that you would defend, even if your team disagreed?",
         "time": "≈3–4 minutes total",
@@ -871,7 +783,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial"
       },
       "see": {
-        "stepName": "Which Lever Moved First",
         "metricsShown": "Recovery time  ·  Composure score  ·  Structural integrity",
         "headlineLine": "Pressure changes the numbers. The change pattern is the data.",
         "commentaryTemplates": {
@@ -889,7 +800,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Name the Cost",
         "opener": "(Anchor — bespoke)",
         "freeResponsePrompt": "Pressure cost me ___. Next time I will ___.",
         "commitMetaLine": "The cost names what to practise. The next time is when to practise it."
@@ -905,7 +815,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   How and what, not why",
     "stages": {
       "centre": {
-        "stepName": "Pushback Is Information",
         "stepLabel": "The next push is information, not a threat.",
         "onScreenLines": [
           "Pushback carries information about what the other side needs."
@@ -913,13 +822,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Your response is the variable. The question redirects it."
       },
       "listen": {
-        "stepName": "Drop the Presupposition",
         "tidbitTitle": "How and what, not why",
         "transcript": "Why puts the listener on the defensive. Why did you do that. Why is this so expensive. Why should I trust you. The grammar of why presupposes a justification is owed, which is why the most common response to it is a defence. How and what carry the same information request without the presupposition. How did you arrive at that number. What would have to be true for this to work. The pressure on the listener drops, and the answer they give is usually more useful than the answer why would have produced. Today, you will hear a confrontational statement. You have fifteen seconds. Respond with one open, non-leading question that begins with how or what.",
         "pullQuote": "How and what carry the same request without the presupposition."
       },
       "do": {
-        "stepName": "One Open Question",
         "constraint": "Listen to the clip. Respond with one calibrated question.",
         "prompt": "(Audio plays: 'I don't think this approach is going to work for us.') 15 seconds to respond.",
         "time": "15 seconds",
@@ -927,7 +834,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Reactive"
       },
       "see": {
-        "stepName": "Shape and Time",
         "metricsShown": "Question quality  ·  Response latency  ·  Composure score",
         "headlineLine": "Question shape and response time, side by side.",
         "commentaryTemplates": {
@@ -939,7 +845,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Two Openers Carry It",
         "opener": "Tomorrow I will ask a calibrated question when…",
         "commitMetaLine": "Two openers carry most of the work."
       }
@@ -954,7 +859,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   Mirroring",
     "stages": {
       "centre": {
-        "stepName": "Hearing Is Not Agreeing",
         "stepLabel": "Listen to the clip twice before you mirror.",
         "onScreenLines": [
           "Hearing is not agreeing.",
@@ -963,13 +867,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Silence between the clip and your mirror is allowed. Required, even."
       },
       "listen": {
-        "stepName": "Last Three Words, Down",
         "tidbitTitle": "Mirroring and labelling",
         "transcript": "Mirroring is the smallest move in negotiation training: you repeat the last one to three significant words of what someone just said, in a curious, downward tone. Two things tend to follow. The speaker keeps talking, because the mirror is an implicit invitation to continue. And the next thing they say is usually more specific than the first — the act of hearing their own words back prompts elaboration. The work today is to hear a clip and mirror it. The app measures two things: whether the words you chose were among the last three significant ones, and whether your tone went down on those words. Word choice is the easy half. The downward tone is what makes a mirror an invitation instead of a question.",
         "pullQuote": "The last three significant words, in a downward tone."
       },
       "do": {
-        "stepName": "Mirror the Last Three",
         "constraint": "Listen. Mirror the last three significant words. Downward tone.",
         "prompt": "(Audio clip plays — emotionally weighted statement.) 15 seconds.",
         "time": "15 seconds",
@@ -977,7 +879,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Reactive"
       },
       "see": {
-        "stepName": "Words and Tone, Scored Apart",
         "metricsShown": "Mirror accuracy  ·  Tone (downward)  ·  Response latency",
         "headlineLine": "Word choice and tone are scored separately.",
         "commentaryTemplates": {
@@ -988,7 +889,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Tone Is the Half You Practise",
         "opener": "Tomorrow I will mirror one phrase when…",
         "commitMetaLine": "Word choice is the obvious half. Tone is the half you practise."
       }
@@ -1003,7 +903,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   Name it first",
     "stages": {
       "centre": {
-        "stepName": "Imagine Their Objection",
         "stepLabel": "Imagine the room's biggest objection to what you are about to say.",
         "onScreenLines": [
           "Name the objection before they do."
@@ -1011,13 +910,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "What you fear they will say is the thing you say first."
       },
       "listen": {
-        "stepName": "Acknowledgement vs Challenge",
         "tidbitTitle": "Name it first",
         "transcript": "Most difficult conversations carry an unspoken objection — the cost, the delay, the prior failure, the political read. Left unspoken, the listener spends part of their attention rehearsing it instead of following the speaker. Naming the objection yourself transfers it from listener to speaker, which collapses the rehearsal loop. You are over budget. You are late. This will be unpopular. We have tried this before and it did not work. The same words said by you instead of waited for by them carry different weight — yours is acknowledgement, theirs would have been a challenge. Today, you will be given a scenario and asked to identify three objections that would land in the first thirty seconds. Then you will address one of them, in your own words, before it surfaces. AI grading reads what you said and how the acknowledgement is framed.",
         "pullQuote": "An objection said by you is acknowledgement. The same words from them are a challenge."
       },
       "do": {
-        "stepName": "Name Three, Own One",
         "constraint": "Name three objections. Address one before it surfaces.",
         "prompt": "You are about to propose a six-month delay on the project to your team. 60 seconds.",
         "time": "60 seconds",
@@ -1025,7 +922,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Reactive"
       },
       "see": {
-        "stepName": "Owned in Your Words",
         "metricsShown": "Audit fluency  ·  Pre-emption credibility  ·  Structural quality",
         "headlineLine": "Three objections named. One owned in your words.",
         "commentaryTemplates": {
@@ -1036,7 +932,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Name, Then a Beat",
         "opener": "Tomorrow I will name the elephant in the room when…",
         "commitMetaLine": "Naming, then a beat. Not naming, then a justification."
       }
@@ -1051,7 +946,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   Acknowledge and redirect",
     "stages": {
       "centre": {
-        "stepName": "The Interruption Is Information",
         "stepLabel": "You will be interrupted once between 12 and 28 seconds in.",
         "onScreenLines": [
           "The interruption is information.",
@@ -1060,13 +954,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Acknowledge. Pivot. Continue."
       },
       "listen": {
-        "stepName": "Three Beats",
         "tidbitTitle": "Acknowledge and redirect",
         "transcript": "Interruptions usually arrive carrying two things at once: a point about the content, and a request to be heard. Engaging only with the content drags the conversation onto the interrupter's ground, where finishing your original sentence becomes a second interruption of your own. The pivot moves you back to the point you were making, while crediting the part of the interruption that asked for acknowledgement. Three beats. Acknowledge — yes, that is a fair concern. Pivot — and what I want to come back to is. Continue — the original sentence, finished. Two of the beats are scripts. The third is the sentence you were going to say anyway. Today, the AI partner will interrupt you once between twelve and twenty-eight seconds in. The recording keeps running. Acknowledge, pivot, continue.",
         "pullQuote": "Acknowledge. Pivot. Continue. Three beats."
       },
       "do": {
-        "stepName": "Keep Speaking",
         "constraint": "90-second response. One AI interruption between 12s and 28s.",
         "prompt": "Defend a recent decision you stand behind. The interruption will come.",
         "time": "90 seconds",
@@ -1074,7 +966,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial"
       },
       "see": {
-        "stepName": "Did the Point Return",
         "metricsShown": "Pivot recovery time  ·  Structural integrity  ·  Composure score",
         "headlineLine": "Recovery time, plus whether the original point returned.",
         "commentaryTemplates": {
@@ -1086,7 +977,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Three Beats, Then Your Sentence",
         "opener": "Tomorrow I will not let an interruption knock me off…",
         "commitMetaLine": "Three beats. Then your sentence."
       }
@@ -1101,7 +991,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   Name the emotion, then stop",
     "stages": {
       "centre": {
-        "stepName": "Naming, Then Silence",
         "stepLabel": "You are about to acknowledge someone's emotion. Then stop talking for three seconds.",
         "onScreenLines": [
           "Naming. Then silence.",
@@ -1110,13 +999,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The silence is the part the metric scores."
       },
       "listen": {
-        "stepName": "Light Language, Then Nothing",
         "tidbitTitle": "Emotional acknowledgement",
         "transcript": "When the room is hot — frustration, fear, anger, fatigue — the common responses are to match the temperature or to act as if nothing is happening. Matching escalates. Ignoring leaves the emotion to drive whatever the speaker says next. The third option, affect labelling, names the emotion in the lightest possible language and then stops. It sounds like you are frustrated. It seems like this matters more than the meeting can hold. It feels like we are stuck. Then three seconds of nothing. The neuroscience underneath this is well documented — naming an emotion engages prefrontal regulation and reduces limbic arousal, in the speaker doing the naming and often in the person being named. What you hear in response is usually either a correction — no, it is not frustration, it is — or an expansion. Both are more useful than the defence or counter the silence prevented.",
         "pullQuote": "Light language. Three seconds. No follow-up sentence."
       },
       "do": {
-        "stepName": "Hold Three Seconds",
         "constraint": "Listen. Label the emotion. Hold silence for 3 seconds. No more words.",
         "prompt": "(Audio clip plays — emotionally charged statement.) Label. Hold.",
         "time": "≈15 seconds",
@@ -1124,7 +1011,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial"
       },
       "see": {
-        "stepName": "Hold and Fit, Both",
         "metricsShown": "Pause hold time  ·  Label appropriateness  ·  Composure score",
         "headlineLine": "Pause hold and label fit — both have to land.",
         "commentaryTemplates": {
@@ -1136,7 +1022,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "The Absent Next Sentence",
         "opener": "Tomorrow I will name what someone is feeling and then…",
         "commitMetaLine": "The hardest part of the move is the absence of a next sentence."
       }
@@ -1151,7 +1036,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 04 Hold   ·   Re-attempt the toughest moment",
     "stages": {
       "centre": {
-        "stepName": "Face It Once More",
         "stepLabel": "Re-record the Sprint 4 session where the metrics were weakest.",
         "onScreenLines": [
           "You are about to face it once more."
@@ -1159,13 +1043,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Same scenario. Different you."
       },
       "listen": {
-        "stepName": "Same Clip, Same Clock",
         "tidbitTitle": "(Replaced — instruction screen)",
         "transcript": "Today you re-record one Hot Seat from this sprint — the session where pivot recovery, composure, or structural integrity scored lowest. Same audio clip. Same time limit. The original recording and the new one appear side by side on the See screen, with each metric's delta between them.",
         "pullQuote": "Same clip, same clock. The deltas are between the two recordings."
       },
       "do": {
-        "stepName": "Same Scenario, Different You",
         "constraint": "Re-attempt your weakest Hot Seat from sessions 19–23.",
         "prompt": "(The session's original prompt replays. Then the mic activates for the fresh attempt.)",
         "time": "Variable",
@@ -1173,7 +1055,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Pressure Replay"
       },
       "see": {
-        "stepName": "Three Deltas, Three Questions",
         "metricsShown": "Recovery delta  ·  Composure delta  ·  Structural delta",
         "headlineLine": "Three deltas. Each one is a different question.",
         "commentaryTemplates": {
@@ -1184,7 +1065,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Ready for What Pressure",
         "opener": "(Free) What pressure am I now ready for?",
         "commitMetaLine": "Two sprints of pressure work behind you. Sprint 5 moves to composition."
       }
@@ -1199,7 +1079,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Same truth, three frames",
     "stages": {
       "centre": {
-        "stepName": "One Message, Three Audiences",
         "stepLabel": "Three audiences. One message. You will deliver it three times.",
         "onScreenLines": [
           "One recommendation. Three framings."
@@ -1207,13 +1086,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The message is constant. The framing is the variable."
       },
       "listen": {
-        "stepName": "Impact, Workload, Outcome",
         "tidbitTitle": "One message, three audiences",
         "transcript": "The mistake most professionals make about audience is to think it changes the message. It does not. It changes the framing. The same recommendation — for example, that the team should adopt a new tool — sounds different to a CEO, a peer, and a customer, but the recommendation is the same. To the CEO, the framing is impact and risk. To the peer, the framing is workload and rollout. To the customer, the framing is outcome and continuity. Same recommendation. Three frames. The work today is the same recommendation, three times, thirty seconds each. The app will check that the recommendation stayed constant and that the framings actually differed. The reflex, on a first attempt, is to soften the recommendation for the harder audience. Resist it. The whole skill is keeping the message intact while moving the frame.",
         "pullQuote": "Impact and risk for the CEO. Workload for the peer. Outcome for the customer."
       },
       "do": {
-        "stepName": "Same Recommendation, Three Times",
         "constraint": "Same recommendation. Three audiences. 30 seconds each.",
         "prompt": "Recommend a meaningful change at your workplace. Deliver it once to a CEO, once to a peer, once to a customer.",
         "time": "90 seconds total",
@@ -1221,7 +1098,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Comparative"
       },
       "see": {
-        "stepName": "Held and Differed",
         "metricsShown": "Framing fluency  ·  Structural consistency  ·  Pace stability",
         "headlineLine": "Two checks: the recommendation held, the framings differed.",
         "commentaryTemplates": {
@@ -1232,7 +1108,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Framing Is the Variable",
         "opener": "Tomorrow I will reframe one message for…",
         "commitMetaLine": "The framing is the variable. The recommendation is the constant."
       }
@@ -1247,7 +1122,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Numbers that breathe",
     "stages": {
       "centre": {
-        "stepName": "The Story It Lived Inside",
         "stepLabel": "Recall a fact that changed your mind. What was the story it lived inside?",
         "onScreenLines": [
           "Data alone is hard to remember.",
@@ -1256,13 +1130,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The story carries the number. The number is what the listener remembers."
       },
       "listen": {
-        "stepName": "A Number With Context",
         "tidbitTitle": "Numbers that breathe",
         "transcript": "Numbers delivered in sequence — twenty-three percent here, eighty-four percent there, four hundred and twelve million in total — do not stick. The listener processes each number, loses the previous one, and by the fourth has retained none. A number anchored to a person, a decision, or a moment behaves differently. Twenty-three percent sales growth, on its own, is forgettable. Twenty-three percent sales growth in a quarter where every competitor lost share is the kind of number that survives the meeting. The mechanism is narrative anchoring — context attaches the number to existing memory structures, which is what recall depends on. Today, you will see a small data set on screen. Three or four numbers. You have sixty seconds to deliver a narrative that makes them stick. The numbers must appear. The story is yours.",
         "pullQuote": "A number with context attaches to memory. A number without context does not."
       },
       "do": {
-        "stepName": "Make the Numbers Land",
         "constraint": "60-second narrative. The numbers must land.",
         "prompt": "(On-screen data: Sales grew 23%. Team grew 5%. Customer satisfaction dropped 8 points.)",
         "time": "60 seconds",
@@ -1270,7 +1142,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Reactive"
       },
       "see": {
-        "stepName": "Numbers, Structure, Weight",
         "metricsShown": "Narrative quality  ·  Brevity score  ·  Structure score",
         "headlineLine": "Three checks: did the numbers land, did the structure hold, did the story carry weight.",
         "commentaryTemplates": {
@@ -1281,7 +1152,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "The Moment Is Why",
         "opener": "Tomorrow I will turn one statistic into…",
         "commitMetaLine": "The number is what they remember. The moment is why."
       }
@@ -1296,7 +1166,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Match tone to message weight",
     "stages": {
       "centre": {
-        "stepName": "Quiet, Normal, Loud",
         "stepLabel": "The same phrase, three volumes. Quiet, normal, loud.",
         "onScreenLines": [
           "Range is the variable."
@@ -1304,13 +1173,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The emphatic version is what the upper register is for. Use it."
       },
       "listen": {
-        "stepName": "Placement Over Spread",
         "tidbitTitle": "Match tone to message weight",
         "transcript": "Energy variance is not loudness; it is deliberate range. The most important sentence of a response should not sound the same as the least important. When every sentence comes out at the same volume, pace, and affect, the listener's attention defaults to the content — and content alone rarely carries the weight an emphatic sentence is meant to. Three registers do the work. Quiet to bring the listener in close. Normal to carry the body of the response. Emphatic — which is volume, pitch, and pace together, not volume alone — to land the sentence that has to land. Today, you will deliver a ninety-second response and shift register three times. The app will measure variance and whether the placement matched the message. Random fluctuation does not count as range.",
         "pullQuote": "Three registers: quiet, normal, emphatic. Placement matters more than spread."
       },
       "do": {
-        "stepName": "Three Sections, Three Registers",
         "constraint": "Vary energy across three sections. 90 seconds.",
         "prompt": "Tell the story of a moment that changed how you think about your work.",
         "time": "90 seconds",
@@ -1318,7 +1185,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Range and Placement",
         "metricsShown": "Energy variance  ·  Energy intentionality  ·  Pace (WPM)",
         "headlineLine": "Variance shows the range. Intentionality shows the placement.",
         "commentaryTemplates": {
@@ -1329,7 +1195,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Rare Is Why It Lands",
         "opener": "Tomorrow I will land my most important sentence at…",
         "commitMetaLine": "The emphatic register works because it is rare in the recording."
       }
@@ -1344,7 +1209,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Lead with the answer",
     "stages": {
       "centre": {
-        "stepName": "Commit to a Position",
         "stepLabel": "Ten seconds to state a position. Fifty seconds to defend it.",
         "onScreenLines": [
           "Commit to a position.",
@@ -1353,13 +1217,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The hedge counter is live. Use it as a brake."
       },
       "listen": {
-        "stepName": "Wrong Beats Hedged",
         "tidbitTitle": "Lead with the answer, then prove it",
         "transcript": "A hedged hypothesis is harder to respond to than a wrong one. A wrong hypothesis can be pushed back on, corrected, or built upon — the listener has something to grip. A hedged one — I think maybe, it might be that, in some cases — gives the listener nothing to engage with except the hedge itself, which usually ends the exchange in agreement neither party meant. The cost of hedging is not that the speaker sounds uncertain. The cost is that the conversation stops moving. Today, you have ten seconds to state a bold hypothesis on a topic, and fifty seconds to support it. The hedge counter is live. Phrases like I think maybe, it might be that, in some cases — the app counts them as hedges and the score reflects it. The task is not to be reckless. The task is to commit, in language, to a position you can defend.",
         "pullQuote": "A wrong hypothesis can be corrected. A hedged one cannot be engaged with."
       },
       "do": {
-        "stepName": "Ten and Fifty",
         "constraint": "10-second hypothesis. 50-second support. No hedging.",
         "prompt": "What is the most over-rated skill in your industry?",
         "time": "60 seconds",
@@ -1367,7 +1229,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "First Ten, Next Fifty",
         "metricsShown": "Hypothesis clarity  ·  Support quality  ·  Pace (WPM)",
         "headlineLine": "Hypothesis clarity scored on the first ten seconds. Support quality on the next fifty.",
         "commentaryTemplates": {
@@ -1379,7 +1240,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Position, Then Proof",
         "opener": "Tomorrow I will share a hypothesis before…",
         "commitMetaLine": "The first ten seconds carry the position. The next fifty carry the proof."
       }
@@ -1394,7 +1254,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Conclusion plus three supports",
     "stages": {
       "centre": {
-        "stepName": "Conclusion, Three Supports, One Minute",
         "stepLabel": "Conclusion, three supports, one minute. The structure you have been building toward.",
         "onScreenLines": [
           "Conclusion. Three supports. Sixty seconds."
@@ -1402,13 +1261,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The pyramid graphic fills as components land — it is for your post-recording review."
       },
       "listen": {
-        "stepName": "Built Up, Delivered Down",
         "tidbitTitle": "Conclusion plus three supports",
         "transcript": "The pyramid is the structure Barbara Minto codified at McKinsey in the 1970s — conclusion at the top, three mutually exclusive supports below it, one piece of evidence under each. It has held up because of the asymmetry between how arguments are built and how they are received. Building an argument is bottom-up — setup, reasoning, conclusion. Receiving one works in reverse: the listener wants the conclusion first, so they know what to evaluate the rest against. Delivering bottom-up makes the listener wait for the point. Delivering pyramid means the point is already on the table by sentence two, and the next fifty seconds are evidence. Today, you have sixty seconds to deliver a full pyramid. Conclusion in the first ten. Three supports, roughly fifteen seconds each. The graphic fills as the app detects each component.",
         "pullQuote": "Built bottom-up. Delivered top-down. Same argument, reversed."
       },
       "do": {
-        "stepName": "Full Pyramid in Sixty",
         "constraint": "Full pyramid. 60 seconds. Conclusion in first 10.",
         "prompt": "What is the most important investment your team should make next year?",
         "time": "60 seconds",
@@ -1416,7 +1273,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "Four Components, One Graphic",
         "metricsShown": "Structure quality  ·  Brevity score  ·  Pace (WPM)",
         "headlineLine": "Four components. The graphic shows which landed.",
         "commentaryTemplates": {
@@ -1427,7 +1283,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Top Ten, Next Fifty",
         "opener": "Tomorrow I will pyramid one argument when…",
         "commitMetaLine": "The conclusion in the first ten seconds. The supports in the next fifty."
       }
@@ -1442,7 +1297,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 05 Compose   ·   Depth over breadth",
     "stages": {
       "centre": {
-        "stepName": "Pick the Metric to Live Inside",
         "stepLabel": "Pick one metric. The rest hide for this session.",
         "onScreenLines": [
           "Choose the metric you will live inside for the next five minutes."
@@ -1450,13 +1304,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The others are still being measured. They are just not on screen."
       },
       "listen": {
-        "stepName": "One on Screen, Five in Background",
         "tidbitTitle": "(Replaced — selection screen)",
         "transcript": "Three metrics, from your recent trend, are surfaced below. The weakest. The strongest. One in the middle. Choose one. For this session only, the See screen will show that metric and nothing else.",
         "pullQuote": "One metric on screen. The other five still recording in the background."
       },
       "do": {
-        "stepName": "Engine Picks, You Choose the Lens",
         "constraint": "Challenge selected by the engine. Lens chosen by you.",
         "prompt": "(Challenge type matches the chosen metric — e.g. pace-lock if pace was chosen.)",
         "time": "60 seconds",
@@ -1464,7 +1316,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint (lens-driven)"
       },
       "see": {
-        "stepName": "Delta on the Chosen Metric",
         "metricsShown": "(Single chosen metric)",
         "headlineLine": "Your chosen metric, delta against trend.",
         "commentaryTemplates": {
@@ -1473,7 +1324,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Sprint 5 Ends on Focus",
         "opener": "In my next session, this metric will…",
         "commitMetaLine": "Sprint 6 returns the full dashboard. Sprint 5 ends on focus."
       }
@@ -1488,7 +1338,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   Four-beat arc",
     "stages": {
       "centre": {
-        "stepName": "A Project That Went Wrong",
         "stepLabel": "Recall a project where something went wrong, and you recovered. That is today's story.",
         "onScreenLines": [
           "Stakes. Complication. Resolution. Lesson.",
@@ -1497,13 +1346,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The story is yours. The structure is what the session adds."
       },
       "listen": {
-        "stepName": "Setup, Complication, Resolution, Lesson",
         "tidbitTitle": "Story arcs in business",
         "transcript": "A complete business story carries four beats. The setup, where the listener learns what was at stake. The complication, where something went wrong. The resolution, where a decision was made and the outcome landed. The lesson, where the story connects to whatever conversation it sits inside. The four are not stylistic; they map to how listeners process narrative. The setup loads the working-memory frame. The complication creates the tension that makes the resolution worth tracking. The lesson is what turns the recollection into something the listener can use. Drop any one, and the listener has to do the missing work themselves — which is why a story without a lesson reads as a report. Today, you will tell a project recovery story with all four beats. The AI partner will prompt for missing beats if you skip them. Three prompts maximum. Incorporate them without breaking the flow of what you are saying.",
         "pullQuote": "Setup. Complication. Resolution. Lesson. Each one does work the others cannot."
       },
       "do": {
-        "stepName": "Tell It With All Four Beats",
         "constraint": "Tell a project recovery story. AI prompts for missing beats.",
         "prompt": "Tell me about a project where things went wrong and you recovered.",
         "time": "≈3 minutes",
@@ -1511,7 +1358,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial (narrative)"
       },
       "see": {
-        "stepName": "Presence and Delivery",
         "metricsShown": "Arc completeness  ·  Narrative quality  ·  Pace (WPM)",
         "headlineLine": "Arc completeness scores presence. Narrative quality scores delivery.",
         "commentaryTemplates": {
@@ -1522,7 +1368,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Decide the Lesson First",
         "opener": "Tomorrow I will tell my own story with all four…",
         "commitMetaLine": "The lesson is the beat that runs out of time. Decide it before you start."
       }
@@ -1537,7 +1382,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   Authority signals",
     "stages": {
       "centre": {
-        "stepName": "Boardroom Update, Two Interjections",
         "stepLabel": "Boardroom update. AI CFO. Two interjections you cannot match.",
         "onScreenLines": [
           "Pace under 140. Inflection down. Pauses owned."
@@ -1545,13 +1389,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Four signals scored independently. The composite is the authority score."
       },
       "listen": {
-        "stepName": "Four Signals, Sustained",
         "tidbitTitle": "Authority signals in voice",
         "transcript": "Executive presence in voice is built from four signals. Pace, measured — at or under 140 WPM, the upper edge of the band you worked in across Sprint 2. Inflection, consistently downward — the last two words of each sentence land, the technique from Session 10. Pauses, held cleanly — owned silences rather than searched ones, from Session 9 and Session 23. Energy, ceilinged — the loudest sentence is half a notch above the rest, not three notches, from Session 27. None of the four is new. What makes this session different is the sustained combination under adversarial load — two CFO interjections, ninety seconds, all four signals held simultaneously. Today you deliver a boardroom update. The AI CFO interjects twice. You do not change topic, you do not change pace, you do not lose the floor. The composite is the four signals, scored together.",
         "pullQuote": "Four signals, sustained for ninety seconds, under two interjections."
       },
       "do": {
-        "stepName": "Do Not Match the Interjection",
         "constraint": "Boardroom update. AI CFO interjects twice.",
         "prompt": "Deliver a 90-second update on a project you own to a skeptical CFO.",
         "time": "≈2 minutes",
@@ -1559,7 +1401,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial"
       },
       "see": {
-        "stepName": "Pace × Inflection × Pause × Energy",
         "metricsShown": "Authority score  ·  Composure under interjection  ·  Structure score",
         "headlineLine": "Authority score = pace × inflection × pause × energy, each held under interjection.",
         "commentaryTemplates": {
@@ -1569,7 +1410,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Holding Them Together Under Load",
         "opener": "Tomorrow I will speak in a senior meeting the way I just…",
         "commitMetaLine": "The four signals are old. Holding them together under load is the new skill."
       }
@@ -1584,7 +1424,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   Persuasion in service",
     "stages": {
       "centre": {
-        "stepName": "What the Other Person Cares About",
         "stepLabel": "What does the other person actually care about?",
         "onScreenLines": [
           "What does the listener have at stake here?",
@@ -1593,13 +1432,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "The grader flags principles deployed against the listener's interest."
       },
       "listen": {
-        "stepName": "Six Neutral Levers",
         "tidbitTitle": "Cialdini in practice",
         "transcript": "Cialdini's six principles — reciprocity, social proof, authority, scarcity, liking, consistency — describe the levers most often involved when one adult changes another adult's mind. The same six levers, used against the listener's interest, are also how most manipulation works; the principles themselves are neutral. Reciprocity is giving before asking. Social proof is showing the listener that others like them have moved. Authority is borrowing credibility. Scarcity is honesty about constraints. Liking is finding common ground. Consistency is anchoring to something the listener already believes. The line between persuasion and manipulation is whose interest the deployment serves. Today, you will persuade a skeptical peer on a position you genuinely believe would help them. The peer pushes back. The AI grading reports which principles you deployed and whether each deployment served the listener's stake or borrowed against it.",
         "pullQuote": "The six levers are neutral. Whose interest they serve is not."
       },
       "do": {
-        "stepName": "Persuade in Service",
         "constraint": "Persuade a skeptical peer. 90-second exchange.",
         "prompt": "Convince a peer to adopt a change you genuinely believe would help them.",
         "time": "≈90 seconds",
@@ -1607,7 +1444,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Adversarial"
       },
       "see": {
-        "stepName": "Soften, Fire, Serve",
         "metricsShown": "Persuasion quality  ·  Principle usage  ·  Composure score",
         "headlineLine": "Three reads: did the peer soften, which principles fired, was each one in service.",
         "commentaryTemplates": {
@@ -1617,7 +1453,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Stake First, Then Lever",
         "opener": "Tomorrow I will persuade one peer of one position without…",
         "commitMetaLine": "The stake reference, then the lever. The order tends to matter more than the lever."
       }
@@ -1632,7 +1467,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   The sentence they repeat",
     "stages": {
       "centre": {
-        "stepName": "The Sentence They Repeat Tomorrow",
         "stepLabel": "What sentence do you want them to repeat tomorrow?",
         "onScreenLines": [
           "One sentence.",
@@ -1641,13 +1475,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Recency effect — the closing sentence is what the listener encodes most strongly."
       },
       "listen": {
-        "stepName": "Recency Concentrates",
         "tidbitTitle": "End with a line that lands",
         "transcript": "A close is the single sentence at the end of an answer that the listener will still remember tomorrow. The body of the answer is what brings the listener to it; the close is what they walk out with. The recency effect is well documented — the last item in a sequence is recalled disproportionately, and a deliberate final sentence captures that capacity instead of wasting it. Most professional answers do not have a close. They have a stop. The speaker ran out of things to say or out of time, and the recording cuts. A close is intentional, specific, and conviction-carrying. It does not summarise — summary diffuses what recency would have concentrated. Today, you have sixty seconds for the body and one sentence for the close. The mic stays open across the boundary. The close is recorded separately and graded on concision, specificity, and conviction. Hedges in the close — maybe, I think, sort of — pull the score down because they signal that the speaker is still inside the body of the answer.",
         "pullQuote": "Recency concentrates recall on the last sentence. Summary diffuses what concentration would have captured."
       },
       "do": {
-        "stepName": "Sixty-Second Body, One Sentence Close",
         "constraint": "60-second body. Then one sentence close.",
         "prompt": "What is the most important change your industry will need to make in the next decade?",
         "time": "75 seconds total",
@@ -1655,7 +1487,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Constraint"
       },
       "see": {
-        "stepName": "The Close, Transcribed",
         "metricsShown": "Close strength  ·  Body-close coherence  ·  Brevity score",
         "headlineLine": "Your close, transcribed and graded against the body it followed.",
         "commentaryTemplates": {
@@ -1666,7 +1497,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Written Before the Body",
         "opener": "Tomorrow I will end one meeting with a sentence that…",
         "commitMetaLine": "The strongest closes are written before the body, not derived from it."
       }
@@ -1681,7 +1511,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   Your communication signature",
     "stages": {
       "centre": {
-        "stepName": "What You Want Known About You",
         "stepLabel": "What do you want them to know about you?",
         "onScreenLines": [
           "Eleven techniques. Today's pitch shows which surfaced unprompted."
@@ -1689,13 +1518,11 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "subLine": "Open prompt. No constraints. The See screen reports the constellation."
       },
       "listen": {
-        "stepName": "The Signature Is the Asymmetry",
         "tidbitTitle": "Your communication signature",
         "transcript": "Brand voice in speech is not a style choice. It is the pattern that emerges when the same person makes consistent decisions about pace, inflection, pause placement, energy ceiling, and what to hedge on — across enough recordings that the pattern is detectable. The detection is the point. A voice that varies session to session is still being assembled; a voice that holds across thirty-plus sessions can be named. By session thirty-five, you have made these decisions enough times that the See screen can ask: of the eleven techniques the programme trains, which surfaced in an unprompted pitch, and which did not. Today's session is open. Sixty seconds. No constraints, no live feedback. The constellation is whatever the recording produces — strong on some techniques, light on others. That asymmetry is what makes the pattern a signature instead of a checklist.",
         "pullQuote": "The signature is the asymmetry — which techniques surface, which do not."
       },
       "do": {
-        "stepName": "Open, No Constraints",
         "constraint": "Open. No constraints. Your pitch.",
         "prompt": "Deliver your 60-second elevator pitch about what you do and why it matters.",
         "time": "60 seconds",
@@ -1703,7 +1530,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open"
       },
       "see": {
-        "stepName": "Eleven Techniques, Which Surfaced",
         "metricsShown": "Signature consistency  ·  Authority score  ·  Narrative quality",
         "headlineLine": "Eleven techniques scored. Strong on some, light on others. The shape is the signature.",
         "commentaryTemplates": {
@@ -1713,7 +1539,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "Ready to Be Known For",
         "opener": "What am I now ready to be known for?",
         "commitMetaLine": "Tomorrow you re-record session one's prompt. The delta is the only honest measure of the programme."
       }
@@ -1728,19 +1553,16 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
     "sprintMeta": "Sprint 06 Perform   ·   Self-vs-baseline",
     "stages": {
       "centre": {
-        "stepName": "No Centre Today",
         "stepLabel": "(No Centre today. You have done all the centring.)",
         "subLine": "Today you perform.",
         "onScreenLines": []
       },
       "listen": {
-        "stepName": "Same Prompt, Same Time",
         "tidbitTitle": "(Replaced — single instruction screen)",
         "transcript": "Today you re-record session one's prompt. Same words, same time limit, no live feedback. The See screen places the new recording above the original baseline, metric by metric.",
         "pullQuote": "Same prompt. Same time. Two recordings, side by side."
       },
       "do": {
-        "stepName": "Re-record the Baseline",
         "constraint": "The original baseline prompt. No constraints. No live feedback.",
         "prompt": "Tell me about a recent project you worked on. What was the goal, what happened, and what would you do differently?",
         "time": "90 seconds",
@@ -1748,7 +1570,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         "challengeType": "Open (capstone)"
       },
       "see": {
-        "stepName": "Six Metrics, Six Deltas",
         "metricsShown": "Filler count  ·  Pace (WPM)  ·  Uptalk rate  ·  Inflection rate  ·  Brevity score  ·  Composite Clarity Score",
         "headlineLine": "Session 1 above, Session 36 below. Six metrics. Six deltas.",
         "commentaryTemplates": {
@@ -1760,7 +1581,6 @@ export const sessionCopyEntries: SessionCopyEntry[] = [
         }
       },
       "commit": {
-        "stepName": "What Did You Become",
         "opener": "(Anchor — 30 seconds, free)",
         "freeResponsePrompt": "What did you become?",
         "commitMetaLine": "Thirty-six sessions of recorded choices sit behind the answer. Speak with that in front of you."

@@ -1,10 +1,9 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { BodyText, DisplayText, MonoText, Panel, ProfileIcon, TabHeader } from "../design-system/primitives";
+import { BodyText, DisplayText, MonoText, Panel, TabHeader } from "../design-system/primitives";
 import { Icon } from "../design-system/icons";
-import { FloatingOrb, InteractivePressable, Reveal } from "../design-system/motion";
-import { useScrollRestoration } from "../hooks/useScrollRestoration";
 import { palette, spacing, type } from "../design-system/theme";
+import { FloatingOrb, InteractivePressable, Reveal } from "../design-system/motion";
 import { formatSessionMeta, getSprintGroups, sessionDefinitions, sessionProtocol, type AppTab } from "../data/mockData";
 import { UNLOCK_ALL_FOR_TESTING } from "./session/constants";
 
@@ -26,10 +25,26 @@ export function JourneyScreen({
   const sprintGroups = useMemo(() => getSprintGroups(), []);
   const completedCount = Math.max(0, highestUnlockedSessionNumber - 1);
   const scrollRef = useRef<ScrollView>(null);
-  useScrollRestoration(scrollRef, scrollOffset);
+  const hasRestored = useRef(false);
+
+  useEffect(() => {
+    if (hasRestored.current) {
+      return;
+    }
+    if (scrollOffset <= 0) {
+      hasRestored.current = true;
+      return;
+    }
+    const id = requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({ y: scrollOffset, animated: false });
+      hasRestored.current = true;
+    });
+    return () => cancelAnimationFrame(id);
+  }, [scrollOffset]);
 
   return (
     <View style={styles.screen}>
+      <View style={styles.ambientTop} />
       <FloatingOrb size={200} top={60} right={-50} color={palette.blush} opacity={0.5} />
 
       <TabHeader
@@ -44,7 +59,9 @@ export function JourneyScreen({
               </MonoText>
             </View>
             <InteractivePressable onPress={() => onTab?.("stats")}>
-              <ProfileIcon />
+              <View style={styles.profileBox}>
+                <Icon name="profile" size={24} />
+              </View>
             </InteractivePressable>
           </View>
         }
@@ -214,9 +231,16 @@ export function JourneyScreen({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: palette.paper,
+    backgroundColor: palette.canvas,
   },
-
+  ambientTop: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 280,
+    backgroundColor: "#F3E8DC",
+  },
   headerRight: {
     flexDirection: "row",
     alignItems: "center",
@@ -232,7 +256,16 @@ const styles = StyleSheet.create({
   progressChipText: {
     fontSize: 12,
   },
-
+  profileBox: {
+    width: 46,
+    height: 46,
+    borderWidth: 2,
+    borderRadius: 23,
+    borderColor: palette.line,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: palette.paper,
+  },
   content: {
     padding: spacing.lg,
     gap: spacing.xl,
@@ -325,7 +358,7 @@ const styles = StyleSheet.create({
     minHeight: 140,
   },
   sessionCardCurrent: {
-    backgroundColor: palette.surfaceContainerHigh,
+    backgroundColor: "#F8EFE5",
     borderWidth: 2,
     borderColor: palette.line,
   },
@@ -450,7 +483,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   noteCard: {
-    backgroundColor: palette.blush,
+    backgroundColor: "#FBD4C9",
     gap: spacing.sm,
   },
   noteKicker: {

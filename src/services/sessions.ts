@@ -106,7 +106,6 @@ export type SessionAnalysisSnapshot = {
   transcription: TranscriptionResult;
   metrics: CoachingMetric[];
   critique: CritiqueResult | null;
-  selectedMetricLabel?: string | null;
   recordingPath?: string | null;
   recordingUri?: string | null;
   durationMs: number;

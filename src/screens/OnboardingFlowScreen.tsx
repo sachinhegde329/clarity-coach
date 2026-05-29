@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Animated, Easing, Pressable, ScrollView, StyleSheet, TextInput, View } from "react-native";
+import React, { useEffect, useMemo, useState } from "react";
+import { Pressable, ScrollView, StyleSheet, TextInput, View } from "react-native";
 import { AppHeader, BodyText, DisplayText, MonoText, Panel, PrimaryButton, Wordmark } from "../design-system/primitives";
 import { Icon } from "../design-system/icons";
 import { palette, spacing, type } from "../design-system/theme";
@@ -22,13 +22,6 @@ const frictions = [
   "I sound uncertain",
   "I lose people in long answers",
 ];
-const trainingGoals = [
-  "Interview prep",
-  "New manager",
-  "Client-facing",
-  "Promotion-ready",
-  "General",
-];
 const durations = [
   { label: "5 minutes", detail: "one session" },
   { label: "10 minutes", detail: "one session + replay" },
@@ -36,23 +29,12 @@ const durations = [
 ];
 const onboardingPrompt = "Tell me about a recent project you worked on. What was the goal, what happened, and what would you do differently?";
 
-export type OnboardingData = {
-  industry: string;
-  role: string;
-  trainingGoal: string;
-  selectedHorizons: string[];
-  selectedFrictions: string[];
-  duration: string;
-  practiceTime: string;
-};
-
-export function OnboardingFlowScreen({ onFinish }: { onFinish: (data: OnboardingData) => void }) {
+export function OnboardingFlowScreen({ onFinish }: { onFinish: () => void }) {
   const [step, setStep] = useState(0);
   const [industry, setIndustry] = useState("");
   const [role, setRole] = useState("");
   const [selectedHorizons, setSelectedHorizons] = useState<string[]>([]);
   const [selectedFrictions, setSelectedFrictions] = useState<string[]>([]);
-  const [trainingGoal, setTrainingGoal] = useState("General");
   const [duration, setDuration] = useState("");
   const [practiceTime, setPracticeTime] = useState("08:00 AM");
   const [timePickerOpen, setTimePickerOpen] = useState(false);
@@ -60,25 +42,6 @@ export function OnboardingFlowScreen({ onFinish }: { onFinish: (data: Onboarding
   const [recordElapsed, setRecordElapsed] = useState(0);
   const [analysisTicks, setAnalysisTicks] = useState(0);
   const [baselineTouched, setBaselineTouched] = useState(false);
-  const prevStepRef = useRef(step);
-  const stepAnim = useRef(new Animated.Value(0)).current;
-  const [stepDirection, setStepDirection] = useState<"forward" | "backward" | "none">("none");
-
-  useEffect(() => {
-    const prev = prevStepRef.current;
-    if (prev !== step) {
-      const dir = step > prev ? "forward" : "backward";
-      setStepDirection(dir);
-      prevStepRef.current = step;
-      stepAnim.setValue(dir === "forward" ? 1 : -1);
-      Animated.timing(stepAnim, {
-        toValue: 0,
-        duration: 300,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }).start(() => setStepDirection("none"));
-    }
-  }, [step, stepAnim]);
 
   useEffect(() => {
     if (!recording) return;
@@ -149,7 +112,7 @@ export function OnboardingFlowScreen({ onFinish }: { onFinish: (data: Onboarding
       right={
         <View style={styles.headerRight}>
           {step >= 1 && step <= 5 ? (
-            <InteractivePressable onPress={() => onFinish({ industry, role, trainingGoal, selectedHorizons, selectedFrictions, duration, practiceTime })}>
+            <InteractivePressable onPress={onFinish}>
               <View style={styles.skipPill}>
                 <MonoText style={styles.skipText}>SKIP</MonoText>
               </View>
@@ -171,231 +134,196 @@ export function OnboardingFlowScreen({ onFinish }: { onFinish: (data: Onboarding
       <>
       {header}
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
-        <Animated.View
-          key={`onboarding-step-${step}`}
-          style={[
-            step === 0 || step === 6 ? { flex: 1 } : undefined,
-            {
-              opacity: stepAnim.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: [0.3, 1, 0.3],
-              }),
-              transform: [
-                {
-                  translateX: stepAnim.interpolate({
-                    inputRange: [-1, 0, 1],
-                    outputRange: [60, 0, -60],
-                  }),
-                },
-              ],
-            },
-          ]}
-        >
-          {step === 0 ? (
-            <Reveal style={styles.centered}>
-              <View style={styles.heroCard}>
-                <Icon name="spark" size={38} color={palette.paper} />
-                <View style={styles.heroCardPulse} />
-              </View>
-              <DisplayText style={styles.heroTitle}>Five minutes a day.{"\n"}A calmer, clearer voice.</DisplayText>
-              <BodyText style={styles.heroSubtitle}>
-                We’ll tailor the sessions to your goals, then take a quick baseline so you can hear your progress.
-              </BodyText>
-              <PrimaryButton label="LET'S BEGIN" onPress={() => setStep(1)} />
-              <MonoText style={styles.secondaryLink}>ALREADY HAVE AN ACCOUNT? SIGN IN</MonoText>
-            </Reveal>
-          ) : null}
-
-          {step === 1 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>What do you do?</DisplayText>
-              <Field label="Industry" value={industry} onChange={setIndustry} placeholder="Choose your industry" suggestions={industries} />
-              <Field label="Role" value={role} onChange={setRole} placeholder="Choose your role" suggestions={roles} />
-              <View style={styles.fieldBlock}>
-                <MonoText style={styles.fieldLabel}>What are you training for?</MonoText>
-                <View style={styles.chipWrap}>
-                  {trainingGoals.map((goal) => (
-                    <InteractivePressable key={goal} onPress={() => setTrainingGoal(goal)}>
-                      <View style={[styles.chip, trainingGoal === goal && styles.chipActive]}>
-                        <MonoText style={[styles.chipText, trainingGoal === goal && styles.chipTextActive]}>
-                          {goal}
-                        </MonoText>
-                      </View>
-                    </InteractivePressable>
-                  ))}
-                </View>
-              </View>
-              <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(2)} inverted={!canContinue()} />
+        {step === 0 ? (
+          <Reveal style={styles.centered}>
+            <View style={styles.heroCard}>
+              <Icon name="spark" size={38} color={palette.paper} />
+              <View style={styles.heroCardPulse} />
             </View>
-          ) : null}
+            <DisplayText style={styles.heroTitle}>Five minutes a day.{"\n"}A calmer, clearer voice.</DisplayText>
+            <BodyText style={styles.heroSubtitle}>
+              We’ll tailor the sessions to your goals, then take a quick baseline so you can hear your progress.
+            </BodyText>
+            <PrimaryButton label="LET'S BEGIN" onPress={() => setStep(1)} />
+            <MonoText style={styles.secondaryLink}>ALREADY HAVE AN ACCOUNT? SIGN IN</MonoText>
+          </Reveal>
+        ) : null}
 
-          {step === 2 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>Where are you headed?</DisplayText>
-              <BodyText>Choose all that apply.</BodyText>
-              <View style={styles.stack}>
-                {horizons.map((item) => (
+        {step === 1 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>What do you do?</DisplayText>
+            <Field label="Industry" value={industry} onChange={setIndustry} placeholder="Choose your industry" suggestions={industries} />
+            <Field label="Role" value={role} onChange={setRole} placeholder="Choose your role" suggestions={roles} />
+            <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(2)} inverted={!canContinue()} />
+          </View>
+        ) : null}
+
+        {step === 2 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>Where are you headed?</DisplayText>
+            <BodyText>Choose all that apply.</BodyText>
+            <View style={styles.stack}>
+              {horizons.map((item) => (
+                <SelectableRow
+                  key={item}
+                  label={item}
+                  selected={selectedHorizons.includes(item)}
+                  onPress={() =>
+                    setSelectedHorizons((current) =>
+                      current.includes(item) ? current.filter((entry) => entry !== item) : [...current, item],
+                    )
+                  }
+                  type="checkbox"
+                />
+              ))}
+            </View>
+            <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(3)} inverted={!canContinue()} />
+          </View>
+        ) : null}
+
+        {step === 3 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>What gets in your way?</DisplayText>
+            <BodyText>Choose all that apply.</BodyText>
+            <View style={styles.stack}>
+              {frictions.map((item) => {
+                const selected = selectedFrictions.includes(item);
+                return (
                   <SelectableRow
                     key={item}
                     label={item}
-                    selected={selectedHorizons.includes(item)}
+                    selected={selected}
                     onPress={() =>
-                      setSelectedHorizons((current) =>
-                        current.includes(item) ? current.filter((entry) => entry !== item) : [...current, item],
+                      setSelectedFrictions((current) =>
+                        selected ? current.filter((entry) => entry !== item) : [...current, item],
                       )
                     }
                     type="checkbox"
                   />
-                ))}
-              </View>
-              <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(3)} inverted={!canContinue()} />
+                );
+              })}
             </View>
-          ) : null}
+            <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(4)} inverted={!canContinue()} />
+          </View>
+        ) : null}
 
-          {step === 3 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>What gets in your way?</DisplayText>
-              <BodyText>Choose all that apply.</BodyText>
-              <View style={styles.stack}>
-                {frictions.map((item) => {
-                  const selected = selectedFrictions.includes(item);
-                  return (
-                    <SelectableRow
-                      key={item}
-                      label={item}
-                      selected={selected}
-                      onPress={() =>
-                        setSelectedFrictions((current) =>
-                          selected ? current.filter((entry) => entry !== item) : [...current, item],
-                        )
-                      }
-                      type="checkbox"
-                    />
-                  );
-                })}
-              </View>
-              <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(4)} inverted={!canContinue()} />
+        {step === 4 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>How long, each day?</DisplayText>
+            <View style={styles.stack}>
+              {durations.map((item) => (
+                <SelectableRow
+                  key={item.label}
+                  label={`${item.label} — ${item.detail}`}
+                  selected={duration === item.label}
+                  onPress={() => setDuration(item.label)}
+                  type="radio"
+                />
+              ))}
             </View>
-          ) : null}
-
-          {step === 4 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>How long, each day?</DisplayText>
-              <View style={styles.stack}>
-                {durations.map((item) => (
-                  <SelectableRow
-                    key={item.label}
-                    label={`${item.label} — ${item.detail}`}
-                    selected={duration === item.label}
-                    onPress={() => setDuration(item.label)}
-                    type="radio"
-                  />
-                ))}
-              </View>
-              <View style={styles.fieldBlock}>
-                <MonoText style={styles.fieldLabel}>When do you want to practise?</MonoText>
-                <InteractivePressable onPress={() => setTimePickerOpen(true)}>
-                  <View style={styles.pickerField}>
-                    <BodyText style={styles.pickerValue}>{practiceTime}</BodyText>
-                    <MonoText style={styles.pickerHint}>CHANGE</MonoText>
-                  </View>
-                </InteractivePressable>
-              </View>
-              <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(5)} inverted={!canContinue()} />
+            <View style={styles.fieldBlock}>
+              <MonoText style={styles.fieldLabel}>When do you want to practise?</MonoText>
+              <InteractivePressable onPress={() => setTimePickerOpen(true)}>
+                <View style={styles.pickerField}>
+                  <BodyText style={styles.pickerValue}>{practiceTime}</BodyText>
+                  <MonoText style={styles.pickerHint}>CHANGE</MonoText>
+                </View>
+              </InteractivePressable>
             </View>
-          ) : null}
+            <PrimaryButton label="CONTINUE" onPress={() => canContinue() && setStep(5)} inverted={!canContinue()} />
+          </View>
+        ) : null}
 
-          {step === 5 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>Baseline check-in</DisplayText>
-              <BodyText style={styles.supportCopy}>
-                Speak naturally for <MonoText style={styles.inlineStrong}>90 seconds</MonoText>. This is just a starting point — not a test.
-              </BodyText>
-              <Panel style={styles.promptCard}>
-                <BodyText style={styles.promptText}>{onboardingPrompt}</BodyText>
-              </Panel>
-              <View style={styles.recordWrap}>
-                <Pressable
-                  onPress={() => {
-                    setBaselineTouched(true);
-                    if (recordElapsed >= 90) setRecordElapsed(0);
-                    setRecording(true);
-                  }}
-                  style={[styles.micButton, recording && styles.micButtonActive]}
-                >
-                  <Icon name="mic" size={40} color={palette.paper} />
-                </Pressable>
-                <MonoText style={styles.recordLabel}>{recording ? formatTime(recordElapsed) : baselineTouched ? "Tap to continue" : "Tap to start"}</MonoText>
-                {!canSubmitBaseline ? (
-                  <BodyText style={styles.helperNote}>{baselineSecondsRemaining}s remaining</BodyText>
-                ) : (
-                  <BodyText style={styles.helperNote}>Nice. You’re ready to submit.</BodyText>
-                )}
-              </View>
-              <BodyText style={styles.centerText}>We’ll show your first readout in a moment.</BodyText>
-              <PrimaryButton
-                label={recording ? "RECORDING…" : canSubmitBaseline ? "SUBMIT BASELINE" : "START BASELINE"}
+        {step === 5 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>Baseline check-in</DisplayText>
+            <BodyText style={styles.supportCopy}>
+              Speak naturally for <MonoText style={styles.inlineStrong}>90 seconds</MonoText>. This is just a starting point — not a test.
+            </BodyText>
+            <Panel style={styles.promptCard}>
+              <BodyText style={styles.promptText}>{onboardingPrompt}</BodyText>
+            </Panel>
+            <View style={styles.recordWrap}>
+              <Pressable
                 onPress={() => {
-                  if (recording) return;
-                  if (canSubmitBaseline) {
-                    setStep(6);
-                    return;
-                  }
+                  setBaselineTouched(true);
+                  if (recordElapsed >= 90) setRecordElapsed(0);
                   setRecording(true);
                 }}
-                inverted={!canSubmitBaseline && baselineTouched}
-              />
+                style={[styles.micButton, recording && styles.micButtonActive]}
+              >
+                <Icon name="mic" size={40} color={palette.paper} />
+              </Pressable>
+              <MonoText style={styles.recordLabel}>{recording ? formatTime(recordElapsed) : baselineTouched ? "Tap to continue" : "Tap to start"}</MonoText>
+              {!canSubmitBaseline ? (
+                <BodyText style={styles.helperNote}>{baselineSecondsRemaining}s remaining</BodyText>
+              ) : (
+                <BodyText style={styles.helperNote}>Nice. You’re ready to submit.</BodyText>
+              )}
             </View>
-          ) : null}
+            <BodyText style={styles.centerText}>We’ll show your first readout in a moment.</BodyText>
+            <PrimaryButton
+              label={recording ? "RECORDING…" : canSubmitBaseline ? "SUBMIT BASELINE" : "START BASELINE"}
+              onPress={() => {
+                if (recording) return;
+                if (canSubmitBaseline) {
+                  setStep(6);
+                  return;
+                }
+                setRecording(true);
+              }}
+              inverted={!canSubmitBaseline && baselineTouched}
+            />
+          </View>
+        ) : null}
 
-          {step === 6 ? (
-            <Reveal style={styles.loadingState}>
-              <DisplayText style={styles.stepTitle}>Processing{dots}</DisplayText>
-              <PulseDots />
-              <View style={styles.processingList}>
-                {[
-                  "Finding filler patterns",
-                  "Estimating pace and rhythm",
-                  "Spotting sentence endings",
-                ].map((item, index) => {
-                  const done = analysisTicks > index;
-                  return (
-                    <View key={item} style={styles.processingRow}>
-                      <View style={[styles.processingDot, done && styles.processingDotDone]} />
-                      <BodyText style={styles.processingText}>{item}</BodyText>
-                    </View>
-                  );
-                })}
-              </View>
-              <BodyText style={styles.centerText}>
-                You can relax your jaw and drop your shoulders while we do the math.
-              </BodyText>
-            </Reveal>
-          ) : null}
-
-          {step === 7 ? (
-            <View style={styles.section}>
-              <DisplayText style={styles.stepTitle}>Your baseline snapshot</DisplayText>
-              <Panel style={styles.metricsPanel}>
-                {[
-                  ["12", "fillers", "in 90s"],
-                  ["178", "pace", "rushing"],
-                  ["8/12", "sentences", "uptalk"],
-                ].map(([value, label, detail]) => (
-                  <View key={label} style={styles.metricCell}>
-                    <DisplayText style={styles.metricValue}>{value}</DisplayText>
-                    <MonoText>{label}</MonoText>
-                    <MonoText style={styles.metricDetail}>{detail}</MonoText>
+        {step === 6 ? (
+          <Reveal style={styles.loadingState}>
+            <DisplayText style={styles.stepTitle}>Processing{dots}</DisplayText>
+            <PulseDots />
+            <View style={styles.processingList}>
+              {[
+                "Finding filler patterns",
+                "Estimating pace and rhythm",
+                "Spotting sentence endings",
+              ].map((item, index) => {
+                const done = analysisTicks > index;
+                return (
+                  <View key={item} style={styles.processingRow}>
+                    <View style={[styles.processingDot, done && styles.processingDotDone]} />
+                    <BodyText style={styles.processingText}>{item}</BodyText>
                   </View>
-                ))}
-              </Panel>
-              <BodyText>You said "um" 12 times. Pace ran high at 178 WPM. Most of your sentences ended on a rising note.</BodyText>
-              <BodyText style={styles.roastNote}>None of this is a verdict. It is the starting line.</BodyText>
-              <PrimaryButton label="BEGIN SESSION 1" onPress={() => onFinish({ industry, role, trainingGoal, selectedHorizons, selectedFrictions, duration, practiceTime })} />
-              <BodyText style={styles.centerText}>Next up: a short reset exercise to settle your breath.</BodyText>
+                );
+              })}
             </View>
-          ) : null}
-        </Animated.View>
+            <BodyText style={styles.centerText}>
+              You can relax your jaw and drop your shoulders while we do the math.
+            </BodyText>
+          </Reveal>
+        ) : null}
+
+        {step === 7 ? (
+          <View style={styles.section}>
+            <DisplayText style={styles.stepTitle}>Your baseline snapshot</DisplayText>
+            <Panel style={styles.metricsPanel}>
+              {[
+                ["12", "fillers", "in 90s"],
+                ["178", "pace", "rushing"],
+                ["8/12", "sentences", "uptalk"],
+              ].map(([value, label, detail]) => (
+                <View key={label} style={styles.metricCell}>
+                  <DisplayText style={styles.metricValue}>{value}</DisplayText>
+                  <MonoText>{label}</MonoText>
+                  <MonoText style={styles.metricDetail}>{detail}</MonoText>
+                </View>
+              ))}
+            </Panel>
+            <BodyText>You said "um" 12 times. Pace ran high at 178 WPM. Most of your sentences ended on a rising note.</BodyText>
+            <BodyText style={styles.roastNote}>None of this is a verdict. It is the starting line.</BodyText>
+            <PrimaryButton label="BEGIN SESSION 1" onPress={onFinish} />
+            <BodyText style={styles.centerText}>Next up: a short reset exercise to settle your breath.</BodyText>
+          </View>
+        ) : null}
       </ScrollView>
       {timePickerOpen ? (
         <TimePicker
@@ -649,17 +577,10 @@ const styles = StyleSheet.create({
     borderColor: palette.lineSoft,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    backgroundColor: palette.surfaceContainerLow,
+    backgroundColor: "#FFF9F3",
   },
   chipText: {
     fontSize: 11,
-  },
-  chipActive: {
-    borderColor: palette.line,
-    backgroundColor: palette.panel,
-  },
-  chipTextActive: {
-    color: palette.ink,
   },
   stack: {
     gap: spacing.sm,
@@ -814,7 +735,7 @@ const styles = StyleSheet.create({
   },
   pickerBackdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(44, 20, 13, 0.4)",
+    backgroundColor: "rgba(8, 41, 76, 0.18)",
   },
   pickerSheet: {
     borderTopLeftRadius: 28,

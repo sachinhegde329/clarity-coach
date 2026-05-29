@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Pressable, View } from "react-native";
 import { BodyText, DisplayText, MonoText } from "../../../../design-system/primitives";
 import { Icon } from "../../../../design-system/icons";
@@ -43,8 +43,6 @@ type StitchStageProps = {
   onReplay: () => void;
   onToggleReflection: () => void;
   onRetakeReflection: () => void;
-  selectedMetricLabel?: string | null;
-  onSelectMetric?: (label: string) => void;
   onNext: () => void;
   analysis?: SessionAnalysisProps;
 };
@@ -74,9 +72,9 @@ function PullQuoteCard({ quote }: { quote: string }) {
 }
 
 const METRIC_PICK_OPTIONS = [
-  { tag: "The Weakest", name: "PACE (WPM)", delta: "Rhythm focus", deltaColor: palette.line },
-  { tag: "In The Middle", name: "FILLER COUNT", delta: "Precision focus", deltaColor: palette.inkMuted },
-  { tag: "The Strongest", name: "INFLECTION RATE", delta: "Delivery focus", deltaColor: palette.moss },
+  { tag: "The Weakest", name: "Pacing", delta: "-12% vs avg", deltaColor: palette.line },
+  { tag: "In The Middle", name: "Clarity", delta: "Baseline", deltaColor: palette.inkMuted },
+  { tag: "The Strongest", name: "Tone", delta: "+8% vs avg", deltaColor: palette.moss },
 ] as const;
 
 export function StitchUnifiedListen(props: StitchStageProps) {
@@ -102,7 +100,7 @@ export function StitchUnifiedListen(props: StitchStageProps) {
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
       <MetaStrip
-        kicker={`SESSION ${String(sessionNumber).padStart(2, "0")} • ${session.practiceTitle}`}
+        kicker={`SESSION ${String(sessionNumber).padStart(2, "0")} • THEME`}
         line={conceptLine}
       />
 
@@ -143,7 +141,8 @@ export function StitchUnifiedListen(props: StitchStageProps) {
   );
 }
 
-function StitchListenSession30({ session, sessionNumber, selectedMetricLabel, onSelectMetric, onNext }: StitchStageProps) {
+function StitchListenSession30({ session, sessionNumber, onNext }: StitchStageProps) {
+  const [selected, setSelected] = useState<number | null>(null);
   const lesson = session.stages.lesson;
   const transcript = lesson.description ?? "";
   const pullQuote = lesson.insightQuote?.replace(/^"|"$/g, "") ?? "";
@@ -151,7 +150,7 @@ function StitchListenSession30({ session, sessionNumber, selectedMetricLabel, on
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <MetaStrip kicker={`SESSION ${String(sessionNumber).padStart(2, "0")} • ${session.practiceTitle}`} line="One metric, nothing else" />
+      <MetaStrip kicker="SESSION 30 • LAB SESSION" line="One metric, nothing else" />
       <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { borderWidth: 2, borderColor: palette.line, padding: spacing.md, gap: spacing.sm }]}>
         <MonoText style={styles.listenCardKicker}>AI INSIGHT</MonoText>
         <BodyText style={{ color: palette.inkMuted, lineHeight: 26 }}>{transcript}</BodyText>
@@ -161,11 +160,11 @@ function StitchListenSession30({ session, sessionNumber, selectedMetricLabel, on
       <MonoText style={{ color: palette.inkMuted, letterSpacing: 2, fontSize: 10 }}>SELECT FOCUS AREA</MonoText>
       <View style={{ gap: spacing.sm }}>
         {METRIC_PICK_OPTIONS.map((opt, index) => {
-          const active = (selectedMetricLabel ?? "").toUpperCase() === opt.name.toUpperCase();
+          const active = selected === index;
           return (
             <Pressable
               key={opt.tag}
-              onPress={() => onSelectMetric?.(opt.name.toUpperCase())}
+              onPress={() => setSelected(index)}
               style={[
                 styles.brutalistPanel,
                 styles.brutalistShadowInk,
@@ -186,7 +185,7 @@ function StitchListenSession30({ session, sessionNumber, selectedMetricLabel, on
           );
         })}
       </View>
-      <SessionButton label="CONTINUE" onPress={onNext} disabled={!selectedMetricLabel && !UNLOCK_ALL_FOR_TESTING} />
+      <SessionButton label="CONTINUE" onPress={onNext} disabled={selected === null && !UNLOCK_ALL_FOR_TESTING} />
     </View>
   );
 }
@@ -199,7 +198,7 @@ function StitchListenSession36({ session, sessionNumber, onNext }: StitchStagePr
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <MetaStrip kicker={`SESSION ${String(sessionNumber).padStart(2, "0")} • ${session.practiceTitle}`} line="The transformation" />
+      <MetaStrip kicker="SESSION 36 • THE CAPSTONE" line="The transformation" />
       {pullQuote ? <PullQuoteCard quote={pullQuote} /> : null}
       <BodyText style={{ color: palette.inkMuted, lineHeight: 26 }}>{transcript}</BodyText>
       <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { borderWidth: 2, borderColor: palette.line, padding: spacing.md, gap: spacing.md }]}>
@@ -326,7 +325,7 @@ function StitchListenSession25(props: StitchStageProps) {
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <MetaStrip kicker={`SESSION ${String(sessionNumber).padStart(2, "0")} • ${session.practiceTitle}`} line={conceptLine} />
+      <MetaStrip kicker="SESSION 25 • THEME" line={conceptLine} />
       <DisplayText style={{ fontSize: 28, lineHeight: 32 }}>{lesson.title ?? "One message, three audiences."}</DisplayText>
 
       <View style={[styles.listenMainCard, styles.brutalistShadowInk]}>

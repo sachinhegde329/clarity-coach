@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { BodyText, DisplayText, MonoText, Panel, PrimaryButton, ProfileIcon, TabHeader } from "../design-system/primitives";
+import { BodyText, DisplayText, MonoText, Panel, PrimaryButton, TabHeader } from "../design-system/primitives";
 import { Icon } from "../design-system/icons";
 import { FloatingOrb, InteractivePressable, Reveal } from "../design-system/motion";
-import { useScrollRestoration } from "../hooks/useScrollRestoration";
 import { palette, spacing, type } from "../design-system/theme";
 import { drills, type AppTab } from "../data/mockData";
 
@@ -63,11 +62,26 @@ export function LibraryScreen({
   onScrollOffsetChange?: (offset: number) => void;
 }) {
   const scrollRef = useRef<ScrollView>(null);
-  useScrollRestoration(scrollRef, scrollOffset);
+  const hasRestored = useRef(false);
+
+  useEffect(() => {
+    if (hasRestored.current) {
+      return;
+    }
+    if (scrollOffset <= 0) {
+      hasRestored.current = true;
+      return;
+    }
+    const id = requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({ y: scrollOffset, animated: false });
+      hasRestored.current = true;
+    });
+    return () => cancelAnimationFrame(id);
+  }, [scrollOffset]);
 
   return (
     <View style={styles.screen}>
-      <FloatingOrb size={240} top={120} right={-30} color={palette.panelSoft} opacity={0.85} />
+      <FloatingOrb size={240} top={120} right={-30} color="#F1E0D1" opacity={0.85} />
       <FloatingOrb size={100} bottom={180} left={-20} color={palette.blush} opacity={0.5} duration={5800} />
       <TabHeader
         title="Library"
@@ -75,7 +89,9 @@ export function LibraryScreen({
         onPressLogo={() => onTab?.("today")}
         right={
           <InteractivePressable onPress={() => onTab?.("stats")}>
-            <ProfileIcon />
+            <View style={styles.profileBox}>
+              <Icon name="profile" size={24} />
+            </View>
           </InteractivePressable>
         }
       />
@@ -140,7 +156,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: palette.paper,
   },
-
+  profileBox: {
+    width: 46,
+    height: 46,
+    borderWidth: 2,
+    borderRadius: 23,
+    borderColor: palette.line,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: palette.paper,
+  },
   content: {
     padding: spacing.lg,
     gap: spacing.lg,
@@ -218,7 +243,7 @@ const styles = StyleSheet.create({
     gap: 6,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    backgroundColor: palette.blush,
+    backgroundColor: "#F6DED0",
     borderWidth: 1.5,
     borderColor: palette.line,
     alignSelf: "flex-start",
@@ -244,7 +269,7 @@ const styles = StyleSheet.create({
     borderColor: palette.lineSoft,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    backgroundColor: palette.surfaceContainerLow,
+    backgroundColor: "#FFF9F4",
   },
   stepChipText: {
     fontSize: 11,

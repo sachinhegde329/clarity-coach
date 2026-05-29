@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Animated, Easing, Pressable, ScrollView, View } from "react-native";
 import { BodyText, DisplayText, MonoText } from "../../../design-system/primitives";
 import { Icon } from "../../../design-system/icons";
-import { PulseWrapper, RevealSection } from "../../../design-system/motion";
-import { hardShadow, palette, spacing, type } from "../../../design-system/theme";
+import { palette, spacing, type } from "../../../design-system/theme";
 import { sessionDefinitions, type SessionStage } from "../../../data/mockData";
 import { SessionAnalysisStatusBanner } from "../components/SessionAnalysisStatusBanner";
 import { resolveLiveSeeData } from "../utils/resolveLiveSeeData";
@@ -353,7 +352,7 @@ function UnifiedListen(props: UnifiedProps) {
               <Pressable onPress={onTogglePlay} style={[styles.brutalistPanel, { padding: spacing.sm, borderWidth: 2, borderColor: palette.black }]}>
                 <MonoText style={{ color: palette.black, fontSize: 18 }}>{listenPlaying ? "II" : "▶"}</MonoText>
               </Pressable>
-              <DisplayText style={{ fontSize: 34, lineHeight: 38, color: palette.line }}>{formatTime(Math.round((listenProgress / 100) * 60))}</DisplayText>
+              <DisplayText style={{ fontSize: 34, lineHeight: 38, color: palette.line }}>0:24</DisplayText>
               <MonoText style={{ color: palette.inkMuted }}>OF 1:00 TOTAL</MonoText>
             </View>
           </View>
@@ -622,11 +621,12 @@ function UnifiedListen(props: UnifiedProps) {
                 style={({ pressed }) => [{
                   width: 48, height: 48,
                   backgroundColor: palette.siennaAccent,
+                  borderWidth: 2, borderColor: palette.inkFocus,
                   alignItems: "center", justifyContent: "center",
-                  shadowColor: palette.siennaAccent,
-                  shadowOffset: { width: 4, height: 4 },
+                  shadowColor: palette.inkFocus,
+                  shadowOffset: { width: 2, height: 2 },
                   shadowOpacity: 1, shadowRadius: 0, elevation: 0,
-                }, pressed && { opacity: 0.88, transform: [{ translateY: 2 }, { translateX: 2 }] }]}
+                }, pressed && { opacity: 0.88, transform: [{ translateY: 1 }] }]}
               >
                 <MonoText style={{ color: palette.parchmentSurface, fontSize: 20 }}>
                   {listenPlaying ? "II" : "▶"}
@@ -710,14 +710,16 @@ function UnifiedListen(props: UnifiedProps) {
         >
           <Animated.View style={{
             backgroundColor: palette.siennaAccent,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
             paddingVertical: 24,
-            paddingHorizontal: 48,
+            paddingHorizontal: spacing.lg,
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
             gap: 16,
             shadowColor: palette.siennaAccent,
-            shadowOffset: { width: 6, height: 6 },
+            shadowOffset: { width: 4, height: 4 },
             shadowOpacity: 1,
             shadowRadius: 0,
             elevation: 0,
@@ -726,10 +728,9 @@ function UnifiedListen(props: UnifiedProps) {
           }}>
             <MonoText style={{
               color: palette.parchmentSurface,
-              fontSize: 20,
+              fontSize: 18,
               letterSpacing: 3.2,
               textTransform: "uppercase",
-              fontFamily: type.monoBold,
             }}>
               {listenComplete || UNLOCK_ALL_FOR_TESTING ? "NEXT STEP: PRACTICE" : "LISTEN TO CONTINUE"}
             </MonoText>
@@ -744,81 +745,73 @@ function UnifiedListen(props: UnifiedProps) {
 
   return (
     <View style={[styles.guidedStepBodyUnified]}>
-      <RevealSection index={0}>
-        {pullQuote ? (
-          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { borderLeftWidth: 4, borderLeftColor: palette.line }]}>
-            <BodyText style={styles.stagePullQuote}>{pullQuote}</BodyText>
-          </View>
-        ) : null}
-      </RevealSection>
+      {pullQuote ? (
+        <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { borderLeftWidth: 4, borderLeftColor: palette.line }]}>
+          <BodyText style={styles.stagePullQuote}>{pullQuote}</BodyText>
+        </View>
+      ) : null}
 
-      <RevealSection index={1}>
-        <View style={[styles.listenMainCard, styles.brutalistShadowInk]}>
-          <View style={styles.listenCardHeader}>
-            {sessionNumber > 5 ? (
-              <MonoText style={styles.listenCardKicker}>
-                SESSION {String(sessionNumber).padStart(2, "0")} · {tidbitTitle.toUpperCase()}
-              </MonoText>
-            ) : (
-              <MonoText style={styles.listenCardKicker}>60S TIDBIT</MonoText>
-            )}
-            <MonoText style={styles.metricLabel}>
-              {Math.round((listenProgress / 100) * 105)}s / 01:45
+      <View style={[styles.listenMainCard, styles.brutalistShadowInk]}>
+        <View style={styles.listenCardHeader}>
+          {sessionNumber > 5 ? (
+            <MonoText style={styles.listenCardKicker}>
+              SESSION {String(sessionNumber).padStart(2, "0")} · {tidbitTitle.toUpperCase()}
             </MonoText>
-          </View>
-          <SessionAudioPlayer bars={waveform} playing={listenPlaying} progress={listenProgress} onTogglePlay={onTogglePlay} cta={lesson.waveformMeta} />
-          <View style={{ gap: spacing.sm }}>
-            <MonoText style={styles.listenCardKicker}>SESSION TRANSCRIPT</MonoText>
-            <ScrollView style={styles.listenTranscriptBox} nestedScrollEnabled showsVerticalScrollIndicator={false}>
-              <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{transcript}</BodyText>
-            </ScrollView>
+          ) : (
+            <MonoText style={styles.listenCardKicker}>60S TIDBIT</MonoText>
+          )}
+          <MonoText style={styles.metricLabel}>
+            {Math.round((listenProgress / 100) * 105)}s / 01:45
+          </MonoText>
+        </View>
+        <SessionAudioPlayer bars={waveform} playing={listenPlaying} progress={listenProgress} onTogglePlay={onTogglePlay} cta={lesson.waveformMeta} />
+        <View style={{ gap: spacing.sm }}>
+          <MonoText style={styles.listenCardKicker}>SESSION TRANSCRIPT</MonoText>
+          <ScrollView style={styles.listenTranscriptBox} nestedScrollEnabled showsVerticalScrollIndicator={false}>
+            <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{transcript}</BodyText>
+          </ScrollView>
+        </View>
+      </View>
+
+      {sessionNumber === 2 && lesson.anatomy?.length ? (
+        <View style={[styles.listenInsightCard, styles.brutalistShadowInk]}>
+          <MonoText style={styles.listenCardKicker}>WHY PACE MATTERS</MonoText>
+          {lesson.anatomy.slice(0, 1).map((item) => (
+            <BodyText key={item.label} style={{ color: palette.inkMuted }}>
+              {item.body}
+            </BodyText>
+          ))}
+          <View style={[styles.brutalistPanel, { marginTop: spacing.sm }]}>
+            <MonoText style={styles.metricLabel}>TARGET CADENCE</MonoText>
+            <DisplayText style={{ fontSize: 28, color: palette.line }}>125 WPM</DisplayText>
           </View>
         </View>
-      </RevealSection>
+      ) : null}
 
-      <RevealSection index={2}>
-        {sessionNumber === 2 && lesson.anatomy?.length ? (
-          <View style={[styles.listenInsightCard, styles.brutalistShadowInk]}>
-            <MonoText style={styles.listenCardKicker}>WHY PACE MATTERS</MonoText>
-            {lesson.anatomy.slice(0, 1).map((item) => (
-              <BodyText key={item.label} style={{ color: palette.inkMuted }}>
+      {sessionNumber !== 2 && pullQuote && sessionNumber < 25 ? (
+        <View style={[styles.listenQuoteCard, styles.brutalistShadowInk]}>
+          <BodyText style={styles.listenQuoteText}>{pullQuote}</BodyText>
+        </View>
+      ) : null}
+
+      {sessionNumber === 1 && lesson.anatomy?.length ? (
+        <View style={[styles.listenInsightCard, styles.brutalistShadowInk, { gap: spacing.md }]}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
+            <Icon name="spark" size={20} color={palette.line} />
+            <MonoText style={styles.listenCardKicker}>GUIDE</MonoText>
+          </View>
+          {lesson.anatomy.slice(0, 1).map((item) => (
+            <View key={item.label} style={{ gap: spacing.sm }}>
+              <DisplayText style={{ fontSize: 22, lineHeight: 28 }}>{item.label}</DisplayText>
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>
                 {item.body}
               </BodyText>
-            ))}
-            <View style={[styles.brutalistPanel, { marginTop: spacing.sm }]}>
-              <MonoText style={styles.metricLabel}>TARGET CADENCE</MonoText>
-              <DisplayText style={{ fontSize: 28, color: palette.line }}>125 WPM</DisplayText>
             </View>
-          </View>
-        ) : null}
+          ))}
+        </View>
+      ) : null}
 
-        {sessionNumber !== 2 && pullQuote && sessionNumber < 25 ? (
-          <View style={[styles.listenQuoteCard, styles.brutalistShadowInk]}>
-            <BodyText style={styles.listenQuoteText}>{pullQuote}</BodyText>
-          </View>
-        ) : null}
-
-        {sessionNumber === 1 && lesson.anatomy?.length ? (
-          <View style={[styles.listenInsightCard, styles.brutalistShadowInk, { gap: spacing.md }]}>
-            <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.sm }}>
-              <Icon name="spark" size={20} color={palette.line} />
-              <MonoText style={styles.listenCardKicker}>GUIDE</MonoText>
-            </View>
-            {lesson.anatomy.slice(0, 1).map((item) => (
-              <View key={item.label} style={{ gap: spacing.sm }}>
-                <DisplayText style={{ fontSize: 22, lineHeight: 28 }}>{item.label}</DisplayText>
-                <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>
-                  {item.body}
-                </BodyText>
-              </View>
-            ))}
-          </View>
-        ) : null}
-      </RevealSection>
-
-      <RevealSection index={3}>
-        <SessionButton label={listenCtaLabel(sessionNumber, listenComplete)} onPress={onNext} disabled={!listenComplete && !UNLOCK_ALL_FOR_TESTING} />
-      </RevealSection>
+      <SessionButton label={listenCtaLabel(sessionNumber, listenComplete)} onPress={onNext} disabled={!listenComplete && !UNLOCK_ALL_FOR_TESTING} />
     </View>
   );
 }
@@ -1476,44 +1469,9 @@ function UnifiedDo(props: UnifiedProps) {
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <RevealSection index={0}>
-        <MonoText style={{ color: palette.line, letterSpacing: 1, fontSize: 10 }}>
-          03 / 05 · {doContent.title ?? "PRACTICE"}
-        </MonoText>
-
-        {doContent.headerMeta ? (
-          <MonoText style={{ color: palette.line, letterSpacing: 1.5, fontSize: 10 }}>
-            {doContent.headerMeta}
-          </MonoText>
-        ) : null}
-
-        <DisplayText style={styles.doHeadline}>{doContent.headline ?? "Record your practice"}</DisplayText>
-
-        {(sessionNumber === 1 || sessionNumber === 4) && doContent.nudge?.length ? (
-          <BodyText style={styles.doPromptQuote}>{doContent.nudge}</BodyText>
-        ) : null}
-
-        {doContent.nouns?.length ? (
-          <View style={{ flexDirection: "row", flexWrap: "wrap", gap: spacing.xs }}>
-            {doContent.nouns.map((noun) => (
-              <View key={noun} style={styles.outlineBadge}>
-                <MonoText style={styles.outlineBadgeText}>{noun.toUpperCase()}</MonoText>
-              </View>
-            ))}
-          </View>
-        ) : null}
-
-        {(doContent.promptBody || doContent.promptTitle) && sessionNumber !== 4 ? (
-          <View style={{ gap: spacing.sm }}>
-            <MonoText style={styles.metricLabel}>CURRENT PROMPT</MonoText>
-            <BodyText style={styles.doPromptQuote}>{doContent.promptBody ?? doContent.promptTitle}</BodyText>
-          </View>
-        ) : null}
-
-        {sessionNumber === 4 && doContent.promptBody ? (
-          <BodyText style={[styles.doPromptQuote, { textAlign: "center" }]}>{doContent.promptBody}</BodyText>
-        ) : null}
-      </RevealSection>
+      {doContent.preRecordMeta ? (
+        <BodyText style={[styles.stagePullQuote, { textAlign: "center" }]}>{doContent.preRecordMeta}</BodyText>
+      ) : null}
 
       {doContent.constraint ? (
         <View style={[styles.doConstraintCard, styles.brutalistShadowInk]}>
@@ -1550,48 +1508,40 @@ function UnifiedDo(props: UnifiedProps) {
         <BodyText style={[styles.doPromptQuote, { textAlign: "center" }]}>{doContent.promptBody}</BodyText>
       ) : null}
 
-      <RevealSection index={1}>
-        <View style={{ alignItems: "center", gap: spacing.md, marginTop: spacing.xs }}>
-          <DisplayText style={styles.doTimerDisplay}>{formatTime(recordSecondsLeft)}</DisplayText>
-          <MonoText style={styles.metricLabel}>REMAINING</MonoText>
-          <PulseWrapper active={recording} scaleAmplitude={0.05} duration={1200}>
-            <Pressable
-              onPress={onToggleRecording}
-              style={[
-                styles.doRecordButton,
-                styles.brutalistShadowInk,
-                {
-                  width: recordSize,
-                  height: recordSize,
-                  borderRadius: 0,
-                  backgroundColor: recording ? palette.line : "#FDF6E3",
-                },
-              ]}
-            >
-              <Icon name="mic" size={recordStyle === "circle-large" ? 56 : 44} color={recording ? palette.paper : palette.line} />
-            </Pressable>
-          </PulseWrapper>
-          <MonoText style={styles.metricLabel}>
-            {doRecordHintLabel(sessionNumber, recording, recordElapsed)}
-          </MonoText>
-          <View style={[styles.guidedProgressTrack, { width: "100%" }]}>
-            <View style={[styles.guidedProgressFill, { width: `${recordProgress}%` }]} />
-          </View>
+      <View style={{ alignItems: "center", gap: spacing.md, marginTop: spacing.xs }}>
+        <DisplayText style={styles.doTimerDisplay}>{formatTime(recordSecondsLeft)}</DisplayText>
+        <MonoText style={styles.metricLabel}>REMAINING</MonoText>
+        <Pressable
+          onPress={onToggleRecording}
+          style={[
+            styles.doRecordButton,
+            styles.brutalistShadowInk,
+            {
+              width: recordSize,
+              height: recordSize,
+              borderRadius: 0,
+              backgroundColor: recording ? palette.line : "#FDF6E3",
+            },
+          ]}
+        >
+          <Icon name="mic" size={recordStyle === "circle-large" ? 56 : 44} color={recording ? palette.paper : palette.line} />
+        </Pressable>
+        <MonoText style={styles.metricLabel}>
+          {doRecordHintLabel(sessionNumber, recording, recordElapsed)}
+        </MonoText>
+        <View style={[styles.guidedProgressTrack, { width: "100%" }]}>
+          <View style={[styles.guidedProgressFill, { width: `${recordProgress}%` }]} />
         </View>
-      </RevealSection>
+      </View>
 
-      <RevealSection index={2}>
-        {(sessionNumber === 2 || sessionNumber === 3) && (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { marginTop: spacing.sm }]}>
-            <MonoText style={styles.metricLabel}>LIVE CAPTURE</MonoText>
-            <EditorialWaveform bars={waveform.slice(0, 24)} height={48} />
-          </View>
-        )}
-      </RevealSection>
+      {(sessionNumber === 2 || sessionNumber === 3) && (
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { marginTop: spacing.sm }]}>
+          <MonoText style={styles.metricLabel}>LIVE CAPTURE</MonoText>
+          <EditorialWaveform bars={waveform.slice(0, 24)} height={48} />
+        </View>
+      )}
 
-      <RevealSection index={3}>
-        <SessionButton label={doCtaLabel(sessionNumber, recordElapsed, recordLimit)} onPress={onNext} />
-      </RevealSection>
+      <SessionButton label={doCtaLabel(sessionNumber, recordElapsed, recordLimit)} onPress={onNext} />
     </View>
   );
 }
@@ -1862,97 +1812,61 @@ function UnifiedSee(props: UnifiedProps) {
   }
 
   if (sessionNumber === 1) {
+    // Match the Session 01 "INITIAL FEEDBACK" card stack rhythm from Stitch.
     const fillers = metrics.find((m) => /filler/i.test(m.label)) ?? metrics[0];
     const pace = metrics.find((m) => /pace|wpm/i.test(m.label)) ?? metrics[1];
-    const fillerLine = commentary.lines?.[0] ?? "Six fillers in ninety seconds. Within the typical first-session range.";
-    const paceLine = commentary.lines?.[1] ?? "Pace is optimal for executive delivery. Maintaining 140–150 WPM ensures listeners can process complexity without fatigue.";
+    const uptalk = metrics.find((m) => /uptalk|inflection/i.test(m.label)) ?? metrics[2];
 
     return (
       <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-        <RevealSection index={0}>
-          <View style={{ marginBottom: spacing.lg }}>
-            <MonoText style={{ color: palette.onSurfaceVariant, fontSize: 11, letterSpacing: 1.2, marginBottom: 4 }}>
-              04/05 - SEE
-            </MonoText>
-            <BodyText style={{ color: palette.onSurfaceVariant, fontSize: 14, lineHeight: 22 }}>
-              These numbers describe this ninety seconds, not a trend.
-            </BodyText>
-          </View>
-        </RevealSection>
-
-        <RevealSection index={1}>
-          <View style={{ flexDirection: "row", gap: spacing.md, marginBottom: spacing.lg }}>
-            {fillers ? (
-              <View style={{ flex: 1, backgroundColor: palette.parchmentSurface, borderWidth: 2, borderColor: palette.inkFocus, padding: spacing.md, ...hardShadow(palette.siennaAccent, 4) }}>
-                <MonoText style={{ fontSize: 10, letterSpacing: 0.8, color: palette.onSurfaceVariant, marginBottom: spacing.xs }}>
-                  FILLER COUNT
-                </MonoText>
-                <View style={{ flexDirection: "row", alignItems: "baseline", gap: spacing.xs }}>
-                  <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.siennaAccent }}>
-                    {fillers.value}
-                  </DisplayText>
-                  <MonoText style={{ fontSize: 9, color: palette.onSurfaceVariant }}>TOTAL</MonoText>
-                </View>
-              </View>
-            ) : null}
-
-            {pace ? (
-              <View style={{ flex: 1, backgroundColor: palette.parchmentSurface, borderWidth: 2, borderColor: palette.inkFocus, padding: spacing.md, ...hardShadow(palette.siennaAccent, 4) }}>
-                <MonoText style={{ fontSize: 10, letterSpacing: 0.8, color: palette.onSurfaceVariant, marginBottom: spacing.xs }}>
-                  PACE (WPM)
-                </MonoText>
-                <View style={{ flexDirection: "row", alignItems: "baseline", gap: spacing.xs }}>
-                  <DisplayText style={{ fontSize: 36, lineHeight: 40, color: palette.siennaAccent }}>
-                    {pace.value}
-                  </DisplayText>
-                  <MonoText style={{ fontSize: 9, color: palette.onSurfaceVariant }}>STABLE</MonoText>
-                </View>
-              </View>
-            ) : null}
-          </View>
-        </RevealSection>
-
-        <RevealSection index={2}>
-          <View style={{ gap: spacing.sm, marginBottom: spacing.lg }}>
-            <View style={{ flexDirection: "row", gap: spacing.md, padding: spacing.md, borderLeftWidth: 4, borderLeftColor: palette.siennaAccent, backgroundColor: palette.surfaceContainerLow }}>
-              <Icon name="psychology" size={20} color={palette.siennaAccent} />
-              <BodyText style={{ flex: 1, fontSize: 14, lineHeight: 22, color: palette.onSurface }}>
-                {fillerLine}
+        <View style={{ gap: spacing.md }}>
+          {fillers ? (
+            <MetricCard kicker="FILLERS" style={{ padding: spacing.md }}>
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 22 }}>
+                The “um”, “ah”, and “like” occurrences in your speech pattern.
               </BodyText>
-            </View>
-            <View style={{ flexDirection: "row", gap: spacing.md, padding: spacing.md, borderLeftWidth: 4, borderLeftColor: palette.sageSuccess, backgroundColor: palette.surfaceContainerLow }}>
-              <Icon name="bolt" size={20} color={palette.sageSuccess} />
-              <BodyText style={{ flex: 1, fontSize: 14, lineHeight: 22, color: palette.onSurface }}>
-                {paceLine}
-              </BodyText>
-            </View>
-          </View>
-        </RevealSection>
-
-        <RevealSection index={3}>
-          <View style={{ marginBottom: spacing.lg }}>
-            <MonoText style={{ fontSize: 10, letterSpacing: 0.8, color: palette.onSurfaceVariant, marginBottom: spacing.sm }}>
-              ARGUMENT STRUCTURE
-            </MonoText>
-            <View style={{ backgroundColor: `${palette.surfaceContainerHighest}30`, borderWidth: 1, borderColor: palette.outlineVariant, padding: spacing.md, alignItems: "center" }}>
-              <View style={{ width: 192, height: 160, justifyContent: "flex-end" }}>
-                <View style={{ width: 48, height: 40, backgroundColor: palette.outline, marginBottom: 4, alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-                  <MonoText style={{ fontSize: 8, color: palette.parchmentSurface, letterSpacing: 1 }}>CONC</MonoText>
-                </View>
-                <View style={{ width: 128, height: 40, backgroundColor: palette.siennaAccent, marginBottom: 4, alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-                  <MonoText style={{ fontSize: 8, color: palette.parchmentSurface, letterSpacing: 1 }}>SUPPORT 01 & 02</MonoText>
-                </View>
-                <View style={{ width: 192, height: 40, backgroundColor: palette.siennaAccent, alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-                  <MonoText style={{ fontSize: 8, color: palette.parchmentSurface, letterSpacing: 1 }}>FOUNDATION</MonoText>
-                </View>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <DisplayText style={{ fontSize: 54, lineHeight: 58, color: palette.line }}>{fillers.value}</DisplayText>
+                <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>NO DELTAS</MonoText>
               </View>
-            </View>
-          </View>
-        </RevealSection>
+            </MetricCard>
+          ) : null}
 
-        <RevealSection index={4}>
-          <SessionButton label={cta.primary} onPress={onNext} icon={<Icon name="arrow" size={28} color={palette.parchmentSurface} />} />
-        </RevealSection>
+          {pace ? (
+            <MetricCard kicker="PACE" style={{ padding: spacing.md }}>
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 22 }}>
+                Your words per minute. Aim for rhythmic clarity over pure speed.
+              </BodyText>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <View style={{ flexDirection: "row", alignItems: "flex-end", gap: spacing.sm }}>
+                  <DisplayText style={{ fontSize: 54, lineHeight: 58, color: palette.line }}>{pace.value}</DisplayText>
+                  <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>WPM</MonoText>
+                </View>
+                <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>STARTING LINE</MonoText>
+              </View>
+            </MetricCard>
+          ) : null}
+
+          {uptalk ? (
+            <MetricCard kicker="UPTALK" style={{ padding: spacing.md }}>
+              <BodyText style={{ color: palette.inkMuted, lineHeight: 22 }}>
+                Rising intonation at sentence ends.
+              </BodyText>
+              <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <DisplayText style={{ fontSize: 38, lineHeight: 42, color: palette.line }}>{uptalk.value}</DisplayText>
+                <MonoText style={[styles.metricLabel, { color: palette.inkMuted }]}>SENTENCES</MonoText>
+              </View>
+            </MetricCard>
+          ) : null}
+        </View>
+
+        <MetricCard kicker="EXPERT COMMENTARY" style={{ padding: spacing.md }}>
+          <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
+            {commentary.lines[0] ?? "None of this is a verdict. It is the starting line."}
+          </BodyText>
+        </MetricCard>
+
+        <SessionButton label={cta.primary} onPress={onNext} />
       </View>
     );
   }
@@ -2336,79 +2250,69 @@ function UnifiedSee(props: UnifiedProps) {
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <RevealSection index={0}>
-        <SessionAnalysisStatusBanner isProcessing={liveSee.isProcessing} error={liveSee.error} />
-        {headline ? <DisplayText style={styles.stageHeadline}>{headline}</DisplayText> : null}
+      <SessionAnalysisStatusBanner isProcessing={liveSee.isProcessing} error={liveSee.error} />
+      {headline ? <DisplayText style={styles.stageHeadline}>{headline}</DisplayText> : null}
 
-        <View style={styles.guidedMetricsRow}>
-          {metrics.map((metric, index) => (
-            <MetricTile
-              key={metric.label}
-              label={metric.label}
-              value={`${metric.value}${metric.unit ? ` ${metric.unit}` : ""}`.trim()}
-              reveal={
-                metricReveal
-                  ? {
-                      delayMs: index * metricReveal.staggerMs,
-                      fadeMs: metricReveal.fadeMs,
-                      countUpMs: metricReveal.durationMs,
-                    }
-                  : undefined
-              }
-            />
-          ))}
+      <View style={styles.guidedMetricsRow}>
+        {metrics.map((metric, index) => (
+          <MetricTile
+            key={metric.label}
+            label={metric.label}
+            value={`${metric.value}${metric.unit ? ` ${metric.unit}` : ""}`.trim()}
+            reveal={
+              metricReveal
+                ? {
+                    delayMs: index * metricReveal.staggerMs,
+                    fadeMs: metricReveal.fadeMs,
+                    countUpMs: metricReveal.durationMs,
+                  }
+                : undefined
+            }
+          />
+        ))}
+      </View>
+
+      {sessionNumber === 5 ? (
+        <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { gap: spacing.md }]}>
+          <MonoText style={styles.listenCardKicker}>TERMINAL PITCH TRAJECTORY</MonoText>
+          <EditorialWaveform bars={waveform.slice(0, 20)} height={100} />
+          <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
+            {session.stages.record.subline ?? commentary.lines[0]}
+          </BodyText>
         </View>
-      </RevealSection>
-
-      <RevealSection index={1}>
-        {sessionNumber === 5 ? (
-          <View style={[styles.brutalistPanelInk, styles.brutalistShadowInk, { gap: spacing.md }]}>
-            <MonoText style={styles.listenCardKicker}>TERMINAL PITCH TRAJECTORY</MonoText>
-            <EditorialWaveform bars={waveform.slice(0, 20)} height={100} />
-            <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>
-              {session.stages.record.subline ?? commentary.lines[0]}
-            </BodyText>
-          </View>
-        ) : (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
-            <MonoText style={styles.listenCardKicker}>{sessionNumber === 3 ? "SESSION RECORDING ANALYSIS" : "ENERGY TIMELINE"}</MonoText>
-            <EditorialWaveform bars={waveform.concat(waveform).slice(0, 34)} height={120} />
-          </View>
-        )}
-      </RevealSection>
-
-      <RevealSection index={2}>
-        <View style={[styles.listenInsightCard, styles.brutalistShadowInk]}>
-          <MonoText style={styles.listenCardKicker}>{sessionNumber === 2 ? "ANALYTIC INSIGHT" : "COACH COMMENTARY"}</MonoText>
-          {liveSee.coachNote ? (
-            <BodyText style={{ lineHeight: 24, fontStyle: "italic" }}>{liveSee.coachNote}</BodyText>
-          ) : null}
-          {commentary.lines.map((line) => (
-            <BodyText key={line} style={{ lineHeight: 24 }}>
-              {line}
-            </BodyText>
-          ))}
+      ) : (
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
+          <MonoText style={styles.listenCardKicker}>{sessionNumber === 3 ? "SESSION RECORDING ANALYSIS" : "ENERGY TIMELINE"}</MonoText>
+          <EditorialWaveform bars={waveform.concat(waveform).slice(0, 34)} height={120} />
         </View>
-      </RevealSection>
+      )}
+
+      <View style={[styles.listenInsightCard, styles.brutalistShadowInk]}>
+        <MonoText style={styles.listenCardKicker}>{sessionNumber === 2 ? "ANALYTIC INSIGHT" : "COACH COMMENTARY"}</MonoText>
+        {liveSee.coachNote ? (
+          <BodyText style={{ lineHeight: 24, fontStyle: "italic" }}>{liveSee.coachNote}</BodyText>
+        ) : null}
+        {commentary.lines.map((line) => (
+          <BodyText key={line} style={{ lineHeight: 24 }}>
+            {line}
+          </BodyText>
+        ))}
+      </View>
 
       {session.stages.record.subline && sessionNumber !== 5 ? (
-        <RevealSection index={3}>
-          <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>{session.stages.record.subline}</BodyText>
-        </RevealSection>
+        <BodyText style={{ color: palette.inkMuted, fontStyle: "italic", lineHeight: 24 }}>{session.stages.record.subline}</BodyText>
       ) : null}
 
-      <RevealSection index={4}>
-        {cta.secondary ? (
-          <SessionButton
-            label={overlayOn ? "HIDE OVERLAY" : cta.secondary}
-            onPress={onReplay}
-            variant="secondary"
-            iconLeft={<Icon name="play" size={18} color={palette.black} />}
-          />
-        ) : null}
+      {cta.secondary ? (
+        <SessionButton
+          label={overlayOn ? "HIDE OVERLAY" : cta.secondary}
+          onPress={onReplay}
+          variant="secondary"
+          iconLeft={<Icon name="play" size={18} color={palette.black} />}
+        />
+      ) : null}
 
-        <SessionButton label={cta.primary} onPress={onNext} />
-      </RevealSection>
+      <SessionButton label={cta.primary} onPress={onNext} />
     </View>
   );
 }
@@ -3002,73 +2906,63 @@ function UnifiedCommit(props: UnifiedProps) {
 
   return (
     <View style={[styles.guidedStepBodyUnified, styles.unifiedStageBodyCompact]}>
-      <RevealSection index={0}>
-        {reflect.suggestedOpener ? (
-          <View style={styles.commitQuoteBlock}>
-            <BodyText style={styles.commitQuoteText}>{reflect.suggestedOpener}</BodyText>
-          </View>
-        ) : null}
+      {reflect.suggestedOpener ? (
+        <View style={styles.commitQuoteBlock}>
+          <BodyText style={styles.commitQuoteText}>{reflect.suggestedOpener}</BodyText>
+        </View>
+      ) : null}
 
-        {reflect.metaLine ? (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
-            <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{reflect.metaLine}</BodyText>
-          </View>
-        ) : null}
-      </RevealSection>
+      {reflect.metaLine ? (
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
+          <BodyText style={{ color: palette.inkMuted, lineHeight: 24 }}>{reflect.metaLine}</BodyText>
+        </View>
+      ) : null}
 
-      <RevealSection index={1}>
-        {sessionNumber === 2 ? (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
-            <MonoText style={styles.listenCardKicker}>TRANSCRIPTION PREVIEW</MonoText>
-            <BodyText style={{ fontStyle: "italic", lineHeight: 24 }}>
-              {reflect.suggestedOpener?.replace(/^"|"$/g, "") ?? "Tomorrow I will notice..."}
-            </BodyText>
-          </View>
-        ) : (
-          <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { minHeight: 100, alignItems: "center", justifyContent: "center" }]}>
-            <MonoText style={styles.metricLabel}>INPUT MONITOR</MonoText>
-            <EditorialWaveform bars={waveform.slice(0, 12)} height={56} />
-            <MonoText style={[styles.metricLabel, { color: reflectRecording ? "#BA1A1A" : palette.inkMuted }]}>
-              {reflectRecording ? "RECORDING" : reflectionDone ? "SAVED" : "READY"}
-            </MonoText>
-          </View>
-        )}
-      </RevealSection>
-
-      <RevealSection index={2}>
-        <View style={{ alignItems: "center", gap: spacing.md }}>
-          <PulseWrapper active={reflectRecording} scaleAmplitude={0.05} duration={1200}>
-            <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { backgroundColor: palette.line }]}>
-              <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.paper} />
-            </Pressable>
-          </PulseWrapper>
-          <View style={[styles.guidedProgressTrack, { width: "100%" }]}>
-            <View style={[styles.guidedProgressFill, { width: `${reflectProgress}%` }]} />
-          </View>
-          <MonoText style={styles.metricLabel}>
-            {commitRecordHintLabel(sessionNumber, reflectRecording, reflectionDone)}
+      {sessionNumber === 2 ? (
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk]}>
+          <MonoText style={styles.listenCardKicker}>TRANSCRIPTION PREVIEW</MonoText>
+          <BodyText style={{ fontStyle: "italic", lineHeight: 24 }}>
+            {reflect.suggestedOpener?.replace(/^"|"$/g, "") ?? "Tomorrow I will notice..."}
+          </BodyText>
+        </View>
+      ) : (
+        <View style={[styles.brutalistPanel, styles.brutalistShadowInk, { minHeight: 100, alignItems: "center", justifyContent: "center" }]}>
+          <MonoText style={styles.metricLabel}>INPUT MONITOR</MonoText>
+          <EditorialWaveform bars={waveform.slice(0, 12)} height={56} />
+          <MonoText style={[styles.metricLabel, { color: reflectRecording ? "#BA1A1A" : palette.inkMuted }]}>
+            {reflectRecording ? "RECORDING" : reflectionDone ? "SAVED" : "READY"}
           </MonoText>
         </View>
-      </RevealSection>
+      )}
 
-      <RevealSection index={3}>
-        {cta.secondary ? (
-          <SessionButton label={cta.secondary} onPress={onRetakeReflection} variant="secondary" />
-        ) : null}
+      <View style={{ alignItems: "center", gap: spacing.md }}>
+        <Pressable onPress={onToggleReflection} style={[styles.doRecordButton, styles.brutalistShadowInk, { backgroundColor: palette.line }]}>
+          <Icon name={reflectionDone ? "spark" : "mic"} size={44} color={palette.paper} />
+        </Pressable>
+        <View style={[styles.guidedProgressTrack, { width: "100%" }]}>
+          <View style={[styles.guidedProgressFill, { width: `${reflectProgress}%` }]} />
+        </View>
+        <MonoText style={styles.metricLabel}>
+          {commitRecordHintLabel(sessionNumber, reflectRecording, reflectionDone)}
+        </MonoText>
+      </View>
 
-        {!reflectionDone ? (
-          <SessionButton
-            label={commitActionLabel(sessionNumber, false, sessionDefinitions.length)}
-            onPress={onToggleReflection}
-            iconLeft={<Icon name="mic" size={18} color={palette.paper} />}
-          />
-        ) : (
-          <SessionButton
-            label={commitActionLabel(sessionNumber, true, sessionDefinitions.length)}
-            onPress={onNext}
-          />
-        )}
-      </RevealSection>
+      {cta.secondary ? (
+        <SessionButton label={cta.secondary} onPress={onRetakeReflection} variant="secondary" />
+      ) : null}
+
+      {!reflectionDone ? (
+        <SessionButton
+          label={commitActionLabel(sessionNumber, false, sessionDefinitions.length)}
+          onPress={onToggleReflection}
+          iconLeft={<Icon name="mic" size={18} color={palette.paper} />}
+        />
+      ) : (
+        <SessionButton
+          label={commitActionLabel(sessionNumber, true, sessionDefinitions.length)}
+          onPress={onNext}
+        />
+      )}
     </View>
   );
 }

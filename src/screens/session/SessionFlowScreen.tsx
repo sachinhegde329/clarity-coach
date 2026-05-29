@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { sessionDefinitions, type SessionStage } from "../../data/mockData";
 import { useSessionProgressStore } from "../../stores/sessionProgressStore";
 import { RECORD_DURATION } from "./constants";
 import { useSessionPipeline } from "./hooks/useSessionPipeline";
 import { useSessionRecording } from "./hooks/useSessionRecording";
 import { useSessionTimers } from "./hooks/useSessionTimers";
-import { useSessionVariant } from "./hooks/useSessionVariant";
 import { SessionStageView } from "./flow/SessionStageView";
 
 function buildGuidedHandlers(
@@ -28,11 +27,6 @@ function buildGuidedHandlers(
 
   return {
     onTogglePlay: () => setListenPlaying((current) => !current),
-    onResetRecording: async () => {
-      await recording.reset();
-      setRecording(false);
-      setRecordElapsed(0);
-    },
     onToggleRecording: async () => {
       if (timerRecording) {
         await recording.stop();
@@ -98,19 +92,9 @@ export function SessionFlowScreen({
   onExit: () => void;
 }) {
   const sessionContent = sessionDefinitions.find((session) => session.sessionNumber === sessionNumber) ?? sessionDefinitions[0]!;
-  const variantFeedback = useSessionVariant(sessionContent);
-  const guidedSession = React.useMemo(
-    () => ({
-      ...sessionContent,
-      stages: { ...sessionContent.stages, feedback: variantFeedback.feedback },
-    }),
-    [sessionContent, variantFeedback],
-  );
   const recordLimit = sessionContent.stages.feedback.timeLimit ?? RECORD_DURATION;
   const userId = useSessionProgressStore((state) => state.userId);
   const saveStepProgress = useSessionProgressStore((state) => state.saveStepProgress);
-  const selectedMetricLabel = useSessionProgressStore((state) => state.selectedMetricBySession[sessionNumber] ?? null);
-  const saveSelectedMetric = useSessionProgressStore((state) => state.saveSelectedMetric);
 
   const timers = useSessionTimers(stage, { recordSeconds: recordLimit });
   const recording = useSessionRecording();
@@ -118,18 +102,6 @@ export function SessionFlowScreen({
   const doRecordingRef = useRef<{ uri: string; durationMs: number } | null>(null);
   const commitRecordingRef = useRef<{ uri: string; durationMs: number } | null>(null);
   const processingRef = useRef(false);
-  const prevStepIndex = useRef(stepIndex);
-  const [transitionDirection, setTransitionDirection] = useState<"forward" | "backward" | "none">("none");
-
-  useEffect(() => {
-    const prev = prevStepIndex.current;
-    if (prev !== stepIndex) {
-      setTransitionDirection(stepIndex > prev ? "forward" : "backward");
-      prevStepIndex.current = stepIndex;
-    } else {
-      setTransitionDirection("none");
-    }
-  }, [stepIndex]);
 
   const {
     sessionElapsed,
@@ -249,7 +221,6 @@ export function SessionFlowScreen({
       onJumpToStep={onJumpToStep}
       onBack={onBack}
       onExit={onExit}
-      transitionDirection={transitionDirection}
       centre={{
         session: sessionContent,
         sessionNumber,
@@ -259,7 +230,7 @@ export function SessionFlowScreen({
         onNext: handleNext,
       }}
       guided={{
-        session: guidedSession,
+        session: sessionContent,
         sessionNumber,
         stage,
         recordLimit: activeRecordLimit,
@@ -271,15 +242,12 @@ export function SessionFlowScreen({
         reflectRecording,
         reflectElapsed,
         reflectionDone,
-        selectedMetricLabel,
-        onSelectMetric: (label) => saveSelectedMetric(sessionNumber, label),
         analysis: {
           status: pipeline.status,
           metrics: pipeline.metrics,
           transcript: pipeline.transcript,
           commentaryLines: pipeline.commentaryLines,
           critique: pipeline.critique,
-          selectedMetricLabel,
           recordingUri: pipeline.recordingUri,
           error: pipeline.error,
         },

@@ -8,18 +8,38 @@ import {
   StyleSheet,
   Text,
   View,
+  type StyleProp,
+  type ViewStyle,
 } from "react-native";
-import { BodyText, MonoText, Panel, PrimaryButton, ProfileIcon, TabHeader } from "../design-system/primitives";
+import { BodyText, MonoText, Panel, PrimaryButton, TabHeader } from "../design-system/primitives";
 import { Icon } from "../design-system/icons";
-import { FloatingOrb, InteractivePressable, Reveal } from "../design-system/motion";
-import { useScrollRestoration } from "../hooks/useScrollRestoration";
-import { palette, spacing, type } from "../design-system/theme";
-import {
-  SESSIONS_PER_SPRINT,
-  sessionDefinitions,
-  sessionProtocol,
-  type AppTab,
-} from "../data/mockData";
+import { InteractivePressable, Reveal } from "../design-system/motion";
+import { spacing } from "../design-system/theme";
+import { SESSIONS_PER_SPRINT, sessionDefinitions, sessionProtocol, type AppTab } from "../data/mockData";
+
+const todayColors = {
+  parchment: "#FDF6E3",
+  sienna: "#8B4513",
+  primary: "#6C2F00",
+  inkFocus: "#2E2E2E",
+  sageSuccess: "#7A8C70",
+  surfaceContainer: "#FBECE3",
+  surfaceContainerLow: "#FFF1EB",
+  outline: "#877369",
+  outlineVariant: "#DAC2B6",
+  onSurfaceVariant: "#54433A",
+  onPrimaryContainer: "#FFC29F",
+  background: "#FFF8F5",
+};
+
+const todayFonts = {
+  headline: "SpaceMono_400Regular",
+  label: "SpaceMono_400Regular",
+  labelBold: "SpaceMono_400Regular",
+  body: "Inter_400Regular",
+  bodyMedium: "Inter_500Medium",
+  bodyBold: "Inter_700Bold",
+};
 
 const stageIcons = ["centre", "listen", "do", "see", "commit"] as const;
 
@@ -191,7 +211,7 @@ function CyclingDrillText({ text, animating }: { text: string; animating: boolea
       style={[
         styles.drillPlaceholder,
         animating && styles.drillCycling,
-        { fontFamily: type.mono, transform: [{ translateY: shift }], opacity },
+        { fontFamily: todayFonts.label, transform: [{ translateY: shift }], opacity },
       ]}
     >
       {text}
@@ -218,7 +238,70 @@ function DrillResult({ category, title }: { category: string; title: string }) {
   );
 }
 
+function BrutalistShadowButton({
+  onPress,
+  disabled,
+  filled,
+  label,
+  icon,
+  style,
+}: {
+  onPress: () => void;
+  disabled?: boolean;
+  filled?: boolean;
+  label: string;
+  icon?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+}) {
+  const translate = useRef(new Animated.Value(0)).current;
+  const [pressed, setPressed] = useState(false);
 
+  const animatePress = (toValue: number) => {
+    Animated.spring(translate, {
+      toValue,
+      tension: 280,
+      friction: 22,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  return (
+    <Pressable
+      disabled={disabled}
+      onPress={onPress}
+      onPressIn={() => {
+        setPressed(true);
+        animatePress(1);
+      }}
+      onPressOut={() => {
+        setPressed(false);
+        animatePress(0);
+      }}
+    >
+      <Animated.View
+        style={[
+          filled ? styles.generateButtonFilled : styles.generateButton,
+          pressed && styles.generateButtonPressed,
+          disabled && styles.generateButtonDisabled,
+          style,
+          {
+            transform: [
+              {
+                translateX: translate.interpolate({ inputRange: [0, 1], outputRange: [0, 2] }),
+              },
+              {
+                translateY: translate.interpolate({ inputRange: [0, 1], outputRange: [0, 2] }),
+              },
+            ],
+          },
+        ]}
+      >
+        <Text style={filled ? styles.generateButtonLabelFilled : styles.generateButtonLabel}>{label}</Text>
+        {icon}
+      </Animated.View>
+    </Pressable>
+  );
+}
 
 function CategoryPickerModal({
   visible,
@@ -263,7 +346,7 @@ function CategoryPickerModal({
                 <InteractivePressable key={option.key} onPress={() => onSelect(option.key)}>
                   <View style={[styles.modalOption, active && styles.modalOptionActive]}>
                     <Text style={[styles.modalOptionText, active && styles.modalOptionTextActive]}>{option.label}</Text>
-                    {active ? <Icon name="check" size={14} color={palette.siennaAccent} /> : null}
+                    {active ? <Icon name="check" size={14} color={todayColors.sienna} /> : null}
                   </View>
                 </InteractivePressable>
               );
@@ -304,7 +387,7 @@ export function TodayScreen({
   );
 
   const scrollRef = useRef<ScrollView>(null);
-  useScrollRestoration(scrollRef, scrollOffset);
+  const hasRestored = useRef(false);
 
   const allQuickDrills = useMemo(() => Object.values(quickDrills).flat(), []);
 
@@ -315,6 +398,7 @@ export function TodayScreen({
   const [categoryPickerOpen, setCategoryPickerOpen] = useState(false);
   const cycleIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const cycleTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const continuePress = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     return () => {
@@ -326,6 +410,22 @@ export function TodayScreen({
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (hasRestored.current) {
+      return;
+    }
+    if (scrollOffset <= 0) {
+      hasRestored.current = true;
+      return;
+    }
+
+    const id = requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({ y: scrollOffset, animated: false });
+      hasRestored.current = true;
+    });
+    return () => cancelAnimationFrame(id);
+  }, [scrollOffset]);
 
   const totalMinutesLabel = useMemo(() => {
     const total = sessionProtocol.reduce((sum, item) => sum + (parseInt(item.duration, 10) || 0), 0);
@@ -381,17 +481,19 @@ export function TodayScreen({
     }
   };
 
+  const continueTranslate = continuePress.interpolate({ inputRange: [0, 1], outputRange: [0, 2] });
+
   return (
     <View style={styles.screen}>
-      <FloatingOrb size={260} top={80} right={-40} color={palette.blush} opacity={0.45} />
-      <FloatingOrb size={120} bottom={200} left={-20} color={palette.apricot} opacity={0.3} duration={5800} />
       <TabHeader
         title="Today"
         kicker="TODAY'S PRACTICE"
         onPressLogo={() => onTab?.("today")}
         right={
           <InteractivePressable onPress={() => onTab?.("stats")}>
-            <ProfileIcon size={52} />
+            <View style={styles.profileBox}>
+              <Icon name="profile" size={30} color={todayColors.sienna} />
+            </View>
           </InteractivePressable>
         }
       />
@@ -410,7 +512,7 @@ export function TodayScreen({
         {completionNotice?.sessionNumber === 1 ? (
           <Reveal>
             <Panel tone="soft" style={styles.completionBanner}>
-              <MonoText style={{ color: palette.siennaAccent }}>SESSION 1 COMPLETE</MonoText>
+              <MonoText style={{ color: todayColors.sienna }}>SESSION 1 COMPLETE</MonoText>
               <BodyText style={styles.completionCopy}>{completionNotice.message}</BodyText>
               <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
                 <PrimaryButton label="GOT IT" onPress={() => onClearCompletionNotice?.()} inverted />
@@ -435,7 +537,7 @@ export function TodayScreen({
 
         <Reveal delay={80}>
           <View style={styles.sectionTitleRow}>
-            <Icon name="bolt" size={18} color={palette.siennaAccent} />
+            <Icon name="bolt" size={18} color={todayColors.sienna} />
             <Text style={styles.sectionTitle}>THE DAILY PROTOCOL</Text>
           </View>
 
@@ -471,9 +573,9 @@ export function TodayScreen({
                       {isActive ? (
                         <ActiveStepPulse />
                       ) : isCompleted ? (
-                        <Icon name="check" size={14} color={palette.sageSuccess} />
+                        <Icon name="check" size={14} color={todayColors.sageSuccess} />
                       ) : (
-                        <Icon name={stageIcon} size={16} color={palette.outline} />
+                        <Icon name={stageIcon} size={16} color={todayColors.outline} />
                       )}
                     </View>
 
@@ -502,13 +604,22 @@ export function TodayScreen({
               })}
             </View>
 
-            <PrimaryButton label="CONTINUE SESSION" onPress={onBegin} />
+            <Pressable
+              onPress={onBegin}
+              onPressIn={() => Animated.spring(continuePress, { toValue: 1, tension: 260, friction: 24, useNativeDriver: true }).start()}
+              onPressOut={() => Animated.spring(continuePress, { toValue: 0, tension: 260, friction: 24, useNativeDriver: true }).start()}
+            >
+              <Animated.View style={[styles.continueButton, { transform: [{ translateY: continueTranslate }] }]}>
+                <Text style={styles.continueButtonLabel}>CONTINUE SESSION</Text>
+                <Icon name="arrow" size={20} color={todayColors.parchment} />
+              </Animated.View>
+            </Pressable>
           </View>
         </Reveal>
 
         <Reveal delay={160}>
           <View style={styles.quickDrillHeader}>
-            <Icon name="psychology" size={18} color={palette.onSurfaceVariant} />
+            <Icon name="psychology" size={18} color={todayColors.onSurfaceVariant} />
             <Text style={styles.sectionTitle}>QUICK DRILL HUB</Text>
           </View>
 
@@ -517,7 +628,7 @@ export function TodayScreen({
             <InteractivePressable onPress={() => setCategoryPickerOpen(true)}>
               <View style={styles.categorySelect}>
                 <Text style={styles.categorySelectText}>{selectedCategoryLabel}</Text>
-                <Icon name="chevronDown" size={20} color={palette.siennaAccent} />
+                <Icon name="chevronDown" size={20} color={todayColors.sienna} />
               </View>
             </InteractivePressable>
           </View>
@@ -529,7 +640,7 @@ export function TodayScreen({
                 <Text style={styles.randomizerCopy}>Ready for a spontaneous challenge?</Text>
               </View>
               <View style={styles.randomizerIconBox}>
-                <Icon name="casino" size={22} color={palette.siennaAccent} />
+                <Icon name="casino" size={22} color={todayColors.sienna} />
               </View>
             </View>
 
@@ -542,14 +653,15 @@ export function TodayScreen({
             </View>
 
             {quickDrillFinal ? (
-              <PrimaryButton
+              <BrutalistShadowButton
+                filled
                 label="BEGIN RECORDING"
-                icon={<Icon name="videocam" size={18} />}
+                icon={<Icon name="videocam" size={18} color={todayColors.parchment} />}
                 onPress={handleBeginRecording}
                 disabled={!onStartQuickDrill}
               />
             ) : (
-              <PrimaryButton label="GENERATE RANDOM CHALLENGE" onPress={handleGenerateQuickDrill} disabled={isGenerating} inverted />
+              <BrutalistShadowButton label="GENERATE RANDOM CHALLENGE" onPress={handleGenerateQuickDrill} disabled={isGenerating} />
             )}
           </View>
         </Reveal>
@@ -572,7 +684,17 @@ export function TodayScreen({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: palette.paper,
+    backgroundColor: todayColors.background,
+  },
+  profileBox: {
+    width: 52,
+    height: 52,
+    borderWidth: 2,
+    borderRadius: 26,
+    borderColor: todayColors.outline,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: todayColors.parchment,
   },
   content: {
     paddingHorizontal: spacing.lg,
@@ -585,7 +707,7 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
   },
   completionCopy: {
-    color: palette.onSurfaceVariant,
+    color: todayColors.onSurfaceVariant,
     lineHeight: 26,
   },
   todayHeader: {
@@ -598,29 +720,28 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   todayGreeting: {
-    fontFamily: type.display,
-    fontSize: 30,
-    lineHeight: 33,
-    color: palette.inkFocus,
+    fontFamily: todayFonts.headline,
+    fontSize: 32,
+    lineHeight: 35,
+    color: todayColors.inkFocus,
     textTransform: "uppercase",
-    letterSpacing: 0.2,
   },
   progressRight: {
     alignItems: "flex-end",
-    gap: 2,
+    gap: 4,
   },
   progressLabel: {
-    fontFamily: type.mono,
-    fontSize: 11,
-    color: palette.onSurfaceVariant,
-    letterSpacing: 1.5,
+    fontFamily: todayFonts.label,
+    fontSize: 12,
+    color: todayColors.onSurfaceVariant,
+    letterSpacing: 1.2,
   },
   progressValue: {
-    fontFamily: type.monoBold,
-    fontSize: 20,
-    lineHeight: 24,
-    letterSpacing: 1,
-    color: palette.siennaAccent,
+    fontFamily: todayFonts.labelBold,
+    fontSize: 24,
+    lineHeight: 29,
+    letterSpacing: 1.2,
+    color: todayColors.sienna,
   },
   sprintStrip: {
     flexDirection: "row",
@@ -635,18 +756,18 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   sprintSegmentFilled: {
-    backgroundColor: palette.siennaAccent,
+    backgroundColor: todayColors.sienna,
     borderWidth: 1,
-    borderColor: palette.inkFocus,
+    borderColor: todayColors.inkFocus,
   },
   sprintSegmentCheckered: {
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
     borderWidth: 1,
-    borderColor: palette.inkFocus,
+    borderColor: todayColors.inkFocus,
   },
   sprintSegmentEmpty: {
     borderWidth: 1,
-    borderColor: palette.outline,
+    borderColor: todayColors.outline,
     backgroundColor: "transparent",
   },
   checkeredWrap: {
@@ -659,36 +780,36 @@ const styles = StyleSheet.create({
     height: "50%",
   },
   checkeredCellFilled: {
-    backgroundColor: palette.siennaAccent,
+    backgroundColor: todayColors.sienna,
   },
   checkeredCellEmpty: {
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
   },
   sectionTitleRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 7,
-    marginBottom: 12,
+    gap: 8,
+    marginBottom: 16,
   },
   sectionTitle: {
-    fontFamily: type.mono,
-    fontSize: 11,
-    color: palette.onSurfaceVariant,
-    letterSpacing: 1.8,
+    fontFamily: todayFonts.label,
+    fontSize: 12,
+    color: todayColors.onSurfaceVariant,
+    letterSpacing: 2,
     textTransform: "uppercase",
   },
   protocolShell: {
     borderWidth: 2,
-    borderColor: palette.inkFocus,
-    backgroundColor: palette.parchmentSurface,
-    shadowColor: palette.siennaAccent,
-    shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 0.95,
+    borderColor: todayColors.inkFocus,
+    backgroundColor: todayColors.parchment,
+    shadowColor: todayColors.sienna,
+    shadowOffset: { width: 8, height: 8 },
+    shadowOpacity: 1,
     shadowRadius: 0,
     overflow: "hidden",
   },
   protocolHeader: {
-    backgroundColor: palette.inkFocus,
+    backgroundColor: todayColors.inkFocus,
     paddingHorizontal: 16,
     paddingVertical: 12,
     flexDirection: "row",
@@ -698,130 +819,142 @@ const styles = StyleSheet.create({
   },
   protocolHeaderTitle: {
     flex: 1,
-    fontFamily: type.display,
-    color: palette.parchmentSurface,
-    fontSize: 20,
-    lineHeight: 22,
+    fontFamily: todayFonts.headline,
+    color: todayColors.parchment,
+    fontSize: 24,
+    lineHeight: 26,
     textTransform: "uppercase",
-    letterSpacing: 0.2,
   },
   protocolHeaderMeta: {
-    fontFamily: type.mono,
-    color: palette.parchmentSurface,
-    fontSize: 11,
-    opacity: 0.76,
-    letterSpacing: 1.1,
+    fontFamily: todayFonts.label,
+    color: todayColors.parchment,
+    fontSize: 12,
+    opacity: 0.8,
+    letterSpacing: 1.2,
   },
   protocolStep: {
     flexDirection: "row",
     alignItems: "center",
-    minHeight: 62,
+    height: 64,
     paddingHorizontal: 16,
-    paddingVertical: 10,
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
   },
   protocolStepDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: palette.outlineVariant,
+    borderBottomColor: todayColors.outlineVariant,
   },
   protocolStepActive: {
-    backgroundColor: palette.primary,
+    backgroundColor: todayColors.primary,
   },
   protocolStepCompleted: {
-    backgroundColor: palette.surfaceContainerLow,
+    backgroundColor: todayColors.surfaceContainerLow,
   },
   protocolDot: {
-    width: 28,
-    height: 28,
+    width: 32,
+    height: 32,
     borderRadius: 999,
-    borderWidth: 1.5,
-    borderColor: palette.outline,
+    borderWidth: 2,
+    borderColor: todayColors.outline,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 14,
+    marginRight: 16,
   },
   protocolDotActive: {
-    borderColor: palette.parchmentSurface,
+    borderColor: todayColors.parchment,
   },
   protocolDotCompleted: {
-    borderColor: palette.sageSuccess,
+    borderColor: todayColors.sageSuccess,
   },
   protocolDotPulse: {
     width: 12,
     height: 12,
     borderRadius: 999,
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
   },
   protocolIndex: {
-    fontFamily: type.mono,
-    fontSize: 9,
-    color: palette.onSurfaceVariant,
-    letterSpacing: 1,
+    fontFamily: todayFonts.label,
+    fontSize: 10,
+    color: todayColors.onSurfaceVariant,
+    letterSpacing: 0.8,
   },
   protocolIndexActive: {
-    color: palette.onPrimaryContainer,
+    color: todayColors.onPrimaryContainer,
   },
   protocolLabel: {
-    fontFamily: type.bodyBold,
-    fontSize: 15,
-    color: palette.inkFocus,
+    fontFamily: todayFonts.bodyBold,
+    fontSize: 16,
+    color: todayColors.inkFocus,
     textTransform: "uppercase",
   },
   protocolLabelActive: {
-    color: palette.parchmentSurface,
+    color: todayColors.parchment,
     textTransform: "none",
   },
   protocolLabelCompleted: {
     textDecorationLine: "line-through",
-    color: palette.onSurfaceVariant,
+    color: todayColors.onSurfaceVariant,
   },
   protocolDuration: {
     borderWidth: 1,
-    borderColor: palette.outline,
-    paddingHorizontal: 7,
+    borderColor: todayColors.outline,
+    paddingHorizontal: 8,
     paddingVertical: 4,
-    backgroundColor: palette.background,
+    backgroundColor: todayColors.background,
   },
   protocolDurationActive: {
-    borderColor: palette.parchmentSurface,
+    borderColor: todayColors.parchment,
     backgroundColor: "transparent",
   },
   protocolDurationCompleted: {
-    backgroundColor: palette.background,
+    backgroundColor: todayColors.background,
   },
   protocolDurationText: {
-    fontFamily: type.mono,
-    fontSize: 11,
-    letterSpacing: 0.9,
-    color: palette.inkFocus,
+    fontFamily: todayFonts.label,
+    fontSize: 12,
+    letterSpacing: 1,
+    color: todayColors.inkFocus,
   },
   protocolDurationTextActive: {
-    color: palette.parchmentSurface,
+    color: todayColors.parchment,
   },
-
+  continueButton: {
+    width: "100%",
+    backgroundColor: todayColors.sienna,
+    paddingVertical: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+  },
+  continueButtonLabel: {
+    fontFamily: todayFonts.label,
+    color: todayColors.parchment,
+    fontSize: 12,
+    letterSpacing: 1.2,
+  },
   quickDrillHeader: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 7,
+    gap: 8,
     borderTopWidth: 2,
-    borderTopColor: palette.outlineVariant,
-    paddingTop: 26,
-    marginBottom: 18,
+    borderTopColor: todayColors.outlineVariant,
+    paddingTop: 32,
+    marginBottom: 24,
   },
   filterBlock: {
     gap: 8,
     marginBottom: 24,
   },
   filterLabel: {
-    fontFamily: type.mono,
-    fontSize: 11,
-    color: palette.onSurfaceVariant,
-    letterSpacing: 1.4,
+    fontFamily: todayFonts.label,
+    fontSize: 12,
+    color: todayColors.onSurfaceVariant,
+    letterSpacing: 1.2,
   },
   categorySelect: {
     borderWidth: 2,
-    borderColor: palette.outline,
-    backgroundColor: palette.parchmentSurface,
+    borderColor: todayColors.outline,
+    backgroundColor: todayColors.parchment,
     paddingHorizontal: 16,
     paddingVertical: 12,
     flexDirection: "row",
@@ -829,21 +962,17 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   categorySelectText: {
-    fontFamily: type.mono,
-    fontSize: 13,
-    color: palette.inkFocus,
-    letterSpacing: 0.4,
+    fontFamily: todayFonts.label,
+    fontSize: 14,
+    color: todayColors.inkFocus,
+    letterSpacing: 0.5,
   },
   randomizerCard: {
     borderWidth: 2,
-    borderColor: palette.outline,
-    backgroundColor: palette.surfaceContainer,
-    padding: 22,
-    gap: 14,
-    shadowColor: palette.outlineVariant,
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.18,
-    shadowRadius: 0,
+    borderColor: todayColors.outline,
+    backgroundColor: todayColors.surfaceContainer,
+    padding: 24,
+    gap: 16,
   },
   randomizerTop: {
     flexDirection: "row",
@@ -852,70 +981,109 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   randomizerLabel: {
-    fontFamily: type.mono,
-    fontSize: 11,
-    color: palette.siennaAccent,
-    letterSpacing: 1.4,
+    fontFamily: todayFonts.label,
+    fontSize: 12,
+    color: todayColors.sienna,
+    letterSpacing: 1.2,
   },
   randomizerCopy: {
-    fontFamily: type.body,
-    color: palette.onSurfaceVariant,
-    fontSize: 15,
-    lineHeight: 22,
+    fontFamily: todayFonts.body,
+    color: todayColors.inkFocus,
+    fontSize: 16,
+    lineHeight: 24,
   },
   randomizerIconBox: {
-    width: 44,
-    height: 44,
-    borderWidth: 1.5,
-    borderColor: palette.outline,
-    backgroundColor: palette.parchmentSurface,
+    width: 48,
+    height: 48,
+    borderWidth: 2,
+    borderColor: todayColors.outline,
+    backgroundColor: todayColors.parchment,
     alignItems: "center",
     justifyContent: "center",
   },
   drillDisplay: {
-    minHeight: 96,
-    borderWidth: 1.5,
-    borderColor: palette.outlineVariant,
+    height: 96,
+    borderWidth: 2,
+    borderColor: todayColors.outlineVariant,
     borderStyle: "dashed",
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: 12,
   },
   drillDisplayActive: {
     borderStyle: "solid",
-    borderColor: palette.outline,
-    backgroundColor: palette.white,
+    borderColor: todayColors.outline,
+    backgroundColor: "#FFFFFF",
   },
   drillPlaceholder: {
-    fontSize: 11,
-    color: palette.onSurfaceVariant,
+    fontSize: 12,
+    color: todayColors.onSurfaceVariant,
     textAlign: "center",
-    letterSpacing: 1.1,
+    letterSpacing: 1,
     opacity: 0.5,
   },
   drillCycling: {
-    color: palette.siennaAccent,
+    color: todayColors.sienna,
     opacity: 1,
   },
   drillCategory: {
-    fontFamily: type.mono,
-    fontSize: 9,
-    color: palette.onSurfaceVariant,
-    letterSpacing: 1.2,
+    fontFamily: todayFonts.label,
+    fontSize: 10,
+    color: todayColors.onSurfaceVariant,
+    letterSpacing: 1,
     textTransform: "uppercase",
   },
   drillTitle: {
-    fontFamily: type.monoBold,
-    fontSize: 16,
-    lineHeight: 20,
-    color: palette.inkFocus,
+    fontFamily: todayFonts.labelBold,
+    fontSize: 18,
+    lineHeight: 22,
+    color: todayColors.inkFocus,
     textAlign: "center",
     textTransform: "uppercase",
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
   },
-
+  generateButton: {
+    borderWidth: 2,
+    borderColor: todayColors.inkFocus,
+    backgroundColor: todayColors.parchment,
+    paddingVertical: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    shadowColor: todayColors.inkFocus,
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 3,
+  },
+  generateButtonFilled: {
+    backgroundColor: todayColors.sienna,
+    borderColor: todayColors.sienna,
+    shadowColor: todayColors.sienna,
+    shadowOffset: { width: 4, height: 4 },
+  },
+  generateButtonDisabled: {
+    opacity: 0.7,
+  },
+  generateButtonPressed: {
+    shadowOpacity: 0,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 0,
+  },
+  generateButtonLabel: {
+    fontFamily: todayFonts.label,
+    color: todayColors.inkFocus,
+    fontSize: 12,
+    letterSpacing: 1,
+  },
+  generateButtonLabelFilled: {
+    fontFamily: todayFonts.label,
+    color: todayColors.parchment,
+    fontSize: 12,
+    letterSpacing: 1,
+  },
   spacerRow: {
     paddingVertical: 48,
     alignItems: "center",
@@ -923,7 +1091,7 @@ const styles = StyleSheet.create({
   spacerLine: {
     width: 96,
     height: 1,
-    backgroundColor: palette.outlineVariant,
+    backgroundColor: todayColors.outlineVariant,
   },
   modalRoot: {
     flex: 1,
@@ -938,10 +1106,10 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.xl,
   },
   modalSheet: {
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: todayColors.parchment,
     borderWidth: 2,
-    borderColor: palette.inkFocus,
-    shadowColor: palette.inkFocus,
+    borderColor: todayColors.inkFocus,
+    shadowColor: todayColors.inkFocus,
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 0,
@@ -951,14 +1119,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 40,
     height: 4,
-    backgroundColor: palette.outlineVariant,
+    backgroundColor: todayColors.outlineVariant,
     marginTop: 10,
     marginBottom: 12,
   },
   modalTitle: {
-    fontFamily: type.mono,
+    fontFamily: todayFonts.label,
     fontSize: 11,
-    color: palette.onSurfaceVariant,
+    color: todayColors.onSurfaceVariant,
     letterSpacing: 1.2,
     paddingHorizontal: 16,
     paddingBottom: 8,
@@ -967,21 +1135,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     borderTopWidth: 1,
-    borderTopColor: palette.outlineVariant,
+    borderTopColor: todayColors.outlineVariant,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
   modalOptionActive: {
-    backgroundColor: palette.surfaceContainerLow,
+    backgroundColor: todayColors.surfaceContainerLow,
   },
   modalOptionText: {
-    fontFamily: type.bodyMedium,
+    fontFamily: todayFonts.bodyMedium,
     fontSize: 15,
-    color: palette.inkFocus,
+    color: todayColors.inkFocus,
   },
   modalOptionTextActive: {
-    fontFamily: type.bodyBold,
-    color: palette.siennaAccent,
+    fontFamily: todayFonts.bodyBold,
+    color: todayColors.sienna,
   },
 });

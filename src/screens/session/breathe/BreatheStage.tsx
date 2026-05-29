@@ -23,7 +23,6 @@ export type BreatheStageProps = {
   onExit: () => void;
   onNext: () => void;
   setIsBreathRunning: (running: boolean) => void;
-  transitionDirection: "forward" | "backward" | "none";
 };
 
 type BreatheStageBodyProps = Pick<
@@ -219,7 +218,7 @@ export function BreatheStageBody({
       <>
         <Panel style={{ gap: spacing.md }}>
               <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                <MonoText style={{ color: palette.line }}>SESSION 10: DOWNWARD INFLECTION</MonoText>
+                <MonoText style={{ color: palette.line }}>SESSION 10: WARM-UP</MonoText>
                 <View style={styles.outlineBadge}>
                   <MonoText style={styles.outlineBadgeText}>01/05</MonoText>
                 </View>
@@ -312,7 +311,7 @@ export function BreatheStageBody({
     return (
       <>
         <View style={{ gap: spacing.sm }}>
-          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 12 : REVIEW — FIRST WIN</MonoText>
+          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 12 : REVIEW</MonoText>
           <DisplayText style={{ fontSize: 44, lineHeight: 50, textTransform: "uppercase" }}>FIRST WIN</DisplayText>
           <MonoText style={{ color: palette.line, letterSpacing: 2 }}>Trend lines and the first share moment</MonoText>
         </View>
@@ -448,7 +447,7 @@ export function BreatheStageBody({
     return (
       <>
         <View style={{ gap: spacing.sm, marginTop: spacing.sm }}>
-          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 16 · STACKED CONSTRAINTS</MonoText>
+          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 16 · CENTRE</MonoText>
           <DisplayText style={{ fontSize: 46, lineHeight: 52, textTransform: "uppercase" }}>CONSTRAINT{"\n"}CALIBRATION</DisplayText>
         </View>
 
@@ -506,7 +505,7 @@ export function BreatheStageBody({
     return (
       <>
         <View style={{ alignItems: "center", gap: spacing.sm, marginTop: spacing.sm }}>
-          <DisplayText style={{ fontSize: 46, lineHeight: 52 }}>Master Answer</DisplayText>
+          <DisplayText style={{ fontSize: 46, lineHeight: 52 }}>Centre</DisplayText>
           <DisplayText style={{ fontSize: 26, lineHeight: 32, color: palette.line }}>Close your eyes. Listen first.</DisplayText>
         </View>
 
@@ -597,7 +596,7 @@ export function BreatheStageBody({
     return (
       <>
         <View style={{ alignItems: "center", gap: spacing.sm, marginTop: spacing.sm }}>
-          <DisplayText style={{ fontSize: 40, lineHeight: 46 }}>Calibrated Questions</DisplayText>
+          <DisplayText style={{ fontSize: 40, lineHeight: 46 }}>Step 1: Centre</DisplayText>
           <BodyText style={{ fontSize: 22, lineHeight: 32, fontStyle: "italic", color: palette.inkMuted, textAlign: "center" }}>
             “The next push is information,{"\n"}not a threat.”
           </BodyText>
@@ -820,7 +819,7 @@ export function BreatheStageBody({
     return (
       <>
         <View style={{ alignItems: "center", gap: spacing.sm, marginTop: spacing.sm }}>
-          <DisplayText style={{ fontSize: 44, lineHeight: 50 }}>Review — Pressure Replay</DisplayText>
+          <DisplayText style={{ fontSize: 44, lineHeight: 50 }}>Centre</DisplayText>
           <DisplayText style={{ fontSize: 26, lineHeight: 32 }}>Same scenario. Different you.</DisplayText>
           <BodyText style={{ color: palette.inkMuted, textAlign: "center" }}>
             Re-record the Sprint 4 session where the metrics{"\n"}were weakest.
@@ -921,7 +920,6 @@ export function BreatheStage({
   onExit,
   onNext,
   setIsBreathRunning,
-  transitionDirection,
 }: BreatheStageProps) {
   const useStepBody = sessionNumber >= 6 && sessionNumber <= 11;
 
@@ -936,7 +934,6 @@ export function BreatheStage({
       isBreathRunning={isBreathRunning}
       onBack={onBack}
       onExit={onExit}
-      transitionDirection={transitionDirection}
       onJumpToStep={(targetIndex) => (onJumpToStep ? onJumpToStep(targetIndex) : undefined)}
       scrollContentStyle={useStepBody ? styles.stepBody : undefined}
     >

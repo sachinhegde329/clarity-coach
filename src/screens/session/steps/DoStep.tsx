@@ -127,7 +127,7 @@ export function DoStep({
           <Panel style={{ flex: 0.58, gap: spacing.md }}>
             <MonoText style={styles.metricLabel}>PROMPT</MonoText>
             <BodyText style={{ color: palette.ink, fontSize: 22, lineHeight: 30 }}>
-              {content.promptTitle}
+              “Describe your morning routine in vivid detail, focusing on the sequence of physical sensations.”
             </BodyText>
             <View style={{ borderTopWidth: 2, borderColor: palette.lineSoft, paddingTop: spacing.sm }}>
               <MonoText>TIPS: AVOID “UM”, “LIKE”, “SO”, “REALLY”.</MonoText>
@@ -176,7 +176,7 @@ export function DoStep({
           <Panel style={{ flex: 0.66, gap: spacing.lg }}>
             <View>
               <MonoText style={styles.metricLabel}>CURRENT PROMPT</MonoText>
-              <DisplayText style={{ fontSize: 26, lineHeight: 30 }}>{content.promptTitle}</DisplayText>
+              <DisplayText style={{ fontSize: 26, lineHeight: 30 }}>"Tell me about your favorite book or movie."</DisplayText>
             </View>
             <View style={{ flexDirection: "row", justifyContent: "space-between", borderTopWidth: 2, borderColor: palette.line, paddingTop: spacing.md }}>
               <View>
@@ -300,7 +300,7 @@ export function DoStep({
             <MonoText style={styles.outlineBadgeText}>SESSION 9: POWER PAUSES</MonoText>
           </View>
           <DisplayText style={{ fontSize: 30, lineHeight: 34, textAlign: "center" }}>
-            {content.promptTitle}
+            WHAT IS A PROJECT YOU{"\n"}ARE CURRENTLY{"\n"}WORKING ON?
           </DisplayText>
         </View>
 
@@ -321,7 +321,7 @@ export function DoStep({
             <Icon name="mic" size={42} color={palette.line} />
           </View>
           <DisplayText style={{ fontSize: 28, lineHeight: 32 }}>LISTENING</DisplayText>
-          <MonoText>{formatTime(recordElapsed)} / {formatTime(recordLimit)}</MonoText>
+          <MonoText>00:42 / 01:30</MonoText>
         </Panel>
 
         <PrimaryButton label="INSERT POWER PAUSE" onPress={onToggleRecording} />
@@ -342,7 +342,7 @@ export function DoStep({
     return (
       <View style={styles.stepBody}>
         <View style={styles.outlineBadge}>
-            <MonoText style={styles.outlineBadgeText}>SESSION 10 · DOWNWARD INFLECTION</MonoText>
+            <MonoText style={styles.outlineBadgeText}>SESSION 10 · ARCHITECTURAL COHERENCE</MonoText>
           </View>
 
         <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>Describe a project{"\n"}you are passionate about.</DisplayText>
@@ -438,7 +438,7 @@ export function DoStep({
     return (
       <View style={styles.stepBody}>
         <View style={{ gap: spacing.sm }}>
-          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 12: REVIEW — FIRST WIN</MonoText>
+          <MonoText style={{ color: palette.inkMuted, letterSpacing: 2 }}>SESSION 12: REVIEW</MonoText>
           <DisplayText style={{ fontSize: 44, lineHeight: 50, textTransform: "uppercase" }}>
             REPLAY YOUR{"\n"}STRONGEST SESSION
           </DisplayText>
@@ -489,7 +489,7 @@ export function DoStep({
       <View style={styles.stepBody}>
         <Panel style={{ gap: spacing.md }}>
           <View style={styles.outlineBadge}>
-            <MonoText style={styles.outlineBadgeText}>SESSION 13 · BLUF</MonoText>
+            <MonoText style={styles.outlineBadgeText}>SESSION 13 · ACTIVE DRILL</MonoText>
           </View>
           <BodyText style={{ color: palette.inkMuted }}>
             Constraint stack: conclusion in the first 8 seconds, 30 seconds total. BLUF first — everything else later.

@@ -3,7 +3,6 @@ import { Animated, Pressable, StyleSheet, View, ViewStyle } from "react-native";
 import { Icon } from "../../../design-system/icons";
 import { MonoText } from "../../../design-system/primitives";
 import { palette, spacing, type } from "../../../design-system/theme";
-import { triggerHaptic } from "../../../design-system/motion";
 
 export function SessionButton({
   label,
@@ -26,7 +25,6 @@ export function SessionButton({
 }) {
   const isPrimary = variant === "primary";
   const disabledOpacity = disabled ? 0.45 : 1;
-  const shadowColor = isPrimary ? palette.inkFocus : palette.siennaAccent;
   const translateAnim = useRef(new Animated.Value(0)).current;
 
   const animateTo = (value: number) => {
@@ -40,25 +38,22 @@ export function SessionButton({
 
   const translateX = translateAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 4],
+    outputRange: [0, 6],
   });
   const translateY = translateAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 4],
+    outputRange: [0, 6],
   });
 
   return (
     <Pressable
-      onPress={() => {
-        triggerHaptic("light");
-        onPress();
-      }}
+      onPress={onPress}
       disabled={disabled}
       onPressIn={() => animateTo(1)}
       onPressOut={() => animateTo(0)}
       style={[fullWidth && styles.fullWidth, style]}
     >
-      <View style={[styles.shadowLayer, { shadowColor }]}>
+      <View style={styles.shadowLayer}>
         <Animated.View
           style={[
             styles.button,
@@ -70,7 +65,7 @@ export function SessionButton({
             {iconLeft ?? null}
             <MonoText style={[styles.label, isPrimary ? styles.labelPrimary : styles.labelSecondary]}>{label}</MonoText>
           </View>
-          {icon ?? <Icon name="arrow" size={28} color={isPrimary ? palette.inkFocus : palette.parchmentSurface} />}
+          {icon ?? <Icon name="arrow" size={22} color={isPrimary ? palette.inkFocus : palette.parchmentSurface} />}
         </Animated.View>
       </View>
     </Pressable>
@@ -82,25 +77,29 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   shadowLayer: {
-    shadowOffset: { width: 6, height: 6 },
+    shadowOffset: { width: 4, height: 4 },
+    shadowColor: palette.siennaAccent,
     shadowOpacity: 1,
     shadowRadius: 0,
     elevation: 0,
   },
   button: {
-    minHeight: 72,
-    paddingVertical: 24,
+    minHeight: 56,
+    paddingVertical: 16,
     paddingHorizontal: 48,
+    borderWidth: 2,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 16,
+    gap: 12,
   },
   buttonPrimary: {
     backgroundColor: palette.parchmentSurface,
+    borderColor: palette.inkFocus,
   },
   buttonSecondary: {
     backgroundColor: palette.inkFocus,
+    borderColor: palette.inkFocus,
   },
   labelRow: {
     flexDirection: "row",
@@ -109,9 +108,9 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   label: {
-    fontFamily: type.monoBold,
-    fontSize: 20,
-    letterSpacing: 1,
+    fontFamily: type.mono,
+    fontSize: 12,
+    letterSpacing: 1.4,
     textTransform: "uppercase",
   },
   labelPrimary: {

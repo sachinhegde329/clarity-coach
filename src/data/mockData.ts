@@ -18,7 +18,6 @@ export type CentreData = {
   boxSteps?: string[];
   pulseLabel?: string;
   exerciseLabel?: string;
-  stepName?: string;
 };
 
 // ─── Listen (Lesson) stage data ───────────────────────────────────────────────
@@ -41,7 +40,6 @@ export type ListenData = {
   quote?: string;
   metrics?: { label: string; value: string }[];
   comparisonAudio?: { label: string; tag: string; description: string }[];
-  stepName?: string;
 };
 
 // ─── Do (Feedback/Record) stage data ─────────────────────────────────────────
@@ -80,13 +78,6 @@ export type DoData = {
   timeLimit?: number; // seconds
   nouns?: string[];
   energyCheck?: boolean;
-  stepName?: string;
-  title?: string;
-  headerMeta?: string;
-  headline?: string;
-  nudge?: string;
-  /** Per-training-goal overrides for prompt text, constraints, etc. */
-  contextVariants?: Record<string, Partial<Pick<DoData, "promptTitle" | "promptBody" | "constraint" | "preRecordMeta" | "closingLine" | "badge" | "headerMeta">>>;
 };
 
 // ─── See (Record/Feedback) stage data ─────────────────────────────────────────
@@ -121,7 +112,6 @@ export type SeeData = {
   coachInsights?: string[];
   waveformLabel?: string;
   pauseCategories?: string[];
-  stepName?: string;
 };
 
 // ─── Commit (Reflect) stage data ──────────────────────────────────────────────
@@ -135,7 +125,6 @@ export type CommitData = {
   scienceNote?: string;
   nextStep?: string;
   freeResponse?: boolean;
-  stepName?: string;
 };
 
 export type SessionDefinition = {
@@ -157,10 +146,6 @@ export type SessionDefinition = {
 };
 
 export const sessionDefinitions: SessionDefinition[] = buildAllSessionDefinitions();
-
-/** Training goals collected at onboarding. Used for context variant selection. */
-export type GoalKey = "Interview prep" | "New manager" | "Client-facing" | "Promotion-ready" | "General";
-export const TRAINING_GOALS: GoalKey[] = ["Interview prep", "New manager", "Client-facing", "Promotion-ready", "General"];
 
 export type SprintCard = {
   id: string;

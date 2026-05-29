@@ -51,7 +51,6 @@ export function ClassicGuidedStage(props: SessionStageRenderProps & { sessionEla
           recordLimit={recordLimit}
           recording={recording}
           onToggleRecording={onToggleRecording}
-          onResetRecording={props.onResetRecording}
           onNext={onNext}
         />
       );

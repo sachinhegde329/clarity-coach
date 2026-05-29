@@ -45,7 +45,6 @@ function SprintGuidedStage(props: GuidedStageViewProps) {
     session,
     content: session.stages.record,
     analysis: props.analysis,
-    selectedMetricLabel: props.selectedMetricLabel,
     onNext: props.onNext,
   };
   const commitProps = {

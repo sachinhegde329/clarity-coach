@@ -1,14 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { resolveSessionCommentary } from "../../../data/commentaryEngine";
 import { sessionDefinitions } from "../../../data/mockData";
-import { requestMetricScores, requestSessionCritique } from "../../../services/ai";
-import {
-  computeSpeechMetrics,
-  deriveDeterministicSeeMetrics,
-  deriveSessionSpecificMetrics,
-  mergeMetricsInLabelOrder,
-  metricsToCommentaryVars,
-} from "../../../services/speechMetrics";
+import { requestSessionCritique } from "../../../services/ai";
+import { computeSpeechMetrics, metricsToCommentaryVars } from "../../../services/speechMetrics";
 import {
   createSessionAttempt,
   saveCommitment,
@@ -45,7 +39,6 @@ function buildFallbackTranscript(durationMs: number) {
 export function useSessionPipeline(userId: string | null) {
   const saveAnalysis = useSessionProgressStore((state) => state.saveAnalysis);
   const cachedAnalysis = useSessionProgressStore((state) => state.analysisBySession);
-  const selectedMetricBySession = useSessionProgressStore((state) => state.selectedMetricBySession);
 
   const [status, setStatus] = useState<SessionPipelineStatus>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -57,15 +50,8 @@ export function useSessionPipeline(userId: string | null) {
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const activeSessionRef = useRef<number | null>(null);
 
-  const abortRef = useRef<AbortController | null>(null);
-  const lastDoInputRef = useRef<ProcessRecordingInput | null>(null);
-  const lastCommitInputRef = useRef<CommitRecordingInput | null>(null);
-
   const resetForSession = useCallback((sessionNumber: number) => {
-    abortRef.current?.abort();
-    abortRef.current = null;
     activeSessionRef.current = sessionNumber;
-
     const cached = cachedAnalysis[sessionNumber];
     if (cached) {
       setStatus("ready");
@@ -97,13 +83,6 @@ export function useSessionPipeline(userId: string | null) {
 
   const processDoRecording = useCallback(
     async ({ localUri, durationMs, sessionNumber, challengeType }: ProcessRecordingInput) => {
-      abortRef.current?.abort();
-
-      const controller = new AbortController();
-      abortRef.current = controller;
-      lastDoInputRef.current = { localUri, durationMs, sessionNumber, challengeType };
-      const signal = controller.signal;
-
       if (activeSessionRef.current !== sessionNumber) {
         resetForSession(sessionNumber);
       }
@@ -119,18 +98,15 @@ export function useSessionPipeline(userId: string | null) {
         return null;
       }
 
-      if (signal.aborted) { setStatus("idle"); return null; }
-
       let remotePath: string | null = null;
       let currentAttemptId: string | null = null;
 
       if (hasSupabaseConfig() && userId) {
-        const upload = await uploadRecording(
-          { userId, sessionId: sessionNumber, localUri },
-          signal,
-        );
-
-        if (signal.aborted) { setStatus("idle"); return null; }
+        const upload = await uploadRecording({
+          userId,
+          sessionId: sessionNumber,
+          localUri,
+        });
 
         if (upload.error) {
           setStatus("error");
@@ -147,8 +123,6 @@ export function useSessionPipeline(userId: string | null) {
           durationMs,
         });
 
-        if (signal.aborted) { setStatus("idle"); return null; }
-
         if (attempt.error) {
           setStatus("error");
           setError(attempt.error);
@@ -159,25 +133,18 @@ export function useSessionPipeline(userId: string | null) {
         setAttemptId(currentAttemptId);
       }
 
-      if (signal.aborted) { setStatus("idle"); return null; }
-
       setStatus("transcribing");
       let transcriptText = buildFallbackTranscript(durationMs);
       let transcriptionProvider = "typed-fallback";
       let serverMetrics: CoachingMetric[] = [];
 
       if (remotePath) {
-        const transcription = await transcribePremiumRecording(
-          {
-            recordingPath: remotePath,
-            sessionId: sessionNumber,
-            attemptId: currentAttemptId ?? undefined,
-            durationMs,
-          },
-          signal,
-        );
-
-        if (signal.aborted) { setStatus("idle"); return null; }
+        const transcription = await transcribePremiumRecording({
+          recordingPath: remotePath,
+          sessionId: sessionNumber,
+          attemptId: currentAttemptId ?? undefined,
+          durationMs,
+        });
 
         if (transcription.data?.text?.trim()) {
           transcriptText = transcription.data.text.trim();
@@ -191,96 +158,30 @@ export function useSessionPipeline(userId: string | null) {
         }
       }
 
-      if (signal.aborted) { setStatus("idle"); return null; }
-
-      const baseMetrics =
+      const computedMetrics =
         serverMetrics.length > 0 ? serverMetrics : computeSpeechMetrics(transcriptText, durationMs);
-
-      const deterministic = deriveDeterministicSeeMetrics({ transcript: transcriptText, durationMs, baseMetrics });
-      const selectedMetricLabel = selectedMetricBySession[sessionNumber] ?? null;
-
-      const requestedLabels = (session.stages.record.metrics?.map((m) => m.label).filter(Boolean) ?? []).flatMap((label) =>
-        label.toUpperCase().includes("SINGLE CHOSEN METRIC")
-          ? [selectedMetricLabel ?? "PACE (WPM)"]
-          : [label],
-      );
-
-      const sessionSpecific = deriveSessionSpecificMetrics({
-        sessionNumber,
-        requestedLabels,
-        transcript: transcriptText,
-        durationMs,
-        currentMetrics: [...baseMetrics, ...deterministic],
-        analysisBySession: cachedAnalysis,
-        selectedMetricLabel,
-      });
-
-      if (signal.aborted) { setStatus("idle"); return null; }
-
-      const placeholders = (requestedLabels.length ? requestedLabels : []).map((label) => ({
-        key: label.toLowerCase().replace(/[^a-z0-9]+/g, "_"),
-        label,
-        value: "—",
-      }));
-
-      let scored: CoachingMetric[] = [];
-      if (requestedLabels.length) {
-        const scoreResponse = await requestMetricScores(
-          {
-            sessionId: sessionNumber,
-            sprintId: Math.ceil(sessionNumber / 6),
-            transcript: transcriptText,
-            durationMs,
-            baseMetrics: [...baseMetrics, ...deterministic, ...sessionSpecific],
-            requestedLabels,
-          },
-          signal,
-        );
-
-        if (signal.aborted) { setStatus("idle"); return null; }
-
-        if (scoreResponse.data?.metrics?.length) {
-          scored = scoreResponse.data.metrics;
-        }
-      }
-
-      const mergedMetrics = mergeMetricsInLabelOrder({
-        requestedLabels,
-        placeholders,
-        baseMetrics,
-        derivedMetrics: [...deterministic, ...sessionSpecific],
-        scoredMetrics: scored,
-      });
-
       setTranscript(transcriptText);
-      setMetrics(mergedMetrics);
+      setMetrics(computedMetrics);
 
       const resolvedCommentary = resolveSessionCommentary(
         sessionNumber,
         session.stages.record,
-        metricsToCommentaryVars(mergedMetrics),
+        metricsToCommentaryVars(computedMetrics),
       );
       setCommentaryLines(resolvedCommentary.lines);
-
-      if (signal.aborted) { setStatus("idle"); return null; }
 
       setStatus("analysing");
       let critiqueResult: CritiqueResult | null = null;
 
-      const critiqueResponse = await requestSessionCritique(
-        {
-          userId: userId ?? undefined,
-          sessionId: sessionNumber,
-          sprintId: Math.ceil(sessionNumber / 6),
-          plan: "free",
-          transcript: transcriptText,
-          metrics: mergedMetrics,
-          attemptId: currentAttemptId ?? undefined,
-        },
-        signal,
-      );
-
-      if (signal.aborted) { setStatus("idle"); return null; }
+      const critiqueResponse = await requestSessionCritique({
+        userId: userId ?? undefined,
+        sessionId: sessionNumber,
+        sprintId: Math.ceil(sessionNumber / 6),
+        plan: "free",
+        transcript: transcriptText,
+        metrics: computedMetrics,
+        attemptId: currentAttemptId ?? undefined,
+      });
 
       if (critiqueResponse.data) {
         critiqueResult = critiqueResponse.data;
@@ -306,9 +207,8 @@ export function useSessionPipeline(userId: string | null) {
           text: transcriptText,
           segments: [{ text: transcriptText }],
         },
-        metrics: mergedMetrics,
+        metrics: computedMetrics,
         critique: critiqueResult,
-        selectedMetricLabel,
         recordingPath: remotePath,
         recordingUri: localUri,
         durationMs,
@@ -316,16 +216,13 @@ export function useSessionPipeline(userId: string | null) {
 
       saveAnalysis(sessionNumber, snapshot);
       setStatus("ready");
-      abortRef.current = null;
       return snapshot;
     },
-    [cachedAnalysis, resetForSession, saveAnalysis, selectedMetricBySession, userId],
+    [resetForSession, saveAnalysis, userId],
   );
 
   const processCommitRecording = useCallback(
     async ({ localUri, durationMs, sessionNumber, transcript: typedTranscript }: CommitRecordingInput) => {
-      lastCommitInputRef.current = { localUri, durationMs, sessionNumber, transcript: typedTranscript };
-
       if (!userId || !hasSupabaseConfig()) {
         return { error: null };
       }
@@ -357,31 +254,11 @@ export function useSessionPipeline(userId: string | null) {
     [userId],
   );
 
-  const cancel = useCallback(() => {
-    abortRef.current?.abort();
-    abortRef.current = null;
-    setStatus("idle");
-    setError(null);
-  }, []);
-
-  const retry = useCallback(() => {
-    const input = lastDoInputRef.current;
-    if (!input) return null;
-    return processDoRecording(input);
-  }, [processDoRecording]);
-
   useEffect(() => {
     if (activeSessionRef.current !== null) {
       resetForSession(activeSessionRef.current);
     }
   }, [cachedAnalysis, resetForSession]);
-
-  useEffect(() => {
-    return () => {
-      abortRef.current?.abort();
-      abortRef.current = null;
-    };
-  }, []);
 
   return {
     status,
@@ -395,7 +272,5 @@ export function useSessionPipeline(userId: string | null) {
     resetForSession,
     processDoRecording,
     processCommitRecording,
-    cancel,
-    retry,
   };
 }

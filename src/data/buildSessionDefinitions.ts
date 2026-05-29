@@ -1,6 +1,5 @@
 import type { SessionDefinition } from "./mockData";
 import { sessionCopyEntries, type SessionCopyEntry } from "./sessionCopy";
-import { sessionVariants } from "./sessionVariants";
 
 function parseTimeLimit(time?: string): number {
   if (!time) return 60;
@@ -46,22 +45,12 @@ function parseMetrics(metricsShown?: string) {
     .split(/[·*]/)
     .map((part) => part.trim())
     .filter(Boolean)
-    .map((rawLabel) => {
-      const label = rawLabel.replace(/\s+/g, " ").trim();
-      const lower = label.toLowerCase();
-      const unit =
-        /\bwpm\b/.test(lower) ? "WPM" :
-        /\b%|percent\b/.test(lower) ? "%" :
-        undefined;
-
-      // Default to placeholders; real values come from the analysis pipeline.
-      return {
-        label: label.toUpperCase(),
-        value: "—",
-        unit,
-        description: label,
-      };
-    });
+    .map((label, index) => ({
+      label: label.toUpperCase(),
+      value: String(62 + index * 11 + (label.length % 7)),
+      unit: label.toLowerCase().includes("wpm") ? "WPM" : label.toLowerCase().includes("score") ? "" : undefined,
+      description: label,
+    }));
 }
 
 function transcriptPassages(transcript?: string) {
@@ -94,7 +83,6 @@ function buildFromCopy(entry: SessionCopyEntry): SessionDefinition {
     skipCentre: entry.sessionNumber === 36 ? false : (centre?.stepLabel?.includes("No Centre") ?? false),
     stages: {
       breathe: {
-        stepName: centre?.stepName,
         title: centre?.stepLabel ?? entry.name,
         subtitle: entry.sprintMeta,
         prompt: breathePrompt,
@@ -124,7 +112,6 @@ function buildFromCopy(entry: SessionCopyEntry): SessionDefinition {
               : undefined,
       },
       lesson: {
-        stepName: listen?.stepName,
         title: listen?.tidbitTitle ?? entry.name,
         subtitle: entry.sprintMeta,
         description: listen?.transcript?.split(".")[0] ?? entry.concept,
@@ -144,7 +131,6 @@ function buildFromCopy(entry: SessionCopyEntry): SessionDefinition {
             : undefined,
       },
       feedback: {
-        stepName: doStage?.stepName,
         promptTitle: doStage?.prompt ?? entry.name,
         promptBody: challenge.listenOnly
           ? "Listen through both recordings, then continue."
@@ -170,10 +156,8 @@ function buildFromCopy(entry: SessionCopyEntry): SessionDefinition {
             ? { label: "130–150 WPM", min: 120, max: 170, target: 140 }
             : undefined,
         nouns: entry.sessionNumber === 4 ? ["Lighthouse", "Anchor", "Compass"] : undefined,
-        contextVariants: sessionVariants[entry.sessionNumber],
       },
       record: {
-        stepName: see?.stepName,
         badge: sessionLabel,
         title: entry.name.toUpperCase(),
         commentary: see?.headlineLine ?? entry.concept,
@@ -190,7 +174,6 @@ function buildFromCopy(entry: SessionCopyEntry): SessionDefinition {
           : undefined,
       },
       reflect: {
-        stepName: commit?.stepName,
         promptTitle: commit?.freeResponsePrompt ?? commit?.opener ?? "Tomorrow I will…",
         promptKicker: `${sessionLabel} · COMMIT`,
         suggestedOpener: commit?.opener ?? commit?.freeResponsePrompt ?? "Complete the sentence out loud.",

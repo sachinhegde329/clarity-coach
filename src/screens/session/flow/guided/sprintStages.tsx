@@ -9,7 +9,6 @@ import { formatTime } from "../../formatTime";
 import { styles } from "../../sessionFlowStyles";
 import { EditorialWaveform } from "../../components/EditorialWaveform";
 import { SessionAudioPlayer } from "../../components/SessionAudioPlayer";
-import { resolveLiveSeeData } from "../../utils/resolveLiveSeeData";
 
 type LessonContent = SessionDefinition["stages"]["lesson"];
 type DoContent = SessionDefinition["stages"]["feedback"];
@@ -43,7 +42,6 @@ type SeeProps = {
   session: SessionDefinition;
   content: SeeContent;
   analysis?: SessionAnalysisProps;
-  selectedMetricLabel?: string | null;
   onNext: () => void;
 };
 
@@ -132,13 +130,13 @@ function SurgicalListenCard({
 
 const LISTEN_TITLES: Record<number, { title: string; subtitle?: string; cta?: string }> = {
   17: { title: "Master Answer", subtitle: "SESSION 17" },
-  18: { title: "Pressure Introduction — First Hot Seat", subtitle: "SESSION 18" },
+  18: { title: "Pressure Introduction", subtitle: "SESSION 18" },
   19: { title: "How and what, not why", subtitle: "SESSION 19 · Calibrated Questions" },
   20: { title: "Mirroring and labelling", subtitle: "SESSION 20 · Tactical Empathy" },
   21: { title: "Accusation Audit", subtitle: "SESSION 21" },
   22: { title: "Acknowledge and redirect", subtitle: "SESSION 22 · Aikido Pivot" },
   23: { title: "Label and Pause", subtitle: "SESSION 23" },
-  24: { title: "Pressure Replay", subtitle: "SESSION 24 · REVIEW — PRESSURE REPLAY" },
+  24: { title: "Pressure Replay", subtitle: "SESSION 24 · REVIEW" },
 };
 
 export function trySprintListen(props: ListenProps): React.ReactNode | null {
@@ -228,15 +226,11 @@ const SEE_TITLES: Record<number, string> = {
 };
 
 export function trySprintSee(props: SeeProps): React.ReactNode | null {
-  const { sessionNumber, session, content, analysis, onNext } = props;
+  const { sessionNumber, session, content, onNext } = props;
   const title = SEE_TITLES[sessionNumber];
   if (!title) return null;
   const bars = useBars(sessionNumber);
-  const liveSee = useMemo(
-    () => resolveLiveSeeData({ sessionNumber, record: session.stages.record, analysis }),
-    [analysis, sessionNumber, session.stages.record],
-  );
-  const metrics = liveSee.metrics.length > 0 ? liveSee.metrics : (content.metrics ?? session.stages.record.metrics ?? []);
+  const metrics = content.metrics ?? session.stages.record.metrics ?? [];
 
   return (
     <View style={styles.stepBody}>

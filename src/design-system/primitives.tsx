@@ -1,9 +1,8 @@
-import React, { ReactNode, useRef } from "react";
-import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
+import React, { ReactNode } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon } from "./icons";
-import { InteractivePressable, triggerHaptic } from "./motion";
+import { InteractivePressable } from "./motion";
 import { hardShadow, palette, radii, spacing, type } from "./theme";
-import { useThemeColors } from "./ThemeProvider";
 import type { AppTab } from "../data/mockData";
 
 export function LogoGlyph({
@@ -71,9 +70,8 @@ export function Panel({
   padded?: boolean;
   style?: object;
 }) {
-  const colors = useThemeColors();
-  const backgroundColor = tone === "ink" ? colors.inkFocus : tone === "soft" ? colors.surfaceContainer : colors.parchmentSurface;
-  const borderColor = tone === "ink" ? colors.inkFocus : colors.inkFocus;
+  const backgroundColor = tone === "ink" ? palette.inkFocus : tone === "soft" ? palette.surfaceContainer : palette.parchmentSurface;
+  const borderColor = tone === "ink" ? palette.inkFocus : palette.inkFocus;
   return <View style={[styles.panel, { backgroundColor, borderColor }, padded && styles.panelPadded, style]}>{children}</View>;
 }
 
@@ -90,55 +88,25 @@ export function PrimaryButton({
   icon?: ReactNode;
   disabled?: boolean;
 }) {
-  const colors = useThemeColors();
   const disabledOpacity = disabled ? 0.45 : 1;
-  const background = inverted ? colors.parchmentSurface : colors.siennaAccent;
-  const shadowColor = inverted ? colors.inkFocus : colors.siennaAccent;
-  const textColor = inverted ? colors.inkFocus : colors.parchmentSurface;
-  const iconColor = inverted ? colors.inkFocus : colors.parchmentSurface;
-  const translateAnim = useRef(new Animated.Value(0)).current;
-
-  const animateTo = (value: number) => {
-    Animated.spring(translateAnim, {
-      toValue: value,
-      tension: 220,
-      friction: 18,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const translateX = translateAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 4],
-  });
-  const translateY = translateAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 4],
-  });
+  const background = inverted ? palette.parchmentSurface : palette.siennaAccent;
+  const border = inverted ? palette.inkFocus : palette.inkFocus;
+  const textColor = inverted ? palette.inkFocus : palette.parchmentSurface;
+  const iconColor = inverted ? palette.inkFocus : palette.parchmentSurface;
 
   return (
-    <Pressable
-      onPress={() => {
-        triggerHaptic("light");
-        onPress();
-      }}
-      disabled={disabled}
-      onPressIn={() => animateTo(1)}
-      onPressOut={() => animateTo(0)}
-    >
-      <View style={[styles.buttonShadow, { shadowColor }]}>
-        <Animated.View
-          style={[
-            styles.button,
-            inverted ? styles.buttonInverted : styles.buttonFilled,
-            { opacity: disabledOpacity, backgroundColor: background, transform: [{ translateX }, { translateY }] },
-          ]}
-        >
-          <MonoText style={[styles.buttonLabel, { color: textColor, fontFamily: type.monoBold }]}>{label}</MonoText>
-          {icon ?? <Icon name="arrow" size={32} color={iconColor} />}
-        </Animated.View>
+    <InteractivePressable onPress={onPress} disabled={disabled}>
+      <View
+        style={[
+          styles.button,
+          inverted ? styles.buttonInverted : styles.buttonFilled,
+          { opacity: disabledOpacity, backgroundColor: background, borderColor: border },
+        ]}
+      >
+        <MonoText style={[styles.buttonLabel, { color: textColor }]}>{label}</MonoText>
+        {icon ?? <Icon name="arrow" size={26} color={iconColor} />}
       </View>
-    </Pressable>
+    </InteractivePressable>
   );
 }
 
@@ -231,17 +199,7 @@ export function TabHeader({
   );
 }
 
-export function ProfileIcon({ size = 46, color }: { size?: number; color?: string }) {
-  const c = color ?? palette.siennaAccent;
-  return (
-    <View style={[styles.profileIcon, { width: size, height: size, borderRadius: size / 2, borderColor: c }]}>
-      <Icon name="profile" size={Math.round(size * 0.52)} color={c} />
-    </View>
-  );
-}
-
 export function BottomBar({ activeTab, onTab }: { activeTab: AppTab; onTab: (tab: AppTab) => void }) {
-  const colors = useThemeColors();
   const items: { key: AppTab; label: string; icon: Parameters<typeof Icon>[0]["name"] }[] = [
     { key: "today", label: "TODAY", icon: "today" },
     { key: "journey", label: "JOURNEY", icon: "journey" },
@@ -250,15 +208,15 @@ export function BottomBar({ activeTab, onTab }: { activeTab: AppTab; onTab: (tab
   ];
 
   return (
-    <View style={[styles.bottomBar, { borderTopColor: colors.outline, backgroundColor: colors.parchmentSurface }]}>
+    <View style={styles.bottomBar}>
       {items.map((item) => {
         const active = item.key === activeTab;
         return (
           <InteractivePressable key={item.key} onPress={() => onTab(item.key)} style={styles.bottomItemWrap}>
-            <View style={[styles.bottomItem, active && { backgroundColor: colors.inkFocus, borderColor: colors.inkFocus }, !active && { borderColor: colors.outline }]}>
-              <Icon name={item.icon} size={24} color={active ? colors.onPrimary : colors.inkFocus} />
-              <MonoText style={[styles.bottomLabel, active && { color: colors.onPrimary }]}>{item.label}</MonoText>
-              {active ? <View style={[styles.bottomIndicator, { backgroundColor: colors.onPrimary }]} /> : null}
+            <View style={[styles.bottomItem, active && styles.bottomItemActive]}>
+              <Icon name={item.icon} size={24} color={active ? palette.onPrimary : palette.inkFocus} />
+              <MonoText style={[styles.bottomLabel, active && { color: palette.onPrimary }]}>{item.label}</MonoText>
+              {active ? <View style={styles.bottomIndicator} /> : null}
             </View>
           </InteractivePressable>
         );
@@ -362,20 +320,15 @@ const styles = StyleSheet.create({
   panelPadded: {
     padding: 20,
   },
-  buttonShadow: {
-    shadowOffset: { width: 6, height: 6 },
-    shadowOpacity: 1,
-    shadowRadius: 0,
-    elevation: 0,
-  },
   button: {
-    minHeight: 72,
-    paddingVertical: 24,
-    paddingHorizontal: 48,
+    minHeight: 62,
+    paddingHorizontal: 26,
+    borderWidth: 2,
+    borderColor: palette.inkFocus,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    gap: 16,
+    gap: spacing.md,
   },
   buttonFilled: {
     backgroundColor: palette.siennaAccent,
@@ -385,8 +338,7 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     color: palette.parchmentSurface,
-    fontSize: 24,
-    letterSpacing: 1.2,
+    fontSize: 16,
   },
   sectionLabelRow: {
     flexDirection: "row",
@@ -422,6 +374,8 @@ const styles = StyleSheet.create({
   bottomBar: {
     flexDirection: "row",
     borderTopWidth: 2,
+    borderColor: palette.outline,
+    backgroundColor: palette.parchmentSurface,
     paddingHorizontal: spacing.sm,
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
@@ -436,7 +390,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 5,
     borderWidth: 2,
+    borderColor: palette.outline,
     position: "relative",
+  },
+  bottomItemActive: {
+    backgroundColor: palette.inkFocus,
+    borderColor: palette.inkFocus,
   },
   bottomLabel: {
     fontSize: 10,
@@ -446,11 +405,6 @@ const styles = StyleSheet.create({
     top: 8,
     width: 6,
     height: 6,
-  },
-  profileIcon: {
-    borderWidth: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: palette.parchmentSurface,
+    backgroundColor: palette.onPrimary,
   },
 });

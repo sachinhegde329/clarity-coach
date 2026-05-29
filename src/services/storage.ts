@@ -7,15 +7,12 @@ type UploadRecordingInput = {
   contentType?: string;
 };
 
-export async function uploadRecording(
-  { userId, sessionId, localUri, contentType = "audio/m4a" }: UploadRecordingInput,
-  signal?: AbortSignal,
-) {
+export async function uploadRecording({ userId, sessionId, localUri, contentType = "audio/m4a" }: UploadRecordingInput) {
   if (!supabase) {
     return { path: null, error: "Supabase is not configured." };
   }
 
-  const response = await fetch(localUri, { signal });
+  const response = await fetch(localUri);
   const blob = await response.blob();
   const path = `${userId}/session-${String(sessionId).padStart(2, "0")}/${Date.now()}.m4a`;
   const { error } = await supabase.storage.from("recordings").upload(path, blob, {

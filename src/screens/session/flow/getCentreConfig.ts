@@ -24,7 +24,7 @@ export function getCentreConfigForSession(sessionNumber: number, breathe: Breath
       patternSeconds: [4, 6],
       phaseLabels: ["Breathe in…", "Breathe out…"],
       organicOrb: true,
-      timingConfig: { totalMs: 40_000, settleMs: 3_000, microPauseMs: 0 },
+      timingConfig: { ...commonTiming, settleMs: 3_000, microPauseMs: 300 },
     };
   }
 

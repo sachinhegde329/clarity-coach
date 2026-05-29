@@ -11,12 +11,8 @@ export function resolveLiveSeeData(input: {
   const { sessionNumber, record, analysis } = input;
   const liveVars = analysis?.metrics?.length ? metricsToCommentaryVars(analysis.metrics) : undefined;
   const commentary = resolveSessionCommentary(sessionNumber, record, liveVars);
-  let metrics =
+  const metrics =
     analysis?.metrics?.length ? metricsToSeeDisplay(analysis.metrics) : (record.metrics ?? []);
-  if (sessionNumber === 30 && analysis?.selectedMetricLabel) {
-    const selected = analysis.selectedMetricLabel.trim().toUpperCase();
-    metrics = metrics.filter((metric) => metric.label.trim().toUpperCase() === selected);
-  }
   const lines = analysis?.commentaryLines?.length ? analysis.commentaryLines : commentary.lines;
   const isProcessing =
     analysis?.status === "uploading" ||

@@ -17,7 +17,6 @@ export type SessionStageViewProps = {
   onJumpToStep: (stepIndex: number) => void;
   centre: CentreStageRenderProps;
   guided: SessionStageRenderProps;
-  transitionDirection: "forward" | "backward" | "none";
 };
 
 export function SessionStageView({
@@ -30,7 +29,6 @@ export function SessionStageView({
   onJumpToStep,
   centre,
   guided,
-  transitionDirection,
 }: SessionStageViewProps) {
   const shellProps = {
     sessionNumber,
@@ -41,10 +39,10 @@ export function SessionStageView({
     onBack,
     onExit,
     onJumpToStep,
+    hideStageDetails: false,
     variant: stage === "breathe" && isCentreToolkitSession(sessionNumber) ? ("breathe" as const) : ("default" as const),
     scrollContentStyle:
       stage === "breathe" && sessionNumber >= 6 && sessionNumber <= 11 ? styles.stepBody : undefined,
-    transitionDirection,
   };
 
   return (

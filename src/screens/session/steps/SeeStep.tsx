@@ -223,16 +223,18 @@ export function SeeStep({
           <View style={{
             backgroundColor: palette.siennaAccent,
             paddingVertical: 24,
-            paddingHorizontal: 48,
+            paddingHorizontal: 32,
+            borderWidth: 2,
+            borderColor: palette.inkFocus,
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            ...hardShadow(palette.siennaAccent, 6),
+            ...hardShadow(palette.siennaAccent, 4),
           }}>
-            <MonoText style={{ color: palette.parchmentSurface, fontSize: 20, letterSpacing: 1, fontFamily: type.monoBold }}>
+            <MonoText style={{ color: palette.parchmentSurface, fontSize: 16, letterSpacing: 1 }}>
               COMMIT TO JOURNEY
             </MonoText>
-            <Icon name="arrow" size={28} color={palette.parchmentSurface} />
+            <Icon name="arrow" size={26} color={palette.parchmentSurface} />
           </View>
         </InteractivePressable>
       </View>
@@ -353,9 +355,6 @@ export function SeeStep({
   }
 
   if (sessionNumber === 7) {
-    const filler = liveSee.metrics.find((m) => /filler/i.test(m.label)) ?? content.metrics?.[0];
-    const pace = liveSee.metrics.find((m) => /pace/i.test(m.label)) ?? content.metrics?.[1];
-    const timeOnTarget = liveSee.metrics.find((m) => /time on target/i.test(m.label)) ?? content.metrics?.[2];
     return (
       <View style={styles.stepBody}>
         <Panel style={{ gap: spacing.md }}>
@@ -369,10 +368,8 @@ export function SeeStep({
           <Panel style={{ flex: 0.58, gap: spacing.md }}>
             <MonoText style={styles.metricLabel}>COACH INSIGHTS</MonoText>
             <BodyText style={{ color: palette.ink, fontSize: 22, lineHeight: 30 }}>
-              {`${
-                liveSee.commentary.lines[0] ??
-                `${filler?.value ?? "—"} fillers on this pass. Your pause structure is evolving from hesitation into intentional silence.`
-              }`}
+              “Two fillers in 60 seconds. A real drop from your baseline. Your pause structure is evolving from hesitation
+              into intentional silence.”
             </BodyText>
             <View style={{ flexDirection: "row", gap: spacing.sm }}>
               <View style={styles.outlineBadge}>
@@ -386,7 +383,7 @@ export function SeeStep({
 
           <Panel tone="soft" style={{ flex: 0.42, gap: spacing.md }}>
             <MonoText style={styles.metricLabel}>FILLER COUNT</MonoText>
-            <DisplayText style={{ fontSize: 64, lineHeight: 64 }}>{String(filler?.value ?? "—").padStart(2, "0")}</DisplayText>
+            <DisplayText style={{ fontSize: 64, lineHeight: 64 }}>02</DisplayText>
             <MonoText>TOTAL OCCURRENCES</MonoText>
           </Panel>
         </View>
@@ -394,14 +391,14 @@ export function SeeStep({
         <View style={{ flexDirection: "row", gap: spacing.md }}>
           <Panel style={{ flex: 1, gap: spacing.md }}>
             <MonoText style={styles.metricLabel}>SPEAKING PACE</MonoText>
-            <DisplayText style={{ fontSize: 48, lineHeight: 50 }}>{`${pace?.value ?? "—"}${pace?.unit ? ` ${pace.unit}` : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 48, lineHeight: 50 }}>142 WPM</DisplayText>
             <View style={{ height: 10, borderWidth: 2, borderColor: palette.line }}>
               <View style={{ width: "71%", height: "100%", backgroundColor: palette.line }} />
             </View>
           </Panel>
           <Panel tone="soft" style={{ flex: 1, gap: spacing.md }}>
             <MonoText style={styles.metricLabel}>TIME-ON-TARGET</MonoText>
-            <DisplayText style={{ fontSize: 48, lineHeight: 50 }}>{`${timeOnTarget?.value ?? "—"}${timeOnTarget?.unit ? ` ${timeOnTarget.unit}` : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 48, lineHeight: 50 }}>94%</DisplayText>
             <BodyText>Duration spent with zero linguistic fillers.</BodyText>
           </Panel>
         </View>
@@ -415,9 +412,6 @@ export function SeeStep({
   }
 
   if (sessionNumber === 8) {
-    const meanWpm = liveSee.metrics.find((m) => /mean wpm|pace/i.test(m.label)) ?? content.metrics?.[0];
-    const timeInZone = liveSee.metrics.find((m) => /time in zone/i.test(m.label)) ?? content.metrics?.[1];
-    const paceVariance = liveSee.metrics.find((m) => /pace variance/i.test(m.label)) ?? content.metrics?.[2];
     return (
       <View style={styles.stepBody}>
         <View style={{ gap: spacing.sm }}>
@@ -429,14 +423,14 @@ export function SeeStep({
 
         <Panel tone="soft" style={{ gap: spacing.sm }}>
           <BodyText style={{ fontSize: 22, lineHeight: 34, color: palette.ink }}>
-            {`You maintained ${meanWpm?.value ?? "—"}${meanWpm?.unit ? ` ${meanWpm.unit}` : ""} — a highly authoritative and measured cadence.`}
+            “You maintained 142 WPM — a highly authoritative and measured cadence.”
           </BodyText>
         </Panel>
 
         <Panel style={{ gap: spacing.md }}>
           <MonoText style={{ color: palette.line }}>WPM MEAN</MonoText>
           <View style={{ flexDirection: "row", alignItems: "flex-end", gap: spacing.sm }}>
-            <DisplayText style={{ fontSize: 62, lineHeight: 62, color: palette.line }}>{meanWpm?.value ?? "—"}</DisplayText>
+            <DisplayText style={{ fontSize: 62, lineHeight: 62, color: palette.line }}>142</DisplayText>
             <MonoText>WORDS / MIN</MonoText>
           </View>
           <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8, height: 92 }}>
@@ -449,7 +443,7 @@ export function SeeStep({
         <Panel style={{ alignItems: "center", gap: spacing.md }}>
           <MonoText style={{ color: palette.line }}>TIME-IN-ZONE</MonoText>
           <View style={{ width: 150, height: 150, borderRadius: 0, backgroundColor: palette.line, alignItems: "center", justifyContent: "center", borderWidth: 2, borderColor: "#5A1604" }}>
-            <DisplayText style={{ color: palette.paper, fontSize: 34, lineHeight: 38 }}>{`${timeInZone?.value ?? "—"}${timeInZone?.unit ? timeInZone.unit : ""}`}</DisplayText>
+            <DisplayText style={{ color: palette.paper, fontSize: 34, lineHeight: 38 }}>88%</DisplayText>
           </View>
           <MonoText>TARGET CADENCE MET</MonoText>
         </Panel>
@@ -460,7 +454,7 @@ export function SeeStep({
           <View style={{ flexDirection: "row", gap: spacing.lg }}>
             <View>
               <MonoText style={styles.metricLabel}>VARIANCE</MonoText>
-              <MonoText>{paceVariance?.value ?? "—"}</MonoText>
+              <MonoText>± 4.2%</MonoText>
             </View>
             <View>
               <MonoText style={styles.metricLabel}>SESSION</MonoText>
@@ -477,9 +471,6 @@ export function SeeStep({
   }
 
   if (sessionNumber === 9) {
-    const pauseCount = liveSee.metrics.find((m) => /pause count|pause/i.test(m.label)) ?? content.metrics?.[0];
-    const avgPause = liveSee.metrics.find((m) => /average pause/i.test(m.label)) ?? content.metrics?.[1];
-    const currentPace = liveSee.metrics.find((m) => /pace/i.test(m.label)) ?? content.metrics?.[2];
     return (
       <View style={styles.stepBody}>
         <Panel style={{ gap: spacing.md }}>
@@ -496,15 +487,15 @@ export function SeeStep({
         <Panel style={{ gap: spacing.sm }}>
           <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
             <MonoText>PAUSE COUNT</MonoText>
-            <MonoText>{String(pauseCount?.value ?? "—")}</MonoText>
+            <MonoText>3</MonoText>
           </View>
-          <DisplayText style={{ fontSize: 62, lineHeight: 62, color: palette.line }}>{String(pauseCount?.value ?? "—").padStart(2, "0")}</DisplayText>
+          <DisplayText style={{ fontSize: 62, lineHeight: 62, color: palette.line }}>03</DisplayText>
           <MonoText>INTENTIONAL STOPS</MonoText>
         </Panel>
 
         <Panel style={{ gap: spacing.md }}>
           <MonoText>AVG. PAUSE LENGTH</MonoText>
-          <DisplayText style={{ fontSize: 58, lineHeight: 60, color: palette.line }}>{`${avgPause?.value ?? "—"}${avgPause?.unit ? ` ${avgPause.unit}` : ""}`}</DisplayText>
+          <DisplayText style={{ fontSize: 58, lineHeight: 60, color: palette.line }}>2.4 SEC</DisplayText>
           <View style={{ height: 12, borderWidth: 1, borderColor: palette.line }}>
             <View style={{ width: "66%", height: "100%", backgroundColor: palette.line }} />
           </View>
@@ -513,8 +504,8 @@ export function SeeStep({
         <Panel style={{ gap: spacing.md }}>
           <MonoText>CURRENT PACE</MonoText>
           <View style={{ flexDirection: "row", alignItems: "flex-end", gap: spacing.xs }}>
-            <DisplayText style={{ fontSize: 56, lineHeight: 58, color: palette.line }}>{currentPace?.value ?? "—"}</DisplayText>
-            <MonoText>{currentPace?.unit ?? ""}</MonoText>
+            <DisplayText style={{ fontSize: 56, lineHeight: 58, color: palette.line }}>132</DisplayText>
+            <MonoText>WPM</MonoText>
           </View>
           <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8, height: 96 }}>
             {[36, 52, 68, 84, 66, 54, 40, 24, 42, 58].map((bar, index) => (
@@ -557,9 +548,6 @@ export function SeeStep({
   }
 
   if (sessionNumber === 10) {
-    const inflection = liveSee.metrics.find((m) => /inflection/i.test(m.label)) ?? content.metrics?.[0];
-    const pitchVariance = liveSee.metrics.find((m) => /pitch variance/i.test(m.label)) ?? content.metrics?.[1];
-    const pace = liveSee.metrics.find((m) => /pace/i.test(m.label)) ?? content.metrics?.[2];
     return (
       <View style={styles.stepBody}>
         <Panel style={{ gap: spacing.md }}>
@@ -574,7 +562,7 @@ export function SeeStep({
         <View style={{ flexDirection: "row", gap: spacing.md }}>
           <Panel tone="ink" style={{ flex: 0.48, gap: spacing.sm }}>
             <MonoText style={{ color: "#E8C2B2" }}>INFLECTION RATE</MonoText>
-            <DisplayText style={{ fontSize: 60, lineHeight: 60, color: palette.paper }}>{`${inflection?.value ?? "—"}${inflection?.unit ? inflection.unit : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 60, lineHeight: 60, color: palette.paper }}>84%</DisplayText>
             <MonoText style={{ color: "#E8C2B2" }}>AUTHORITATIVE ENDINGS</MonoText>
           </Panel>
           <Panel style={{ flex: 0.52, gap: spacing.md }}>
@@ -588,18 +576,18 @@ export function SeeStep({
                 <View style={{ position: "absolute", left: "38%", right: "6%", bottom: "47%", height: 2, backgroundColor: palette.line, transform: [{ rotate: "10deg" }] }} />
               </View>
             </View>
-            <MonoText>{`Pitch Variance (${pitchVariance?.value ?? "—"}${pitchVariance?.unit ? pitchVariance.unit : ""})`}</MonoText>
+            <MonoText>Pitch Variance (12%)</MonoText>
           </Panel>
         </View>
 
         <View style={{ flexDirection: "row", gap: spacing.md }}>
           <Panel tone="soft" style={{ flex: 1, gap: spacing.xs }}>
             <MonoText style={styles.metricLabel}>PITCH VARIANCE</MonoText>
-            <DisplayText style={{ fontSize: 30, lineHeight: 34 }}>{`${pitchVariance?.value ?? "—"}${pitchVariance?.unit ? pitchVariance.unit : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 30, lineHeight: 34 }}>12%</DisplayText>
           </Panel>
           <Panel tone="soft" style={{ flex: 1, gap: spacing.xs }}>
             <MonoText style={styles.metricLabel}>PACE</MonoText>
-            <DisplayText style={{ fontSize: 30, lineHeight: 34 }}>{`${pace?.value ?? "—"}${pace?.unit ? ` ${pace.unit}` : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 30, lineHeight: 34 }}>142 WPM</DisplayText>
           </Panel>
         </View>
 
@@ -616,9 +604,6 @@ export function SeeStep({
   }
 
   if (sessionNumber === 11) {
-    const brevity = liveSee.metrics.find((m) => /brevity/i.test(m.label)) ?? content.metrics?.[0];
-    const pace = liveSee.metrics.find((m) => /pace/i.test(m.label)) ?? content.metrics?.[1];
-    const timeUsed = liveSee.metrics.find((m) => /time used/i.test(m.label)) ?? content.metrics?.[2];
     return (
       <View style={styles.stepBody}>
         <MonoText style={{ color: palette.line }}>SESSION 11</MonoText>
@@ -626,7 +611,7 @@ export function SeeStep({
         <Panel style={{ gap: spacing.sm }}>
           <MonoText style={styles.metricLabel}>BREVITY SCORE</MonoText>
           <View style={{ flexDirection: "row", alignItems: "center", gap: spacing.md }}>
-            <DisplayText style={{ fontSize: 52, lineHeight: 56 }}>{`${brevity?.value ?? "—"}${brevity?.unit ? brevity.unit : ""}`}</DisplayText>
+            <DisplayText style={{ fontSize: 52, lineHeight: 56 }}>72%</DisplayText>
             <BodyText style={{ color: "#7D8D79" }}>▲ 12% vs last session</BodyText>
           </View>
         </Panel>
@@ -634,11 +619,11 @@ export function SeeStep({
         <View style={{ flexDirection: "row", gap: spacing.md }}>
           <Panel style={{ flex: 1, gap: spacing.xs }}>
             <MonoText style={styles.metricLabel}>SPEAKING PACE</MonoText>
-            <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>{pace?.value ?? "—"} <MonoText>{pace?.unit ?? ""}</MonoText></DisplayText>
+            <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>138 <MonoText>WPM</MonoText></DisplayText>
           </Panel>
           <Panel style={{ flex: 1, gap: spacing.xs }}>
             <MonoText style={styles.metricLabel}>TIME USED</MonoText>
-            <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>{timeUsed?.value ?? "—"} <MonoText>{timeUsed?.unit || ""}</MonoText></DisplayText>
+            <DisplayText style={{ fontSize: 32, lineHeight: 36 }}>28 <MonoText>Seconds</MonoText></DisplayText>
             <BodyText style={{ color: "#7D8D79" }}>Target &lt; 30s</BodyText>
           </Panel>
         </View>

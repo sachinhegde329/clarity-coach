@@ -8,7 +8,6 @@ export type SessionAnalysisProps = {
   transcript: string;
   commentaryLines: string[];
   critique: CritiqueResult | null;
-  selectedMetricLabel?: string | null;
   recordingUri: string | null;
   error: string | null;
 };
@@ -29,12 +28,9 @@ export type SessionStageRenderProps = {
   reflectionDone: boolean;
   onTogglePlay: () => void;
   onToggleRecording: () => void;
-  onResetRecording?: () => void;
   onReplay: () => void;
   onToggleReflection: () => void;
   onRetakeReflection: () => void;
-  selectedMetricLabel?: string | null;
-  onSelectMetric?: (label: string) => void;
   onNext: () => void;
   analysis?: SessionAnalysisProps;
 };

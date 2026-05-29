@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Animated, Easing, StyleSheet, View, useWindowDimensions } from "react-native";
+import React from "react";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { Icon } from "../../../design-system/icons";
 import { LogoGlyph, MonoText } from "../../../design-system/primitives";
 import { InteractivePressable } from "../../../design-system/motion";
@@ -19,52 +19,24 @@ export function SessionUnifiedHeader({
   onSelectStep,
   onBack,
   onExit,
-  stepName,
-  transitionDirection,
 }: {
   activeIndex: number;
   maxUnlockedIndex: number;
   onSelectStep: (index: number) => void;
   onBack: () => void;
   onExit: () => void;
-  stepName?: string;
-  transitionDirection?: "forward" | "backward" | "none";
 }) {
   const { width } = useWindowDimensions();
   const compact = width < 420;
-  const iconSize = compact ? 22 : 28;
-  const sideSize = compact ? 44 : 52;
-
-  const stepLabelAnim = useRef(new Animated.Value(0)).current;
-  const prevStepName = useRef(stepName);
-
-  useEffect(() => {
-    if (prevStepName.current === stepName) return;
-    prevStepName.current = stepName;
-    stepLabelAnim.setValue(0);
-    Animated.timing(stepLabelAnim, {
-      toValue: 1,
-      duration: 300,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: true,
-    }).start();
-  }, [stepName, stepLabelAnim]);
-
-  const stepLabelOpacity = stepLabelAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 1],
-  });
-  const stepLabelSlide = stepLabelAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: transitionDirection === "forward" ? [8, 0] : transitionDirection === "backward" ? [-8, 0] : [0, 0],
-  });
+  const iconSize = compact ? 16 : 20;
+  const sideSize = compact ? 36 : 40;
 
   return (
     <View style={styles.shell}>
       <View style={styles.topRow}>
         <InteractivePressable onPress={onBack}>
           <View style={[styles.iconButton, { width: sideSize, height: sideSize, borderRadius: sideSize / 2 }]}>
-            <Icon name="back" size={compact ? 20 : 24} color={palette.siennaAccent} />
+            <Icon name="back" size={compact ? 16 : 18} color={palette.siennaAccent} />
           </View>
         </InteractivePressable>
 
@@ -73,16 +45,6 @@ export function SessionUnifiedHeader({
             <LogoGlyph color={palette.siennaAccent} barHeights={[10, 16, 22, 16, 10]} barWidth={3} gap={3} />
             <MonoText style={[styles.wordmark, compact && styles.wordmarkCompact]}>CLARITY COACH</MonoText>
           </View>
-          {stepName ? (
-            <Animated.Text
-              style={[
-                styles.stepNameLabel,
-                { opacity: stepLabelOpacity, transform: [{ translateY: stepLabelSlide }] },
-              ]}
-            >
-              {stepName}
-            </Animated.Text>
-          ) : null}
           <View style={styles.stepCounterPill}>
             <MonoText style={styles.stepCounter}>
               {String(activeIndex + 1).padStart(2, "0")} / 05
@@ -92,7 +54,7 @@ export function SessionUnifiedHeader({
 
         <InteractivePressable onPress={onExit}>
           <View style={[styles.iconButton, { width: sideSize, height: sideSize, borderRadius: sideSize / 2 }]}>
-            <Icon name="close" size={compact ? 20 : 24} color={palette.siennaAccent} />
+            <Icon name="close" size={compact ? 14 : 16} color={palette.siennaAccent} />
           </View>
         </InteractivePressable>
       </View>
@@ -114,74 +76,30 @@ export function SessionUnifiedHeader({
               onPress={() => onSelectStep(index)}
               style={styles.tabPressable}
             >
-              <TabContent
-                step={step}
-                isActive={isActive}
-                isUnlocked={isUnlocked}
-                fg={fg}
-                compact={compact}
-                iconSize={iconSize}
-              />
+              <View
+                style={[
+                  styles.tabItem,
+                  isActive && styles.tabItemActive,
+                  compact && styles.tabItemCompact,
+                ]}
+              >
+                <Icon name={step.key} size={iconSize} color={fg} />
+                <MonoText
+                  style={[
+                    styles.tabLabel,
+                    compact && styles.tabLabelCompact,
+                    { color: fg },
+                    isActive && styles.tabLabelActive,
+                  ]}
+                >
+                  {step.label}
+                </MonoText>
+              </View>
             </InteractivePressable>
           );
         })}
       </View>
     </View>
-  );
-}
-
-function TabContent({
-  step,
-  isActive,
-  isUnlocked,
-  fg,
-  compact,
-  iconSize,
-}: {
-  step: { key: "centre" | "listen" | "do" | "see" | "commit"; label: string };
-  isActive: boolean;
-  isUnlocked: boolean;
-  fg: string;
-  compact: boolean;
-  iconSize: number;
-}) {
-  const pulse = useRef(new Animated.Value(isActive ? 1 : 0)).current;
-
-  useEffect(() => {
-    Animated.spring(pulse, {
-      toValue: isActive ? 1 : 0,
-      tension: 100,
-      friction: 8,
-      useNativeDriver: true,
-    }).start();
-  }, [isActive, pulse]);
-
-  const iconScale = pulse.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.12],
-  });
-
-  return (
-    <Animated.View
-      style={[
-        styles.tabItem,
-        isActive && styles.tabItemActive,
-        compact && styles.tabItemCompact,
-        isActive && { transform: [{ scale: iconScale }] },
-      ]}
-    >
-      <Icon name={step.key} size={iconSize} color={fg} />
-      <MonoText
-        style={[
-          styles.tabLabel,
-          compact && styles.tabLabelCompact,
-          { color: fg },
-          isActive && styles.tabLabelActive,
-        ]}
-      >
-        {step.label}
-      </MonoText>
-    </Animated.View>
   );
 }
 
@@ -201,14 +119,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   iconButton: {
+    borderWidth: 2,
+    borderColor: palette.siennaAccent,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: palette.parchmentSurface,
-    shadowColor: palette.siennaAccent,
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 0,
-    elevation: 0,
   },
   brandColumn: {
     flex: 1,
@@ -226,12 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     letterSpacing: 3.2,
     color: palette.siennaAccent,
-  },
-  stepNameLabel: {
-    fontSize: 11,
-    letterSpacing: 1.2,
-    color: palette.onSurfaceVariant,
-    marginTop: -4,
   },
   wordmarkCompact: {
     fontSize: 11,
@@ -262,30 +171,30 @@ const styles = StyleSheet.create({
   tabItem: {
     alignItems: "center",
     justifyContent: "center",
-    gap: 6,
-    paddingVertical: 10,
-    paddingHorizontal: 8,
+    gap: 4,
+    paddingVertical: 6,
+    paddingHorizontal: 4,
     minWidth: 0,
   },
   tabItemCompact: {
-    paddingVertical: 6,
-    paddingHorizontal: 4,
-    gap: 4,
+    paddingVertical: 4,
+    paddingHorizontal: 2,
+    gap: 2,
   },
   tabItemActive: {
     backgroundColor: palette.siennaAccent,
-    paddingHorizontal: 28,
-    paddingVertical: 12,
-    borderRadius: 14,
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    borderRadius: 12,
   },
   tabLabel: {
-    fontSize: 13,
+    fontSize: 10,
     letterSpacing: 0.8,
     textAlign: "center",
     textTransform: "uppercase",
   },
   tabLabelCompact: {
-    fontSize: 10,
+    fontSize: 8,
     letterSpacing: 0.2,
   },
   tabLabelActive: {

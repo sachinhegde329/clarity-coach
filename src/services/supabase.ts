@@ -30,15 +30,11 @@ export async function getOrCreateAnonymousUser() {
 export async function invokeEdgeFunction<TInput extends object, TOutput>(
   name: string,
   body: TInput,
-  options?: { signal?: AbortSignal },
 ): Promise<{ data: TOutput | null; error: string | null }> {
   if (!supabase) {
     return { data: null, error: "Supabase is not configured." };
   }
 
-  const { data, error } = await supabase.functions.invoke<TOutput>(name, {
-    body,
-    signal: options?.signal,
-  });
+  const { data, error } = await supabase.functions.invoke<TOutput>(name, { body });
   return { data: data ?? null, error: error?.message ?? null };
 }
